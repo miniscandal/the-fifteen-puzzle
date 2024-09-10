@@ -1,0 +1,6 @@
+.game_scene {
+    border: solid red 1px;
+    margin: auto;
+    max-width: 800px;
+    padding: 50px;
+}

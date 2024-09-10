@@ -1,4 +1,4 @@
-import { TitleH1 } from '../../../../shared/components/atoms/title-h1';
+import { TitleH2 } from '../../../../shared/components/atoms/title-h2';
 import { SelectSceneButton } from '../../../../shared/components/atoms/select-scene-button';
 
 function mainMenuButtonsCode() {
@@ -11,7 +11,9 @@ function mainMenuButtonsCode() {
 
 
 function MainMenuButtons() {
-    const titleH1 = TitleH1({});
+    const titleH2 = TitleH2({
+        text: 'Select Game Option'
+    });
 
     const buttons = [
         { text: 'start', id: 'start' },
@@ -24,8 +26,8 @@ function MainMenuButtons() {
 
     return (
         `
-        <div id="start">
-            ${titleH1}
+        <div>
+            ${titleH2}
             <div>
                 ${buttonElement.join('')}
             </div>
