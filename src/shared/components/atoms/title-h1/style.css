@@ -1,4 +1,4 @@
 .title_h1 {
     font-size: 4rem;
-    color: #b7874b;
+    color: var(--color-accent-sienna);
 }

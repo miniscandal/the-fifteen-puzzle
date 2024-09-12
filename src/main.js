@@ -1,5 +1,6 @@
-import './main.css';
 import { startScene } from './feature-start-scene/index.js';
+
+import './main.css';
 
 const game = {
 	scene: {
