@@ -1,6 +1,6 @@
 import './style.css';
 
-function gameSceneFunctionality() {
+function gameSceneLogic() {
     const toggleTheme = () => {
         const body = document.querySelector('body');
         const currentTheme = body.dataset.themeColor;
@@ -22,4 +22,4 @@ function GameScene({ children }) {
     );
 }
 
-export { GameScene, gameSceneFunctionality };
+export { GameScene, gameSceneLogic };
