@@ -1,4 +1,4 @@
-function SelectSceneButton({ text = 'button', id = undefined }) {
+function ButtonSelectScreen({ text = 'button', id = undefined }) {
     return (
         `
 	    <button id=${id}>
@@ -8,4 +8,4 @@ function SelectSceneButton({ text = 'button', id = undefined }) {
     );
 }
 
-export { SelectSceneButton };
+export { ButtonSelectScreen };

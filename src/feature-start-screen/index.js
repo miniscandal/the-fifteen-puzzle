@@ -1,11 +1,11 @@
-import { GameScene, gameSceneLogic } from '../shared/components/templates/game-scene';
+import { GameScreen, gameScreenLogic } from '../shared/components/templates/game-screen';
 import { TitleH1 } from '../shared/components/atoms/title-h1';
 import { MainMenuButtons, mainMenuButtonsLogic } from './components/organisms/main-menu-buttons';
 
-function startScene({ game }) {
-    game.scene.render(GameScene({ children: html() }));
-    game.scene.logic(() => {
-        gameSceneLogic();
+function startScreen({ game }) {
+    game.screen.render(GameScreen({ children: html() }));
+    game.screen.logic(() => {
+        gameScreenLogic();
         mainMenuButtonsLogic({ game });
     });
 }
@@ -19,7 +19,7 @@ function html() {
 
     return (
         `
-        <div id="start">
+        <div>
             ${titleH1}
             ${mainMenuButtons}
         </div>
@@ -28,4 +28,4 @@ function html() {
 }
 
 
-export { startScene };
+export { startScreen };

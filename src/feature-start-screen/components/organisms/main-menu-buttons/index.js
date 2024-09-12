@@ -1,10 +1,10 @@
-import { trainSceneLogic } from '../../../logic/select-scene/train';
+import { trainScreenLogic } from '../../../logic/select-screen/train';
 
 import { TitleH2 } from '../../../../shared/components/atoms/title-h2';
-import { SelectSceneButton } from '../../../../shared/components/atoms/select-scene-button';
+import { ButtonSelectScreen } from '../../../../shared/components/atoms/button-select-screen';
 
 function mainMenuButtonsLogic({ game }) {
-    document.getElementById('select-train-screen').addEventListener('click', () => trainSceneLogic({ game }));
+    document.getElementById('select-train-screen').addEventListener('click', () => trainScreenLogic({ game }));
 }
 
 
@@ -20,7 +20,7 @@ function MainMenuButtons() {
         { text: 'settings', id: 'select-settings-screen' },
     ];
 
-    const buttonElement = buttons.map((properties) => SelectSceneButton(properties));
+    const buttonElement = buttons.map((properties) => ButtonSelectScreen(properties));
 
     return (
         `

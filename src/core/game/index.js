@@ -1,5 +1,5 @@
 const game = {
-    scene: {
+    screen: {
         render: (html) => document.querySelector('#app').innerHTML = html,
         logic: (code) => code()
     }

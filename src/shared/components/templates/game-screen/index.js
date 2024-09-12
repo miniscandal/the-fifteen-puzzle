@@ -1,6 +1,6 @@
 import './style.css';
 
-function gameSceneLogic() {
+function gameScreenLogic() {
     const toggleTheme = () => {
         const body = document.querySelector('body');
         const currentTheme = body.dataset.themeColor;
@@ -10,11 +10,11 @@ function gameSceneLogic() {
     document.getElementById('theme').addEventListener('click', toggleTheme);
 }
 
-function GameScene({ children }) {
+function GameScreen({ children }) {
 
     return (
         `
-        <div class="game_scene">
+        <div class="game_screen">
             <button id="theme">Theme</button>
             ${children}
         </div>
@@ -22,4 +22,4 @@ function GameScene({ children }) {
     );
 }
 
-export { GameScene, gameSceneLogic };
+export { GameScreen, gameScreenLogic };
