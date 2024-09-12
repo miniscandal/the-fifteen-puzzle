@@ -1,7 +1,7 @@
 import { TitleH2 } from '../../../../shared/components/atoms/title-h2';
 import { SelectSceneButton } from '../../../../shared/components/atoms/select-scene-button';
 
-function mainMenuButtonsCode() {
+function mainMenuButtonsFunctionality() {
     const handleClick = () => {
         console.log('descendant');
     };
@@ -36,4 +36,4 @@ function MainMenuButtons() {
     );
 }
 
-export { MainMenuButtons, mainMenuButtonsCode };
+export { MainMenuButtons, mainMenuButtonsFunctionality };
