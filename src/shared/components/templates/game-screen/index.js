@@ -1,3 +1,7 @@
+import { IconButton } from '../../atoms/icon-button';
+import { iconMoon } from '../../atoms/icon-button/variants';
+import { iconHome } from '../../atoms/icon-button/variants';
+
 import './style.css';
 
 function gameScreenLogic({ game, screens }) {
@@ -21,14 +25,15 @@ function gameScreenLogic({ game, screens }) {
 }
 
 function GameScreen({ children, game }) {
-    const buttonMainMenu = game.screen.current !== 'start' ? '' : '<button id="main-menu">Main Menu</button>';
+    const iconButtonTheme = IconButton({ id: 'theme', name: iconMoon, size: 'small' });
+    const iconButtonMainMenu = game.screen.current !== 'start' ? '' : IconButton({ id: 'main-menu', name: iconHome, size: 'small' });
 
     return (
         `
         <div class="game-screen">
             <div>
-                <button id="theme">Theme</button>
-                ${buttonMainMenu}
+                ${iconButtonTheme}
+                ${iconButtonMainMenu}
             </div>
             ${children}
         </div>
