@@ -1,4 +1,5 @@
-import { Game, GameScreens } from './core/game/index.js';
+import { Game } from './core/game/index.js';
+import { GameScreens } from './shared/logic/screens/game-screens.js';
 
 import './main.css';
 
