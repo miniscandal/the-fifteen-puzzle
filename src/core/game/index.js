@@ -6,6 +6,9 @@ const Game = {
             this.current = name;
         },
         current: undefined
+    },
+    theme: {
+        current: 'light'
     }
 };
 
