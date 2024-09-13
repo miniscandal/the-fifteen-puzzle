@@ -1,9 +1,9 @@
-import { startSceneLogic } from './start';
-import { PracticeScreenLogic } from './practice';
+import { startScreenSetup } from './start';
+import { practiceScreenSetup } from './practice';
 
-const GameScreens = {
-    start: startSceneLogic,
-    practice: PracticeScreenLogic
+const Screens = {
+    start: startScreenSetup,
+    practice: practiceScreenSetup
 };
 
-export { GameScreens };
+export { Screens };

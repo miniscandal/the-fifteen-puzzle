@@ -1,9 +1,9 @@
 import { TitleH2 } from '../../../../shared/components/atoms/title-h2';
 import { ButtonSelectScreen } from '../../../../shared/components/atoms/button-select-screen';
 
-function mainMenuButtonsLogic({ game, gameScreens }) {
+function mainMenuButtonsLogic({ game, screens }) {
     document.getElementById('select-practice-screen').addEventListener('click', () => {
-        gameScreens.practice({ game, gameScreens });
+        game.screen.render(screens.practice({ game, screens }));
     });
 }
 

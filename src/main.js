@@ -1,6 +1,6 @@
 import { Game } from './core/game/index.js';
-import { GameScreens } from './shared/logic/screens/game-screens.js';
+import { Screens } from './shared/logic/screens/game-screens.js';
 
 import './main.css';
 
-GameScreens.start({ game: Game, gameScreens: GameScreens });
+Game.screen.render(Screens.start({ game: Game, screens: Screens }));
