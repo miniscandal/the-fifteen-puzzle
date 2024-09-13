@@ -1,9 +1,9 @@
 import { startSceneLogic } from './start';
-import { trainScreenLogic } from './train';
+import { PracticeScreenLogic } from './practice';
 
 const GameScreens = {
     start: startSceneLogic,
-    train: trainScreenLogic
+    practice: PracticeScreenLogic
 };
 
 export { GameScreens };
