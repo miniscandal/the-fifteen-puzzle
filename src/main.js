@@ -1,6 +1,5 @@
-import { game } from './core/game/index.js';
-import { startScreen } from './feature-start-screen/index.js';
+import { Game, GameScreens } from './core/game/index.js';
 
 import './main.css';
 
-startScreen({ game });
+GameScreens.start({ game: Game, gameScreens: GameScreens });

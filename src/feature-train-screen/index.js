@@ -1,18 +1,14 @@
-import { GameScreen, gameScreenLogic } from '../shared/components/templates/game-screen';
+import { GameScreen } from '../shared/components/templates/game-screen';
 
-function trainScreen({ game }) {
-    game.screen.render(GameScreen({ children: html() }));
-    game.screen.logic(() => {
-        gameScreenLogic();
-    });
-}
-
-function html() {
-    return (
+function TrainScreen() {
+    const children = (
         `
         <span>train screen</span>
         `
     );
-}
 
-export { trainScreen };
+    return GameScreen({
+        children
+    });
+}
+export { TrainScreen };

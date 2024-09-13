@@ -1,10 +1,10 @@
-import { trainScreenLogic } from '../../../logic/select-screen/train';
-
 import { TitleH2 } from '../../../../shared/components/atoms/title-h2';
 import { ButtonSelectScreen } from '../../../../shared/components/atoms/button-select-screen';
 
-function mainMenuButtonsLogic({ game }) {
-    document.getElementById('select-train-screen').addEventListener('click', () => trainScreenLogic({ game }));
+function mainMenuButtonsLogic({ game, gameScreens }) {
+    document.getElementById('select-train-screen').addEventListener('click', () => {
+        gameScreens.train({ game });
+    });
 }
 
 
