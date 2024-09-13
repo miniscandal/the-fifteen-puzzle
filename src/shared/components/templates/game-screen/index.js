@@ -12,19 +12,25 @@ function gameScreenLogic({ game, gameScreens }) {
     };
 
     document.getElementById('theme').addEventListener('click', toggleTheme);
-    document.getElementById('main-menu').addEventListener('click', () => {
-        mainMenu({ game, gameScreens });
-    });
+
+    if (game.screen.current === 'start') {
+        document.getElementById('main-menu').addEventListener('click', () => {
+            mainMenu({ game, gameScreens });
+        });
+    }
 }
 
-function GameScreen({ children }) {
+function GameScreen({ children, game }) {
+    console.log(game.screen.current);
+
+    const buttonMainMenu = game.screen.current !== 'start' ? '' : '<button id="main-menu">Main Menu</button>';
 
     return (
         `
         <div class="game-screen">
             <div>
                 <button id="theme">Theme</button>
-                <button id="main-menu">Main Menu</button>
+                ${buttonMainMenu}
             </div>
             ${children}
         </div>

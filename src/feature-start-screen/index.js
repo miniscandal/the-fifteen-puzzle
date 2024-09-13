@@ -2,7 +2,7 @@ import { GameScreen } from '../shared/components/templates/game-screen';
 import { TitleH1 } from '../shared/components/atoms/title-h1';
 import { MainMenuButtons } from './components/organisms/main-menu-buttons';
 
-function StartScreen() {
+function StartScreen({ game }) {
     const titleH1 = TitleH1({
         text: 'The Fifteen Puzzle'
     });
@@ -19,7 +19,8 @@ function StartScreen() {
     );
 
     return GameScreen({
-        children
+        children,
+        game
     });
 }
 

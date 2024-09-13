@@ -1,7 +1,7 @@
 import { TitleH2 } from '../shared/components/atoms/title-h2';
 import { GameScreen } from '../shared/components/templates/game-screen';
 
-function PracticeScreen() {
+function PracticeScreen({ game }) {
     const titleH2 = TitleH2({
         text: 'Select Practice Puzzle'
     });
@@ -15,7 +15,8 @@ function PracticeScreen() {
     );
 
     return GameScreen({
-        children
+        children,
+        game
     });
 }
 export { PracticeScreen };
