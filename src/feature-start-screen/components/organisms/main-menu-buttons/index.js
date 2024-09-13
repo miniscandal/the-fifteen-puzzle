@@ -3,7 +3,7 @@ import { ButtonSelectScreen } from '../../../../shared/components/atoms/button-s
 
 function mainMenuButtonsLogic({ game, gameScreens }) {
     document.getElementById('select-practice-screen').addEventListener('click', () => {
-        gameScreens.practice({ game });
+        gameScreens.practice({ game, gameScreens });
     });
 }
 

@@ -1,10 +1,10 @@
 import { PracticeScreen } from '../../../../feature-practice-screen';
 import { gameScreenLogic } from '../../../components/templates/game-screen';
 
-function PracticeScreenLogic({ game }) {
+function PracticeScreenLogic({ game, gameScreens }) {
     game.screen.render(PracticeScreen());
     game.screen.logic(() => {
-        gameScreenLogic();
+        gameScreenLogic({ game, gameScreens });
     });
 }
 

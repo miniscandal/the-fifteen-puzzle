@@ -5,7 +5,7 @@ import { mainMenuButtonsLogic } from '../../../../feature-start-screen/component
 function startSceneLogic({ game, gameScreens }) {
     game.screen.render(StartScreen());
     game.screen.logic(() => {
-        gameScreenLogic();
+        gameScreenLogic({ game, gameScreens });
         mainMenuButtonsLogic({ game, gameScreens });
     });
 }
