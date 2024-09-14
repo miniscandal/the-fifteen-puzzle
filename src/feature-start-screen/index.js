@@ -1,19 +1,22 @@
 import { Screen } from '../shared/components/templates/screen';
 import { TitleH1 } from '../shared/components/atoms/title-h1';
-import { MainMenuButtons } from './components/organisms/main-menu-buttons';
+import { GameArtwork } from './components/organisms/game-artwork';
+import { GameMainOptions } from './components/organisms/game-main-options';
 
 function StartScreen({ game }) {
     const titleH1 = TitleH1({
         text: 'The Fifteen Puzzle'
     });
 
-    const mainMenuButtons = MainMenuButtons();
+    const gameArtwork = GameArtwork();
+    const gameMainOptions = GameMainOptions();
 
     const children = (
         `
         <div>
             ${titleH1}
-            ${mainMenuButtons}
+            ${gameArtwork}
+            ${gameMainOptions}
         </div>
         `
     );
