@@ -1,7 +1,6 @@
 import { IconButton } from '../../atoms/icon-button';
-import { iconMoon } from '../../atoms/icon-button/variants';
+import { iconHome, iconMoon } from '../../atoms/icon-button/variants';
 import { iconSun } from '../../atoms/icon-button/variants';
-import { iconHome } from '../../atoms/icon-button/variants';
 
 import './style.css';
 
@@ -12,9 +11,7 @@ function gameScreenLogic({ game, screens }) {
         body.dataset.themeColor = isLightTheme ? 'dark' : 'light';
 
         const iconButtonTheme = document.getElementById('theme');
-        const img = iconButtonTheme.querySelector('img');
-
-        img.src = isLightTheme ? iconSun : iconMoon;
+        iconButtonTheme.dataset.name = isLightTheme ? iconSun : iconMoon;
     };
 
     const mainMenu = ({ game, screens }) => {
@@ -30,15 +27,15 @@ function gameScreenLogic({ game, screens }) {
     }
 }
 
-function GameScreen({ children, game }) {
-    const iconButtonTheme = IconButton({ id: 'theme', name: iconMoon, size: 'small' });
-    const iconButtonMainMenu = game.screen.current !== 'start'
-        ? ''
-        : IconButton({ id: 'main-menu', name: iconHome, size: 'small' });
+function Screen({ children, game }) {
+    const iconButtonTheme = IconButton({ id: 'theme', name: 'moon', size: 'small' });
+    const iconButtonMainMenu = game.screen.current === 'start'
+        ? IconButton({ id: 'main-menu', name: iconHome, size: 'small' })
+        : '';
 
     return (
         `
-        <div class="game-screen">
+        <div class="screen">
             <div>
                 ${iconButtonTheme}
                 ${iconButtonMainMenu}
@@ -49,4 +46,4 @@ function GameScreen({ children, game }) {
     );
 }
 
-export { GameScreen, gameScreenLogic };
+export { Screen, gameScreenLogic };

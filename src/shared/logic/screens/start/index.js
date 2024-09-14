@@ -1,5 +1,5 @@
 import { StartScreen } from '../../../../feature-start-screen';
-import { gameScreenLogic } from '../../../components/templates/game-screen';
+import { gameScreenLogic } from '../../../components/templates/screen';
 import { mainMenuButtonsLogic } from '../../../../feature-start-screen/components/organisms/main-menu-buttons';
 
 function startScreenSetup({ game, screens }) {

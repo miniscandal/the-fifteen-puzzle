@@ -1,5 +1,5 @@
 import { TitleH2 } from '../shared/components/atoms/title-h2';
-import { GameScreen } from '../shared/components/templates/game-screen';
+import { Screen } from '../shared/components/templates/screen';
 
 function PracticeScreen({ game }) {
     const titleH2 = TitleH2({
@@ -14,7 +14,7 @@ function PracticeScreen({ game }) {
         `
     );
 
-    return GameScreen({
+    return Screen({
         children,
         game
     });

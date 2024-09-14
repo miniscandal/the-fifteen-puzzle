@@ -38,6 +38,7 @@ body {
 	margin: 0 auto;
 	line-height: 1.5;
 	background-color: var(--theme-background-color);
+	transition: background 0.3s linear;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,4 +1,4 @@
-import { GameScreen } from '../shared/components/templates/game-screen';
+import { Screen } from '../shared/components/templates/screen';
 import { TitleH1 } from '../shared/components/atoms/title-h1';
 import { MainMenuButtons } from './components/organisms/main-menu-buttons';
 
@@ -18,7 +18,7 @@ function StartScreen({ game }) {
         `
     );
 
-    return GameScreen({
+    return Screen({
         children,
         game
     });

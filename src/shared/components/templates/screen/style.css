@@ -1,6 +1,7 @@
-.game-screen {
+.screen {
     border: solid red 1px;
     margin: auto;
-    max-width: 800px;
+    max-width: 900px;
     padding: 50px;
+    user-select: none;
 }

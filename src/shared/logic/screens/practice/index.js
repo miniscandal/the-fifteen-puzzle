@@ -1,5 +1,5 @@
 import { PracticeScreen } from '../../../../feature-practice-screen';
-import { gameScreenLogic } from '../../../components/templates/game-screen';
+import { gameScreenLogic } from '../../../components/templates/screen';
 
 function practiceScreenSetup({ game, screens }) {
     return {

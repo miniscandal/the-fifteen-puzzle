@@ -1,7 +1,12 @@
 .icon-button {
     background: transparent;
     border: none;
-    user-select: none;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+}
+
+.icon-button:hover {
+    transform: scale3d(1.5, 1.5, 1.5);
 }
 
 .icon-button[data-size=regular] {
@@ -12,4 +17,20 @@
 .icon-button[data-size=small] {
     width: 20px;
     height: 20px;
+}
+
+.icon-button[data-name=code] {
+    background-image: url('../../../../assets/icons/svg/code-bracket-square.svg');
+}
+
+.icon-button[data-name=sun] {
+    background-image: url('../../../../assets/icons/svg/sun.svg');
+}
+
+.icon-button[data-name=moon] {
+    background-image: url('../../../../assets/icons/svg/moon.svg');
+}
+
+.icon-button[data-name=home] {
+    background-image: url('../../../../assets/icons/svg/home.svg');
 }
