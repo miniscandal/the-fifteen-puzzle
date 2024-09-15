@@ -1,1 +1,5 @@
 ⚝ Redefine the logic for the screen template; it has the potential to become a feature
+⚝ Use data attributes color for component title
+⚝ Add a variable for the gap value
+⚝ Improve the color palette for the dark theme
+⚝ Implement CSS nesting
