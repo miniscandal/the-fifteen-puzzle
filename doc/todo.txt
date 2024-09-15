@@ -1,1 +1,2 @@
 ⚝ Fix bug, theme icon does not correspond to selected theme
+⚝ Redefine the logic for the screen template; it has the potential to become a feature
