@@ -20,10 +20,13 @@ function MenuSettings({ game }) {
         ? IconButton({ id: 'main-menu', name: iconHome, size: 'small' })
         : '';
 
+    const iconTemp = IconButton({ size: 'small' });
+
     return (
         `
         <div>
-        ${iconButtonMainMenu}
+            ${iconButtonMainMenu}
+            ${iconTemp}
         </div>
         `
     );

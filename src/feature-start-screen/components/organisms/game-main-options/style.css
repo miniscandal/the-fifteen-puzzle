@@ -1,0 +1,10 @@
+.game-main-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    .title-h2 {
+        text-transform: uppercase;
+    }
+}

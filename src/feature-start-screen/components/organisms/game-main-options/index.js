@@ -5,13 +5,13 @@ import './style.css';
 
 function GameMainOptions() {
     const titleH2 = TitleH2({
-        text: 'Select Game Option'
+        text: 'Game Options'
     });
     const mainMenuButtons = MainMenuButtons();
 
     return (
         `
-        <section>
+        <section class="game-main-options">
             ${titleH2}
             ${mainMenuButtons}
         </section>

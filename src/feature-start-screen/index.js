@@ -3,6 +3,8 @@ import { TitleH1 } from '../shared/components/atoms/title-h1';
 import { GameArtwork } from './components/organisms/game-artwork';
 import { GameMainOptions } from './components/organisms/game-main-options';
 
+import './style.css';
+
 function StartScreen({ game }) {
     const titleH1 = TitleH1({
         text: 'The Fifteen Puzzle'

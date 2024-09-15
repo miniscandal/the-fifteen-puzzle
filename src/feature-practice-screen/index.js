@@ -8,9 +8,9 @@ function PracticeScreen({ game }) {
 
     const children = (
         `
-        <div>
+        <article>
             ${titleH2}
-        </div>
+        </article>
         `
     );
 
