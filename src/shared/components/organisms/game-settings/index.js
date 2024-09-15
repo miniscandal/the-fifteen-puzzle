@@ -14,7 +14,7 @@ function GameSettings({ game }) {
 
     return (
         `
-        <section>
+        <section class="game-settings">
             ${applicationTheme}
             ${menuSettings}
         </section>
