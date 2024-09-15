@@ -4,11 +4,12 @@ import { IconButton } from '../../atoms/icon-button';
 
 import './style.css';
 
-function applicationTheme() {
+function applicationTheme({ game }) {
     const toggleTheme = () => {
         const body = document.querySelector('body');
         const isLightTheme = body.dataset.themeColor === 'light';
         body.dataset.themeColor = isLightTheme ? 'dark' : 'light';
+        game.theme.current = body.dataset.themeColor;
 
         const iconButtonTheme = document.getElementById('theme');
         iconButtonTheme.dataset.name = isLightTheme ? iconSun : iconMoon;
@@ -17,8 +18,9 @@ function applicationTheme() {
     document.getElementById('theme').addEventListener('click', toggleTheme);
 }
 
-function ApplicationTheme() {
-    const iconButtonTheme = IconButton({ id: 'theme', name: 'moon', size: 'small' });
+function ApplicationTheme({ game }) {
+    const themeCurrent = game.theme.current;
+    const iconButtonTheme = IconButton({ id: 'theme', name: themeCurrent === 'light' ? iconMoon : iconSun, size: 'small' });
 
     return (
         `

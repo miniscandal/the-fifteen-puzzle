@@ -4,12 +4,12 @@ import { MenuSettings, menuSettingsLogic } from '../../molecules/menu-settings';
 import './style.css';
 
 function gameSettingsLogic({ game, screens }) {
-    applicationTheme();
+    applicationTheme({ game });
     menuSettingsLogic({ game, screens });
 }
 
 function GameSettings({ game }) {
-    const applicationTheme = ApplicationTheme();
+    const applicationTheme = ApplicationTheme({ game });
     const menuSettings = MenuSettings({ game });
 
     return (
