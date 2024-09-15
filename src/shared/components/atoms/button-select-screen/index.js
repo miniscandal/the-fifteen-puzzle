@@ -1,7 +1,10 @@
+import './style.css';
+
 function ButtonSelectScreen({ text = 'button', id = undefined }) {
+
     return (
         `
-	    <button id=${id}>
+	    <button class="button-select-screen" id=${id}>
             ${text}
         </button>
         `

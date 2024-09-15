@@ -1,6 +1,6 @@
 import './style.css';
 
-function IconButton({ id, name = 'code', size = 'regular' }) {
+function IconButton({ id = undefined, name = 'code', size = 'regular' }) {
 
     return (
         `
