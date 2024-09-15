@@ -1,4 +1,3 @@
-import { TitleH2 } from '../../../../shared/components/atoms/title-h2';
 import { ButtonSelectScreen } from '../../../../shared/components/atoms/button-select-screen';
 
 function mainMenuButtonsLogic({ game, screens }) {
@@ -7,12 +6,7 @@ function mainMenuButtonsLogic({ game, screens }) {
     });
 }
 
-
 function MainMenuButtons() {
-    const titleH2 = TitleH2({
-        text: 'Select Game Option'
-    });
-
     const buttons = [
         { text: 'play', id: 'select-gameplay-screen' },
         { text: 'practice', id: 'select-practice-screen' },
@@ -24,12 +18,9 @@ function MainMenuButtons() {
 
     return (
         `
-        <div>
-            ${titleH2}
-            <div>
-                ${buttonElement.join('')}
-            </div>
-        </div>
+        <section>
+            ${buttonElement.join('')}
+        </section>
         `
     );
 }

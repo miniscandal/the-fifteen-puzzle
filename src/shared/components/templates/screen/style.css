@@ -5,4 +5,6 @@
     max-width: 900px;
     padding: 50px;
     user-select: none;
+    display: grid;
+    place-items: center;
 }

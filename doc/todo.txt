@@ -1,0 +1,1 @@
+⚝ Fix bug, theme icon does not correspond to selected theme

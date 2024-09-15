@@ -1,11 +1,12 @@
 import { PracticeScreen } from '../../../../feature-practice-screen';
-import { gameScreenLogic } from '../../../components/templates/screen';
+import { gameSettingsLogic } from '../../../components/organisms/game-settings';
 
 function practiceScreenSetup({ game, screens }) {
+
     return {
         html: PracticeScreen({ game }),
         logic: () => {
-            gameScreenLogic({ game, screens });
+            gameSettingsLogic({ game, screens });
         },
         name: 'practice'
     };

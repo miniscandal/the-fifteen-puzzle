@@ -13,11 +13,11 @@ function StartScreen({ game }) {
 
     const children = (
         `
-        <div>
+        <article class="start-screen">
             ${titleH1}
             ${gameArtwork}
             ${gameMainOptions}
-        </div>
+        </article>
         `
     );
 
