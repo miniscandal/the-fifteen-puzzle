@@ -23,3 +23,8 @@
     border-radius: 0;
     color: transparent;
 }
+
+.square-tile.move {
+    grid-column: 1;
+    grid-row: 1;
+}

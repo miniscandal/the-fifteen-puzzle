@@ -1,6 +1,22 @@
 .grid-frame-four-by-four {
-    width: fit-content;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-frame-four-by-four[data-size='small'] {
+    transform: scale(0.8);
+}
+
+.grid-frame-four-by-four[data-size='regular'] {
+    width: fit-content;
+}
+
+
+.grid-frame-four-by-four[data-play='false'] {
+    user-select: none;
+
+    .square-tile {
+        filter: none;
+    }
 }
