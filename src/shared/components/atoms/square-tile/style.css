@@ -1,0 +1,25 @@
+.square-tile {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px var(--color-accent-sienna);
+    border-radius: 2px;
+    background-color: var(--color-accent-terracotta);
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-neutral-charcoal);
+    text-transform: uppercase;
+}
+
+.square-tile:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.square-tile[data-id='0'] {
+    border: none;
+    border-radius: 0;
+    color: transparent;
+}

@@ -3,3 +3,4 @@
 ⚝ Add a variable for the gap value
 ⚝ Improve the color palette for the dark theme
 ⚝ Implement CSS nesting
+⚝ Redefining the color palette
