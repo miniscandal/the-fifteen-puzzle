@@ -14,9 +14,8 @@
 
 
 .grid-frame-four-by-four[data-play='false'] {
-    user-select: none;
-
     .square-tile {
         filter: none;
+        cursor: default;
     }
 }

@@ -17,6 +17,15 @@
 	--color-alert-crimson: #AB2119;
 	--color-neutral-beige: #B6AF9B;
 	--color-neutral-charcoal: #6A6357;
+
+	--color-accent-khaki: #f0e68c;
+	--color-accent-corn: #faec61;
+	--color-accent-yellow-translucent: #ffff00cc;
+	--color-accent-gold: #ffdd00;
+	--color-accent-orange: #ff9900;
+	--color-accent-orange-translucent: #ffa500cc;
+
+
 }
 
 *,
@@ -27,14 +36,6 @@
 	padding: 0;
 }
 
-body[data-theme-color=dark] {
-	background-color: var(--theme-background-color-dark);
-}
-
-body[data-theme-color=light] {
-	background-color: var(--theme-background-color-light);
-}
-
 body {
 	font-family: inherit;
 	margin: 0 auto;
@@ -43,8 +44,35 @@ body {
 	transition: background 0.3s linear;
 }
 
+body[data-theme-color=dark] {
+	background-color: var(--theme-background-color-dark);
+}
+
+body[data-theme-color=light] {
+	background-color: var(--theme-background-color-light);
+}
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--theme-background-color: #535353;
 	}
 }
+
+/* 
+used colors:
+
+--color-neutral-olive
+--color-accent-terracotta
+--color-accent-sienna
+--color-neutral-charcoal
+--color-light
+
+
+--color-accent-khaki
+--color-accent-corn
+--color-accent-yellow-translucent
+--color-accent-gold
+--color-accent-orange
+--color-accent-orange-translucent
+
+ */

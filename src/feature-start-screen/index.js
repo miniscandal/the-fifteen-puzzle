@@ -19,7 +19,6 @@ function StartScreen({ game }) {
             ${titleH1}
             ${gameArtwork}
             ${gameMainOptions}
-
         </article>
         `
     );

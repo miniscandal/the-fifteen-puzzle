@@ -27,18 +27,18 @@
 .picture[data-size=anime-character-start-screen] {
     width: 350px;
     height: 350px;
-    background-color: #f0e68c;
+    background-color: var(--color-accent-khaki);
     border-radius: 50%;
     transform: scaleX(-1);
 }
 
 .moon {
-    background: radial-gradient(circle, #f0e68c, #faec61);
-    box-shadow: 0 0 25px rgba(255, 255, 0, 0.8);
+    background: radial-gradient(circle, var(--color-accent-khaki), var(--color-accent-corn));
+    box-shadow: 0 0 25px var(--color-accent-yellow-translucent);
 
 }
 
 .sun {
-    background: radial-gradient(circle, #ffdd00, #ff9900);
-    box-shadow: 0 0 50px rgba(255, 165, 0, 0.8);
+    background: radial-gradient(circle, var(--color-accent-gold), var(--color-accent-orange));
+    box-shadow: 0 0 50px var(--color-accent-orange-translucent);
 }
