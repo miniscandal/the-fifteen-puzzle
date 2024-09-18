@@ -7,4 +7,5 @@
     border: solid var(--color-neutral-olive) 2px;
     border-radius: var(--border-radius-uniform);
     user-select: none;
+    gap: var(--gap-uniform);
 }

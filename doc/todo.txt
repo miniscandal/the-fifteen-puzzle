@@ -1,5 +1,3 @@
 ⚝ Redefine the logic for the screen template; it has the potential to become a feature
 ⚝ Use data attributes color for component title
 ⚝ Improve the color palette for the dark theme
-⚝ Implement CSS nesting
-⚝ Redefining the color palette

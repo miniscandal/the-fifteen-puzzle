@@ -39,10 +39,14 @@
 	padding: 0;
 }
 
+h2 {
+	display: block;
+}
+
 body {
 	font-family: inherit;
 	margin: 0 auto;
-	line-height: 1.5;
+	line-height: 1;
 	background-color: var(--theme-background-color);
 	transition: background 0.3s linear;
 }
