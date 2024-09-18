@@ -3,7 +3,7 @@
     width: 150px;
     padding: 0.5rem 0;
     border: none;
-    border-radius: 15px;
+    border-radius: var(--border-radius-uniform);
     border-bottom: solid var(--color-neutral-charcoal) 5px;
     background-color: var(--color-accent-terracotta);
     color: var(--color-light);

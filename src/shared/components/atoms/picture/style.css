@@ -28,7 +28,7 @@
     width: 350px;
     height: 350px;
     background-color: var(--color-accent-khaki);
-    border-radius: 50%;
+    border-radius: 100%;
     transform: scaleX(-1);
 }
 

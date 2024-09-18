@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     border: solid 2px var(--color-accent-sienna);
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: var(--color-accent-terracotta);
     font-size: 2rem;
     font-weight: bold;

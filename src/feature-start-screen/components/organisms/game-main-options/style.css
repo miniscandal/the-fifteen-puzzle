@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-inner);
+    gap: var(--gap-uniform);
 
     .title-h2 {
         text-transform: uppercase;

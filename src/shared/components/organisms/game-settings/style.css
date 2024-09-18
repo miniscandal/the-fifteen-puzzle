@@ -1,4 +1,4 @@
 .game-settings {
     display: flex;
-    gap: var(--gap-inner);
+    gap: var(--gap-uniform);
 }

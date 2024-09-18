@@ -20,12 +20,12 @@
 	--color-accent-gold: #ffdd00;
 	--color-accent-orange: #ff9900;
 	--color-accent-orange-translucent: #ffa500cc;
-	--gap-outer: 40px;
-	--gap-inner: 20px;
-
+	--gap-uniform: 20px;
+	--border-radius-uniform: 10px;
 
 
 	/* not used */
+	--gap-outer: 40px;
 	--color-background-light: #ECE4CC;
 	--color-alert-crimson: #AB2119;
 	--color-neutral-beige: #B6AF9B;

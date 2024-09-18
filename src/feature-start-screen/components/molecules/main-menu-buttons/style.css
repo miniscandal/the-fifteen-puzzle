@@ -1,4 +1,4 @@
 .main-menu-buttons {
     display: flex;
-    gap: var(--gap-inner);
+    gap: var(--gap-uniform);
 }
