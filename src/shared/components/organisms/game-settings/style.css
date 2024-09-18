@@ -1,5 +1,4 @@
 .game-settings {
-    width: 100%;
     display: flex;
-    gap: 20px;
+    gap: var(--gap-inner);
 }

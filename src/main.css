@@ -10,22 +10,25 @@
 	--theme-background-color-dark: #535353;
 	--color-dark: #2e2e2e;
 	--color-light: #eeeeee;
-	--color-background-light: #ECE4CC;
-	--color-accent-sienna: #B7874B;
-	--color-accent-terracotta: #C99572;
 	--color-neutral-olive: #A28E69;
-	--color-alert-crimson: #AB2119;
-	--color-neutral-beige: #B6AF9B;
+	--color-accent-terracotta: #C99572;
+	--color-accent-sienna: #B7874B;
 	--color-neutral-charcoal: #6A6357;
-
 	--color-accent-khaki: #f0e68c;
 	--color-accent-corn: #faec61;
 	--color-accent-yellow-translucent: #ffff00cc;
 	--color-accent-gold: #ffdd00;
 	--color-accent-orange: #ff9900;
 	--color-accent-orange-translucent: #ffa500cc;
+	--gap-outer: 40px;
+	--gap-inner: 20px;
 
 
+
+	/* not used */
+	--color-background-light: #ECE4CC;
+	--color-alert-crimson: #AB2119;
+	--color-neutral-beige: #B6AF9B;
 }
 
 *,
@@ -57,22 +60,3 @@ body[data-theme-color=light] {
 		--theme-background-color: #535353;
 	}
 }
-
-/* 
-used colors:
-
---color-neutral-olive
---color-accent-terracotta
---color-accent-sienna
---color-neutral-charcoal
---color-light
-
-
---color-accent-khaki
---color-accent-corn
---color-accent-yellow-translucent
---color-accent-gold
---color-accent-orange
---color-accent-orange-translucent
-
- */
