@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    padding: 50px;
-    max-width: 900px;
+    padding: var(--padding-uniform);
+    max-width: 800px;
     border: solid var(--color-neutral-olive) 2px;
     border-radius: var(--border-radius-uniform);
     user-select: none;

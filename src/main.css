@@ -1,10 +1,12 @@
 :root {
-	font-family: Helvetica;
+	font-family: Consolas;
 	color-scheme: light dark;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
 	--theme-background-color: #eaeaf1;
 	--theme-background-color-light: #eaeaf1;
 	--theme-background-color-dark: #535353;
@@ -21,17 +23,18 @@
 	--color-accent-gold: #ffdd00;
 	--color-accent-orange: #ff9900;
 	--color-accent-orange-translucent: #ffa500cc;
-
-	--gap-uniform: 20px;
-	--border-radius-uniform: 10px;
-
-
-
 	--color-accent-brown-dark: #412e16;
 	--color-accent-gray-dark: #4e4e4e;
 	--color-accent-orange-light: #f88e38;
 	--color-accent-orange-muted: #e6a24a;
 
+	--color-accent-orange-dark: #948635;
+	--color-accent-orange-darker: #948635e5;
+
+	--padding-uniform: 20px;
+	--gap-uniform: 20px;
+	--border-radius-uniform: 10px;
+	--scale3d: scale3d(1.1, 1.1, 1.1);
 
 	/* not used */
 	--gap-outer: 40px;

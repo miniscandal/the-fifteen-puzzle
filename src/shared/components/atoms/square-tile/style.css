@@ -7,12 +7,12 @@
     font-size: 2rem;
     font-weight: bold;
     color: var(--color-neutral-charcoal);
-    text-transform: uppercase;
     text-shadow: 0 0 2px var(--color-accent-brown-dark);
     border: solid 1px var(--color-accent-sienna);
     border-radius: 4px;
     background-color: var(--color-accent-terracotta);
-    box-shadow: inset 0 0 10px var(--color-accent-gray-dark),
+    box-shadow:
+        inset 0 0 10px var(--color-accent-gray-dark),
         inset 0 0 20px var(--color-accent-orange-light),
         0 0 10px var(--color-accent-orange-muted);
 }

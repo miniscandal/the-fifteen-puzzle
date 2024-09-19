@@ -5,7 +5,7 @@ import './style.css';
 
 function GameMainOptions() {
     const titleH2 = TitleH2({
-        text: 'Game Options'
+        text: 'GAME OPTIONS'
     });
     const mainMenuButtons = MainMenuButtons();
 
