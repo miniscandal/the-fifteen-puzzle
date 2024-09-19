@@ -1,11 +1,9 @@
-const iconCode = 'code';
-const iconSun = 'sun';
+const iconCodeBracketSquare = 'code-bracket-square';
 const iconMoon = 'moon';
-const iconHome = 'home';
+const iconSun = 'sun';
 
 export {
-    iconCode,
+    iconCodeBracketSquare,
     iconSun,
-    iconMoon,
-    iconHome
+    iconMoon
 };

@@ -1,5 +1,5 @@
 import { IconButton } from '../../atoms/icon-button';
-import { iconHome } from '../../atoms/icon-button/variants';
+import { iconCodeBracketSquare } from '../../atoms/icon-button/variants';
 
 import './style.css';
 
@@ -17,7 +17,7 @@ function menuSettingsLogic({ game, screens }) {
 
 function MenuSettings({ game }) {
     const iconButtonMainMenu = game.screen.current === 'start'
-        ? IconButton({ id: 'main-menu', name: iconHome, size: 'small' })
+        ? IconButton({ id: 'main-menu', name: iconCodeBracketSquare, size: 'small' })
         : '';
 
     const iconTemp = IconButton({ size: 'small' });
