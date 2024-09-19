@@ -8,10 +8,11 @@
 	--theme-background-color: #eaeaf1;
 	--theme-background-color-light: #eaeaf1;
 	--theme-background-color-dark: #535353;
+
 	--color-dark: #2e2e2e;
 	--color-light: #eeeeee;
 	--color-neutral-olive: #A28E69;
-	--color-accent-terracotta: #C99572;
+	--color-accent-terracotta: #c99572;
 	--color-accent-sienna: #B7874B;
 	--color-neutral-charcoal: #6A6357;
 	--color-accent-khaki: #f0e68c;
@@ -20,8 +21,16 @@
 	--color-accent-gold: #ffdd00;
 	--color-accent-orange: #ff9900;
 	--color-accent-orange-translucent: #ffa500cc;
+
 	--gap-uniform: 20px;
 	--border-radius-uniform: 10px;
+
+
+
+	--color-accent-brown-dark: #412e16;
+	--color-accent-gray-dark: #4e4e4e;
+	--color-accent-orange-light: #f88e38;
+	--color-accent-orange-muted: #e6a24a;
 
 
 	/* not used */
