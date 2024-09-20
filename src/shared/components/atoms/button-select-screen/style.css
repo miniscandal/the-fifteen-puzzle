@@ -3,22 +3,21 @@
     padding: 0.5rem 0;
     border: none;
     border-radius: var(--border-radius-uniform);
-    border-bottom: solid var(--color-accent-orange-dark) 4px;
-    background-color: var(--color-accent-orange-darker);
+    border-bottom: solid var(--color-olive) 4px;
+    background-color: var(--color-taupe);
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--color-light);
     text-transform: uppercase;
-    text-shadow: 0 0 2px var(--color-accent-brown-dark);
+    text-shadow: 0 0 2px var(--color-mocha);
 
     cursor: pointer;
     transition: transform 0.2s linear;
 
-
     box-shadow:
-        inset 0 0 10px var(--color-accent-gray-dark),
-        inset 0 0 20px var(--color-accent-orange-light),
-        0 0 10px var(--color-accent-orange-muted);
+        inset 0 0 10px var(--color-burgundy),
+        inset 0 0 20px var(--color-copper),
+        0 0 10px var(--color-coral);
 }
 
 .button-select-screen:hover {
