@@ -52,13 +52,13 @@
 .icon-button[data-name=sun] {
     div::after {
         content: url('../../../../assets/icons/svg/sun.svg');
-        filter: drop-shadow(3px 3px 6px #faed31);
+        filter: drop-shadow(3px 3px 6px var(--color-cinnamon));
     }
 }
 
 .icon-button[data-name=moon] {
     div::after {
         content: url('../../../../assets/icons/svg/moon.svg');
-        filter: drop-shadow(3px 3px 6px #494d96);
+        filter: drop-shadow(3px 3px 6px var(--color-slate));
     }
 }
