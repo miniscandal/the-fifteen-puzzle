@@ -6,15 +6,15 @@
     align-items: center;
     font-size: 2rem;
     font-weight: bold;
-    color: var(--color-neutral-charcoal);
-    text-shadow: 0 0 2px var(--color-accent-brown-dark);
-    border: solid 1px var(--color-accent-sienna);
+    color: var(--color-chestnut);
+    text-shadow: 0 0 2px var(--color-cinnamon);
+    border: solid 1px var(--color-chestnut);
     border-radius: 4px;
-    background-color: var(--color-accent-terracotta);
+    background-color: var(--color-terracotta);
     box-shadow:
-        inset 0 0 10px var(--color-accent-gray-dark),
-        inset 0 0 20px var(--color-accent-orange-light),
-        0 0 10px var(--color-accent-orange-muted);
+        inset 0 0 10px var(--color-burgundy),
+        inset 0 0 20px var(--color-copper),
+        0 0 10px var(--color-coral);
 }
 
 .square-tile:hover {
