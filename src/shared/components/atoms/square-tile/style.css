@@ -15,6 +15,7 @@
         inset 0 0 10px var(--color-burgundy),
         inset 0 0 20px var(--color-copper),
         0 0 10px var(--color-coral);
+    background-image: url(./../../../../assets/textures/vectors/wood-texture-light.svg);
 }
 
 .square-tile:hover {
