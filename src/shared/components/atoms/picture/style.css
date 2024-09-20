@@ -33,12 +33,18 @@
 }
 
 .moon {
-    background: radial-gradient(circle, var(--color-accent-khaki), var(--color-accent-corn));
-    box-shadow: 0 0 25px var(--color-accent-yellow-translucent);
-
+    background:
+        radial-gradient(circle,
+            var(--color-parchment),
+            var(--color-dove-gray),
+            var(--color-slate));
+    box-shadow: 0 0 50px var(--color-parchment), 0 0 100px var(--color-dove-gray);
 }
 
 .sun {
-    background: radial-gradient(circle, var(--color-accent-gold), var(--color-accent-orange));
-    box-shadow: 0 0 50px var(--color-accent-orange-translucent);
+    background:
+        radial-gradient(circle,
+            var(--color-amber),
+            var(--color-honey));
+    box-shadow: 0 0 50px var(--color-amber), 0 0 100px var(--color-honey);
 }

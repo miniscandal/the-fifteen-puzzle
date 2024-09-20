@@ -13,34 +13,47 @@
 
 	--color-dark: #2e2e2e;
 	--color-light: #eeeeee;
-	--color-neutral-olive: #A28E69;
-	--color-accent-terracotta: #c99572;
-	--color-accent-sienna: #B7874B;
-	--color-neutral-charcoal: #6A6357;
-	--color-accent-khaki: #f0e68c;
-	--color-accent-corn: #faec61;
-	--color-accent-yellow-translucent: #ffff00cc;
-	--color-accent-gold: #ffdd00;
-	--color-accent-orange: #ff9900;
-	--color-accent-orange-translucent: #ffa500cc;
-	--color-accent-brown-dark: #412e16;
-	--color-accent-gray-dark: #4e4e4e;
-	--color-accent-orange-light: #f88e38;
-	--color-accent-orange-muted: #e6a24a;
-
-	--color-accent-orange-dark: #948635;
-	--color-accent-orange-darker: #948635e5;
 
 	--padding-uniform: 20px;
 	--gap-uniform: 20px;
 	--border-radius-uniform: 10px;
 	--scale3d: scale3d(1.1, 1.1, 1.1);
 
+
+	/* all themes */
+	--color-bronze: #B7874B;
+	--color-cinnamon: #804D2D;
+	--color-chestnut: #98653B;
+	--color-terracotta: #C99572;
+	--color-burgundy: #622B1A;
+	--color-copper: #C88B5F;
+	--color-coral: #DDB598;
+	--color-mocha: #563C30;
+	--color-olive: #716634;
+	--color-taupe: #A28E69;
+
+	/* theme light */
+	--color-ivory: #ECE4CC;
+	--color-amber: #ffa149;
+	--color-honey: #ffe289;
+
+	/* theme dark */
+	--color-sandstone: #CCBDA6;
+	--color-slate: #484e52;
+	--color-dove-gray: #afb9c5;
+	--color-parchment: #e3cdb3;
+
+
 	/* not used */
 	--gap-outer: 40px;
-	--color-background-light: #ECE4CC;
-	--color-alert-crimson: #AB2119;
-	--color-neutral-beige: #B6AF9B;
+	--color-crimson: #AB2119;
+	--color-apricot-cream: #D1BA90;
+	--color-coal: #282624;
+	--color-jet-black: #060607;
+	--color-deep-sea: #111f28;
+	--color-peach: #ffd9bd;
+	--color-mauve: #b197aa;
+	--color-periwinkle: #8399c5;
 }
 
 *,
@@ -69,6 +82,10 @@ body[data-theme-color=dark] {
 
 body[data-theme-color=light] {
 	background-color: var(--theme-background-color-light);
+}
+
+#app {
+	padding-top: var(--padding-uniform);
 }
 
 @media (prefers-color-scheme: dark) {
