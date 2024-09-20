@@ -4,8 +4,20 @@
     margin: auto;
     padding: var(--padding-uniform);
     max-width: 800px;
-    border: solid var(--color-neutral-olive) 2px;
     border-radius: var(--border-radius-uniform);
-    user-select: none;
     gap: var(--gap-uniform);
+
+
+}
+
+body[data-theme-color='light'] {
+    .screen {
+        background-color: var(--color-ivory);
+    }
+}
+
+body[data-theme-color='dark'] {
+    .screen {
+        background-color: var(--color-sandstone);
+    }
 }
