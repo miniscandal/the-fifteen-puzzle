@@ -1,6 +1,6 @@
-import { StartScreen } from '../../../../feature-start-screen';
-import { gameSettingsLogic } from '../../../components/organisms/game-settings';
-import { mainMenuButtonsLogic } from '../../../../feature-start-screen/components/molecules/main-menu-buttons';
+import { StartScreen } from '@feature-start-screen-main';
+import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
+import { mainMenuButtonsLogic } from '@feature-start-screen-components/molecules/main-menu-buttons';
 
 function startScreenSetup({ game, screens }) {
 

@@ -11,7 +11,10 @@ export default defineConfig({
 
             '@shared-components': '/src/shared/components/',
             '@shared-logic': '/src/shared/logic/',
+
             '@feature-practice-screen': '/src/feature-practice-screen',
+
+            '@feature-start-screen-main': '/src/feature-start-screen/main',
             '@feature-start-screen-components': '/src/feature-start-screen/components'
         }
     }
