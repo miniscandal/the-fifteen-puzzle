@@ -45,20 +45,20 @@
 
 .icon-button[data-name=code-bracket-square] {
     div::after {
-        content: url('../../../../assets/icons/svg/code-bracket-square.svg');
+        content: url('@assets-icons/vectors/code-bracket-square.svg');
     }
 }
 
 .icon-button[data-name=sun] {
     div::after {
-        content: url('../../../../assets/icons/svg/sun.svg');
+        content: url('@assets-icons/vectors/sun.svg');
         filter: drop-shadow(3px 3px 6px var(--color-cinnamon));
     }
 }
 
 .icon-button[data-name=moon] {
     div::after {
-        content: url('../../../../assets/icons/svg/moon.svg');
+        content: url('@assets-icons/vectors/moon.svg');
         filter: drop-shadow(3px 3px 6px var(--color-slate));
     }
 }

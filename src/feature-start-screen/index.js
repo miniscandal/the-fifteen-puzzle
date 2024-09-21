@@ -1,5 +1,6 @@
-import { Screen } from '../shared/components/templates/screen';
-import { TitleH1 } from '../shared/components/atoms/title-h1';
+import { Screen } from '@shared-components/templates/screen';
+import { TitleH1 } from '@shared-components/atoms/title-h1';
+
 import { GameArtwork } from './components/organisms/game-artwork';
 import { GameMainOptions } from './components/organisms/game-main-options';
 

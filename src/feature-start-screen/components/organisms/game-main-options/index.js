@@ -1,4 +1,4 @@
-import { TitleH2 } from '../../../../shared/components/atoms/title-h2';
+import { TitleH2 } from '@shared-components/atoms/title-h2';
 import { MainMenuButtons } from '../../molecules/main-menu-buttons';
 
 import './style.css';

@@ -1,5 +1,6 @@
-import { Picture } from '../../../../shared/components/atoms/picture';
-import { pictureAnimeCharacter } from '../../../../shared/components/atoms/picture/variants';
+import { Picture } from '@shared-components/atoms/picture';
+import { pictureAnimeCharacter } from '@shared-components/atoms/picture/variants';
+
 import { GridFrameFourByFour } from '../../molecules/grid-frame-four-by-four';
 import { gridFrameFourByFourArt } from '../../molecules/grid-frame-four-by-four/variants';
 

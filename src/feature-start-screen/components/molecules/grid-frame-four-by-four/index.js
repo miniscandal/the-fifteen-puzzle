@@ -1,4 +1,4 @@
-import { SquareTile } from '../../../../shared/components/atoms/square-tile';
+import { SquareTile } from '@shared-components/atoms/square-tile';
 
 import './style.css';
 

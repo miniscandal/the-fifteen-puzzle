@@ -1,4 +1,4 @@
-import { ButtonSelectScreen } from '../../../../shared/components/atoms/button-select-screen';
+import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
 import './style.css';
 
