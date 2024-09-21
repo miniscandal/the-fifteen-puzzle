@@ -10,7 +10,9 @@ export default defineConfig({
             '@core-game': '/src/core/game',
 
             '@shared-components': '/src/shared/components/',
-            '@shared-logic': '/src/shared/logic/screens'
+            '@shared-logic': '/src/shared/logic/',
+            '@feature-practice-screen': '/src/feature-practice-screen',
+            '@feature-start-screen-components': '/src/feature-start-screen/components'
         }
     }
 });

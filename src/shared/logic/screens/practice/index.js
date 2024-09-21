@@ -1,5 +1,6 @@
-import { PracticeScreen } from '../../../../feature-practice-screen';
-import { gameSettingsLogic } from '../../../components/organisms/game-settings';
+import { PracticeScreen } from '@feature-practice-screen';
+
+import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
 
 function practiceScreenSetup({ game, screens }) {
 

@@ -1,10 +1,13 @@
-import { applicationTheme, ApplicationTheme } from '../../molecules/application-theme';
-import { MenuSettings, menuSettingsLogic } from '../../molecules/menu-settings';
+import { ApplicationTheme } from '@shared-components/molecules/application-theme';
+import { MenuSettings } from '@shared-components/molecules/menu-settings';
+
+import { applicationThemeLogic } from '@shared-components/molecules/application-theme';
+import { menuSettingsLogic } from '@shared-components/molecules/menu-settings';
 
 import './style.css';
 
 function gameSettingsLogic({ game, screens }) {
-    applicationTheme({ game });
+    applicationThemeLogic({ game });
     menuSettingsLogic({ game, screens });
 }
 

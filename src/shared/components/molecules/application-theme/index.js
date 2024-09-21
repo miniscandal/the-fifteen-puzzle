@@ -1,10 +1,10 @@
-import { iconMoon } from '../../atoms/icon-button/variants';
-import { iconSun } from '../../atoms/icon-button/variants';
-import { IconButton } from '../../atoms/icon-button';
+import { iconMoon } from '@shared-components/atoms/icon-button/variants';
+import { iconSun } from '@shared-components/atoms/icon-button/variants';
+import { IconButton } from '@shared-components/atoms/icon-button';
 
 import './style.css';
 
-function applicationTheme({ game }) {
+function applicationThemeLogic({ game }) {
     const toggleTheme = () => {
         const body = document.querySelector('body');
         const isLightTheme = body.dataset.themeColor === 'light';
@@ -31,4 +31,4 @@ function ApplicationTheme({ game }) {
     );
 }
 
-export { ApplicationTheme, applicationTheme };
+export { ApplicationTheme, applicationThemeLogic };

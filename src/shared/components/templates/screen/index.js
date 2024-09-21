@@ -1,4 +1,4 @@
-import { GameSettings } from '../../organisms/game-settings';
+import { GameSettings } from '@shared-components/organisms/game-settings';
 
 import './style.css';
 
