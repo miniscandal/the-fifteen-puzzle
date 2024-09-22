@@ -12,10 +12,10 @@ export default defineConfig({
             '@shared-components': '/src/shared/components/',
             '@shared-logic': '/src/shared/logic/',
 
-            '@feature-practice-screen': '/src/feature-practice-screen',
+            '@feature-practice-screen': '/src/features/practice-screen',
 
-            '@feature-start-screen-main': '/src/feature-start-screen/main',
-            '@feature-start-screen-components': '/src/feature-start-screen/components'
+            '@feature-start-screen-main': '/src/features/start-screen/main',
+            '@feature-start-screen-components': '/src/features/start-screen/components'
         }
     }
 });
