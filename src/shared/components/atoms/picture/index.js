@@ -8,7 +8,7 @@ function Picture({
 
     return (
         `
-        <div class="picture moon" data-size=${size}> 
+        <div class="picture" data-size=${size}> 
             <img src=${src} alt=${alt} />
         </div>
         `

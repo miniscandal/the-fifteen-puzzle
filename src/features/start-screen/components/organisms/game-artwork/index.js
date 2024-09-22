@@ -13,7 +13,9 @@ function GameArtwork() {
     return (
         `
         <section class="game-artwork">
-            ${picture}
+            <div class="game-artwork__div">
+                ${picture}
+            </div>
             ${gridFrameFourByFour}
         </section>
         `

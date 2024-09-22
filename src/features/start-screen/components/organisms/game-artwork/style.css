@@ -3,3 +3,24 @@
     justify-content: center;
     align-items: center;
 }
+
+body[data-theme-color='dark'] {
+    .game-artwork__div {
+        border-radius: 100%;
+        background:
+            radial-gradient(circle,
+                var(--color-parchment),
+                var(--color-dove-gray),
+                var(--color-slate));
+    }
+}
+
+body[data-theme-color='light'] {
+    .game-artwork__div {
+        border-radius: 100%;
+        background:
+            radial-gradient(circle,
+                var(--color-amber),
+                var(--color-honey));
+    }
+}

@@ -27,18 +27,3 @@
     border-radius: 100%;
     transform: scaleX(-1);
 }
-
-.picture.moon {
-    background:
-        radial-gradient(circle,
-            var(--color-parchment),
-            var(--color-dove-gray),
-            var(--color-slate));
-}
-
-.picture.sun {
-    background:
-        radial-gradient(circle,
-            var(--color-amber),
-            var(--color-honey));
-}
