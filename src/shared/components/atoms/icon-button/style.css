@@ -15,12 +15,8 @@
     }
 }
 
-.icon-button svg {
-    color: magenta;
-}
-
 .icon-button:hover {
-    transform: scale3d(1.5, 1.5, 1.5);
+    transform: var(--scale3d);
 }
 
 .icon-button[data-size=small] {
@@ -33,12 +29,12 @@
     height: 40px;
 }
 
-.picture[data-size=medium] {
+.icon-button[data-size=medium] {
     width: 60px;
     height: 60px;
 }
 
-.picture[data-size=large] {
+.icon-button[data-size=large] {
     width: 80px;
     height: 80px;
 }
