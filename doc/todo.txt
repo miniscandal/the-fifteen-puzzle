@@ -1,5 +1,5 @@
 ⚝ Redefine the logic for the screen template; it has the potential to become a feature
-⚝ Improve the color palette for the dark theme
-⚝ Use data property for GridFrameFourByFour component, declare num of rows and columns
 ⚝ Implement width and height for GridFrameFourByFour component in css styles
+⚝ Update data-size property custom of the type "anime-character-start-screen" for picture component
+⚝ Rename SquareTile component
 ⚝
