@@ -1,26 +1,27 @@
 .square-tile {
-    width: 100px;
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
     font-weight: bold;
     color: var(--color-chestnut);
     text-shadow: 0 0 2px var(--color-cinnamon);
-    border: solid 1px var(--color-chestnut);
     border-radius: 4px;
     background-color: var(--color-terracotta);
     box-shadow:
-        inset 0 0 10px var(--color-burgundy),
-        inset 0 0 20px var(--color-copper),
-        0 0 10px var(--color-coral);
+        inset 0 0 4px var(--color-burgundy),
+        inset 0 0 6px var(--color-copper),
+        inset 0 0 8px var(--color-coral);
     background-image: url(@assets-textures/vectors/wood-texture-light.svg);
 }
 
-.square-tile:hover {
+.square-tile[data-play-enabled=true]:hover {
     cursor: pointer;
     filter: brightness(1.1);
+}
+
+.square-tile[data-play-enabled=false]:hover {
+    filter: none;
+    cursor: default;
 }
 
 .square-tile[data-id='0'] {
@@ -30,4 +31,21 @@
 .square-tile.move {
     grid-column: 1;
     grid-row: 1;
+}
+
+.square-tile[data-size='small'] {
+    width: 60px;
+    height: 60px;
+}
+
+
+.square-tile[data-size='regular'] {
+    width: 100px;
+    height: 100px;
+}
+
+.square-tile[data-size='auto'] {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
 }

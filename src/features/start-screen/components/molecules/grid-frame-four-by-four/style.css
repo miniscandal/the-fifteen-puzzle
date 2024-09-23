@@ -2,20 +2,26 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    border-radius: 4px;
+    background-color: var(--color-chestnut);
+    box-shadow:
+        inset 0 0 4px var(--color-mocha),
+        inset 0 0 6px var(--color-chestnut),
+        inset 0 0 8px var(--color-coral);
 }
 
 .grid-frame-four-by-four[data-size='small'] {
-    transform: scale(0.8);
+    width: 500px;
+    height: 500px;
 }
 
 .grid-frame-four-by-four[data-size='regular'] {
-    width: fit-content;
+    width: 310px;
+    height: 310px;
+    font-size: 2rem;
 }
 
 
-.grid-frame-four-by-four[data-play='false'] {
-    .square-tile {
-        filter: none;
-        cursor: default;
-    }
+.grid-frame-four-by-four[data-size='medium'] {
+    width: fit-content;
 }

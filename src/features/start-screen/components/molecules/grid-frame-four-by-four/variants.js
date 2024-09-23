@@ -1,7 +1,10 @@
 const gridFrameFourByFourArt = {
-    play: false,
-    unit: 4,
-    size: 'small'
+    playEnabled: false,
+    size: 'regular',
+    squareTile: {
+        size: 'auto',
+        playEnabled: false
+    }
 };
 
 export { gridFrameFourByFourArt };
