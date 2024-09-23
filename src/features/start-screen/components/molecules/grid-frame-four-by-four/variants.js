@@ -1,7 +1,7 @@
 const gridFrameFourByFourArt = {
     playEnabled: false,
     size: 'regular',
-    squareTile: {
+    puzzleTile: {
         size: 'auto',
         playEnabled: false
     }
