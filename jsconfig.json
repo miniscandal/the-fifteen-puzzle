@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src/",
+        "paths": {
+            "@assets-icons/*": [
+                "assets/icons/*"
+            ],
+            "@assets-images/*": [
+                "assets/images/*"
+            ],
+            "@assets-textures/*": [
+                "assets/textures/*"
+            ],
+            "@core-game/*": [
+                "core/game/*"
+            ],
+            "@shared-components/*": [
+                "shared/components/*"
+            ],
+            "@shared-logic/*": [
+                "shared/logic/*"
+            ],
+            "@feature-practice-screen/*": [
+                "feature/practice-screen/main/*"
+            ],
+            "@feature-start-screen-main/*": [
+                "features/start-screen/main/*"
+            ],
+            "@feature-start-screen-components/*": [
+                "features/start-screen/components/*"
+            ]
+        }
+    }
+}
