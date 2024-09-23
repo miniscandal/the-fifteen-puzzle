@@ -1,5 +1,1 @@
-⚝ Redefine the logic for the screen template; it has the potential to become a feature
-⚝ Implement width and height for GridFrameFourByFour component in css styles
-⚝ Update data-size property custom of the type "anime-character-start-screen" for picture component
-⚝ Rename SquareTile component
-⚝
+⚝ Redefine the logic for the screen template; it has the potential to become a feature⚝
