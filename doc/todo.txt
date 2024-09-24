@@ -1,1 +1,2 @@
 ⚝ Redefine the logic for the screen template; it has the potential to become a feature⚝
+⚝ GameArtwork update, color theme selection is no longer tied to the body element

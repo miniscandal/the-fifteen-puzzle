@@ -20,10 +20,3 @@
     width: 150px;
     height: 150px;
 }
-
-.picture[data-size=anime-character-regular] {
-    width: 350px;
-    height: 350px;
-    border-radius: 100%;
-    transform: scaleX(-1);
-}
