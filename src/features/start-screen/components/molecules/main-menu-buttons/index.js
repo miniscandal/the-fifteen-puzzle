@@ -4,7 +4,10 @@ import './style.css';
 
 function mainMenuButtonsLogic({ game, screens }) {
     document.getElementById('select-practice-screen').addEventListener('click', () => {
-        game.screen.render(screens.practice({ game, screens }));
+        const { html, logic, name } = screens.practice({ game, screens });
+        game.screen.htmlRender({ html });
+        game.screen.setupLogic({ logic });
+        game.screen.name = name;
     });
 }
 

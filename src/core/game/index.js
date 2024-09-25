@@ -1,11 +1,10 @@
 const Game = {
     screen: {
-        render: function ({ html, logic, name }) {
+        htmlRender: ({ html }) => {
             document.querySelector('#app').innerHTML = html;
-            logic();
-            this.current = name;
         },
-        current: undefined
+        setupLogic: ({ logic }) => logic(),
+        name: undefined
     },
     theme: {
         current: 'light'

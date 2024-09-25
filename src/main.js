@@ -4,4 +4,8 @@ import { Screens } from '@shared-logic/screens/game-screens.js';
 
 import './main.css';
 
-Game.screen.render(Screens.start({ game: Game, screens: Screens }));
+const { html, logic, name } = Screens.start({ game: Game, screens: Screens });
+
+Game.screen.htmlRender({ html });
+Game.screen.setupLogic({ logic });
+Game.screen.name = name;
