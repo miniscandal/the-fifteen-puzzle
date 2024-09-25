@@ -2,13 +2,13 @@ import { StartScreen } from '@feature-start-screen-main';
 import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
 import { mainMenuButtonsLogic } from '@feature-start-screen-components/molecules/main-menu-buttons';
 
-function startScreenSetup({ game, screens }) {
+function startScreenSetup({ Game, Screens }) {
 
     return {
-        html: StartScreen({ game }),
+        html: StartScreen({ Game }),
         logic: () => {
-            gameSettingsLogic({ game, screens });
-            mainMenuButtonsLogic({ game, screens });
+            gameSettingsLogic({ Game, Screens });
+            mainMenuButtonsLogic({ Game, Screens });
         },
         name: 'start'
     };

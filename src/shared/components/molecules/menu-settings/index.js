@@ -2,20 +2,20 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import './style.css';
 
-function menuSettingsLogic({ game, screens }) {
-    const mainMenu = ({ game, screens }) => {
-        game.screen.render(screens.start({ game, screens }));
+function menuSettingsLogic({ Game, Screens }) {
+    const mainMenu = ({ Game, Screens }) => {
+        Game.screen.render(Screens.start({ Game, Screens }));
     };
 
-    if (game.screen.current === 'start') {
+    if (Game.screen.current === 'start') {
         document.getElementById('main-menu').addEventListener('click', () => {
-            mainMenu({ game, screens });
+            mainMenu({ Game, Screens });
         });
     }
 }
 
-function MenuSettings({ game }) {
-    const iconButtonMainMenu = game.screen.current === 'start'
+function MenuSettings({ Game }) {
+    const iconButtonMainMenu = Game.screen.current === 'start'
         ? ButtonSelectScreen({ text: 'end game', id: 'main-menu' })
         : '';
 

@@ -2,12 +2,12 @@ import { PracticeScreen } from '@feature-practice-screen';
 
 import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
 
-function practiceScreenSetup({ game, screens }) {
+function practiceScreenSetup({ Game, Screens }) {
 
     return {
-        html: PracticeScreen({ game }),
+        html: PracticeScreen({ Game }),
         logic: () => {
-            gameSettingsLogic({ game, screens });
+            gameSettingsLogic({ Game, Screens });
         },
         name: 'practice'
     };

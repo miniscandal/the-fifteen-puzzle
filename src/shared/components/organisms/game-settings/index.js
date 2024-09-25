@@ -6,18 +6,18 @@ import { menuSettingsLogic } from '@shared-components/molecules/menu-settings';
 
 import './style.css';
 
-function gameSettingsLogic({ game, screens }) {
-    applicationThemeLogic({ game });
-    menuSettingsLogic({ game, screens });
+function gameSettingsLogic({ Game, Screens }) {
+    applicationThemeLogic({ Game });
+    menuSettingsLogic({ Game, Screens });
 }
 
-function GameSettings({ game }) {
-    const applicationTheme = ApplicationTheme({ game });
-    const menuSettings = MenuSettings({ game });
+function GameSettings({ Game }) {
+    const applicationTheme = ApplicationTheme({ Game });
+    const menuSettings = MenuSettings({ Game });
 
     return (
         `
-        <section class="game-settings">
+        <section class="Game-settings">
             ${applicationTheme}
             ${menuSettings}
         </section>

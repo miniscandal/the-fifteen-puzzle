@@ -2,12 +2,12 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import './style.css';
 
-function mainMenuButtonsLogic({ game, screens }) {
+function mainMenuButtonsLogic({ Game, Screens }) {
     document.getElementById('select-practice-screen').addEventListener('click', () => {
-        const { html, logic, name } = screens.practice({ game, screens });
-        game.screen.htmlRender({ html });
-        game.screen.setupLogic({ logic });
-        game.screen.name = name;
+        const { html, logic, name } = Screens.practice({ Game, Screens });
+        Game.screen.htmlRender({ html });
+        Game.screen.setupLogic({ logic });
+        Game.screen.name = name;
     });
 }
 
