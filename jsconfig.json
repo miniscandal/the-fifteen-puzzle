@@ -20,7 +20,7 @@
             "@shared-logic/*": [
                 "shared/logic/*"
             ],
-            "@feature-practice-screen/*": [
+            "@feature-practice-screen-main/*": [
                 "feature/practice-screen/main/*"
             ],
             "@feature-start-screen-main/*": [

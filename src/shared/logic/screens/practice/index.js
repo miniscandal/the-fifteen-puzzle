@@ -1,4 +1,4 @@
-import { PracticeScreen } from '@feature-practice-screen';
+import { PracticeScreen } from '@feature-practice-screen-main';
 
 import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
 
