@@ -7,10 +7,10 @@ export default defineConfig({
             '@assets-images': '/src/assets/images',
             '@assets-textures': '/src/assets/textures',
 
-            '@core-game': '/src/core/game',
+            '@core-game-management': '/src/core/game-management',
+            '@core-screen-management': '/src/core/screen-management',
 
             '@shared-components': '/src/shared/components/',
-            '@shared-logic': '/src/shared/logic/',
 
             '@feature-practice-screen-main': '/src/features/practice-screen/main',
 

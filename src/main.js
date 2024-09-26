@@ -1,6 +1,6 @@
-import { Game } from '@core-game/index.js';
+import { Game } from '@core-game-management/main';
 
-import { Screens } from '@shared-logic/screens/game-screens.js';
+import { Screens } from '@core-screen-management/main';
 
 import './main.css';
 

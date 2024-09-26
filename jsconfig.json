@@ -11,14 +11,14 @@
             "@assets-textures/*": [
                 "assets/textures/*"
             ],
-            "@core-game/*": [
-                "core/game/*"
+            "@core-game-management/*": [
+                "core/game-management/*"
+            ],
+            "@core-screen-management/*": [
+                "core/screen-management/*"
             ],
             "@shared-components/*": [
                 "shared/components/*"
-            ],
-            "@shared-logic/*": [
-                "shared/logic/*"
             ],
             "@feature-practice-screen-main/*": [
                 "feature/practice-screen/main/*"
