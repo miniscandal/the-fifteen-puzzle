@@ -21,14 +21,11 @@
                 "shared/components/*"
             ],
             "@feature-practice-screen-main/*": [
-                "feature/practice-screen/main/*"
+                "features/practice-screen/*"
             ],
-            "@feature-start-screen-main/*": [
-                "features/start-screen/main/*"
+            "@feature-start-screen/*": [
+                "features/start-screen/*"
             ],
-            "@feature-start-screen-components/*": [
-                "features/start-screen/components/*"
-            ]
         }
     }
 }

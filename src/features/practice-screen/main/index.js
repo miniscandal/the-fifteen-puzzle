@@ -12,6 +12,8 @@ function PracticeScreen({ Game }) {
         `
         <article class="practice-screen">
             ${titleH2}
+            <div>game play</div>
+            <div>messages</div>
         </article>
         `
     );

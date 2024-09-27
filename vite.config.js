@@ -10,12 +10,11 @@ export default defineConfig({
             '@core-game-management': '/src/core/game-management',
             '@core-screen-management': '/src/core/screen-management',
 
-            '@shared-components': '/src/shared/components/',
+            '@shared-components': '/src/shared/components',
 
             '@feature-practice-screen-main': '/src/features/practice-screen/main',
 
-            '@feature-start-screen-main': '/src/features/start-screen/main',
-            '@feature-start-screen-components': '/src/features/start-screen/components'
+            '@feature-start-screen': '/src/features/start-screen',
         }
     }
 });

@@ -1,6 +1,6 @@
 .game-settings {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     gap: var(--gap-uniform);
     border-radius: var(--border-radius-uniform);
 }

@@ -1,5 +1,4 @@
-import { PracticeScreen } from '@feature-practice-screen-main';
-
+import { PracticeScreen } from '@feature-practice-screen-main/index';
 import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
 
 function practiceScreenSetup({ Game, Screens }) {

@@ -1,11 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
-    <!-- Definición del gradiente gris -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <defs>
         <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#D0D0D0;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#A0A0A0;stop-opacity:1" />
         </linearGradient>
     </defs>
-    <!-- Círculo de la luna con gradiente gris -->
-    <path fill="url(#moonGradient)" stroke="#B0B0B0" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    
+    <path
+        fill="url(#moonGradient)"
+        stroke="#B0B0B0"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+    />
 </svg>

@@ -2,7 +2,6 @@
     display: block;
     background: transparent;
     border: none;
-    cursor: pointer;
     position: relative;
     transition: transform 0.3s linear;
 
@@ -17,7 +16,7 @@
 }
 
 .icon-button:hover {
-    transform: var(--scale3d);
+    cursor: pointer;
 }
 
 .icon-button[data-size=small] {

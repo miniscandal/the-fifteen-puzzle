@@ -27,7 +27,7 @@ function MenuSettings({ Game }) {
 
     return (
         `
-        <div class="menu-settings">
+        <div>
             ${iconButtonMainMenu}
         </div>
         `

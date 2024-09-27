@@ -1,8 +1,8 @@
 import { Screen } from '@shared-components/templates/screen';
 import { TitleH1 } from '@shared-components/atoms/title-h1';
 
-import { GameArtwork } from '@feature-start-screen-components/organisms/game-artwork';
-import { GameMainOptions } from '@feature-start-screen-components/organisms/game-main-options';
+import { GameArtwork } from '@feature-start-screen/components/organisms/game-artwork';
+import { GameMainOptions } from '@feature-start-screen/components/organisms/game-main-options';
 
 import './style.css';
 
