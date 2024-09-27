@@ -9,7 +9,7 @@ function applicationThemeLogic({ Game }) {
         const body = document.querySelector('body');
         const isLightTheme = body.dataset.themeColor === 'light';
         body.dataset.themeColor = isLightTheme ? 'dark' : 'light';
-        Game.theme.current = body.dataset.themeColor;
+        Game.theme.currentName = body.dataset.themeColor;
 
         const iconButtonTheme = document.getElementById('theme');
         iconButtonTheme.dataset.name = isLightTheme ? iconSun : iconMoon;
@@ -19,8 +19,9 @@ function applicationThemeLogic({ Game }) {
 }
 
 function ApplicationTheme({ Game }) {
-    const themeCurrent = Game.theme.current;
-    const iconButtonTheme = IconButton({ id: 'theme', name: themeCurrent === 'light' ? iconMoon : iconSun, size: 'small' });
+    const themeCurrent = Game.theme.currentName;
+    const iconName = themeCurrent === 'light' ? iconMoon : iconSun;
+    const iconButtonTheme = IconButton({ id: 'theme', name: iconName, size: 'small' });
 
     return (
         `

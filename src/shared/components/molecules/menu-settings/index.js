@@ -4,10 +4,14 @@ import './style.css';
 
 function menuSettingsLogic({ Game, Screens }) {
     const mainMenu = ({ Game, Screens }) => {
-        Game.screen.render(Screens.start({ Game, Screens }));
+        const { html, logic, name } = Screens.start({ Game, Screens });
+
+        Game.screen.htmlRender({ html });
+        Game.screen.setupLogic({ logic });
+        Game.screen.currentName = name;
     };
 
-    if (Game.screen.current === 'start') {
+    if (Game.screen.currentName === 'start') {
         document.getElementById('main-menu').addEventListener('click', () => {
             mainMenu({ Game, Screens });
         });
@@ -15,7 +19,7 @@ function menuSettingsLogic({ Game, Screens }) {
 }
 
 function MenuSettings({ Game }) {
-    const iconButtonMainMenu = Game.screen.current === 'start'
+    const iconButtonMainMenu = Game.screen.currentName === 'start'
         ? ButtonSelectScreen({ text: 'end game', id: 'main-menu' })
         : '';
 

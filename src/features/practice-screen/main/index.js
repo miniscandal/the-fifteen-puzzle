@@ -1,6 +1,8 @@
 import { TitleH2 } from '@shared-components/atoms/title-h2';
 import { Screen } from '@shared-components/templates/screen';
 
+import './style.css';
+
 function PracticeScreen({ Game }) {
     const titleH2 = TitleH2({
         text: 'Select Practice Puzzle'
@@ -8,7 +10,7 @@ function PracticeScreen({ Game }) {
 
     const children = (
         `
-        <article>
+        <article class="practice-screen">
             ${titleH2}
         </article>
         `

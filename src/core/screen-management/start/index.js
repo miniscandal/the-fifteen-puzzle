@@ -1,4 +1,4 @@
-import { StartScreen } from '@feature-start-screen-main';
+import { StartScreen } from '@feature-start-screen-main/index';
 import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
 import { mainMenuButtonsLogic } from '@feature-start-screen-components/molecules/main-menu-buttons';
 

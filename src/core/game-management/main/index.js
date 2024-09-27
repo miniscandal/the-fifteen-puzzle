@@ -4,10 +4,10 @@ const Game = {
             document.querySelector('#app').innerHTML = html;
         },
         setupLogic: ({ logic }) => logic(),
-        name: undefined
+        currentName: undefined
     },
     theme: {
-        current: 'light'
+        currentName: 'light'
     }
 };
 
