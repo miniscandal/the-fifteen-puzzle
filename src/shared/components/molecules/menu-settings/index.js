@@ -20,7 +20,7 @@ function menuSettingsLogic({ Game, Screens }) {
 
 function MenuSettings({ Game }) {
     const iconButtonMainMenu = Game.screen.currentName === 'start'
-        ? ButtonSelectScreen({ text: 'end game', id: 'main-menu' })
+        ? ButtonSelectScreen({ text: 'back', id: 'main-menu' })
         : '';
 
     return (
