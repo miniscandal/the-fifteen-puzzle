@@ -19,13 +19,15 @@ function menuSettingsLogic({ Game, Screens }) {
 }
 
 function MenuSettings({ Game }) {
-    const iconButtonMainMenu = Game.screen.currentName === 'start'
-        ? ButtonSelectScreen({ text: 'back', id: 'main-menu' })
-        : '';
+    if (Game.screen.currentName !== 'start') {
+        return '';
+    }
+
+    const iconButtonMainMenu = ButtonSelectScreen({ text: 'back', id: 'main-menu' });
 
     return (
         `
-        <div>
+        <div class="menu-settings">
             ${iconButtonMainMenu}
         </div>
         `

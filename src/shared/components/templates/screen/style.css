@@ -1,13 +1,12 @@
 .screen {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: auto;
-    padding: var(--padding-uniform);
     max-width: 800px;
+    height: 650px;
+    padding: var(--padding-uniform);
     border-radius: var(--border-radius-uniform);
-    gap: var(--gap-uniform);
-
-
 }
 
 body[data-theme-color='light'] {
