@@ -3,7 +3,7 @@ import { Screen } from '@shared-components/templates/screen';
 
 import './style.css';
 
-function PracticeScreen({ Game }) {
+function PracticeScreen({ Game, screenId }) {
     const titleH2 = TitleH2({
         text: 'Select Practice Puzzle'
     });
@@ -20,7 +20,8 @@ function PracticeScreen({ Game }) {
 
     return Screen({
         children,
-        Game
+        Game,
+        screenId
     });
 }
 export { PracticeScreen };

@@ -6,7 +6,7 @@ import { GameMainOptions } from '@feature-start-screen/components/organisms/game
 
 import './style.css';
 
-function StartScreen({ Game }) {
+function StartScreen({ Game, screenId }) {
     const titleH1 = TitleH1({
         text: 'THE FIFTEEN PUZZLE'
     });
@@ -25,7 +25,8 @@ function StartScreen({ Game }) {
 
     return Screen({
         children,
-        Game
+        Game,
+        screenId
     });
 }
 

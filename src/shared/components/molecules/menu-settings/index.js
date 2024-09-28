@@ -2,7 +2,7 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import './style.css';
 
-function menuSettingsLogic({ Game, Screens }) {
+function menuSettingsLogic({ Game, Screens, screenId }) {
     const mainMenu = ({ Game, Screens }) => {
         const { html, logic, name } = Screens.start({ Game, Screens });
 
@@ -11,19 +11,21 @@ function menuSettingsLogic({ Game, Screens }) {
         Game.screen.currentName = name;
     };
 
-    if (Game.screen.currentName === 'start') {
-        document.getElementById('main-menu').addEventListener('click', () => {
-            mainMenu({ Game, Screens });
-        });
+    if (screenId === 'start') {
+        return;
     }
+
+    document.getElementById('back').addEventListener('click', () => {
+        mainMenu({ Game, Screens });
+    });
 }
 
-function MenuSettings({ Game }) {
-    if (Game.screen.currentName !== 'start') {
+function MenuSettings({ screenId }) {
+    if (screenId === 'start') {
         return '';
     }
 
-    const iconButtonMainMenu = ButtonSelectScreen({ text: 'back', id: 'main-menu' });
+    const iconButtonMainMenu = ButtonSelectScreen({ text: 'back', id: 'back' });
 
     return (
         `

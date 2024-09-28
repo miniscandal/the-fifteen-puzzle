@@ -4,8 +4,8 @@ import { practiceScreenSetup } from '@core-screen-management/practice';
 
 
 const Screens = {
-    start: startScreenSetup,
-    practice: practiceScreenSetup
+    start: ({ ...core }) => startScreenSetup({ ...core, screenId: 'start' }),
+    practice: ({ ...core }) => practiceScreenSetup({ ...core, screenId: 'practice' })
 };
 
 export { Screens };

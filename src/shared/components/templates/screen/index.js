@@ -2,8 +2,8 @@ import { GameSettings } from '@shared-components/organisms/game-settings';
 
 import './style.css';
 
-function Screen({ children, Game }) {
-    const gameSettings = GameSettings({ Game });
+function Screen({ children, Game, screenId }) {
+    const gameSettings = GameSettings({ Game, screenId });
 
     return (
         `

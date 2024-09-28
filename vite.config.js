@@ -12,7 +12,7 @@ export default defineConfig({
 
             '@shared-components': '/src/shared/components',
 
-            '@feature-practice-screen-main': '/src/features/practice-screen/main',
+            '@feature-practice-screen': '/src/features/practice-screen',
 
             '@feature-start-screen': '/src/features/start-screen',
         }
