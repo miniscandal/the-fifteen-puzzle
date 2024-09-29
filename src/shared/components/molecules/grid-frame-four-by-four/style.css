@@ -11,8 +11,8 @@
 }
 
 .grid-frame-four-by-four[data-size='small'] {
-    width: 500px;
-    height: 500px;
+    width: 160px;
+    height: 160px;
 }
 
 .grid-frame-four-by-four[data-size='regular'] {

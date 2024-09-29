@@ -6,3 +6,9 @@
     height: 100%;
     gap: var(--gap-uniform);
 }
+
+.practice-screen__section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-uniform);
+}
