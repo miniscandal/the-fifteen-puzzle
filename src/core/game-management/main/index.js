@@ -6,6 +6,12 @@ const Game = {
         setupLogic: ({ logic }) => logic(),
         currentName: undefined
     },
+    puzzle: {
+        id: undefined,
+        permutation: [],
+        state: [],
+        solved: false
+    },
     theme: {
         currentName: 'light'
     }

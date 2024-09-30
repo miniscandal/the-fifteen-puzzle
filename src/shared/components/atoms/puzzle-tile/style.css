@@ -17,11 +17,12 @@
 .puzzle-tile[data-play-enabled=true]:hover {
     cursor: pointer;
     filter: brightness(1.1);
+
 }
 
 .puzzle-tile[data-play-enabled=false]:hover {
     filter: none;
-    cursor: default;
+    pointer-events: none;
 }
 
 .puzzle-tile[data-id='0'] {

@@ -1,6 +1,7 @@
 const gridFrameFourByFourArt = {
     playEnabled: false,
     size: 'regular',
+    permutation: [],
     puzzleTile: {
         size: 'auto',
         playEnabled: false
@@ -8,8 +9,9 @@ const gridFrameFourByFourArt = {
 };
 
 const gridFrameFourByFourPractice = {
-    playEnabled: false,
+    playEnabled: true,
     size: 'small',
+    permutation: [],
     puzzleTile: {
         size: 'auto',
         playEnabled: false

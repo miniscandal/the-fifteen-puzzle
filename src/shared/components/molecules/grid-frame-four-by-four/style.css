@@ -11,8 +11,8 @@
 }
 
 .grid-frame-four-by-four[data-size='small'] {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
 }
 
 .grid-frame-four-by-four[data-size='regular'] {
@@ -21,7 +21,16 @@
     font-size: 2rem;
 }
 
-
 .grid-frame-four-by-four[data-size='medium'] {
     width: fit-content;
+}
+
+.grid-frame-four-by-four[data-play-enabled=true]:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.grid-frame-four-by-four[data-play-enabled=false]:hover {
+    cursor: default;
+    filter: none;
 }

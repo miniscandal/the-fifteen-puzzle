@@ -1,0 +1,12 @@
+3, 1, 2, 4, 5, 0, 6, 7, 8, 9, 11, 10, 12, 13, 15, 14
+
+16 / 4 = 
+
+
+3, 1, 2, 4
+5, 0, 6, 7
+8, 9, 11, 10
+12, 13, 15, 14
+
+
+const puzzle = Object.values(puzzles).find(puzzle => puzzle.id === id);
