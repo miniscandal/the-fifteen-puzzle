@@ -10,17 +10,6 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import './style.css';
 
-function practiceScreenLogic({ Game }) {
-    document.getElementById('practice-screen__puzzles').addEventListener('click', (event) => {
-        if (!event.target || !event.target.getAttribute('data-puzzle-id')) {
-            return;
-        }
-
-        const element = event.target;
-        Game.puzzle.id = element.getAttribute(['data-puzzle-id']);
-    });
-};
-
 function PracticeScreen({ Game, screenId }) {
     const titleH2 = TitleH2({
         text: 'Select Practice Puzzle'
@@ -39,7 +28,7 @@ function PracticeScreen({ Game, screenId }) {
         return gridFrameFourByFour;
     });
 
-    const buttonSelectScreen = ButtonSelectScreen({ text: 'play', id: 'select-gameplay-screen' });
+    const buttonSelectScreen = ButtonSelectScreen({ text: 'play', id: 'select-play-screen' });
 
     const children = (
         `
@@ -62,4 +51,5 @@ function PracticeScreen({ Game, screenId }) {
         screenId
     });
 }
-export { PracticeScreen, practiceScreenLogic };
+
+export { PracticeScreen };

@@ -26,6 +26,9 @@
             "@feature-start-screen/*": [
                 "features/start-screen/*"
             ],
+            "@feature-play-screen/*": [
+                "features/play-screen/*"
+            ],
         }
     }
 }

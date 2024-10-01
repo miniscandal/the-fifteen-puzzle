@@ -15,6 +15,8 @@ export default defineConfig({
             '@feature-practice-screen': '/src/features/practice-screen',
 
             '@feature-start-screen': '/src/features/start-screen',
+
+            '@feature-play-screen': '/src/features/play-screen'
         }
     }
 });
