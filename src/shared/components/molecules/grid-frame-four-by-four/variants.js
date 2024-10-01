@@ -1,7 +1,9 @@
+import { puzzles } from '@core-game-management/permutations';
+
 const gridFrameFourByFourArt = {
     playEnabled: false,
     size: 'regular',
-    permutation: [],
+    puzzle: puzzles.permutationA5,
     puzzleTile: {
         size: 'auto',
         playEnabled: false
@@ -11,7 +13,7 @@ const gridFrameFourByFourArt = {
 const gridFrameFourByFourPractice = {
     playEnabled: true,
     size: 'small',
-    permutation: [],
+    gamePlaySettings: undefined,
     puzzleTile: {
         size: 'auto',
         playEnabled: false

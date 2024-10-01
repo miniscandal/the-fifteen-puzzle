@@ -5,10 +5,10 @@ import './style.css';
 function GridFrameFourByFour({
     playEnabled = false,
     size = 'regular',
-    gamePlaySettings = {},
+    puzzle = {},
     puzzleTile = {}
 }) {
-    const { id = '', permutation = [] } = gamePlaySettings;
+    const { id = '', permutation = [] } = puzzle;
 
     const generatePermutation = () => {
         return Array.from({ length: 16 }, (_, index) => index);

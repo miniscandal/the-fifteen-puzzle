@@ -6,9 +6,9 @@ import { puzzles } from '@core-game-management/permutations';
 import { GridFrameFourByFour } from '@shared-components/molecules/grid-frame-four-by-four';
 import { gridFrameFourByFourPractice } from '@shared-components/molecules/grid-frame-four-by-four/variants';
 
-import './style.css';
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
+import './style.css';
 
 function practiceScreenLogic({ Game }) {
     document.getElementById('practice-screen__puzzles').addEventListener('click', (event) => {
@@ -33,7 +33,7 @@ function PracticeScreen({ Game, screenId }) {
 
         const gridFrameFourByFour = GridFrameFourByFour({
             ...gridFrameFourByFourPractice,
-            gamePlaySettings: puzzle
+            puzzle: puzzle
         });
 
         return gridFrameFourByFour;
