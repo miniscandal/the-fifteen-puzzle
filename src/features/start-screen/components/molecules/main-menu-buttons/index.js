@@ -1,14 +1,11 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
+import { selectPracticeScreen } from '@core-game-management/select-screen';
+
 import './style.css';
 
 function mainMenuButtonsLogic({ Game, Screens }) {
-    document.getElementById('select-practice-screen').addEventListener('click', () => {
-        const { html, logic, name } = Screens.practice({ Game, Screens });
-        Game.screen.htmlRender({ html });
-        Game.screen.setupLogic({ logic });
-        Game.screen.currentName = name;
-    });
+    selectPracticeScreen({ Game, Screens });
 }
 
 function MainMenuButtons() {
@@ -19,12 +16,12 @@ function MainMenuButtons() {
         { text: 'settings', id: 'select-settings-screen' },
     ];
 
-    const buttonElement = buttons.map((properties) => ButtonSelectScreen(properties));
+    const buttonElements = buttons.map((properties) => ButtonSelectScreen(properties));
 
     return (
         `
         <div class="main-menu-buttons">
-            ${buttonElement.join('')}
+            ${buttonElements.join('')}
         </div>
         `
     );

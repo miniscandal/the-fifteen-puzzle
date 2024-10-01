@@ -1,4 +1,5 @@
 ⚝ Redefine the logic for the screen template; it has the potential to become a feature⚝
 ⚝ GameArtwork update, color theme selection is no longer tied to the body element
 ⚝ Generate random permutation for the state
+⚝ Create constant for literal as id button 'select-gameplay-screen'
 ⚝

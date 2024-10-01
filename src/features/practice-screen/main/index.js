@@ -7,6 +7,7 @@ import { GridFrameFourByFour } from '@shared-components/molecules/grid-frame-fou
 import { gridFrameFourByFourPractice } from '@shared-components/molecules/grid-frame-four-by-four/variants';
 
 import './style.css';
+import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
 
 function practiceScreenLogic({ Game }) {
@@ -38,20 +39,7 @@ function PracticeScreen({ Game, screenId }) {
         return gridFrameFourByFour;
     });
 
-    /*
-    const gridFrameFourByFourElements = Object.keys(puzzles).map(key => {
-        if (!puzzles[key].playEnabled) {
-            return;
-        }
-
-        const gridFrameFourByFour = GridFrameFourByFour({
-            ...gridFrameFourByFourPractice,
-            gamePlaySettings: { ...puzzles[key], id: key },
-        });
-
-        return gridFrameFourByFour;
-    });
-    */
+    const buttonSelectScreen = ButtonSelectScreen({ text: 'play', id: 'select-gameplay-screen' });
 
     const children = (
         `
@@ -59,6 +47,9 @@ function PracticeScreen({ Game, screenId }) {
             ${titleH2}
             <section id="practice-screen__puzzles" class="practice-screen__section">
                 ${gridFrameFourByFourElements.join('')}
+            </section>
+            <section>
+                ${buttonSelectScreen}
             </section>
             <div>Game Tips...</div>
         </article>

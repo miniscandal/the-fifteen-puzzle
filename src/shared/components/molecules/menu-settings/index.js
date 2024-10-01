@@ -1,23 +1,10 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
 import './style.css';
+import { selectStartScreen } from '@core-game-management/select-screen';
 
 function menuSettingsLogic({ Game, Screens, screenId }) {
-    const mainMenu = ({ Game, Screens }) => {
-        const { html, logic, name } = Screens.start({ Game, Screens });
-
-        Game.screen.htmlRender({ html });
-        Game.screen.setupLogic({ logic });
-        Game.screen.currentName = name;
-    };
-
-    if (screenId === 'start') {
-        return;
-    }
-
-    document.getElementById('back').addEventListener('click', () => {
-        mainMenu({ Game, Screens });
-    });
+    selectStartScreen({ Game, Screens, screenId });
 }
 
 function MenuSettings({ screenId }) {
