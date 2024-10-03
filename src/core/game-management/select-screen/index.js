@@ -19,6 +19,8 @@ function selectStartScreen({ Game, Screens, screenId }) {
         Game.screen.htmlRender({ html });
         Game.screen.setupLogic({ logic });
         Game.screen.currentName = name;
+
+        Game.puzzle.id = undefined;
     };
 
     document.getElementById('back').addEventListener('click', () => {

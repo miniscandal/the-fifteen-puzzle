@@ -13,11 +13,22 @@ const gridFrameFourByFourArt = {
 const gridFrameFourByFourPractice = {
     playEnabled: true,
     size: 'small',
-    gamePlaySettings: undefined,
+    puzzle: undefined,
     puzzleTile: {
         size: 'auto',
         playEnabled: false
     }
 };
 
-export { gridFrameFourByFourArt, gridFrameFourByFourPractice };
+const gridFrameFourByFourPlay = {
+    playEnabled: true,
+    size: 'medium',
+    puzzle: undefined,
+    puzzleTile: {
+        size: 'auto',
+        playEnabled: false
+    }
+
+};
+
+export { gridFrameFourByFourArt, gridFrameFourByFourPractice, gridFrameFourByFourPlay };

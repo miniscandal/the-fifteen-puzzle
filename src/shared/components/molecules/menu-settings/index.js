@@ -1,7 +1,8 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
-import './style.css';
 import { selectStartScreen } from '@core-game-management/select-screen';
+
+import './style.css';
 
 function menuSettingsLogic({ Game, Screens, screenId }) {
     selectStartScreen({ Game, Screens, screenId });

@@ -6,8 +6,6 @@ function selectPuzzle({ Game }) {
 
         const element = event.target;
         Game.puzzle.id = element.getAttribute(['data-puzzle-id']);
-
-        console.log(Game);
     });
 };
 

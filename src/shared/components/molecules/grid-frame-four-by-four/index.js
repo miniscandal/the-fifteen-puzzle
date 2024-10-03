@@ -6,7 +6,7 @@ function GridFrameFourByFour({
     playEnabled = false,
     size = 'regular',
     puzzle = {},
-    puzzleTile = {}
+    puzzleTile = { size: 'auto', playEnabled: false }
 }) {
     const { id = '', permutation = [] } = puzzle;
 
