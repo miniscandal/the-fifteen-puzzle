@@ -13,6 +13,7 @@ export default defineConfig({
             '@shared-components': '/src/shared/components',
             '@shared-utils': '/src/shared/utils',
             '@shared-helpers': '/src/shared/helpers',
+            '@shared-constants': '/src/shared/constants',
 
             '@feature-practice-screen': '/src/features/practice-screen',
 

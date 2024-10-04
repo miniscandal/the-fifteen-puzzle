@@ -26,6 +26,9 @@
             "@shared-helpers/*": [
                 "shared/helpers/*"
             ],
+            "@shared-constants/*": [
+                "shared/constants/*"
+            ],
             "@feature-practice-screen/*": [
                 "features/practice-screen/*"
             ],

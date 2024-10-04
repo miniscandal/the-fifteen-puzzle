@@ -5,4 +5,6 @@
 ⚝ Change regular size to predefined size
 ⚝ Separate the logic for the theme and the game is the global Game object.
 ⚝ Remove the puzzle id in global Game object within the back button function.
-⚝
+⚝ Remove tile selected in practice screen
+⚝ Add helper puzzle in play screen
+⚝ 
