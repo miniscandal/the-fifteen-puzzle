@@ -29,6 +29,10 @@
     visibility: hidden;
 }
 
+.puzzle-tile[data-selectable=true] {
+    filter: brightness(120%);
+}
+
 .puzzle-tile.move {
     grid-column: 1;
     grid-row: 1;

@@ -1,6 +1,6 @@
 import './style.css';
 
-function PuzzleTile({ id = undefined, symbol = '?', size = 'regular', playEnabled = false }) {
+function PuzzleTile({ id = undefined, symbol = '?', size = 'regular', playEnabled = false, selectable = false }) {
 
     return (
         `
@@ -10,6 +10,7 @@ function PuzzleTile({ id = undefined, symbol = '?', size = 'regular', playEnable
             data-id=${id}
             data-size=${size}
             data-play-enabled=${playEnabled}
+            data-selectable=${selectable}
         >
             ${symbol}
         </div>

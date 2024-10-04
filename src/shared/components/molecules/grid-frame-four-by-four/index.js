@@ -5,7 +5,7 @@ import './style.css';
 function GridFrameFourByFour({
     playEnabled = false,
     size = 'regular',
-    puzzle = {},
+    puzzle = { id: '', permutation: [] },
     puzzleTile = { size: 'auto', playEnabled: false }
 }) {
     const { id = '', permutation = [] } = puzzle;
@@ -16,11 +16,43 @@ function GridFrameFourByFour({
 
     const items = permutation.length ? permutation : generatePermutation();
 
-    const puzzleTiles = items.map((symbol) => PuzzleTile({
+    const ceroTile = permutation.reduce((previousValue, currentValue, currentIndex) => {
+        return currentValue === 0 ? currentIndex : previousValue;
+    });
+
+    const row = Math.floor(ceroTile / 4);
+
+    let selectableTiles = [];
+
+    if (ceroTile - 1 >= 0) {
+        if (row === Math.floor((ceroTile - 1) / 4)) {
+            selectableTiles.push(ceroTile - 1);
+        }
+    }
+
+    if (ceroTile + 1 <= 15) {
+        if (row === Math.floor((ceroTile + 1) / 4)) {
+            selectableTiles.push(ceroTile + 1);
+        }
+
+    }
+
+    if (ceroTile - 4 >= 0) {
+        selectableTiles.push(ceroTile - 4);
+    }
+
+    if (ceroTile + 4 <= 15) {
+        selectableTiles.push(ceroTile + 4);
+    }
+
+
+    const puzzleTiles = items.map((symbol, index) => PuzzleTile({
         id: symbol,
         symbol: symbol,
+        selectable: selectableTiles.includes(index),
         ...puzzleTile
     }));
+
 
     return (
         `
