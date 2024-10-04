@@ -1,9 +1,10 @@
 import { puzzles } from '@core-game-management/permutations';
 import { GridFrameFourByFour } from '@shared-components/molecules/grid-frame-four-by-four';
 import { gridFrameFourByFourPlay } from '@shared-components/molecules/grid-frame-four-by-four/variants';
+import { generate16TilePermutation } from '@shared-utils/generate-permutation';
 
 function PuzzleGame({ Game }) {
-    let state = Array.from({ length: 16 }, (_, i) => i);
+    const state = generate16TilePermutation({ length: 16 });
 
     for (let i = state.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));

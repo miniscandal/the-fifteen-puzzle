@@ -11,6 +11,8 @@ export default defineConfig({
             '@core-screen-management': '/src/core/screen-management',
 
             '@shared-components': '/src/shared/components',
+            '@shared-utils': '/src/shared/utils',
+            '@shared-helpers': '/src/shared/helpers',
 
             '@feature-practice-screen': '/src/features/practice-screen',
 

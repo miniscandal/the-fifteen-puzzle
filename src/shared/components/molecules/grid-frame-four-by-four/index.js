@@ -1,4 +1,6 @@
 import { PuzzleTile } from '@shared-components/atoms/puzzle-tile';
+import { generate16TilePermutation } from '@shared-utils/generate-permutation';
+import { getMovableTileIndices } from '@shared-helpers/get-movable-tile-indices';
 
 import './style.css';
 
@@ -10,49 +12,18 @@ function GridFrameFourByFour({
 }) {
     const { id = '', permutation = [] } = puzzle;
 
-    const generatePermutation = () => {
-        return Array.from({ length: 16 }, (_, index) => index);
-    };
+    const tileOrder = permutation.length ? permutation : generate16TilePermutation({ length: 16 });
 
-    const items = permutation.length ? permutation : generatePermutation();
+    const emptyTileIndex = tileOrder.findIndex(value => value === 0);
 
-    const ceroTile = permutation.reduce((previousValue, currentValue, currentIndex) => {
-        return currentValue === 0 ? currentIndex : previousValue;
-    });
+    const movableTileIndices = getMovableTileIndices(emptyTileIndex);
 
-    const row = Math.floor(ceroTile / 4);
-
-    let selectableTiles = [];
-
-    if (ceroTile - 1 >= 0) {
-        if (row === Math.floor((ceroTile - 1) / 4)) {
-            selectableTiles.push(ceroTile - 1);
-        }
-    }
-
-    if (ceroTile + 1 <= 15) {
-        if (row === Math.floor((ceroTile + 1) / 4)) {
-            selectableTiles.push(ceroTile + 1);
-        }
-
-    }
-
-    if (ceroTile - 4 >= 0) {
-        selectableTiles.push(ceroTile - 4);
-    }
-
-    if (ceroTile + 4 <= 15) {
-        selectableTiles.push(ceroTile + 4);
-    }
-
-
-    const puzzleTiles = items.map((symbol, index) => PuzzleTile({
+    const puzzleTiles = tileOrder.map((symbol, index) => PuzzleTile({
         id: symbol,
         symbol: symbol,
-        selectable: selectableTiles.includes(index),
+        selectable: movableTileIndices.includes(index),
         ...puzzleTile
     }));
-
 
     return (
         `
