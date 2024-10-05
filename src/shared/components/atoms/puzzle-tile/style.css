@@ -12,25 +12,36 @@
         inset 0 0 6px var(--color-copper),
         inset 0 0 8px var(--color-coral);
     background-image: url(@assets-textures/vectors/wood-texture-light.svg);
-}
-
-.puzzle-tile[data-play-enabled=true]:hover {
-    cursor: pointer;
-    filter: brightness(1.1);
-
-}
-
-.puzzle-tile[data-play-enabled=false]:hover {
-    filter: none;
-    pointer-events: none;
+    transition: transform 0.2s ease;
 }
 
 .puzzle-tile[data-id='0'] {
     visibility: hidden;
 }
 
-.puzzle-tile[data-selectable=true] {
+.puzzle-tile[data-selectable=true][data-play-enabled=true] {
     filter: brightness(120%);
+}
+
+.puzzle-tile[data-selectable=true][data-play-enabled=true]:hover {
+    cursor: pointer;
+    filter: brightness(130%);
+}
+
+.puzzle-tile[data-movement-direction='left'][data-play-enabled=true]:hover {
+    transform: translateX(10%);
+}
+
+.puzzle-tile[data-movement-direction='right'][data-play-enabled=true]:hover {
+    transform: translateX(-10%);
+}
+
+.puzzle-tile[data-movement-direction='up'][data-play-enabled=true]:hover {
+    transform: translateY(-10%);
+}
+
+.puzzle-tile[data-movement-direction='down'][data-play-enabled=true]:hover {
+    transform: translateY(10%);
 }
 
 .puzzle-tile.move {

@@ -21,12 +21,12 @@ const gridFrameFourByFourPractice = {
 };
 
 const gridFrameFourByFourPlay = {
-    playEnabled: true,
+    playEnabled: false,
     size: 'medium',
     puzzle: undefined,
     puzzleTile: {
         size: 'auto',
-        playEnabled: false
+        playEnabled: true
     }
 
 };

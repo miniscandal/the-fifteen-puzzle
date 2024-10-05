@@ -20,12 +20,19 @@ function GridFrameFourByFour({
 
     const movableTileIndices = getMovableTileIndices(emptyTileIndex);
 
-    const puzzleTiles = tileOrder.map((symbol, index) => PuzzleTile({
-        id: symbol,
-        symbol: symbol,
-        selectable: movableTileIndices.includes(index),
-        ...puzzleTile
-    }));
+    const puzzleTiles = tileOrder.map((symbol, index) => {
+        const movableTile = movableTileIndices.find(tile => tile.index === index);
+
+        const tile = PuzzleTile({
+            id: symbol,
+            symbol: symbol,
+            selectable: !!movableTile,
+            movementDirection: movableTile ? movableTile.movementDirection : null,
+            ...puzzleTile
+        });
+
+        return tile;
+    });
 
     return (
         `

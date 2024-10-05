@@ -13,22 +13,34 @@ function getMovableTileIndices(emptyTileIndex) {
 
     // Check if the tile to the left is selectable
     if (emptyTileIndex - MOVEMENT_DISTANCE >= FIRST_TILE_INDEX && areInSameRow(emptyTileIndex, emptyTileIndex - MOVEMENT_DISTANCE)) {
-        movableTiles.push(emptyTileIndex - MOVEMENT_DISTANCE);
+        movableTiles.push({
+            index: emptyTileIndex - MOVEMENT_DISTANCE,
+            movementDirection: 'left'
+        });
     }
 
     // Check if the tile to the right is selectable
     if (emptyTileIndex + MOVEMENT_DISTANCE < TOTAL_TILES && areInSameRow(emptyTileIndex, emptyTileIndex + MOVEMENT_DISTANCE)) {
-        movableTiles.push(emptyTileIndex + MOVEMENT_DISTANCE);
+        movableTiles.push({
+            index: emptyTileIndex + MOVEMENT_DISTANCE,
+            movementDirection: 'right'
+        });
     }
 
     // Check if the upper tile is selectable
     if (emptyTileIndex - TILES_PER_ROW >= FIRST_TILE_INDEX) {
-        movableTiles.push(emptyTileIndex - TILES_PER_ROW);
+        movableTiles.push({
+            index: emptyTileIndex - TILES_PER_ROW,
+            movementDirection: 'down'
+        });
     }
 
     // check if the lower tile is selectable
     if (emptyTileIndex + TILES_PER_ROW < TOTAL_TILES) {
-        movableTiles.push(emptyTileIndex + TILES_PER_ROW);
+        movableTiles.push({
+            index: emptyTileIndex + TILES_PER_ROW,
+            movementDirection: 'up'
+        });
     }
 
     return movableTiles;

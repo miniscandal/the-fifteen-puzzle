@@ -31,8 +31,3 @@
     cursor: pointer;
     filter: brightness(1.1);
 }
-
-.grid-frame-four-by-four[data-play-enabled=false]:hover {
-    cursor: default;
-    filter: none;
-}
