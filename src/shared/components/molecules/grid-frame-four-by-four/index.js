@@ -6,54 +6,78 @@ import { EMPTY_TILE_VALUE } from '@shared-constants/puzzle';
 
 import './style.css';
 
-function selectPuzzleTile({ Game }) {
-    document.getElementById('grid-frame-four-by-four').addEventListener('click', (event) => {
-        if (!event.target || event.target.getAttribute('data-selectable') === 'false' || !event.target.getAttribute('data-symbol')) {
-            return;
-        }
+function updateGameState(Game, currentTile, emptyTile) {
+    const { id: currentId, index: currentIndex } = currentTile.dataset;
+    const { id: emptyId, index: emptyIndex } = emptyTile.dataset;
 
-        document.querySelectorAll('[data-selectable="true"]').forEach(tile => {
-            tile.setAttribute('data-selectable', false);
-            tile.setAttribute('data-movement-direction', null);
-        });
+    Game.puzzle.state[currentIndex] = Number(currentId);
+    Game.puzzle.state[emptyIndex] = Number(emptyId);
+}
 
+function updateSelectableTiles(tiles) {
+    tiles.forEach(tile => {
+        const movableTile = document.querySelector(`[data-index='${tile.index}']`);
 
-        const element = event.target;
-        const emptyTile = document.querySelector('[data-id="0"]');
-
-        const helperRow = element.dataset.row;
-        const helperColumn = element.dataset.column;
-
-        element.style.gridRow = emptyTile.dataset.row;
-        element.style.gridColumn = emptyTile.dataset.column;
-        element.dataset.row = emptyTile.dataset.row;
-        element.dataset.column = emptyTile.dataset.column;
-
-
-        emptyTile.style.gridRow = helperRow;
-        emptyTile.style.gridColumn = helperColumn;
-        emptyTile.dataset.column = helperColumn;
-        emptyTile.dataset.row = helperRow;
-
-
-        const helperIndex = element.dataset.index;
-
-        element.dataset.index = emptyTile.dataset.index;
-        emptyTile.dataset.index = helperIndex;
-
-
-        const movableTileIndices = getMovableTileIndices(Number(helperIndex));
-
-        movableTileIndices.forEach(tile => {
-            const element = document.querySelector(`[data-index='${tile.index}']`);
-
-            element.dataset.selectable = true;
-            element.dataset.movementDirection = tile.movementDirection;
-        });
-
-        Game.puzzle.state[element.dataset.index] = Number(element.dataset.id);
-        Game.puzzle.state[emptyTile.dataset.index] = Number(emptyTile.dataset.id);
+        movableTile.dataset.selectable = true;
+        movableTile.dataset.movementDirection = tile.movementDirection;
     });
+}
+
+function swapTilesData(currentTile, emptyTile) {
+    const { row: currentRow, column: currentColumn, index: currentIndex } = currentTile.dataset;
+    const { row: emptyRow, column: emptyColumn, index: emptyIndex } = emptyTile.dataset;
+
+    currentTile.style.gridRow = emptyRow;
+    currentTile.style.gridColumn = emptyColumn;
+    currentTile.dataset.row = emptyRow;
+    currentTile.dataset.column = emptyColumn;
+
+    emptyTile.style.gridRow = currentRow;
+    emptyTile.style.gridColumn = currentColumn;
+    emptyTile.dataset.row = currentRow;
+    emptyTile.dataset.column = currentColumn;
+
+
+    emptyTile.dataset.index = currentIndex;
+    currentTile.dataset.index = emptyIndex;
+}
+
+function resetSelectableTiles(tiles) {
+    tiles.forEach(tile => {
+        tile.setAttribute('data-selectable', false);
+        tile.setAttribute('data-movement-direction', null);
+    });
+}
+
+function isSelectableTile(element) {
+    return element &&
+        element.getAttribute('data-selectable') === 'true' &&
+        element.getAttribute('data-symbol');
+}
+
+function handleTileClick(event, Game) {
+    const currentTile = event.target;
+
+    if (!isSelectableTile(currentTile)) {
+        return;
+    }
+
+    const tiles = document.querySelectorAll('[data-selectable="true"]');
+    resetSelectableTiles(tiles);
+
+    const emptyTile = document.querySelector('[data-id="0"]');
+    swapTilesData(currentTile, emptyTile);
+
+    const movableTileIndices = getMovableTileIndices(Number(emptyTile.dataset.index));
+    updateSelectableTiles(movableTileIndices);
+
+    updateGameState(Game, currentTile, emptyTile);
+}
+
+function selectPuzzleTile({ Game }) {
+    const gridFrame = document.getElementById('grid-frame-four-by-four');
+
+    gridFrame.addEventListener('click', (event) => handleTileClick(event, Game));
 }
 
 function GridFrameFourByFour({

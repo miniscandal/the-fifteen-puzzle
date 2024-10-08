@@ -12,7 +12,6 @@
         inset 0 0 6px var(--color-copper),
         inset 0 0 8px var(--color-coral);
     background-image: url(@assets-textures/vectors/wood-texture-light.svg);
-    transition: transform 0.2s ease;
 }
 
 .puzzle-tile[data-id='0'] {
@@ -20,28 +19,30 @@
 }
 
 .puzzle-tile[data-selectable=true][data-play-enabled=true] {
-    filter: brightness(120%);
+    border: dashed var(--color-light) 2px;
+    transition: transform 0.2s linear;
+    cursor: pointer;
 }
 
 .puzzle-tile[data-selectable=true][data-play-enabled=true]:hover {
-    cursor: pointer;
-    filter: brightness(130%);
+    filter: brightness(110%);
 }
 
-.puzzle-tile[data-movement-direction='right'][data-play-enabled=true]:hover {
-    transform: translateX(10%);
+
+.puzzle-tile[data-movement-direction='right'][data-play-enabled=true]:checked {
+    transform: translateX(100%);
 }
 
-.puzzle-tile[data-movement-direction='left'][data-play-enabled=true]:hover {
-    transform: translateX(-10%);
+.puzzle-tile[data-movement-direction='left'][data-play-enabled=true]:checked {
+    transform: translateX(-100%);
 }
 
-.puzzle-tile[data-movement-direction='up'][data-play-enabled=true]:hover {
-    transform: translateY(-10%);
+.puzzle-tile[data-movement-direction='up'][data-play-enabled=true]:checked {
+    transform: translateY(-100%);
 }
 
-.puzzle-tile[data-movement-direction='down'][data-play-enabled=true]:hover {
-    transform: translateY(10%);
+.puzzle-tile[data-movement-direction='down'][data-play-enabled=true]:checked {
+    transform: translateY(100%);
 }
 
 .puzzle-tile.move {
