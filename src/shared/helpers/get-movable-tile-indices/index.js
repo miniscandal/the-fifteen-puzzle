@@ -15,7 +15,7 @@ function getMovableTileIndices(emptyTileIndex) {
     if (emptyTileIndex - MOVEMENT_DISTANCE >= FIRST_TILE_INDEX && areInSameRow(emptyTileIndex, emptyTileIndex - MOVEMENT_DISTANCE)) {
         movableTiles.push({
             index: emptyTileIndex - MOVEMENT_DISTANCE,
-            movementDirection: 'left'
+            movementDirection: 'right'
         });
     }
 
@@ -23,7 +23,7 @@ function getMovableTileIndices(emptyTileIndex) {
     if (emptyTileIndex + MOVEMENT_DISTANCE < TOTAL_TILES && areInSameRow(emptyTileIndex, emptyTileIndex + MOVEMENT_DISTANCE)) {
         movableTiles.push({
             index: emptyTileIndex + MOVEMENT_DISTANCE,
-            movementDirection: 'right'
+            movementDirection: 'left'
         });
     }
 

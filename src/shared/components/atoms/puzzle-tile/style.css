@@ -28,11 +28,11 @@
     filter: brightness(130%);
 }
 
-.puzzle-tile[data-movement-direction='left'][data-play-enabled=true]:hover {
+.puzzle-tile[data-movement-direction='right'][data-play-enabled=true]:hover {
     transform: translateX(10%);
 }
 
-.puzzle-tile[data-movement-direction='right'][data-play-enabled=true]:hover {
+.puzzle-tile[data-movement-direction='left'][data-play-enabled=true]:hover {
     transform: translateX(-10%);
 }
 

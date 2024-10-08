@@ -6,7 +6,10 @@ function PuzzleTile({
     size = 'regular',
     playEnabled = false,
     selectable = false,
-    movementDirection = undefined
+    movementDirection = undefined,
+    row = undefined,
+    column = undefined,
+    index = undefined
 }) {
 
     return (
@@ -19,6 +22,9 @@ function PuzzleTile({
             data-play-enabled=${playEnabled}
             data-selectable=${selectable}
             data-movement-direction=${movementDirection}
+            data-row=${row}
+            data-column=${column}
+            data-index=${index}
         >
             ${symbol}
         </div>
