@@ -4,8 +4,7 @@ import { primarySideBar } from '@shared-components/organisms/primary-side-bar/lo
 
 
 function playScreenSetup({ Game, Screens, screenSymbol }) {
-
-    return {
+    const setup = {
         html: PlayScreen({ Game, screenSymbol }),
         logic: () => {
             primarySideBar({ Game, Screens, screenSymbol });
@@ -13,6 +12,8 @@ function playScreenSetup({ Game, Screens, screenSymbol }) {
         },
         screenSymbol
     };
+
+    return setup;
 }
 
 export { playScreenSetup };

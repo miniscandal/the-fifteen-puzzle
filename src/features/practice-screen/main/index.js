@@ -6,6 +6,10 @@ import { puzzles } from '@core-game-management/permutations';
 import { GridFrameFourByFour } from '@shared-components/molecules/grid-frame-four-by-four';
 import { gridFrameFourByFourPractice } from '@shared-components/molecules/grid-frame-four-by-four/variants';
 
+import { getMovableTileIndices } from '@shared-helpers/get-movable-tile-indices';
+
+import { generate16TilePermutation } from '@shared-utils/generate-permutation';
+
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
 import './style.css';
@@ -22,7 +26,8 @@ function PracticeScreen({ Game, screenSymbol }) {
 
         const gridFrameFourByFour = GridFrameFourByFour({
             ...gridFrameFourByFourPractice,
-            puzzle: puzzle
+            puzzle,
+            logic: { getMovableTileIndices, generate16TilePermutation }
         });
 
         return gridFrameFourByFour;

@@ -3,8 +3,7 @@ import { primarySideBar } from '@shared-components/organisms/primary-side-bar/lo
 import { navigation } from '@feature-start-screen/components/molecules/navigation/logic/main';
 
 function startScreenSetup({ Game, Screens, screenSymbol }) {
-
-    return {
+    const setup = {
         html: StartScreen({ Game, screenSymbol }),
         logic: () => {
             primarySideBar({ Game, Screens, screenSymbol });
@@ -12,6 +11,8 @@ function startScreenSetup({ Game, Screens, screenSymbol }) {
         },
         screenSymbol
     };
+
+    return setup;
 }
 
 export { startScreenSetup };

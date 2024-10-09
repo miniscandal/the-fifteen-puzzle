@@ -31,4 +31,8 @@ const gridFrameFourByFourPlay = {
 
 };
 
-export { gridFrameFourByFourArt, gridFrameFourByFourPractice, gridFrameFourByFourPlay };
+export {
+    gridFrameFourByFourArt,
+    gridFrameFourByFourPractice,
+    gridFrameFourByFourPlay
+};

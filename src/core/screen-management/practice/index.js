@@ -4,8 +4,7 @@ import { PracticeScreen } from '@feature-practice-screen/main';
 import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
 
 function practiceScreenSetup({ Game, Screens, screenSymbol }) {
-
-    return {
+    const setup = {
         html: PracticeScreen({ Game, screenSymbol }),
         logic: () => {
             primarySideBar({ Game, Screens, screenSymbol });
@@ -14,6 +13,8 @@ function practiceScreenSetup({ Game, Screens, screenSymbol }) {
         },
         screenSymbol
     };
+
+    return setup;
 }
 
 export { practiceScreenSetup };

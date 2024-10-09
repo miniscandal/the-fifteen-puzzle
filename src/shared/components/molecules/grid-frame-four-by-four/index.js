@@ -1,6 +1,4 @@
 import { PuzzleTile } from '@shared-components/atoms/puzzle-tile';
-import { generate16TilePermutation } from '@shared-utils/generate-permutation';
-import { getMovableTileIndices } from '@shared-helpers/get-movable-tile-indices';
 import { TOTAL_TILES } from '@shared-constants/puzzle';
 import { EMPTY_TILE_VALUE } from '@shared-constants/puzzle';
 
@@ -10,9 +8,11 @@ function GridFrameFourByFour({
     playEnabled = false,
     size = 'regular',
     puzzle = { id: '', permutation: [] },
-    puzzleTile = { size: 'auto', playEnabled: false }
+    puzzleTile = { size: 'auto', playEnabled: false },
+    logic = { getMovableTileIndices: () => { }, generate16TilePermutation: () => { } }
 }) {
-    const { id = '', permutation = [] } = puzzle;
+    const { id, permutation } = puzzle;
+    const { getMovableTileIndices, generate16TilePermutation } = logic;
 
     const tileOrder = permutation.length ? permutation : generate16TilePermutation({ length: TOTAL_TILES });
 

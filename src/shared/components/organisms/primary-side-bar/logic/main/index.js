@@ -3,8 +3,6 @@ import { navigationMenu } from '@shared-components/molecules/navigation-menu/log
 
 function primarySideBar({ Game, Screens, screenSymbol }) {
     applicationTheme({ Game });
-    console.log(screenSymbol);
-
     navigationMenu({ Game, Screens, screenSymbol });
 }
 

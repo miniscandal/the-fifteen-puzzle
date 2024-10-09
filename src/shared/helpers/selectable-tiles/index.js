@@ -1,4 +1,4 @@
-import { handleTileClick } from '@shared-components/molecules/grid-frame-four-by-four/logic';
+import { gridFramFourByFour } from '@shared-components/molecules/grid-frame-four-by-four/logic/main';
 
 function resetSelectableTiles(tiles) {
     tiles.forEach(tile => {
@@ -8,15 +8,16 @@ function resetSelectableTiles(tiles) {
 }
 
 function isSelectableTile(element) {
-    return element &&
-        element.getAttribute('data-selectable') === 'true' &&
-        element.getAttribute('data-symbol');
+    const isTile = element && element.getAttribute('data-symbol');
+    const isSelectable = isTile && element.getAttribute('data-selectable') === 'true';
+
+    return isTile && isSelectable;
 }
 
 function selectPuzzleTile({ Game }) {
     const gridFrame = document.getElementById('grid-frame-four-by-four');
 
-    gridFrame.addEventListener('click', (event) => handleTileClick(event, Game));
+    gridFrame.addEventListener('click', (event) => gridFramFourByFour(event, Game));
 }
 
 export { resetSelectableTiles, isSelectableTile, selectPuzzleTile };
