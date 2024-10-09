@@ -3,15 +3,15 @@ import { selectPuzzleTile } from '@shared-helpers/selectable-tiles';
 import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
 
 
-function playScreenSetup({ Game, Screens, screenId }) {
+function playScreenSetup({ Game, Screens, screenSymbol }) {
 
     return {
-        html: PlayScreen({ Game, screenId }),
+        html: PlayScreen({ Game, screenSymbol }),
         logic: () => {
-            primarySideBar({ Game, Screens, screenId });
+            primarySideBar({ Game, Screens, screenSymbol });
             selectPuzzleTile({ Game });
         },
-        name: screenId
+        screenSymbol
     };
 }
 

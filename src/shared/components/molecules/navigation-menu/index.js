@@ -1,9 +1,11 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
+import { START } from '@core-screen-management/constants/screen-names';
+
 import './style.css';
 
-function NavigationMenu({ screenId }) {
-    if (screenId === 'start') {
+function NavigationMenu({ screenSymbol }) {
+    if (screenSymbol === START) {
         return '';
     }
 

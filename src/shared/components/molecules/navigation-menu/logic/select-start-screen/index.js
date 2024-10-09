@@ -1,14 +1,16 @@
-function selectStartScreen({ Game, Screens, screenId }) {
-    if (screenId === 'start') {
+import { START } from '@core-screen-management/constants/screen-names';
+
+function selectStartScreen({ Game, Screens, screenSymbol }) {
+    if (screenSymbol === START) {
         return;
     }
 
     const mainMenu = ({ Game, Screens }) => {
-        const { html, logic, name } = Screens.start({ Game, Screens });
+        const { html, logic, screenSymbol } = Screens.start({ Game, Screens });
 
         Game.screen.htmlRender({ html });
         Game.screen.setupLogic({ logic });
-        Game.screen.currentName = name;
+        Game.screen.currentName = screenSymbol;
 
         Game.puzzle.id = undefined;
     };

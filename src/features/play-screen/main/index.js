@@ -5,7 +5,7 @@ import { PuzzleGame } from '@feature-play-screen/components/organisms/puzzle-gam
 
 import './style.css';
 
-function PlayScreen({ Game, screenId }) {
+function PlayScreen({ Game, screenSymbol }) {
     const titleH2 = TitleH2({
         text: 'SOLVE PUZZLES!'
     });
@@ -25,7 +25,7 @@ function PlayScreen({ Game, screenId }) {
     return Screen({
         children,
         Game,
-        screenId
+        screenSymbol
     });
 }
 

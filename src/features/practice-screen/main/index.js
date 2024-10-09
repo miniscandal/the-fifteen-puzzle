@@ -10,7 +10,7 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import './style.css';
 
-function PracticeScreen({ Game, screenId }) {
+function PracticeScreen({ Game, screenSymbol }) {
     const titleH2 = TitleH2({
         text: 'Select Practice Puzzle'
     });
@@ -48,7 +48,7 @@ function PracticeScreen({ Game, screenId }) {
     return Screen({
         children,
         Game,
-        screenId
+        screenSymbol
     });
 }
 

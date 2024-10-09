@@ -2,15 +2,15 @@ import { StartScreen } from '@feature-start-screen/main';
 import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
 import { navigation } from '@feature-start-screen/components/molecules/navigation/logic/main';
 
-function startScreenSetup({ Game, Screens, screenId }) {
+function startScreenSetup({ Game, Screens, screenSymbol }) {
 
     return {
-        html: StartScreen({ Game, screenId }),
+        html: StartScreen({ Game, screenSymbol }),
         logic: () => {
-            primarySideBar({ Game, Screens, screenId });
+            primarySideBar({ Game, Screens, screenSymbol });
             navigation({ Game, Screens });
         },
-        name: screenId
+        screenSymbol
     };
 }
 

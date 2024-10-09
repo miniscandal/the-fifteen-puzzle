@@ -3,9 +3,9 @@ import { NavigationMenu } from '@shared-components/molecules/navigation-menu';
 
 import './style.css';
 
-function PrimarySideBar({ Game, screenId }) {
+function PrimarySideBar({ Game, screenSymbol }) {
     const applicationTheme = ApplicationTheme({ Game });
-    const menuSettings = NavigationMenu({ screenId });
+    const menuSettings = NavigationMenu({ screenSymbol });
 
     return (
         `
