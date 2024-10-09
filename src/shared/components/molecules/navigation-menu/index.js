@@ -1,14 +1,8 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
-import { selectStartScreen } from '@core-game-management/select-screen';
-
 import './style.css';
 
-function menuSettingsLogic({ Game, Screens, screenId }) {
-    selectStartScreen({ Game, Screens, screenId });
-}
-
-function MenuSettings({ screenId }) {
+function NavigationMenu({ screenId }) {
     if (screenId === 'start') {
         return '';
     }
@@ -24,4 +18,4 @@ function MenuSettings({ screenId }) {
     );
 }
 
-export { MenuSettings, menuSettingsLogic };
+export { NavigationMenu };

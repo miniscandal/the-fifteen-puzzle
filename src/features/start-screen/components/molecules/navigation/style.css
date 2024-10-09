@@ -1,4 +1,4 @@
-.main-menu-buttons {
+.navigation {
     display: flex;
     gap: var(--gap-uniform);
 }

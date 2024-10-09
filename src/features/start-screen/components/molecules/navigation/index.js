@@ -1,15 +1,8 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
-import { selectPlayScreen, selectPracticeScreen } from '@core-game-management/select-screen';
-
 import './style.css';
 
-function mainMenuButtonsLogic({ Game, Screens }) {
-    selectPracticeScreen({ Game, Screens });
-    selectPlayScreen({ Game, Screens });
-}
-
-function MainMenuButtons() {
+function Navigation() {
     const buttons = [
         { text: 'play', id: 'select-play-screen' },
         { text: 'practice', id: 'select-practice-screen' },
@@ -21,11 +14,11 @@ function MainMenuButtons() {
 
     return (
         `   
-        <div class="main-menu-buttons">
+        <div class="navigation">
             ${buttonElements.join('')}
         </div>
         `
     );
 }
 
-export { MainMenuButtons, mainMenuButtonsLogic };
+export { Navigation };

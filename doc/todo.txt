@@ -7,37 +7,4 @@
 ⚝ Remove the puzzle id in global Game object within the back button function.
 ⚝ Remove tile selected in practice screen
 ⚝ Add helper puzzle in play screen
-⚝ 
-
-
-
-        if (!event.target || event.target.getAttribute('data-selectable') === 'false' || !event.target.getAttribute('data-symbol')) {
-            return;
-        }
-
-        document.querySelectorAll('[data-selectable="true"]').forEach(tile => {
-            tile.setAttribute('data-selectable', false);
-            tile.setAttribute('data-movement-direction', null);
-        });
-
-        const { index } = event.target.dataset;
-
-        const movableTileIndices = getMovableTileIndices(Number(index));
-        console.log(movableTileIndices);
-
-        movableTileIndices.forEach(tile => {
-            const elements = document.querySelectorAll('[data-symbol]');
-
-            elements[tile.index].dataset.selectable = true;
-            elements[tile.index].dataset.movementDirection = tile.movementDirection;
-        });
-
-
-        const emptyTile = document.querySelector('[data-id="0"]');
-
-        const element = event.target;
-
-        const helperId = element.dataset.id;
-
-        element.dataset.id = emptyTile.dataset.id;
-        emptyTile.dataset.id = helperId;
+⚝

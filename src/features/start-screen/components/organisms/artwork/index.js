@@ -6,14 +6,14 @@ import { gridFrameFourByFourArt } from '@shared-components/molecules/grid-frame-
 
 import './style.css';
 
-function GameArtwork() {
+function Artwork() {
     const animeCharacter = AnimeCharacter(pictureAnimeCharacter);
     const gridFrameFourByFour = GridFrameFourByFour(gridFrameFourByFourArt);
 
     return (
         `
-        <section class="game-artwork">
-            <div class="game-artwork__div">
+        <section class="artwork">
+            <div class="artwork__div">
                 ${animeCharacter}
             </div>
             ${gridFrameFourByFour}
@@ -22,4 +22,4 @@ function GameArtwork() {
     );
 }
 
-export { GameArtwork };
+export { Artwork };

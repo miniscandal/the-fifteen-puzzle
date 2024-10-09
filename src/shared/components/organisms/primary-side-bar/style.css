@@ -1,4 +1,4 @@
-.game-settings {
+.primary-side-bar {
     display: flex;
     justify-content: space-between;
     gap: var(--gap-uniform);

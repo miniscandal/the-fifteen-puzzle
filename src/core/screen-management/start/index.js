@@ -1,14 +1,14 @@
 import { StartScreen } from '@feature-start-screen/main';
-import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
-import { mainMenuButtonsLogic } from '@feature-start-screen/components/molecules/main-menu-buttons';
+import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
+import { navigation } from '@feature-start-screen/components/molecules/navigation/logic/main';
 
 function startScreenSetup({ Game, Screens, screenId }) {
 
     return {
         html: StartScreen({ Game, screenId }),
         logic: () => {
-            gameSettingsLogic({ Game, Screens, screenId });
-            mainMenuButtonsLogic({ Game, Screens });
+            primarySideBar({ Game, Screens, screenId });
+            navigation({ Game, Screens });
         },
         name: screenId
     };

@@ -1,6 +1,6 @@
 import { PlayScreen } from '@feature-play-screen/main';
-import { selectPuzzleTile } from '@shared-components/molecules/grid-frame-four-by-four';
-import { gameSettingsLogic } from '@shared-components/organisms/game-settings';
+import { selectPuzzleTile } from '@shared-helpers/selectable-tiles';
+import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
 
 
 function playScreenSetup({ Game, Screens, screenId }) {
@@ -8,7 +8,7 @@ function playScreenSetup({ Game, Screens, screenId }) {
     return {
         html: PlayScreen({ Game, screenId }),
         logic: () => {
-            gameSettingsLogic({ Game, Screens, screenId });
+            primarySideBar({ Game, Screens, screenId });
             selectPuzzleTile({ Game });
         },
         name: screenId

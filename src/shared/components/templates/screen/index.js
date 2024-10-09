@@ -1,9 +1,9 @@
-import { GameSettings } from '@shared-components/organisms/game-settings';
+import { PrimarySideBar } from '@shared-components/organisms/primary-side-bar';
 
 import './style.css';
 
 function Screen({ children, Game, screenId }) {
-    const gameSettings = GameSettings({ Game, screenId });
+    const gameSettings = PrimarySideBar({ Game, screenId });
 
     return (
         `
