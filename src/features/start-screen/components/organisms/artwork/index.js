@@ -1,10 +1,10 @@
 import { AnimeCharacter } from '@feature-start-screen/components/atoms';
 import { pictureAnimeCharacter } from '@feature-start-screen/components/atoms/variants';
 
-import { GridFrameFourByFour } from '@shared-components/molecules/grid-frame-four-by-four';
-import { gridFrameFourByFourArt } from '@shared-components/molecules/grid-frame-four-by-four/variants';
+import { GridFrameFourByFour } from '@shared-components/organisms/grid-frame-four-by-four';
+import { gridFrameFourByFourArt } from '@shared-components/organisms/grid-frame-four-by-four/variants';
 
-import { getMovableTileIndices } from '@shared-helpers/get-movable-tile-indices';
+import { getAdjacentTileIndicesInGrid } from '@shared-components/molecules/puzzle-tile/logic/get-adjacent-tile-indices-in-grid';
 
 import { generate16TilePermutation } from '@shared-utils/generate-permutation';
 
@@ -14,7 +14,7 @@ function Artwork() {
     const animeCharacter = AnimeCharacter(pictureAnimeCharacter);
     const gridFrameFourByFour = GridFrameFourByFour({
         ...gridFrameFourByFourArt,
-        logic: { getMovableTileIndices, generate16TilePermutation }
+        logic: { getAdjacentTileIndicesInGrid, generate16TilePermutation }
     });
 
     return (

@@ -3,7 +3,7 @@ import { TILES_PER_ROW } from '@shared-constants/puzzle';
 import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle';
 import { FIRST_TILE_INDEX } from '@shared-constants/puzzle';
 
-function getMovableTileIndices(emptyTileIndex) {
+function getAdjacentTileIndicesInGrid(emptyTileIndex) {
     const movableTiles = [];
 
     // Check if two indices of the tiles are in the same row
@@ -27,7 +27,7 @@ function getMovableTileIndices(emptyTileIndex) {
         });
     }
 
-    // Check if the upper tile is selectable
+    // Check if the down tile is selectable
     if (emptyTileIndex - TILES_PER_ROW >= FIRST_TILE_INDEX) {
         movableTiles.push({
             index: emptyTileIndex - TILES_PER_ROW,
@@ -35,7 +35,7 @@ function getMovableTileIndices(emptyTileIndex) {
         });
     }
 
-    // check if the lower tile is selectable
+    // check if the up tile is selectable
     if (emptyTileIndex + TILES_PER_ROW < TOTAL_TILES) {
         movableTiles.push({
             index: emptyTileIndex + TILES_PER_ROW,
@@ -46,4 +46,4 @@ function getMovableTileIndices(emptyTileIndex) {
     return movableTiles;
 }
 
-export { getMovableTileIndices };
+export { getAdjacentTileIndicesInGrid };

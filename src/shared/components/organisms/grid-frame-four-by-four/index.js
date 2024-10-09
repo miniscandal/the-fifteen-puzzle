@@ -1,4 +1,4 @@
-import { PuzzleTile } from '@shared-components/atoms/puzzle-tile';
+import { PuzzleTile } from '@shared-components/molecules/puzzle-tile';
 import { TOTAL_TILES } from '@shared-constants/puzzle';
 import { EMPTY_TILE_VALUE } from '@shared-constants/puzzle';
 
@@ -9,16 +9,16 @@ function GridFrameFourByFour({
     size = 'regular',
     puzzle = { id: '', permutation: [] },
     puzzleTile = { size: 'auto', playEnabled: false },
-    logic = { getMovableTileIndices: () => { }, generate16TilePermutation: () => { } }
+    logic = { getAdjacentTileIndicesInGrid: () => { }, generate16TilePermutation: () => { } }
 }) {
     const { id, permutation } = puzzle;
-    const { getMovableTileIndices, generate16TilePermutation } = logic;
+    const { getAdjacentTileIndicesInGrid, generate16TilePermutation } = logic;
 
     const tileOrder = permutation.length ? permutation : generate16TilePermutation({ length: TOTAL_TILES });
 
     const emptyTileIndex = tileOrder.findIndex(value => value === EMPTY_TILE_VALUE);
 
-    const movableTileIndices = getMovableTileIndices(emptyTileIndex);
+    const movableTileIndices = getAdjacentTileIndicesInGrid(emptyTileIndex);
 
     const puzzleTiles = tileOrder.map((symbol, index) => {
         const movableTile = movableTileIndices.find(tile => tile.index === index);

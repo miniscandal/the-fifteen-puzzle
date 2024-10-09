@@ -1,4 +1,4 @@
-import { gridFramFourByFour } from '@shared-components/molecules/grid-frame-four-by-four/logic/main';
+import { gridFramFourByFour } from '@shared-components/organisms/grid-frame-four-by-four/logic/main';
 
 function resetSelectableTiles(tiles) {
     tiles.forEach(tile => {

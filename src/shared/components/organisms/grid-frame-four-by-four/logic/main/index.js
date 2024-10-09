@@ -1,8 +1,8 @@
 import { updateGameState } from '@shared-helpers/update-game-state';
-import { updateSelectableTiles } from '@shared-helpers/update-selectable-tiles';
-import { swapTilesData } from '@shared-helpers/swap-tiles-data';
-import { isSelectableTile, resetSelectableTiles } from '@shared-helpers/selectable-tiles';
-import { getMovableTileIndices } from '@shared-helpers/get-movable-tile-indices';
+import { updateSelectableTiles } from '@shared-components/molecules/puzzle-tile/logic/update-selectable-tiles';
+import { swapTilesData } from '@shared-components/molecules/puzzle-tile/logic/swap-tiles-data';
+import { isSelectableTile, resetSelectableTiles } from '@shared-components/molecules/puzzle-tile/logic/selectable-tiles';
+import { getAdjacentTileIndicesInGrid } from '@shared-components/molecules/puzzle-tile/logic/get-adjacent-tile-indices-in-grid';
 
 function gridFramFourByFour(event, Game) {
     const currentTile = event.target;
@@ -17,7 +17,7 @@ function gridFramFourByFour(event, Game) {
     const emptyTile = document.querySelector('[data-id="0"]');
     swapTilesData(currentTile, emptyTile);
 
-    const movableTileIndices = getMovableTileIndices(Number(emptyTile.dataset.index));
+    const movableTileIndices = getAdjacentTileIndicesInGrid(Number(emptyTile.dataset.index));
     updateSelectableTiles(movableTileIndices);
 
     updateGameState(Game, currentTile, emptyTile);

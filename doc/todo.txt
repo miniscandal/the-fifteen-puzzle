@@ -7,4 +7,5 @@
 ⚝ Remove the puzzle id in global Game object within the back button function.
 ⚝ Remove tile selected in practice screen
 ⚝ Add helper puzzle in play screen
+⚝ Refactor getAdjacent tile indices in grid function
 ⚝

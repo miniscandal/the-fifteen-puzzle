@@ -1,10 +1,10 @@
 import { puzzles } from '@core-game-management/permutations';
 
-import { GridFrameFourByFour } from '@shared-components/molecules/grid-frame-four-by-four';
+import { GridFrameFourByFour } from '@shared-components/organisms/grid-frame-four-by-four';
 
-import { gridFrameFourByFourPlay } from '@shared-components/molecules/grid-frame-four-by-four/variants';
+import { gridFrameFourByFourPlay } from '@shared-components/organisms/grid-frame-four-by-four/variants';
 
-import { getMovableTileIndices } from '@shared-helpers/get-movable-tile-indices';
+import { getAdjacentTileIndicesInGrid } from '@shared-components/molecules/puzzle-tile/logic/get-adjacent-tile-indices-in-grid';
 
 import { generate16TilePermutation } from '@shared-utils/generate-permutation';
 
@@ -21,7 +21,7 @@ function PuzzleGame({ Game }) {
     const gridFrameFourByFour = GridFrameFourByFour({
         ...gridFrameFourByFourPlay,
         puzzle: { id: Game.puzzle.id, permutation },
-        logic: { getMovableTileIndices, generate16TilePermutation }
+        logic: { getAdjacentTileIndicesInGrid, generate16TilePermutation }
     });
 
     return (
