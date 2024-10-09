@@ -5,7 +5,7 @@
 
 import { TOTAL_TILES } from '@shared-constants/puzzle';
 
-function generate16TilePermutation({ length = TOTAL_TILES }) {
+function generatePermutation({ length = TOTAL_TILES }) {
     const permutation = Array.from({ length }, (_, index) => index);
 
     for (let i = permutation.length - 1; i > 0; i--) {
@@ -16,4 +16,4 @@ function generate16TilePermutation({ length = TOTAL_TILES }) {
     return permutation;
 }
 
-export { generate16TilePermutation };
+export { generatePermutation };

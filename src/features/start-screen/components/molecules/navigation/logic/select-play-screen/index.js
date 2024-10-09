@@ -1,10 +1,17 @@
-function selectPlayScreen({ Game, Screens }) {
-    document.getElementById('select-play-screen').addEventListener('click', () => {
-        const { html, logic, screenSymbol } = Screens.play({ Game, Screens });
+import { screenSetup } from '@core-game-management/screen-setup';
 
-        Game.screen.htmlRender({ html });
-        Game.screen.setupLogic({ logic });
-        Game.screen.currentName = screenSymbol;
+import { SELECT_PLAY_SCREEN_ID } from '../constants/button-identifiers';
+
+function selectPlayScreen({ Game, Screens }) {
+    const button = document.getElementById(SELECT_PLAY_SCREEN_ID);
+
+    button.addEventListener('click', function () {
+        const setup = Screens.play({ Game, Screens });
+
+        screenSetup({
+            Game,
+            ...setup
+        });
     });
 }
 

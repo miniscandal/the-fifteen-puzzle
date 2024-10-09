@@ -10,8 +10,7 @@ function selectStartScreen({ Game, Screens, screenSymbol }) {
 
         Game.screen.htmlRender({ html });
         Game.screen.setupLogic({ logic });
-        Game.screen.currentName = screenSymbol;
-
+        Game.screen.currentSymbol = screenSymbol;
         Game.puzzle.id = undefined;
     };
 

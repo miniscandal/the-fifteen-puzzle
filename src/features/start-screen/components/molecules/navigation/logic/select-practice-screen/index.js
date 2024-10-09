@@ -1,12 +1,18 @@
-function selectPracticeScreen({ Game, Screens }) {
-    document.getElementById('select-practice-screen').addEventListener('click', () => {
-        const { html, logic, ScreenSymbol } = Screens.practice({ Game, Screens });
+import { screenSetup } from '@core-game-management/screen-setup';
 
-        Game.screen.htmlRender({ html });
-        Game.screen.setupLogic({ logic });
-        Game.screen.currentName = ScreenSymbol;
+import { SELECT_PRACTICE_SCREEN_ID } from '../constants/button-identifiers';
+
+function selectPracticeScreen({ Game, Screens }) {
+    const button = document.getElementById(SELECT_PRACTICE_SCREEN_ID);
+
+    button.addEventListener('click', function () {
+        const setup = Screens.practice({ Game, Screens });
+
+        screenSetup({
+            Game,
+            ...setup
+        });
     });
 }
-
 
 export { selectPracticeScreen };

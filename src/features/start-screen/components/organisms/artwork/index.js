@@ -1,20 +1,20 @@
 import { AnimeCharacter } from '@feature-start-screen/components/atoms';
 import { pictureAnimeCharacter } from '@feature-start-screen/components/atoms/variants';
 
-import { GridFrameFourByFour } from '@shared-components/organisms/grid-frame-four-by-four';
-import { gridFrameFourByFourArt } from '@shared-components/organisms/grid-frame-four-by-four/variants';
+import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
+import { puzzleGridArt } from '@shared-components/organisms/puzzle-grid/variants';
 
-import { getAdjacentTileIndicesInGrid } from '@shared-components/molecules/puzzle-tile/logic/get-adjacent-tile-indices-in-grid';
+import { getAdjacentTileIndicesInGrid } from '@shared-components/organisms/puzzle-grid/logic/get-adjacent-tile-indices-in-grid';
 
-import { generate16TilePermutation } from '@shared-utils/generate-permutation';
+import { generatePermutation } from '@shared-utils/generate-permutation';
 
 import './style.css';
 
 function Artwork() {
     const animeCharacter = AnimeCharacter(pictureAnimeCharacter);
-    const gridFrameFourByFour = GridFrameFourByFour({
-        ...gridFrameFourByFourArt,
-        logic: { getAdjacentTileIndicesInGrid, generate16TilePermutation }
+    const puzzleGrid = PuzzleGrid({
+        ...puzzleGridArt,
+        logic: { getAdjacentTileIndicesInGrid, generatePermutation }
     });
 
     return (
@@ -23,7 +23,7 @@ function Artwork() {
             <div class="artwork__div">
                 ${animeCharacter}
             </div>
-            ${gridFrameFourByFour}
+            ${puzzleGrid}
         </section>
         `
     );

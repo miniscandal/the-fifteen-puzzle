@@ -1,6 +1,6 @@
 import { puzzles } from '@core-game-management/permutations';
 
-const gridFrameFourByFourArt = {
+const puzzleGridArt = {
     playEnabled: false,
     size: 'regular',
     puzzle: puzzles.permutationA5,
@@ -10,7 +10,7 @@ const gridFrameFourByFourArt = {
     }
 };
 
-const gridFrameFourByFourPractice = {
+const puzzleGridPractice = {
     playEnabled: true,
     size: 'small',
     puzzle: undefined,
@@ -20,7 +20,7 @@ const gridFrameFourByFourPractice = {
     }
 };
 
-const gridFrameFourByFourPlay = {
+const puzzleGridPlay = {
     playEnabled: false,
     size: 'medium',
     puzzle: undefined,
@@ -32,7 +32,7 @@ const gridFrameFourByFourPlay = {
 };
 
 export {
-    gridFrameFourByFourArt,
-    gridFrameFourByFourPractice,
-    gridFrameFourByFourPlay
+    puzzleGridArt,
+    puzzleGridPractice,
+    puzzleGridPlay
 };

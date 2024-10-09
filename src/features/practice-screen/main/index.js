@@ -3,34 +3,32 @@ import { Screen } from '@shared-components/templates/screen';
 
 import { puzzles } from '@core-game-management/permutations';
 
-import { GridFrameFourByFour } from '@shared-components/organisms/grid-frame-four-by-four';
-import { gridFrameFourByFourPractice } from '@shared-components/organisms/grid-frame-four-by-four/variants';
+import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
+import { puzzleGridPractice } from '@shared-components/organisms/puzzle-grid/variants';
 
-import { getAdjacentTileIndicesInGrid } from '@shared-components/molecules/puzzle-tile/logic/get-adjacent-tile-indices-in-grid';
+import { getAdjacentTileIndicesInGrid } from '@shared-components/organisms/puzzle-grid/logic/get-adjacent-tile-indices-in-grid';
 
-import { generate16TilePermutation } from '@shared-utils/generate-permutation';
+import { generatePermutation } from '@shared-utils/generate-permutation';
 
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
 import './style.css';
 
 function PracticeScreen({ Game, screenSymbol }) {
-    const titleH2 = TitleH2({
-        text: 'Select Practice Puzzle'
-    });
+    const titleH2 = TitleH2({ text: 'select practice puzzle' });
 
-    const gridFrameFourByFourElements = Object.values(puzzles).map(puzzle => {
+    const puzzleGrids = Object.values(puzzles).map(puzzle => {
         if (!puzzle.playEnabled) {
             return;
         }
 
-        const gridFrameFourByFour = GridFrameFourByFour({
-            ...gridFrameFourByFourPractice,
+        const puzzleGrid = PuzzleGrid({
+            ...puzzleGridPractice,
             puzzle,
-            logic: { getAdjacentTileIndicesInGrid, generate16TilePermutation }
+            logic: { getAdjacentTileIndicesInGrid, generatePermutation }
         });
 
-        return gridFrameFourByFour;
+        return puzzleGrid;
     });
 
     const buttonSelectScreen = ButtonSelectScreen({ text: 'play', id: 'select-play-screen' });
@@ -40,7 +38,7 @@ function PracticeScreen({ Game, screenSymbol }) {
         <article class="practice-screen">
             ${titleH2}
             <section id="practice-screen__puzzles" class="practice-screen__section">
-                ${gridFrameFourByFourElements.join('')}
+                ${puzzleGrids.join('')}
             </section>
             <section>
                 ${buttonSelectScreen}

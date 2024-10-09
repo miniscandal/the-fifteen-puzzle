@@ -8,7 +8,7 @@ import './style.css';
 
 function StartScreen({ Game, screenSymbol }) {
     const titleH1 = TitleH1({
-        text: 'THE FIFTEEN PUZZLE'
+        text: 'the fifteen puzzle'
     });
     const artwork = Artwork();
     const mainMenu = MainMenu();

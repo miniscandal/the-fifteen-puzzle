@@ -5,7 +5,7 @@ import './style.css';
 
 function MainMenu() {
     const titleH2 = TitleH2({
-        text: 'GAME OPTIONS'
+        text: 'game options'
     });
     const navigation = Navigation();
 
