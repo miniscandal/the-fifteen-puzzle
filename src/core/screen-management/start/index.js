@@ -8,8 +8,7 @@ function startScreenSetup({ Game, Screens, screenSymbol }) {
         logic: () => {
             primarySideBar({ Game, Screens, screenSymbol });
             navigation({ Game, Screens });
-        },
-        screenSymbol
+        }
     };
 
     return setup;

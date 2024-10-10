@@ -6,6 +6,4 @@ import './main.css';
 
 const { html, logic, screenSymbol } = Screens.start({ Game, Screens });
 
-Game.screen.htmlRender({ html });
-Game.screen.setupLogic({ logic });
-Game.screen.currentSymbol = screenSymbol;
+Game.setupScreenRoutine({ html, logic, screenSymbol });

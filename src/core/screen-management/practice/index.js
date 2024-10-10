@@ -10,8 +10,7 @@ function practiceScreenSetup({ Game, Screens, screenSymbol }) {
             primarySideBar({ Game, Screens, screenSymbol });
             selectPuzzle({ Game });
             selectPlayScreen({ Game, Screens });
-        },
-        screenSymbol
+        }
     };
 
     return setup;

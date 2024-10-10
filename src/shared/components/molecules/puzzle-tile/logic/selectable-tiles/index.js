@@ -1,4 +1,4 @@
-import { gridFramFourByFour } from '@shared-components/organisms/puzzle-grid/logic/main';
+import { gridFrameFourByFour } from '@shared-components/organisms/puzzle-grid/logic/main';
 
 function resetSelectableTiles(tiles) {
     tiles.forEach(tile => {
@@ -17,7 +17,7 @@ function isSelectableTile(element) {
 function selectPuzzleTile({ Game }) {
     const gridFrame = document.getElementById('grid-frame-four-by-four');
 
-    gridFrame.addEventListener('click', (event) => gridFramFourByFour(event, Game));
+    gridFrame.addEventListener('click', (event) => gridFrameFourByFour(event, Game));
 }
 
 export { resetSelectableTiles, isSelectableTile, selectPuzzleTile };

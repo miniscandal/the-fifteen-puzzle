@@ -8,4 +8,5 @@
 ⚝ Remove tile selected in practice screen
 ⚝ Add helper puzzle in play screen
 ⚝ Refactor getAdjacent tile indices in grid function
+⚝ Rename var colors, use name with semantic
 ⚝

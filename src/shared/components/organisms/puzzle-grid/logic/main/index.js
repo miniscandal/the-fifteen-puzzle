@@ -5,7 +5,7 @@ import { isSelectableTile } from '@shared-components/molecules/puzzle-tile/logic
 import { resetSelectableTiles } from '@shared-components/molecules/puzzle-tile/logic/selectable-tiles';
 import { getAdjacentTileIndicesInGrid } from '../get-adjacent-tile-indices-in-grid';
 
-function gridFramFourByFour(event, Game) {
+function gridFrameFourByFour(event, Game) {
     const currentTile = event.target;
 
     if (!isSelectableTile(currentTile)) {
@@ -24,4 +24,4 @@ function gridFramFourByFour(event, Game) {
     updateGameState(Game, currentTile, emptyTile);
 }
 
-export { gridFramFourByFour };
+export { gridFrameFourByFour };
