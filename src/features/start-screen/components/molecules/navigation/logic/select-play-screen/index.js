@@ -7,11 +7,7 @@ function selectPlayScreen({ Game, Screens }) {
 
     button.addEventListener('click', function () {
         const setup = Screens.play({ Game, Screens });
-
-        screenSetup({
-            Game,
-            ...setup
-        });
+        screenSetup({ Game, ...setup });
     });
 }
 
