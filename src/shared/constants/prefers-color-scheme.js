@@ -1,4 +1,4 @@
-const LIGHT = Symbol('light');
-const DARK = Symbol('dark');
+const LIGHT = 'light';
+const DARK = 'dark';
 
 export { LIGHT, DARK };
