@@ -7,9 +7,7 @@ import { MainMenu } from '@feature-start-screen/components/organisms/main-menu';
 import './style.css';
 
 function StartScreen({ Game, screenSymbol }) {
-    const titleH1 = TitleH1({
-        text: 'the fifteen puzzle'
-    });
+    const titleH1 = TitleH1({ text: 'the fifteen puzzle' });
     const artwork = Artwork();
     const mainMenu = MainMenu();
 

@@ -3,7 +3,7 @@ import { selectPlayScreen } from '@feature-start-screen/components/molecules/nav
 import { PracticeScreen } from '@feature-practice-screen/main';
 import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
 
-function practiceScreenSetup({ Game, Screens, screenSymbol }) {
+function initializeScreen({ Game, Screens, screenSymbol }) {
     const setup = {
         html: PracticeScreen({ Game, screenSymbol }),
         logic: () => {
@@ -16,4 +16,4 @@ function practiceScreenSetup({ Game, Screens, screenSymbol }) {
     return setup;
 }
 
-export { practiceScreenSetup };
+export { initializeScreen };

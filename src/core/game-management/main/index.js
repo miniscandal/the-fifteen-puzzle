@@ -1,3 +1,5 @@
+import { LIGHT } from '@shared-constants/prefers-color-scheme';
+
 const Game = {
     screen: {
         htmlRender: ({ html }) => {
@@ -13,7 +15,7 @@ const Game = {
         solved: false
     },
     theme: {
-        currentName: 'light'
+        currentName: LIGHT
     },
     setupScreenRoutine: function ({ html, logic, screenSymbol }) {
         this.screen.htmlRender({ html });

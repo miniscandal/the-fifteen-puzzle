@@ -1,6 +1,6 @@
-import { startScreenSetup } from '@core-screen-management/start';
-import { practiceScreenSetup } from '@core-screen-management/practice';
-import { playScreenSetup } from '@core-screen-management/play';
+import { initializeStartScreen } from '@core-screen-management/start';
+import { initializeScreen } from '@core-screen-management/practice';
+import { initializePlayScreen } from '@core-screen-management/play';
 
 import { START } from '@core-screen-management/constants/screen-names';
 import { PRACTICE } from '@core-screen-management/constants/screen-names';
@@ -16,9 +16,9 @@ import { PLAY } from '@core-screen-management/constants/screen-names';
  * Game and Screens
  */
 
-function setupScreen(coreObjects, screenSymbol, setupFunction) {
+function setupScreen(coreObjects, screenSymbol, initializeFunction) {
     const { Game, Screens } = coreObjects;
-    const setup = setupFunction({
+    const setup = initializeFunction({
         Game,
         Screens,
         screenSymbol
@@ -28,9 +28,9 @@ function setupScreen(coreObjects, screenSymbol, setupFunction) {
 }
 
 const Screens = {
-    start: (coreObjects) => setupScreen(coreObjects, START, startScreenSetup),
-    practice: (coreObjects) => setupScreen(coreObjects, PRACTICE, practiceScreenSetup),
-    play: (coreObjects) => setupScreen(coreObjects, PLAY, playScreenSetup),
+    start: (coreObjects) => setupScreen(coreObjects, START, initializeStartScreen),
+    practice: (coreObjects) => setupScreen(coreObjects, PRACTICE, initializeScreen),
+    play: (coreObjects) => setupScreen(coreObjects, PLAY, initializePlayScreen),
 };
 
 export { Screens };
