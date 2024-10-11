@@ -2,8 +2,8 @@ import { PrimarySideBar } from '@shared-components/organisms/primary-side-bar';
 
 import './style.css';
 
-function Screen({ children, appearance, screenSymbol }) {
-    const gameSettings = PrimarySideBar({ appearance, screenSymbol });
+function Screen({ children, screenSymbol }) {
+    const gameSettings = PrimarySideBar({ screenSymbol });
 
     return (
         `

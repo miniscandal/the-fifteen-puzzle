@@ -1,5 +1,5 @@
-import { iconMoon } from '@shared-components/atoms/icon-button/variants';
-import { iconSun } from '@shared-components/atoms/icon-button/variants';
+import { iconMoon } from '@shared-components/atoms/icon-button/logic/constants/icon-name';
+import { iconSun } from '@shared-components/atoms/icon-button/logic/constants/icon-name';
 
 import { toggleColorScheme } from '@shared-helpers/toggle-color-scheme';
 import { updateBodyPreferColorScheme } from '@shared-helpers/update-body-color-scheme';
@@ -11,7 +11,7 @@ function updateIconButton(element, colorScheme) {
     element.dataset.name = colorScheme === LIGHT ? iconMoon : iconSun;
 }
 
-function iconButtonToggleColorScheme({ appearance }) {
+function iconButtonAppearanceTheme({ appearance }) {
     const iconButton = document.getElementById(PREFER_COLOR_SCHEME_ID);
 
     iconButton.addEventListener('click', function () {
@@ -24,4 +24,4 @@ function iconButtonToggleColorScheme({ appearance }) {
     });
 }
 
-export { iconButtonToggleColorScheme };
+export { iconButtonAppearanceTheme };
