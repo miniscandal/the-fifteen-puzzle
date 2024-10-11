@@ -1,16 +1,16 @@
-import { ApplicationTheme } from '@shared-components/molecules/application-theme';
+import { IconButtonToggleTheme } from '@shared-components/molecules/icon-button-toggle-theme';
 import { NavigationMenu } from '@shared-components/molecules/navigation-menu';
 
 import './style.css';
 
 function PrimarySideBar({ Game, screenSymbol }) {
-    const applicationTheme = ApplicationTheme({ Game });
+    const iconButtonToggleTheme = IconButtonToggleTheme({ Game });
     const menuSettings = NavigationMenu({ screenSymbol });
 
     return (
         `
         <section class="primary-side-bar">
-            ${applicationTheme}
+            ${iconButtonToggleTheme}
             ${menuSettings}
         </section>
         `

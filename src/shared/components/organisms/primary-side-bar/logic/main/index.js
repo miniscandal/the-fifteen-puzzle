@@ -1,4 +1,4 @@
-import { iconButtonToggleColorScheme } from '@shared-components/molecules/application-theme/logic/main';
+import { iconButtonToggleColorScheme } from '@shared-components/molecules/icon-button-toggle-theme/logic/main';
 import { navigationMenu } from '@shared-components/molecules/navigation-menu/logic/main';
 
 function primarySideBar({ Game, Screens, screenSymbol }) {

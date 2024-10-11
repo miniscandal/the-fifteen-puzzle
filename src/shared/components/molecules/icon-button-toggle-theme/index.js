@@ -7,7 +7,7 @@ import { PREFER_COLOR_SCHEME_ID } from './logic/constants/icon-button-identifier
 
 import './style.css';
 
-function ApplicationTheme({ Game }) {
+function IconButtonToggleTheme({ Game }) {
     const themeCurrent = Game.theme.currentName;
     const iconName = themeCurrent === LIGHT ? iconMoon : iconSun;
     const iconButtonTheme = IconButton({ id: PREFER_COLOR_SCHEME_ID, name: iconName, size: 'small' });
@@ -21,4 +21,4 @@ function ApplicationTheme({ Game }) {
     );
 }
 
-export { ApplicationTheme };
+export { IconButtonToggleTheme };
