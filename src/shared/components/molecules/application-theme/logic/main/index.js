@@ -1,26 +1,27 @@
 import { iconMoon } from '@shared-components/atoms/icon-button/variants';
 import { iconSun } from '@shared-components/atoms/icon-button/variants';
-import { DARK } from '@shared-constants/prefers-color-scheme';
+
+import { toggleColorScheme } from '@shared-helpers/toggle-color-scheme';
+import { updateBodyPreferColorScheme } from '@shared-helpers/update-body-color-scheme';
+
 import { LIGHT } from '@shared-constants/prefers-color-scheme';
 import { PREFER_COLOR_SCHEME_ID } from '../constants/icon-button-identifiers';
 
-
-
-function applicationTheme({ Game }) {
-    const toggleTheme = () => {
-        const body = document.querySelector('body');
-        const isLightTheme = body.dataset.themeColor === LIGHT;
-        body.dataset.themeColor = isLightTheme ? DARK : LIGHT;
-        Game.theme.currentName = body.dataset.themeColor;
-
-        const iconButtonTheme = document.getElementById(PREFER_COLOR_SCHEME_ID);
-        iconButtonTheme.dataset.name = isLightTheme ? iconSun : iconMoon;
-    };
-
-    document.getElementById('theme').addEventListener('click', toggleTheme);
+function updateIconButton(element, colorScheme) {
+    element.dataset.name = colorScheme === LIGHT ? iconMoon : iconSun;
 }
 
-export { applicationTheme };
+function iconButtonToggleColorScheme({ Game }) {
+    const iconButton = document.getElementById(PREFER_COLOR_SCHEME_ID);
 
+    iconButton.addEventListener('click', function () {
+        const themeColor = toggleColorScheme(Game.theme);
 
-// IMPLEMENT Function, REMOVE ARROW FUNCTION
+        updateBodyPreferColorScheme(themeColor);
+        updateIconButton(this, themeColor);
+
+        Game.theme.currentName = themeColor;
+    });
+}
+
+export { iconButtonToggleColorScheme };
