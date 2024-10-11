@@ -2,16 +2,19 @@ import { StartScreen } from '@feature-start-screen/main';
 import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
 import { navigation } from '@feature-start-screen/components/molecules/navigation/logic/main';
 
-function initializeStartScreen({ Game, Screens, screenSymbol }) {
-    const setup = {
-        html: StartScreen({ Game, screenSymbol }),
-        logic: () => {
-            primarySideBar({ Game, Screens, screenSymbol });
+import { START } from '@core-screen-management/constants/screen-names';
+
+function initializeStartScreen({ Game, Screens }) {
+    const settings = {
+        html: StartScreen({ Game, START }),
+        logic: function () {
+            primarySideBar({ Game, Screens, START });
             navigation({ Game, Screens });
-        }
+        },
+        symbol: START
     };
 
-    return setup;
+    return settings;
 }
 
 export { initializeStartScreen };
