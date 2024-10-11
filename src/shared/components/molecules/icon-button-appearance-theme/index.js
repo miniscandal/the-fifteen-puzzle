@@ -6,7 +6,7 @@ import { iconButtonAppearanceTheme } from '@shared-components/atoms/icon-button/
 import './style.css';
 
 function IconButtonAppearanceTheme() {
-    const iconButtonTheme = IconButton(iconButtonAppearanceTheme.componentVariant);
+    const iconButtonTheme = IconButton(iconButtonAppearanceTheme.variant);
 
     return (
         `

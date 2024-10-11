@@ -7,7 +7,7 @@ import { iconSun } from './logic/constants/icon-name';
 import { LIGHT } from '@shared-constants/prefers-color-scheme';
 
 const iconButtonAppearanceTheme = {
-    get componentVariant() {
+    get variant() {
         return {
             id: PREFER_COLOR_SCHEME_ID,
             name: Game.appearance.theme.current === LIGHT ? iconMoon : iconSun,
