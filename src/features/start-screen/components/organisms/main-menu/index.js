@@ -4,9 +4,7 @@ import { Navigation } from '@feature-start-screen/components/molecules/navigatio
 import './style.css';
 
 function MainMenu() {
-    const titleH2 = TitleH2({
-        text: 'game options'
-    });
+    const titleH2 = TitleH2({ text: 'game options' });
     const navigation = Navigation();
 
     return (

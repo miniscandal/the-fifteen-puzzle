@@ -14,8 +14,10 @@ const Game = {
         state: [],
         solved: false
     },
-    theme: {
-        currentName: LIGHT
+    appearance: {
+        theme: {
+            current: LIGHT
+        }
     },
     setupScreenRoutine: function ({ html, logic, screenSymbol }) {
         this.screen.htmlRender({ html });

@@ -1,17 +1,23 @@
 import { IconButtonToggleTheme } from '@shared-components/molecules/icon-button-toggle-theme';
-import { NavigationMenu } from '@shared-components/molecules/navigation-menu';
+import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
+
+import { START } from '@core-screen-management/constants/screen-names';
+
+import { SELECT_START_SCREEN_ID } from './logic/constants/identifiers';
 
 import './style.css';
 
-function PrimarySideBar({ Game, screenSymbol }) {
-    const iconButtonToggleTheme = IconButtonToggleTheme({ Game });
-    const menuSettings = NavigationMenu({ screenSymbol });
+function PrimarySideBar({ appearance, screenSymbol }) {
+    const iconButtonToggleTheme = IconButtonToggleTheme({ appearance });
+    const buttonSelectScreen = screenSymbol !== START
+        ? ButtonSelectScreen({ text: 'back', id: SELECT_START_SCREEN_ID })
+        : '';
 
     return (
         `
         <section class="primary-side-bar">
             ${iconButtonToggleTheme}
-            ${menuSettings}
+            ${buttonSelectScreen}
         </section>
         `
     );

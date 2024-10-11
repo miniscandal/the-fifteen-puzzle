@@ -23,7 +23,7 @@ function StartScreen({ Game, screenSymbol }) {
 
     return Screen({
         children,
-        Game,
+        appearance: Game.appearance,
         screenSymbol
     });
 }

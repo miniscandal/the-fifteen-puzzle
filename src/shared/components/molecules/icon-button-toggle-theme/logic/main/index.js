@@ -11,16 +11,16 @@ function updateIconButton(element, colorScheme) {
     element.dataset.name = colorScheme === LIGHT ? iconMoon : iconSun;
 }
 
-function iconButtonToggleColorScheme({ Game }) {
+function iconButtonToggleColorScheme({ appearance }) {
     const iconButton = document.getElementById(PREFER_COLOR_SCHEME_ID);
 
     iconButton.addEventListener('click', function () {
-        const themeColor = toggleColorScheme(Game.theme);
+        const themeColor = toggleColorScheme(appearance.theme);
 
         updateBodyPreferColorScheme(themeColor);
         updateIconButton(this, themeColor);
 
-        Game.theme.currentName = themeColor;
+        appearance.theme.current = themeColor;
     });
 }
 

@@ -50,7 +50,7 @@ function PracticeScreen({ Game, screenSymbol }) {
 
     return Screen({
         children,
-        Game,
+        appearance: Game.appearance,
         screenSymbol
     });
 }
