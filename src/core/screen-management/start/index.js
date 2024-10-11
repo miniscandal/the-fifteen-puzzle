@@ -5,13 +5,14 @@ import { navigation } from '@feature-start-screen/components/molecules/navigatio
 import { START } from '@core-screen-management/constants/screen-names';
 
 function initializeStartScreen({ Game, Screens }) {
+    const screenSymbol = START;
     const settings = {
-        html: StartScreen({ Game, START }),
+        html: StartScreen({ Game, screenSymbol }),
         logic: function () {
-            primarySideBar({ Game, Screens, START });
+            primarySideBar({ Game, Screens, screenSymbol });
             navigation({ Game, Screens });
         },
-        symbol: START
+        screenSymbol
     };
 
     return settings;

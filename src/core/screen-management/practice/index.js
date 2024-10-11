@@ -7,14 +7,15 @@ import { primarySideBar } from '@shared-components/organisms/primary-side-bar/lo
 import { PRACTICE } from '@core-screen-management/constants/screen-names';
 
 function initializePracticeScreen({ Game, Screens }) {
+    const screenSymbol = PRACTICE;
     const settings = {
-        html: PracticeScreen({ Game, PRACTICE }),
+        html: PracticeScreen({ Game, screenSymbol }),
         logic: function () {
-            primarySideBar({ Game, Screens, PRACTICE });
+            primarySideBar({ Game, Screens, screenSymbol });
             selectPuzzle({ Game });
             selectPlayScreen({ Game, Screens });
         },
-        symbol: PRACTICE
+        screenSymbol
     };
 
     return settings;
