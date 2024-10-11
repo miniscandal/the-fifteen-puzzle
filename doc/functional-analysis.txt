@@ -10,3 +10,16 @@
 
 
 const puzzle = Object.values(puzzles).find(puzzle => puzzle.id === id);
+
+
+implementar import() dinamico en runtime, ejemplo: 
+
+async function loadPermutation(permutationName) {
+    const { [permutationName]: permutation } = await import('@core-game-management/permutations');
+    return permutation;
+}
+
+// Usar la función para cargar solo la permutación que necesitas
+loadPermutation('permutationA1').then(permutation => {
+    console.log(permutation);
+});

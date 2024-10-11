@@ -4,7 +4,7 @@ import { IconButton } from '@shared-components/atoms/icon-button';
 
 import { LIGHT } from '@shared-constants/prefers-color-scheme';
 
-import { PREFER_COLOR_SCHEME_ID } from './logic/constants/icon-button-identifiers';
+import { PREFER_COLOR_SCHEME_ID } from './logic/constants/element-identifiers';
 
 import './style.css';
 

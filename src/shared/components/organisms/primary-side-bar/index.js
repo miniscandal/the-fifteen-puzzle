@@ -3,7 +3,7 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import { START } from '@core-screen-management/constants/screen-names';
 
-import { SELECT_START_SCREEN_ID } from './logic/constants/identifiers';
+import { SELECT_START_SCREEN_ID } from './logic/constants/element-identifiers';
 
 import './style.css';
 

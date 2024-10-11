@@ -1,4 +1,4 @@
-import { SELECT_PLAY_SCREEN_ID } from '../constants/button-identifiers';
+import { SELECT_PLAY_SCREEN_ID } from '../constants/element-identifiers';
 
 function selectPlayScreen({ Game, Screens }) {
     const button = document.getElementById(SELECT_PLAY_SCREEN_ID);

@@ -1,4 +1,4 @@
-import { puzzles } from '@core-game-management/permutations';
+import * as permutations from '@core-game-management/permutations';
 
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
@@ -12,10 +12,10 @@ import { TOTAL_TILES } from '@shared-constants/puzzle';
 
 function PuzzleGame({ Game }) {
     const permutation = generatePermutation({ length: TOTAL_TILES });
-    const puzzle = Object.values(puzzles).find(puzzle => puzzle.id === Game.puzzle.id);
+    const puzzle = Object.values(permutations).find(puzzle => puzzle.id === Game.puzzle.id);
 
-    Game.puzzle.id = puzzle?.id ?? puzzles.permutationA1.id;
-    Game.puzzle.permutation = puzzle?.permutation ?? puzzles.permutationA1.permutation;
+    Game.puzzle.id = puzzle?.id ?? permutations.permutationA1.id;
+    Game.puzzle.permutation = puzzle?.permutation ?? permutations.permutationA1.permutation;
     Game.puzzle.state = permutation;
 
     const puzzleGrid = PuzzleGrid({

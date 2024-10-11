@@ -1,9 +1,9 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
-import { SELECT_PLAY_SCREEN_ID } from './logic/constants/button-identifiers';
-import { SELECT_PRACTICE_SCREEN_ID } from './logic/constants/button-identifiers';
-import { SELECT_HELP_SCREEN_ID } from './logic/constants/button-identifiers';
-import { SELECT_SETTINGS_SCREEN_ID } from './logic/constants/button-identifiers';
+import { SELECT_PLAY_SCREEN_ID } from './logic/constants/element-identifiers';
+import { SELECT_PRACTICE_SCREEN_ID } from './logic/constants/element-identifiers';
+import { SELECT_HELP_SCREEN_ID } from './logic/constants/element-identifiers';
+import { SELECT_SETTINGS_SCREEN_ID } from './logic/constants/element-identifiers';
 
 import './style.css';
 

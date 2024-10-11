@@ -1,7 +1,7 @@
 import { TitleH2 } from '@shared-components/atoms/title-h2';
 import { Screen } from '@shared-components/templates/screen';
 
-import { puzzles } from '@core-game-management/permutations';
+import * as permutations from '@core-game-management/permutations';
 
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 import { puzzleGridPractice } from '@shared-components/organisms/puzzle-grid/variants';
@@ -17,7 +17,7 @@ import './style.css';
 function PracticeScreen({ Game, screenSymbol }) {
     const titleH2 = TitleH2({ text: 'select practice puzzle' });
 
-    const puzzleGrids = Object.values(puzzles).map(puzzle => {
+    const puzzleGrids = Object.values(permutations).map(puzzle => {
         if (!puzzle.playEnabled) {
             return;
         }

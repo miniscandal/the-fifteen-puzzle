@@ -1,13 +1,17 @@
-import { puzzles } from '@core-game-management/permutations';
+import { permutationA5 } from '@core-game-management/permutations';
 
 const puzzleGridArt = {
     playEnabled: false,
     size: 'regular',
-    puzzle: puzzles.permutationA5,
+    puzzle: {
+        id: permutationA5.id,
+        permutation: permutationA5.permutation
+    },
     puzzleTile: {
         size: 'auto',
         playEnabled: false
-    }
+    },
+    logic: undefined
 };
 
 const puzzleGridPractice = {
@@ -17,7 +21,8 @@ const puzzleGridPractice = {
     puzzleTile: {
         size: 'auto',
         playEnabled: false
-    }
+    },
+    logic: undefined
 };
 
 const puzzleGridPlay = {
@@ -27,8 +32,8 @@ const puzzleGridPlay = {
     puzzleTile: {
         size: 'auto',
         playEnabled: true
-    }
-
+    },
+    logic: undefined
 };
 
 export {

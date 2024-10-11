@@ -5,7 +5,7 @@ import { toggleColorScheme } from '@shared-helpers/toggle-color-scheme';
 import { updateBodyPreferColorScheme } from '@shared-helpers/update-body-color-scheme';
 
 import { LIGHT } from '@shared-constants/prefers-color-scheme';
-import { PREFER_COLOR_SCHEME_ID } from '../constants/icon-button-identifiers';
+import { PREFER_COLOR_SCHEME_ID } from '../constants/element-identifiers';
 
 function updateIconButton(element, colorScheme) {
     element.dataset.name = colorScheme === LIGHT ? iconMoon : iconSun;

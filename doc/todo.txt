@@ -9,4 +9,5 @@
 ⚝ Add helper puzzle in play screen
 ⚝ Refactor getAdjacent tile indices in grid function
 ⚝ Rename var colors, use name with semantic
+⚝ Implementar appendChild o inserAdjacentHTML para no eliminar el codigo js de Screen template
 ⚝
