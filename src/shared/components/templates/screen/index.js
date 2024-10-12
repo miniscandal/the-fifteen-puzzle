@@ -3,12 +3,12 @@ import { PrimarySideBar } from '@shared-components/organisms/primary-side-bar';
 import './style.css';
 
 function Screen({ children, screenSymbol }) {
-    const gameSettings = PrimarySideBar({ screenSymbol });
+    const primarySideBar = PrimarySideBar({ screenSymbol });
 
     return (
         `
         <section class="screen">
-            ${gameSettings}
+            ${primarySideBar}
             ${children}
         </section>
         `

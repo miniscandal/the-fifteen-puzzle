@@ -7,7 +7,7 @@ import { START } from '@core-screen-management/constants/screen-names';
 function initializeStartScreen({ Game, Screens }) {
     const screenSymbol = START;
     const settings = {
-        html: StartScreen({ Game, screenSymbol }),
+        html: StartScreen({ screenSymbol }),
         logic: function () {
             primarySideBar({ Game, Screens, screenSymbol });
             navigation({ Game, Screens });
