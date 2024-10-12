@@ -3,7 +3,9 @@ import { TILES_PER_ROW } from '@shared-constants/puzzle';
 import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle';
 import { FIRST_TILE_INDEX } from '@shared-constants/puzzle';
 
-function getAdjacentTileIndicesInGrid(emptyTileIndex) {
+import { EMPTY_TILE_VALUE } from '@shared-constants/puzzle';
+
+function getAdjacentTileIndicesInGrid(emptyIndex) {
     const movableTiles = [];
 
     // Check if two indices of the tiles are in the same row
@@ -12,33 +14,33 @@ function getAdjacentTileIndicesInGrid(emptyTileIndex) {
     };
 
     // Check if the tile to the left is selectable
-    if (emptyTileIndex - MOVEMENT_DISTANCE >= FIRST_TILE_INDEX && areInSameRow(emptyTileIndex, emptyTileIndex - MOVEMENT_DISTANCE)) {
+    if (emptyIndex - MOVEMENT_DISTANCE >= FIRST_TILE_INDEX && areInSameRow(emptyIndex, emptyIndex - MOVEMENT_DISTANCE)) {
         movableTiles.push({
-            index: emptyTileIndex - MOVEMENT_DISTANCE,
+            index: emptyIndex - MOVEMENT_DISTANCE,
             movementDirection: 'right'
         });
     }
 
     // Check if the tile to the right is selectable
-    if (emptyTileIndex + MOVEMENT_DISTANCE < TOTAL_TILES && areInSameRow(emptyTileIndex, emptyTileIndex + MOVEMENT_DISTANCE)) {
+    if (emptyIndex + MOVEMENT_DISTANCE < TOTAL_TILES && areInSameRow(emptyIndex, emptyIndex + MOVEMENT_DISTANCE)) {
         movableTiles.push({
-            index: emptyTileIndex + MOVEMENT_DISTANCE,
+            index: emptyIndex + MOVEMENT_DISTANCE,
             movementDirection: 'left'
         });
     }
 
     // Check if the down tile is selectable
-    if (emptyTileIndex - TILES_PER_ROW >= FIRST_TILE_INDEX) {
+    if (emptyIndex - TILES_PER_ROW >= FIRST_TILE_INDEX) {
         movableTiles.push({
-            index: emptyTileIndex - TILES_PER_ROW,
+            index: emptyIndex - TILES_PER_ROW,
             movementDirection: 'down'
         });
     }
 
     // check if the up tile is selectable
-    if (emptyTileIndex + TILES_PER_ROW < TOTAL_TILES) {
+    if (emptyIndex + TILES_PER_ROW < TOTAL_TILES) {
         movableTiles.push({
-            index: emptyTileIndex + TILES_PER_ROW,
+            index: emptyIndex + TILES_PER_ROW,
             movementDirection: 'up'
         });
     }
@@ -46,4 +48,10 @@ function getAdjacentTileIndicesInGrid(emptyTileIndex) {
     return movableTiles;
 }
 
-export { getAdjacentTileIndicesInGrid };
+function findAdjacentTileIndices(permutation) {
+    const emptyIndex = permutation.findIndex(value => value === EMPTY_TILE_VALUE);
+
+    return getAdjacentTileIndicesInGrid(emptyIndex);
+}
+
+export { findAdjacentTileIndices, getAdjacentTileIndicesInGrid };

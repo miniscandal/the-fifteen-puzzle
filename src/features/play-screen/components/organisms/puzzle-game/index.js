@@ -4,8 +4,6 @@ import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
 import { puzzleGridPlay } from '@shared-components/organisms/puzzle-grid/variants';
 
-import { getAdjacentTileIndicesInGrid } from '@shared-components/organisms/puzzle-grid/logic/get-adjacent-tile-indices-in-grid';
-
 import { generatePermutation } from '@shared-utils/generate-permutation';
 
 import { TOTAL_TILES } from '@shared-constants/puzzle';
@@ -21,7 +19,7 @@ function PuzzleGame({ Game }) {
     const puzzleGrid = PuzzleGrid({
         ...puzzleGridPlay,
         puzzle: { id: Game.puzzle.id, permutation },
-        logic: { getAdjacentTileIndicesInGrid, generatePermutation }
+        logic: {}
     });
 
     return (

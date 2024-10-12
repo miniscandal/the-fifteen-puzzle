@@ -6,10 +6,6 @@ import * as permutations from '@core-game-management/permutations';
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 import { puzzleGridPractice } from '@shared-components/organisms/puzzle-grid/variants';
 
-import { getAdjacentTileIndicesInGrid } from '@shared-components/organisms/puzzle-grid/logic/get-adjacent-tile-indices-in-grid';
-
-import { generatePermutation } from '@shared-utils/generate-permutation';
-
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
 import './style.css';
@@ -25,7 +21,7 @@ function PracticeScreen({ Game, screenSymbol }) {
         const puzzleGrid = PuzzleGrid({
             ...puzzleGridPractice,
             puzzle,
-            logic: { getAdjacentTileIndicesInGrid, generatePermutation }
+            logic: {}
         });
 
         return puzzleGrid;
