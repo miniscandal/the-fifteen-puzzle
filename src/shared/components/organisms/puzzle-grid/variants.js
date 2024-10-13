@@ -1,40 +1,33 @@
-import { permutationA5 } from '@core-game-management/permutations';
-import { generatePermutation } from '@shared-utils/generate-permutation';
-
-import { TOTAL_TILES } from '@shared-constants/puzzle';
+import { puzzleA5 } from '@core-game-management/puzzles';
 
 const puzzleGridArt = {
-    playEnabled: false,
-    size: 'regular',
-    puzzle: permutationA5,
+    puzzle: puzzleA5,
     puzzleTile: {
-        size: 'auto',
         playEnabled: false
     }
 };
 
 const puzzleGridPractice = {
-    playEnabled: true,
     size: 'small',
-    puzzle: {
-        permutation: generatePermutation({ length: TOTAL_TILES })
-    },
     puzzleTile: {
-        size: 'auto',
         playEnabled: false
-    },
-    logic: undefined
+    }
 };
 
 const puzzleGridPlay = {
-    playEnabled: false,
+    playEnabled: true,
     size: 'medium',
     puzzle: undefined,
     puzzleTile: {
+        id: undefined,
+        symbol: '?',
         size: 'auto',
-        playEnabled: true
-    },
-    logic: undefined
+        playEnabled: false,
+        movementDirection: undefined,
+        row: undefined,
+        column: undefined,
+        index: undefined
+    }
 };
 
 export {

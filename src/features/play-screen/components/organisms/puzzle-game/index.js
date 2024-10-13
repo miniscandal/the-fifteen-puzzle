@@ -1,4 +1,4 @@
-import * as permutations from '@core-game-management/permutations';
+import * as permutations from '@core-game-management/puzzles';
 
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 

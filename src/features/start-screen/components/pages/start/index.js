@@ -6,14 +6,14 @@ import { MainMenu } from '@feature-start-screen/components/organisms/main-menu';
 
 import './style.css';
 
-function StartScreen({ screenSymbol }) {
+function Start({ screenSymbol }) {
     const titleH1 = TitleH1({ text: 'the fifteen puzzle' });
     const artwork = Artwork();
     const mainMenu = MainMenu();
 
     const children = (
         `
-        <article class="start-screen">
+        <article class="start-page">
             ${titleH1}
             ${artwork}
             ${mainMenu}
@@ -26,6 +26,4 @@ function StartScreen({ screenSymbol }) {
         screenSymbol
     });
 }
-
-
-export { StartScreen };
+export { Start };

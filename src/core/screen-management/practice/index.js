@@ -1,7 +1,7 @@
-import { selectPuzzle } from '@core-game-management/select-puzzle';
+import { selectPuzzleGrid } from '@feature-practice-screen/components/organisms/puzzle-grid-collection/logic/select-puzzle-grid';
 
 import { selectPlayScreen } from '@feature-start-screen/components/molecules/navigation/logic/select-play-screen';
-import { PracticeScreen } from '@feature-practice-screen/main';
+import { Practice } from '@feature-practice-screen/components/pages/practice';
 import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
 
 import { PRACTICE } from '@core-screen-management/constants/screen-names';
@@ -9,10 +9,10 @@ import { PRACTICE } from '@core-screen-management/constants/screen-names';
 function initializePracticeScreen({ Game, Screens }) {
     const screenSymbol = PRACTICE;
     const settings = {
-        html: PracticeScreen({ Game, screenSymbol }),
+        html: Practice({ screenSymbol }),
         logic: function () {
             primarySideBar({ Game, Screens, screenSymbol });
-            selectPuzzle({ Game });
+            selectPuzzleGrid({ Game });
             selectPlayScreen({ Game, Screens });
         },
         screenSymbol

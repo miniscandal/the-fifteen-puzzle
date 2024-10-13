@@ -18,43 +18,36 @@
     visibility: hidden;
 }
 
-.puzzle-tile[data-selectable=true][data-play-enabled=true] {
+.puzzle-tile[data-play-enabled=true] {
     border: dashed var(--color-light) 2px;
     transition: transform 0.2s linear;
     cursor: pointer;
 }
 
-.puzzle-tile[data-selectable=true][data-play-enabled=true]:hover {
+.puzzle-tile[data-play-enabled=true]:hover {
     filter: brightness(110%);
 }
 
-
-.puzzle-tile[data-movement-direction='right'][data-play-enabled=true]:checked {
+.puzzle-tile[data-movement-direction='right']:checked {
     transform: translateX(100%);
 }
 
-.puzzle-tile[data-movement-direction='left'][data-play-enabled=true]:checked {
+.puzzle-tile[data-movement-direction='left']:checked {
     transform: translateX(-100%);
 }
 
-.puzzle-tile[data-movement-direction='up'][data-play-enabled=true]:checked {
+.puzzle-tile[data-movement-direction='up']:checked {
     transform: translateY(-100%);
 }
 
-.puzzle-tile[data-movement-direction='down'][data-play-enabled=true]:checked {
+.puzzle-tile[data-movement-direction='down']:checked {
     transform: translateY(100%);
-}
-
-.puzzle-tile.move {
-    grid-column: 1;
-    grid-row: 1;
 }
 
 .puzzle-tile[data-size='small'] {
     width: 60px;
     height: 60px;
 }
-
 
 .puzzle-tile[data-size='regular'] {
     width: 100px;

@@ -11,4 +11,5 @@
 ⚝ Rename var colors, use name with semantic
 ⚝ Implementar appendChild o inserAdjacentHTML para no eliminar el codigo js de Screen template
 ⚝ Remove getAdjacentTileIndicesInGrid
+⚝ Rename element identifiers, add the name for the element
 ⚝
