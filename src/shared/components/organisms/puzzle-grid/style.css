@@ -4,6 +4,7 @@
     grid-template-rows: repeat(4, 1fr);
     border-radius: var(--border-radius-light);
     background-color: var(--color-chestnut);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
 .puzzle-grid[data-size='small'] {
@@ -26,4 +27,9 @@
 .puzzle-grid[data-play-enabled=true]:hover {
     cursor: pointer;
     filter: brightness(1.1);
+}
+
+.puzzle-grid.selected {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px var(--color-dark);
 }

@@ -4,14 +4,22 @@ function selectPuzzleGrid({ Game }) {
     const button = document.getElementById(PUZZLE_GRID_COLLECTION_ID);
 
     button.addEventListener('click', function (event) {
-        if (!event.target || !event.target.getAttribute('data-puzzle-id')) {
+        const attribute = 'data-puzzle-id';
+        const puzzleGrid = event.target.closest(`[${attribute}]`);
+
+        if (!puzzleGrid) {
             return;
         }
 
-        Game.puzzle.id = event.target.getAttribute(['data-puzzle-id']);
+        const { puzzle } = Game;
+        const className = 'selected';
+        const selector = `[${attribute}=${puzzle.id}]`;
+        const previousPuzzleGrid = document.querySelector(selector);
 
-        console.log(Game.puzzle.id);
+        previousPuzzleGrid?.classList.remove(className);
+        puzzleGrid.classList.add(className);
 
+        puzzle.id = puzzleGrid.dataset.puzzleId;
     });
 };
 

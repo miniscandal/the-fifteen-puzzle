@@ -8,6 +8,7 @@ const puzzleGridArt = {
 };
 
 const puzzleGridPractice = {
+    playEnabled: true,
     size: 'small',
     puzzleTile: {
         playEnabled: false

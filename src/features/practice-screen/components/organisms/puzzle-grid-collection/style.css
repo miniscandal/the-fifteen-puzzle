@@ -3,8 +3,3 @@
     grid-template-columns: repeat(4, 1fr);
     gap: var(--gap-uniform);
 }
-
-/* 
-.puzzle-grid-collection > * > * {
-    pointer-events: none;
-} */
