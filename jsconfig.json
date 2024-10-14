@@ -17,6 +17,9 @@
             "@core-screen-management/*": [
                 "core/screen-management/*"
             ],
+            "@core-constants/*": [
+                "core/constants/*"
+            ],
             "@shared-components/*": [
                 "shared/components/*"
             ],

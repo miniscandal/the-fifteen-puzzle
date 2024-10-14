@@ -8,7 +8,7 @@ import { primarySideBar } from '@shared-components/organisms/primary-side-bar/lo
 function initializePlayScreen({ Game, Screens }) {
     const screenSymbol = PLAY;
     const settings = {
-        html: Play({ Game, screenSymbol }),
+        html: Play({ screenSymbol }),
         logic: function () {
             primarySideBar({ Game, Screens, screenSymbol });
             selectPuzzleTile({ Game });

@@ -5,7 +5,7 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import { PuzzleGridCollection } from '@feature-practice-screen/components/organisms/puzzle-grid-collection';
 
-import * as puzzles from '@core-game-management/puzzles';
+import * as puzzles from '@core-constants/puzzles.js';
 
 import './style.css';
 
