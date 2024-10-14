@@ -2,16 +2,21 @@ const puzzleGridPlay = {
     playEnabled: true,
     size: 'medium',
     get puzzle() {
-        return (async () => {
+        (async function getPuzzle() {
             try {
                 const { ['puzzleA1']: puzzle } = await import('@core-constants/puzzles.js');
                 console.log(puzzle);
-
-                return puzzle;
+                const { playEnabled, size } = puzzleGridPlay;
+                const puzzleGrid = PuzzleGrid({ playEnabled, size, puzzle });
+                document.getElementById(PUZZLE_GAME_ID).innerHTML = puzzleGrid;
             } catch (error) {
                 console.log(error);
-                return {};
             }
         })();
+
+        return undefined;
+    },
+    puzzleTile: {
+        symbol: '?'
     }
 };
