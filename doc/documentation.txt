@@ -23,9 +23,3 @@ https://infashionbalance.com/fashion-palette-488-mango-style/
 ⚝ Icons SVG
 
 https://heroicons.com/
-
-
-⚝ ShortCuts
-
-Ctrl + K, O
-Ctrl + K, R
