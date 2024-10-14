@@ -18,16 +18,8 @@ const puzzleGridPractice = {
 const puzzleGridPlay = {
     playEnabled: true,
     size: 'medium',
-    puzzle: undefined,
-    puzzleTile: {
-        id: undefined,
-        symbol: '?',
-        size: 'auto',
-        playEnabled: false,
-        movementDirection: undefined,
-        row: undefined,
-        column: undefined,
-        index: undefined
+    get puzzle() {
+        return puzzleA5;
     }
 };
 
