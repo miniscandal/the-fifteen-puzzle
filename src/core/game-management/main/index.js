@@ -14,6 +14,10 @@ const Game = {
         state: [],
         solved: false
     },
+    mode: undefined,
+    playSequence: {
+        isCompleted: false
+    },
     appearance: {
         theme: {
             current: LIGHT
