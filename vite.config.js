@@ -9,6 +9,7 @@ export default defineConfig({
 
             '@core-game-management': '/src/core/game-management',
             '@core-screen-management': '/src/core/screen-management',
+            '@core-stage-management': '/src/core/stage-management',
             '@core-constants': '/src/core/constants',
 
             '@shared-components': '/src/shared/components',

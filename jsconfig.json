@@ -17,6 +17,9 @@
             "@core-screen-management/*": [
                 "core/screen-management/*"
             ],
+            "@core-stage-management/*": [
+                "core/stage-management/*"
+            ],
             "@core-constants/*": [
                 "core/constants/*"
             ],
