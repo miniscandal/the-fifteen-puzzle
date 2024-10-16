@@ -10,7 +10,7 @@ import './style.css';
 function PrimarySideBar({ screenSymbol }) {
     const iconButtonAppearanceTheme = IconButtonAppearanceTheme();
     const buttonSelectScreen = screenSymbol !== START
-        ? ButtonSelectScreen({ text: 'back', id: SELECT_START_SCREEN_ID })
+        ? ButtonSelectScreen({ text: 'main menu', id: SELECT_START_SCREEN_ID })
         : '';
 
     return (
