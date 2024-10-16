@@ -1,16 +1,10 @@
-⚝ Redefine the logic for the screen template; it has the potential to become a feature⚝
-⚝ GameArtwork update, color theme selection is no longer tied to the body element
-⚝ Generate random permutation for the state
-⚝ Create constant for literal as id button 'select-gameplay-screen'
-⚝ Change regular size to predefined size
-⚝ Separate the logic for the theme and the game is the global Game object.
-⚝ Remove the puzzle id in global Game object within the back button function.
-⚝ Remove tile selected in practice screen
-⚝ Add helper puzzle in play screen
-⚝ Refactor getAdjacent tile indices in grid function
-⚝ Rename var colors, use name with semantic
-⚝ Implementar appendChild o inserAdjacentHTML para no eliminar el codigo js de Screen template
-⚝ Remove getAdjacentTileIndicesInGrid
-⚝ Rename element identifiers, add the name for the element
-⚝ Implement selectPuzzleTile method defined in PuzzleTile component
-⚝
+⚝ Redefine the logic for the screen template; it has the potential to become a feature.  
+⚝ Update GameArtwork, the color theme selection should not be tied to the body element.  
+⚝ Generate a random permutation for the puzzle state.  
+⚝ Rename the regular size of the components to the name of the predefined size.  
+⚝ Separate the color or theme preference logic from the global Game object.  
+⚝ Add a helper puzzle with the permutation to solve within the game screen.  
+⚝ Rename CSS variables for colors to semantic names.  
+⚝ Remove the getAdjacentTileIndicesInGrid method.  
+⚝ Rename HTML element identifiers by adding the name of the element's tag.  
+⚝ Implement the selectPuzzleTile method defined in the PuzzleTile component.
