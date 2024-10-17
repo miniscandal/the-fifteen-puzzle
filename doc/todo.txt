@@ -1,10 +1,11 @@
-⚝ Redefine the logic for the screen template; it has the potential to become a feature.  
-⚝ Update GameArtwork, the color theme selection should not be tied to the body element.  
-⚝ Generate a random permutation for the puzzle state.  
-⚝ Rename the regular size of the components to the name of the predefined size.  
-⚝ Separate the color or theme preference logic from the global Game object.  
-⚝ Add a helper puzzle with the permutation to solve within the game screen.  
-⚝ Rename CSS variables for colors to semantic names.  
-⚝ Remove the getAdjacentTileIndicesInGrid method.  
-⚝ Rename HTML element identifiers by adding the name of the element's tag.  
-⚝ Implement the selectPuzzleTile method defined in the PuzzleTile component.
+⚝ Redefine the logic for the screen template; it has the potential to become a feature
+⚝ Update GameArtwork, the color theme selection should not be tied to the body element
+⚝ Generate a random permutation for the puzzle state
+⚝ Rename the regular size of the components to the name of the predefined size
+⚝ Separate the color or theme preference logic from the global Game object
+⚝ Add a helper puzzle with the permutation to solve within the game screen
+⚝ Rename CSS variables for colors to semantic names
+⚝ Remove the getAdjacentTileIndicesInGrid method
+⚝ Rename HTML element identifiers by adding the name of the element's tag
+⚝ Implement constants to define custom data attributes on HTML elements 
+⚝

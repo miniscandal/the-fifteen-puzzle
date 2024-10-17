@@ -49,7 +49,7 @@ function PuzzleGrid({
         `
         <section
             class="puzzle-grid"
-            id="grid-frame-four-by-four"
+            id="puzzle-grid"
             data-size=${size}
             data-play-enabled=${playEnabled}
             data-puzzle-id=${id}

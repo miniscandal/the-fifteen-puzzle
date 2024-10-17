@@ -27,6 +27,13 @@ const Game = {
         this.screen.htmlRender({ html });
         this.screen.setupLogic({ logic });
         this.screen.currentSymbol = screenSymbol;
+    },
+    updateGameState: function ({ currentElement, emptyElement }) {
+        const { id: currentId, index: currentIndex } = currentElement;
+        const { id: emptyId, index: emptyIndex } = emptyElement;
+
+        Game.puzzle.state[currentIndex] = currentId;
+        Game.puzzle.state[emptyIndex] = emptyId;
     }
 };
 

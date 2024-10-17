@@ -23,6 +23,7 @@
     border: dashed var(--color-light) 2px;
     transition: transform 0.2s linear;
     cursor: pointer;
+    pointer-events: all;
 }
 
 .puzzle-tile[data-play-enabled=true]:hover {

@@ -1,27 +1,35 @@
-import { updateGameState } from '@shared-helpers/update-game-state';
-import { updateSelectableTiles } from '@shared-components/molecules/puzzle-tile/logic/update-selectable-tiles';
+import { canSelectTile } from '@shared-components/molecules/puzzle-tile/logic/can-select-tile';
+import { resetSelectableTiles } from '@shared-components/molecules/puzzle-tile/logic/reset-selectable-tiles';
 import { swapTilesData } from '@shared-components/molecules/puzzle-tile/logic/swap-tiles-data';
-import { isSelectableTile } from '@shared-components/molecules/puzzle-tile/logic/selectable-tiles';
-import { resetSelectableTiles } from '@shared-components/molecules/puzzle-tile/logic/selectable-tiles';
 import { getAdjacentTileIndicesInGrid } from '../get-adjacent-tile-indices-in-grid';
+import { updateSelectableTiles } from '@shared-components/molecules/puzzle-tile/logic/update-selectable-tiles';
+import { updateGameState } from '../update-game-state';
 
-function gridFrameFourByFour(event, Game) {
-    const currentTile = event.target;
 
-    if (!isSelectableTile(currentTile)) {
-        return;
-    }
+function puzzleGrid({ Game }) {
+    const puzzleGrid = document.getElementById('puzzle-grid');
 
-    const tiles = document.querySelectorAll('[data-selectable="true"]');
-    resetSelectableTiles(tiles);
+    puzzleGrid.addEventListener('click', function (event) {
+        const element = event.target;
 
-    const emptyTile = document.querySelector('[data-id="0"]');
-    swapTilesData(currentTile, emptyTile);
+        if (!canSelectTile(element)) {
+            return;
+        }
 
-    const movableTileIndices = getAdjacentTileIndicesInGrid(Number(emptyTile.dataset.index));
-    updateSelectableTiles(movableTileIndices);
+        const tiles = document.querySelectorAll('[data-play-enabled="true"][data-symbol]');
 
-    updateGameState(Game, currentTile, emptyTile);
+        resetSelectableTiles(tiles);
+
+        const currentTile = element;
+        const emptyTile = document.querySelector('[data-id="0"]');
+
+        swapTilesData(currentTile, emptyTile);
+        updateGameState(Game, currentTile, emptyTile);
+
+        const movableTileIndices = getAdjacentTileIndicesInGrid(Number(emptyTile.dataset.index));
+
+        updateSelectableTiles(movableTileIndices);
+    });
 }
 
-export { gridFrameFourByFour };
+export { puzzleGrid };

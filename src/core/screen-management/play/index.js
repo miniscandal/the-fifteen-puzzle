@@ -7,6 +7,7 @@ import { Play } from '@feature-play-screen/components/pages';
 import { renderPuzzleScene } from '@feature-play-screen/components/organisms/puzzle-game/logic/render-puzzle-scene';
 
 import { primarySideBar } from '@shared-components/organisms/primary-side-bar/logic/main';
+import { puzzleGrid } from '@shared-components/organisms/puzzle-grid/logic/main';
 
 function initializePlayScreen({ Game, Screens }) {
     const screenSymbol = PLAY;
@@ -14,7 +15,7 @@ function initializePlayScreen({ Game, Screens }) {
         html: Play({ screenSymbol }),
         logic: function () {
             primarySideBar({ Game, Screens, screenSymbol });
-            loadPuzzle({ Game, renderPuzzleScene });
+            loadPuzzle({ Game, renderPuzzleScene, puzzleGrid });
         },
         screenSymbol
     };
