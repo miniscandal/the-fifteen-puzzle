@@ -25,6 +25,7 @@ const puzzleGridPlay = {
 
 const puzzleGridGamePlay = {
     playEnabled: true,
+    gameActive: true,
     size: 'medium',
 };
 

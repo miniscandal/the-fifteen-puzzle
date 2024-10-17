@@ -12,7 +12,7 @@
         inset 0 0 6px var(--color-copper),
         inset 0 0 8px var(--color-coral);
     background-image: url(@assets-textures/vectors/wood-texture-light.svg);
-    pointer-events: none;
+    user-select: none;
 }
 
 .puzzle-tile[data-id='0'] {
@@ -23,7 +23,6 @@
     border: dashed var(--color-light) 2px;
     transition: transform 0.2s linear;
     cursor: pointer;
-    pointer-events: all;
 }
 
 .puzzle-tile[data-play-enabled=true]:hover {

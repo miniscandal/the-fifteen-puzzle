@@ -8,6 +8,7 @@ import './style.css';
 function PuzzleGrid({
     playEnabled = false,
     size = 'regular',
+    gameActive = false,
     puzzle = {
         id: undefined,
         permutation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
@@ -45,10 +46,12 @@ function PuzzleGrid({
         return item;
     });
 
+    const classList = [gameActive ? 'game-active' : ''];
+
     return (
         `
         <section
-            class="puzzle-grid"
+            class="puzzle-grid ${classList.join('')}"
             id="puzzle-grid"
             data-size=${size}
             data-play-enabled=${playEnabled}
