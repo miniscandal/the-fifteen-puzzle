@@ -5,6 +5,8 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import { PuzzleGridCollection } from '@feature-practice-screen/components/organisms/puzzle-grid-collection';
 
+import { SELECT_PLAY_SCREEN_ID } from '@feature-start-screen/components/molecules/navigation/logic/constants/element-identifiers';
+
 import * as puzzles from '@core-constants/puzzles.js';
 
 import './style.css';
@@ -14,7 +16,8 @@ function Practice({ screenSymbol }) {
     const puzzleGridCollection = PuzzleGridCollection({ puzzles });
     const buttonSelectScreen = ButtonSelectScreen({
         text: 'play',
-        id: 'select-play-screen'
+        id: SELECT_PLAY_SCREEN_ID,
+        enabled: false
     });
 
     const children = (

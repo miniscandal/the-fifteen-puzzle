@@ -1,3 +1,4 @@
+import { SELECT_PLAY_SCREEN_ID } from '@feature-start-screen/components/molecules/navigation/logic/constants/element-identifiers';
 import { PUZZLE_GRID_COLLECTION_ID } from '../constants/element-identifiers';
 
 function selectPuzzleGrid({ Game }) {
@@ -20,6 +21,9 @@ function selectPuzzleGrid({ Game }) {
         puzzleGrid.classList.add(className);
 
         puzzle.id = puzzleGrid.dataset.puzzleId;
+
+        document.getElementById(SELECT_PLAY_SCREEN_ID).classList.add('enabled');
+
     });
 };
 

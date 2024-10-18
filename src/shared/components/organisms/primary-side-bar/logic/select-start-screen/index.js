@@ -5,6 +5,7 @@ function selectStartScreen({ Game, Screens }) {
 
     button.addEventListener('click', function () {
         Game.mode = undefined;
+        Game.puzzle.id = undefined;
         Game.setupScreenRoutine(Screens.start({ Game, Screens }));
     });
 }

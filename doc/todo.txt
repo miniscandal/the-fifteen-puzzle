@@ -8,4 +8,4 @@
 ⚝ Remove the getAdjacentTileIndicesInGrid method
 ⚝ Rename HTML element identifiers by adding the name of the element's tag
 ⚝ Implement constants to define custom data attributes on HTML elements 
-⚝
+⚝ Define and set game mode in screen management for the object global game
