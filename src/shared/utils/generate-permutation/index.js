@@ -3,7 +3,7 @@
  * Randomly shuffles the elements of the array in place
  */
 
-import { TOTAL_TILES } from '@shared-constants/puzzle';
+import { TOTAL_TILES } from '@shared-constants/puzzle-grid-settings';
 
 function generatePermutation({ length = TOTAL_TILES }) {
     const permutation = Array.from({ length }, (_, index) => index);

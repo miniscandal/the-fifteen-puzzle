@@ -77,11 +77,11 @@ body {
 	transition: background 0.3s linear;
 }
 
-body[data-theme-color=dark] {
+body[data-color-theme=dark] {
 	background-color: var(--theme-background-color-dark);
 }
 
-body[data-theme-color=light] {
+body[data-color-theme=light] {
 	background-color: var(--theme-background-color-light);
 }
 

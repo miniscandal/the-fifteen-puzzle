@@ -1,4 +1,4 @@
-import { puzzleA5 } from '@core-constants/puzzles.js';
+import { puzzleA5 } from '@shared-constants/puzzle-collection.js';
 
 const puzzleGridArt = {
     puzzle: puzzleA5,

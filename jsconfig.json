@@ -11,39 +11,42 @@
             "@assets-textures/*": [
                 "assets/textures/*"
             ],
-            "@core-game-management/*": [
-                "core/game-management/*"
+            "@core-controllers/*": [
+                "core/controllers/*"
             ],
-            "@core-screen-management/*": [
-                "core/screen-management/*"
+            "@feat-prefers-color-scheme/*": [
+                "features/prefers-color-scheme/*"
             ],
-            "@core-stage-management/*": [
-                "core/stage-management/*"
+            "@feat-puzzle-grid/*": [
+                "features/puzzle-grid/*"
             ],
-            "@core-constants/*": [
-                "core/constants/*"
+            "@feat-puzzle-scene/*": [
+                "features/puzzle-scene/*"
+            ],
+            "@feat-screen-mode/*": [
+                "features/screen-mode/*"
+            ],
+            "@feat-screen-ui-play/*": [
+                "features/screen-ui-play/*"
+            ],
+            "@feat-screen-ui-practice/*": [
+                "features/screen-ui-practice/*"
+            ],
+            "@feat-screen-ui-start/*": [
+                "features/screen-ui-start/*"
             ],
             "@shared-components/*": [
                 "shared/components/*"
             ],
-            "@shared-utils/*": [
-                "shared/utils/*"
-            ],
-            "@shared-helpers/*": [
-                "shared/helpers/*"
-            ],
             "@shared-constants/*": [
                 "shared/constants/*"
             ],
-            "@feature-practice-screen/*": [
-                "features/practice-screen/*"
+            "@shared-utils/*": [
+                "shared/utils/*"
             ],
-            "@feature-start-screen/*": [
-                "features/start-screen/*"
-            ],
-            "@feature-play-screen/*": [
-                "features/play-screen/*"
-            ],
+            "@shared-dom-elements/*": [
+                "shared/dom-elements/*"
+            ]
         }
     }
 }

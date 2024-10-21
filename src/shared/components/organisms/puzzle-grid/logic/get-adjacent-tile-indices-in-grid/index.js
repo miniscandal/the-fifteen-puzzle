@@ -1,9 +1,9 @@
-import { TOTAL_TILES } from '@shared-constants/puzzle';
-import { TILES_PER_ROW } from '@shared-constants/puzzle';
-import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle';
-import { FIRST_TILE_INDEX } from '@shared-constants/puzzle';
+import { TOTAL_TILES } from '@shared-constants/puzzle-grid-settings';
+import { TILES_PER_ROW } from '@shared-constants/puzzle-grid-settings';
+import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle-grid-settings';
+import { FIRST_TILE_INDEX } from '@shared-constants/puzzle-grid-settings';
 
-import { EMPTY_TILE_VALUE } from '@shared-constants/puzzle';
+import { EMPTY_TILE_VALUE } from '@shared-constants/puzzle-grid-settings';
 
 function getAdjacentTileIndicesInGrid(emptyIndex) {
     const movableTiles = [];

@@ -1,0 +1,27 @@
+.artwork {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-uniform);
+}
+
+body[data-color-theme='dark'] {
+    .artwork__div {
+        border-radius: 100%;
+        background:
+            radial-gradient(circle,
+                var(--color-parchment),
+                var(--color-dove-gray),
+                var(--color-slate));
+    }
+}
+
+body[data-color-theme='light'] {
+    .artwork__div {
+        border-radius: 100%;
+        background:
+            radial-gradient(circle,
+                var(--color-amber),
+                var(--color-honey));
+    }
+}

@@ -1,7 +1,7 @@
 import { PuzzleTile } from '@shared-components/molecules/puzzle-tile';
 
-import { GRID_ROW } from '@shared-constants/puzzle';
-import { GRID_COLUMN } from '@shared-constants/puzzle';
+import { GRID_ROW } from '@shared-constants/puzzle-grid-settings';
+import { GRID_COLUMN } from '@shared-constants/puzzle-grid-settings';
 
 import './style.css';
 

@@ -1,0 +1,4 @@
+.navigation-screen-mode {
+    display: flex;
+    gap: var(--gap-uniform);
+}

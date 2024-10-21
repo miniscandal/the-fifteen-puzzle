@@ -1,5 +1,5 @@
-function updateGameState(Game, currentTile, emptyTile) {
-    Game.updateGameState({
+function updateGameState(GameController, currentTile, emptyTile) {
+    GameController.puzzle.updateState({
         currentElement: currentTile.dataset,
         emptyElement: emptyTile.dataset,
     });
