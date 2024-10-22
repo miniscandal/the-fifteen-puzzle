@@ -1,14 +1,14 @@
-import { updateAppearanceTheme } from '@feat-prefers-color-scheme/update-appearance-theme';
-import { updateBodyDataColorTheme } from '@feat-prefers-color-scheme/update-body-color-theme';
+import { updateAppearanceTheme } from '../update-appearance-theme';
+import { updateBodyDataColorTheme } from '../update-body-color-theme';
 
 import { toggleIconButtonColorTheme } from '@shared-components/molecules/icon-button-color-theme/logic';
 
-import { getElementIconButtonColorTheme } from '@shared-dom-elements/buttons';
+import { domElementIconButtonColorTheme } from '@shared-dom-elements/buttons';
 import { getDomElementBody } from '@shared-dom-elements/body';
 
 
-function updatePrefersColorScheme(PrefersColorSchemeController) {
-    const iconButton = getElementIconButtonColorTheme();
+function prefersColorScheme(PrefersColorSchemeController) {
+    const iconButton = domElementIconButtonColorTheme();
 
     iconButton.addEventListener('click', function () {
         const { appearance } = PrefersColorSchemeController;
@@ -19,4 +19,4 @@ function updatePrefersColorScheme(PrefersColorSchemeController) {
     });
 }
 
-export { updatePrefersColorScheme };
+export { prefersColorScheme };

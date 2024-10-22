@@ -1,4 +1,4 @@
-import { PLAY_SCREEN } from '@shared-constants/screen-names';
+import { PLAY_SCREEN } from '@shared-constants/screen-modes';
 
 import { loadPuzzle } from '@feat-screen-ui-play/controllers/stage/load-puzzle';
 

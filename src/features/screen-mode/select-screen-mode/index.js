@@ -1,5 +1,5 @@
-function selectPracticeScreen({ ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
-    const { html, uiFunctionality, screenName } = ScreenModeController.modes.practice({
+function selectScreenMode({ screenMode, ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
+    const { html, uiFunctionality, screenName } = ScreenModeController.modes[screenMode]({
         ScreenModeController,
         ScreenSetupController,
         PrefersColorSchemeController
@@ -13,4 +13,4 @@ function selectPracticeScreen({ ScreenModeController, ScreenSetupController, Pre
     });
 }
 
-export { selectPracticeScreen };
+export { selectScreenMode };

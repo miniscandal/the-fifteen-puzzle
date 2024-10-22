@@ -3,20 +3,13 @@ import { SELECT_PRACTICE_SCREEN_ID } from '@shared-constants/dom-element-identif
 import { SELECT_START_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
 
 
-function getElementIconButtonColorTheme() {
-    return document.getElementById(COLOR_THEME_ID);
-}
+const domElementIconButtonColorTheme = () => document.getElementById(COLOR_THEME_ID);
+const domElementButtonSelectScreenPractice = () => document.getElementById(SELECT_PRACTICE_SCREEN_ID);
+const domElementButtonSelectStartPractice = () => document.getElementById(SELECT_START_SCREEN_ID);
 
-function getElementButtonSelectScreenPractice() {
-    return document.getElementById(SELECT_PRACTICE_SCREEN_ID);
-}
-
-function getElementButtonSelectStartPractice() {
-    return document.getElementById(SELECT_START_SCREEN_ID);
-}
 
 export {
-    getElementIconButtonColorTheme,
-    getElementButtonSelectScreenPractice,
-    getElementButtonSelectStartPractice
+    domElementIconButtonColorTheme,
+    domElementButtonSelectScreenPractice,
+    domElementButtonSelectStartPractice
 };

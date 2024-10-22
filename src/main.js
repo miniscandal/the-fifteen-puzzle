@@ -2,8 +2,11 @@ import { ScreenModeController } from '@core-controllers/screen-mode/main';
 import { ScreenSetupController } from '@core-controllers/screen-setup/main';
 import { PrefersColorSchemeController } from '@core-controllers/prefers-color-scheme/main';
 
-import { selectStartScreen } from '@feat-screen-mode/select-start-screen';
+import { selectScreenMode } from '@feat-screen-mode/select-screen-mode';
+
+import { START_SCREEN } from '@shared-constants/screen-modes';
 
 import './main.css';
 
-selectStartScreen({ ScreenModeController, ScreenSetupController, PrefersColorSchemeController });
+
+selectScreenMode({ screenMode: START_SCREEN, ScreenModeController, ScreenSetupController, PrefersColorSchemeController });

@@ -1,17 +1,20 @@
-import { startMode } from '@core-controllers/screen-mode/start-mode/main';
+import { startMode } from '@core-controllers/screen-mode/start-mode';
 import { practiceMode } from '@core-controllers/screen-mode/practice-mode';
 import { playMode } from '@core-controllers/screen-mode/play-mode';
 
+import { PLAY_SCREEN } from '@shared-constants/screen-modes';
+import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
+import { START_SCREEN } from '@shared-constants/screen-modes';
 
 /**
- * coreObjects in start key is ScreenModeController and PrefersColorSchemeController
+ * coreObjects in start key is ScreenModeController, ScreenSetupController and PrefersColorSchemeController
  */
 
 const ScreenModeController = {
     modes: {
-        start: (coreObjects) => startMode(coreObjects),
-        practice: (coreObjects) => practiceMode(coreObjects),
-        play: (coreObjects) => playMode(coreObjects),
+        [START_SCREEN]: (coreObjects) => startMode(coreObjects),
+        [PRACTICE_SCREEN]: (coreObjects) => practiceMode(coreObjects),
+        [PLAY_SCREEN]: (coreObjects) => playMode(coreObjects),
     },
     currentMode: undefined,
 };

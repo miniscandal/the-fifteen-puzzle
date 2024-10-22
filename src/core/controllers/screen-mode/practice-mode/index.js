@@ -1,23 +1,24 @@
 import { Practice } from '@feat-screen-ui-practice/components/pages/practice';
 
-import { selectStartScreen } from '@feat-screen-mode/select-start-screen';
+import { selectScreenMode } from '@feat-screen-mode/select-screen-mode';
+import { prefersColorScheme } from '@feat-prefers-color-scheme/main';
 
-import { getElementButtonSelectStartPractice } from '@shared-dom-elements/buttons';
+import { domElementButtonSelectStartPractice } from '@shared-dom-elements/buttons';
 
-import { PRACTICE_SCREEN } from '@shared-constants/screen-names';
-import { updatePrefersColorScheme } from '../start-mode/update-prefers-color-scheme';
+import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
+import { START_SCREEN } from '@shared-constants/screen-modes';
 
 
 function practiceMode({ ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
     const settings = {
         html: Practice(),
         uiFunctionality: function () {
-            updatePrefersColorScheme(PrefersColorSchemeController);
+            prefersColorScheme(PrefersColorSchemeController);
 
-            const button = getElementButtonSelectStartPractice();
+            const button = domElementButtonSelectStartPractice();
 
             button.addEventListener('click', function () {
-                selectStartScreen({ ScreenModeController, ScreenSetupController, PrefersColorSchemeController });
+                selectScreenMode({ screenMode: START_SCREEN, ScreenModeController, ScreenSetupController, PrefersColorSchemeController });
             });
         },
         screenName: PRACTICE_SCREEN
