@@ -11,7 +11,7 @@ import * as puzzles from '@shared-constants/puzzle-collection.js';
 
 import './style.css';
 
-function Practice({ screenSymbol }) {
+function Practice() {
     const titleH2 = TitleH2({ text: 'select practice puzzle' });
     const puzzleGridCollection = PuzzleGridCollection({ puzzles });
     const buttonSelectScreen = ButtonSelectScreen({
@@ -32,8 +32,7 @@ function Practice({ screenSymbol }) {
     );
 
     return ScreenMode({
-        children,
-        screenSymbol
+        children
     });
 }
 

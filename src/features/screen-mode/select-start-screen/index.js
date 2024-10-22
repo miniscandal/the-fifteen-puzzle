@@ -1,12 +1,15 @@
-import { SELECT_START_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+function selectStartScreen({ ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
+    const { html, uiFunctionality, screenName } = ScreenModeController.modes.start({
+        ScreenModeController,
+        ScreenSetupController,
+        PrefersColorSchemeController
+    });
 
-function selectStartScreen({ GameController, ScreenController }) {
-    const button = document.getElementById(SELECT_START_SCREEN_ID);
-
-    button.addEventListener('click', function () {
-        GameController.mode = undefined;
-        GameController.puzzle.id = undefined;
-        ScreenController.setupRoutine(ScreenController.states.start({ GameController, ScreenController }));
+    ScreenSetupController.setupRoutine({
+        html,
+        uiFunctionality,
+        screenName,
+        ScreenModeController
     });
 }
 

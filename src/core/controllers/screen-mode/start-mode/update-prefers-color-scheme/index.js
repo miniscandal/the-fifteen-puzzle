@@ -1,5 +1,5 @@
-import { updateAppearanceTheme } from '@feat-prefers-color-scheme/event-listener/update-appearance-theme';
-import { updateBodyDataColorTheme } from '@feat-prefers-color-scheme/event-listener/update-body-color-theme';
+import { updateAppearanceTheme } from '@feat-prefers-color-scheme/update-appearance-theme';
+import { updateBodyDataColorTheme } from '@feat-prefers-color-scheme/update-body-color-theme';
 
 import { toggleIconButtonColorTheme } from '@shared-components/molecules/icon-button-color-theme/logic';
 

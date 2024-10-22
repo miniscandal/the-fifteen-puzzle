@@ -1,5 +1,5 @@
 const APP_ID = '#app';
-const SELECT_START_SCREEN_ID = 'button-select-start-screen';
+const SELECT_START_SCREEN_ID = 'select-start-screen';
 const SELECT_PLAY_SCREEN_ID = 'select-play-screen';
 const SELECT_PRACTICE_SCREEN_ID = 'select-practice-screen';
 const SELECT_HELP_SCREEN_ID = 'select-help-screen';

@@ -6,7 +6,6 @@ import { Play } from '@feat-screen-ui-play/components/pages';
 
 import { renderPuzzleScene } from '@feat-puzzle-scene/render-puzzle-scene';
 
-import { primarySideBar } from '@feat-screen-mode/primary-side-bar';
 import { puzzleGrid } from '@shared-components/organisms/puzzle-grid/logic/main';
 
 function playMode({ GameController, ScreenController }) {

@@ -1,22 +1,26 @@
 import { Practice } from '@feat-screen-ui-practice/components/pages/practice';
 
-import { selectPuzzleGrid } from '@feat-puzzle-scene/select-puzzle-grid';
-import { selectPlayScreen } from '@feat-screen-mode/select-play-screen';
+import { selectStartScreen } from '@feat-screen-mode/select-start-screen';
 
-import { primarySideBar } from '@feat-screen-mode/primary-side-bar';
+import { getElementButtonSelectStartPractice } from '@shared-dom-elements/buttons';
 
 import { PRACTICE_SCREEN } from '@shared-constants/screen-names';
+import { updatePrefersColorScheme } from '../start-mode/update-prefers-color-scheme';
 
-function practiceMode({ GameController, ScreenController }) {
-    const screenSymbol = PRACTICE_SCREEN;
+
+function practiceMode({ ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
     const settings = {
-        html: Practice({ screenSymbol }),
-        interactionLogic: function () {
-            primarySideBar({ GameController, ScreenController, screenSymbol });
-            selectPuzzleGrid({ GameController });
-            selectPlayScreen({ GameController, ScreenController });
+        html: Practice(),
+        uiFunctionality: function () {
+            updatePrefersColorScheme(PrefersColorSchemeController);
+
+            const button = getElementButtonSelectStartPractice();
+
+            button.addEventListener('click', function () {
+                selectStartScreen({ ScreenModeController, ScreenSetupController, PrefersColorSchemeController });
+            });
         },
-        screenSymbol
+        screenName: PRACTICE_SCREEN
     };
 
     return settings;

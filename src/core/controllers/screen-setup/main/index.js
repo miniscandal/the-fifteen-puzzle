@@ -1,5 +1,6 @@
 import { APP_ID } from '@shared-constants/dom-element-identifiers';
 
+
 const ScreenSetupController = {
     setup: {
         renderHtml: function (html) {
