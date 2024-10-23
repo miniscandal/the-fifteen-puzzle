@@ -4,6 +4,7 @@ import { startModeFunctionality } from '../functionality/ui-functionality';
 
 import { START_SCREEN } from '@shared-constants/screen-modes';
 
+
 function startMode(coreObjects) {
     const settings = {
         html: Start,

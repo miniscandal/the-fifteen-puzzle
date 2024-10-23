@@ -6,4 +6,5 @@
 ⚝ Add a helper puzzle with the permutation to solve within the game screen
 ⚝ Rename CSS variables for colors to semantic names
 ⚝ Implement constants to define custom data attributes on HTML elements 
-⚝
+⚝ Rename screenName property or key to screenMode
+⚝ Implement function primarySideBar

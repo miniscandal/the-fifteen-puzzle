@@ -5,7 +5,7 @@ import { PuzzleGame } from '@feat-screen-ui-play/components/organisms/puzzle-gam
 
 import './style.css';
 
-function Play({ screenSymbol }) {
+function Play() {
     const titleH2 = TitleH2({ text: 'solve puzzles!' });
     const puzzleGame = PuzzleGame();
 
@@ -20,8 +20,7 @@ function Play({ screenSymbol }) {
     );
 
     return ScreenMode({
-        children,
-        screenSymbol
+        children
     });
 }
 

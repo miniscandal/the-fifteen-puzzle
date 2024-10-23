@@ -1,4 +1,4 @@
-function selectScreenMode({ screenMode, ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
+function updateScreenMode({ screenMode, ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
     const { html, uiFunctionality, screenName } = ScreenModeController.modes[screenMode]({
         ScreenModeController,
         ScreenSetupController,
@@ -13,4 +13,4 @@ function selectScreenMode({ screenMode, ScreenModeController, ScreenSetupControl
     });
 }
 
-export { selectScreenMode };
+export { updateScreenMode };
