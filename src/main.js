@@ -8,5 +8,9 @@ import { START_SCREEN } from '@shared-constants/screen-modes';
 
 import './main.css';
 
-
-selectScreenMode({ screenMode: START_SCREEN, ScreenModeController, ScreenSetupController, PrefersColorSchemeController });
+selectScreenMode({
+    screenMode: START_SCREEN,
+    ScreenModeController,
+    ScreenSetupController,
+    PrefersColorSchemeController
+});

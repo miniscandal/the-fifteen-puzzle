@@ -1,5 +1,5 @@
-import { startMode } from '@core-controllers/screen-mode/start-mode';
-import { practiceMode } from '@core-controllers/screen-mode/practice-mode';
+import { startMode } from '@core-controllers/screen-mode/start-mode/main';
+import { practiceMode } from '@core-controllers/screen-mode/practice-mode/main';
 import { playMode } from '@core-controllers/screen-mode/play-mode';
 
 import { PLAY_SCREEN } from '@shared-constants/screen-modes';

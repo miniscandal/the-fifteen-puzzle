@@ -6,7 +6,7 @@ const ScreenSetupController = {
         renderHtml: function (html) {
             const appElement = document.querySelector(APP_ID);
 
-            appElement.innerHTML = html;
+            appElement.innerHTML = html();
         },
         initializeFunctionality: function (uiFunctionality) {
             uiFunctionality();
