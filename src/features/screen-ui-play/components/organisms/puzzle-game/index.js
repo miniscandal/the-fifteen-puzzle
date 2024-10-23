@@ -6,6 +6,7 @@ import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
 
 import './style.css';
 
+
 function PuzzleGame() {
     const puzzleGrid = PuzzleGrid(puzzleGridPlay);
 

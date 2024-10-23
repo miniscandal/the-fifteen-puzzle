@@ -1,5 +1,5 @@
 import { prefersColorScheme } from '@feat-prefers-color-scheme/main';
-import { addEventListenerSelectScreenMode } from '@feat-screen-mode/event-listener-select-screen-mode';
+import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/buttons';

@@ -3,7 +3,11 @@ import { PuzzleTile } from '@shared-components/molecules/puzzle-tile';
 import { GRID_ROW } from '@shared-constants/puzzle-grid-settings';
 import { GRID_COLUMN } from '@shared-constants/puzzle-grid-settings';
 
+import { MOVE_RIGHT } from '@shared-constants/movement-direction';
+import { MOVE_ABOVE } from '@shared-constants/movement-direction';
+
 import './style.css';
+
 
 function PuzzleGrid({
     playEnabled = false,
@@ -13,7 +17,10 @@ function PuzzleGrid({
         id: undefined,
         permutation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
         description: '',
-        getMovableTileIndices: [],
+        getMovableTileIndices: [
+            { index: 1, movementDirection: MOVE_RIGHT },
+            { index: 4, movementDirection: MOVE_ABOVE }
+        ],
         enabled: true
     },
     puzzleTile = {
@@ -35,7 +42,7 @@ function PuzzleGrid({
             id: value,
             symbol: value,
             size: 'auto',
-            playEnabled: !!movableTile,
+            playEnabled: !!movableTile && playEnabled,
             movementDirection: movableTile ? movableTile.movementDirection : null,
             row: Math.floor(index / GRID_ROW) + 1,
             column: (index % GRID_COLUMN) + 1,

@@ -16,7 +16,6 @@ const puzzleGridPractice = {
 };
 
 const puzzleGridPlay = {
-    playEnabled: false,
     size: 'medium',
     puzzleTile: {
         symbol: '?'

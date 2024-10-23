@@ -9,7 +9,6 @@ const domElementButtonSelectPracticeScreen = () => document.getElementById(SELEC
 const domElementButtonSelectStartScreen = () => document.getElementById(SELECT_START_SCREEN_ID);
 const domElementButtonSelectPlayScreen = () => document.getElementById(SELECT_PLAY_SCREEN_ID);
 
-
 export {
     domElementIconButtonColorTheme,
     domElementButtonSelectPracticeScreen,

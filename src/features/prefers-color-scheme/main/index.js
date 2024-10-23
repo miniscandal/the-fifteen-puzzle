@@ -1,10 +1,9 @@
+import { toggleIconButtonColorTheme } from '@shared-components/molecules/icon-button-color-theme/logic';
+import { domElementIconButtonColorTheme } from '@shared-dom-elements/buttons';
+import { domElementBody } from '@shared-dom-elements/structural';
+
 import { updateAppearanceTheme } from '../update-appearance-theme';
 import { updateBodyDataColorTheme } from '../update-body-color-theme';
-
-import { toggleIconButtonColorTheme } from '@shared-components/molecules/icon-button-color-theme/logic';
-
-import { domElementIconButtonColorTheme } from '@shared-dom-elements/buttons';
-import { getDomElementBody } from '@shared-dom-elements/body';
 
 
 function prefersColorScheme(PrefersColorSchemeController) {
@@ -15,7 +14,7 @@ function prefersColorScheme(PrefersColorSchemeController) {
 
         toggleIconButtonColorTheme.call(this);
         updateAppearanceTheme(appearance);
-        updateBodyDataColorTheme(appearance, getDomElementBody());
+        updateBodyDataColorTheme(appearance, domElementBody());
     });
 }
 
