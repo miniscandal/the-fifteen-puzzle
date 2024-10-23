@@ -13,8 +13,10 @@ function ScreenMode({
     return (
         `
         <section class="screen-mode">
-            ${iconButtonAppearanceTheme}
-            ${primarySideBar}
+            <header class="screen-mode__header">
+                ${iconButtonAppearanceTheme}
+                ${primarySideBar}
+            </header>
             ${children}
         </section>
         `
