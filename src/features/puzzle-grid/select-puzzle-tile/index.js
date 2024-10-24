@@ -3,7 +3,7 @@ import { resetSelectableTiles } from '@feat-puzzle-grid/reset-selectable-tiles';
 import { swapTilesData } from '@feat-puzzle-grid/swap-tiles-data';
 import { updateSelectableTiles } from '@feat-puzzle-grid/update-selectable-tiles';
 
-import { domElementTiles } from '@shared-dom-elements/data-attributes';
+import { domElementPlayEnabledTiles } from '@shared-dom-elements/data-attributes';
 import { domElementEmptyTile } from '@shared-dom-elements/data-attributes';
 import { domElementPuzzleGrid } from '@shared-dom-elements/structural';
 import { getAdjacentIndicesInGrid } from '@shared-utils/get-adjacent-indices-in-grid';
@@ -22,7 +22,7 @@ function selectPuzzleTile() {
 
         const emptyTile = domElementEmptyTile();
 
-        resetSelectableTiles(domElementTiles());
+        resetSelectableTiles(domElementPlayEnabledTiles());
         swapTilesData(selectedTile, emptyTile);
 
 
