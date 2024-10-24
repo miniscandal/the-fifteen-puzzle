@@ -7,9 +7,12 @@ import { MOVE_RIGHT } from '@shared-constants/movement-direction';
 import { MOVE_LEFT } from '@shared-constants/movement-direction';
 
 
-function findAdjacentIndicesInGrid({ index, row, column }) {
+function getAdjacentIndicesInGrid({ index, row, column }) {
     const adjacentIndices = [];
-    const pushIndex = (index, movementDirection) => adjacentIndices.push({ index, movementDirection });
+    const pushIndex = (index, movementDirection) => adjacentIndices.push({
+        index,
+        movementDirection
+    });
 
     if (row > FIRST_TILE_INDEX) {
         pushIndex(index - TILES_PER_ROW, MOVE_ABOVE);
@@ -31,4 +34,4 @@ function findAdjacentIndicesInGrid({ index, row, column }) {
 }
 
 
-export { findAdjacentIndicesInGrid };
+export { getAdjacentIndicesInGrid };

@@ -5,6 +5,7 @@
 
 import { TOTAL_TILES } from '@shared-constants/puzzle-grid-settings';
 
+
 function generatePermutation({ length = TOTAL_TILES }) {
     const permutation = Array.from({ length }, (_, index) => index);
 

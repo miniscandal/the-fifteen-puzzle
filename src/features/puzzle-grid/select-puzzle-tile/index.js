@@ -2,16 +2,15 @@ import { validateSelectableTile } from '@feat-puzzle-grid/validate-selectable-ti
 import { resetSelectableTiles } from '@feat-puzzle-grid/reset-selectable-tiles';
 import { swapTilesData } from '@feat-puzzle-grid/swap-tiles-data';
 import { updateSelectableTiles } from '@feat-puzzle-grid/update-selectable-tiles';
-import { getMovableTileIndices } from '@feat-puzzle-grid/get-movable-tile-indices';
 
 import { domElementTiles } from '@shared-dom-elements/data-attributes';
 import { domElementEmptyTile } from '@shared-dom-elements/data-attributes';
 import { domElementPuzzleGrid } from '@shared-dom-elements/structural';
+import { getAdjacentIndicesInGrid } from '@shared-utils/get-adjacent-indices-in-grid';
+import { calculateIndexPositionInGrid } from '@shared-utils/calculate-index-position-in-grid';
 
-import { updateGameState } from '../update-game-state';
 
-
-function selectPuzzleTile({ PuzzleGridController }) {
+function selectPuzzleTile() {
     const puzzleGrid = domElementPuzzleGrid();
 
     puzzleGrid.addEventListener('click', function (event) {
@@ -25,8 +24,15 @@ function selectPuzzleTile({ PuzzleGridController }) {
 
         resetSelectableTiles(domElementTiles());
         swapTilesData(selectedTile, emptyTile);
-        updateSelectableTiles(getMovableTileIndices(emptyTile));
-        updateGameState(PuzzleGridController, selectedTile, emptyTile);
+
+
+        const index = Number(emptyTile.dataset.index);
+        const movableTileIndices = getAdjacentIndicesInGrid({
+            index,
+            ...calculateIndexPositionInGrid(index)
+        });
+
+        updateSelectableTiles(movableTileIndices);
     });
 }
 
