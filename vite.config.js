@@ -9,10 +9,12 @@ export default defineConfig({
 
             '@core-controllers': '/src/core/controllers',
 
+            '@feat-game-mode': '/src/features/game-mode',
             '@feat-prefers-color-scheme': '/src/features/prefers-color-scheme',
             '@feat-puzzle-grid': '/src/features/puzzle-grid',
             '@feat-puzzle-scene': '/src/features/puzzle-scene',
             '@feat-screen-mode': '/src/features/screen-mode',
+
             '@feat-screen-ui-play': '/src/features/screen-ui-play',
             '@feat-screen-ui-practice': '/src/features/screen-ui-practice',
             '@feat-screen-ui-start': '/src/features/screen-ui-start',

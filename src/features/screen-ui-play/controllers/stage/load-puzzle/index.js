@@ -1,14 +1,8 @@
-import { STAGE_SEQUENCE } from '@feat-screen-ui-play/constants/stage-sequence';
-
-async function loadPuzzle({ PuzzleGridController, renderPuzzleScene, selectPuzzleTile }) {
+async function loadPuzzle({ idPuzzle }) {
     try {
-        const id = PuzzleGridController.puzzle.id ?? STAGE_SEQUENCE[0];
-        const { [id]: puzzle } = await import('@shared-constants/puzzle-collection.js');
+        const { [idPuzzle]: puzzle } = await import('@shared-constants/puzzle-collection.js');
 
-        renderPuzzleScene({ puzzle });
-        selectPuzzleTile({ PuzzleGridController });
-
-        PuzzleGridController.puzzle.id = id;
+        return puzzle;
     } catch (error) {
         console.log(error);
     }

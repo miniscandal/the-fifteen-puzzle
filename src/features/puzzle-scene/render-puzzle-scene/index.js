@@ -1,6 +1,8 @@
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
-import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
 import { puzzleGridGamePlay } from '@shared-components/organisms/puzzle-grid/variants';
+
+import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
+
 
 function renderPuzzleScene({ puzzle }) {
     const puzzleGrid = PuzzleGrid({
