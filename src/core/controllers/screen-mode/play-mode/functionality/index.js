@@ -1,5 +1,5 @@
 import { prefersColorScheme } from '@feat-prefers-color-scheme/main';
-import { loadPuzzle } from '@feat-screen-ui-play/controllers/stage/load-puzzle';
+import { loadPuzzle } from '@feat-screen-ui-play/load-puzzle';
 import { renderPuzzleScene } from '@feat-puzzle-scene/render-puzzle-scene';
 import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
 import { selectPuzzleTile } from '@feat-puzzle-grid/select-puzzle-tile';
