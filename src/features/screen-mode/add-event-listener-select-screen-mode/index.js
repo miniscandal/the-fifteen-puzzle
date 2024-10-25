@@ -7,7 +7,7 @@ function addEventListenerSelectScreenMode({ coreObjects, getElement, screenMode 
     button.addEventListener('click', function () {
         updateScreenMode({
             screenMode,
-            ...coreObjects
+            coreObjects
         });
     });
 }

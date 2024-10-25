@@ -1,15 +1,14 @@
-function updateScreenMode({ screenMode, ScreenModeController, ScreenSetupController, PrefersColorSchemeController }) {
-    const { html, uiFunctionality, screenName } = ScreenModeController.modes[screenMode]({
-        ScreenModeController,
-        ScreenSetupController,
-        PrefersColorSchemeController
-    });
+function updateScreenMode({
+    screenMode,
+    coreObjects
+}) {
+    const { ScreenModeController, ScreenSetupController } = coreObjects;
+    const { html, uiFunctionality, screenName } = ScreenModeController.modes[screenMode](coreObjects);
 
     ScreenSetupController.setupRoutine({
         html,
         uiFunctionality,
-        screenName,
-        ScreenModeController
+        screenName
     });
 }
 
