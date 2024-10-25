@@ -1,10 +1,3 @@
-/**
- * coreObjects in start key is:
- * ScreenModeController, ScreenSetupController, PrefersColorSchemeController
- * GameModeController
- */
-
-
 function updateScreenMode({
     screenMode,
     coreObjects

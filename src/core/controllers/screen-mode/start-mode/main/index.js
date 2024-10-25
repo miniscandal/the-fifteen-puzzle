@@ -1,6 +1,6 @@
 import { Start } from '@feat-screen-ui-start/components/pages/start';
 
-import { startModeFunctionality } from '../functionality/ui-functionality';
+import { startModeFunctionality } from '../functionality';
 
 
 function startMode(coreObjects) {

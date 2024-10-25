@@ -1,4 +1,4 @@
-import { prefersColorScheme } from '@feat-prefers-color-scheme/main';
+import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
 import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
 import { updateScreenMode } from '@feat-screen-mode/update-screen-mode';
 
@@ -10,7 +10,7 @@ import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
 
 
 function startModeFunctionality(coreObjects) {
-    prefersColorScheme(coreObjects.PrefersColorSchemeController.appearance);
+    configureColorSchemePreference(coreObjects.PrefersColorSchemeController.appearance);
 
     addEventListenerSelectScreenMode({
         coreObjects,

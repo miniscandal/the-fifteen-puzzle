@@ -6,7 +6,7 @@ import { updateAppearanceTheme } from '../update-appearance-theme';
 import { updateBodyDataColorTheme } from '../update-body-color-theme';
 
 
-function prefersColorScheme(appearance) {
+function configureColorSchemePreference(appearance) {
     const iconButton = domElementIconButtonColorTheme();
 
     iconButton.addEventListener('click', function () {
@@ -16,4 +16,4 @@ function prefersColorScheme(appearance) {
     });
 }
 
-export { prefersColorScheme };
+export { configureColorSchemePreference };
