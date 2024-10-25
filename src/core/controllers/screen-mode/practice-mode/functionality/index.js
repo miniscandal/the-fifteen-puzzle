@@ -1,6 +1,6 @@
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
 import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
-import { selectPuzzleGrid } from '@feat-puzzle-scene/select-puzzle-grid';
+import { selectPuzzleGrid } from '@core-controllers/game-mode/practice-mode/select-puzzle-grid';
 import { updateScreenMode } from '@feat-screen-mode/update-screen-mode';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';

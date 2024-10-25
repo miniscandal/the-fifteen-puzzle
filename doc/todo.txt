@@ -9,3 +9,5 @@
 ⚝ Rename screenName property or key to screenMode
 ⚝ Implement function primarySideBar
 ⚝ Remove functions and implement arrow function in objects
+⚝ Move injection of global objects as arguments to central controllers
+⚝ 

@@ -2,7 +2,8 @@ import { expect, test } from 'vitest';
 
 import { nextPuzzleInSequence } from '.';
 
-import { STAGE_SEQUENCE } from '@feat-play-screen-ui/constants/stage-sequence';
+import { STAGE_SEQUENCE } from '@shared-constants/stage-sequence';
+
 
 test('the id puzzle is the first of the sequence', () => {
     const puzzleId = undefined;

@@ -13,7 +13,7 @@ import { START_SCREEN } from '@shared-constants/screen-modes';
 
 async function playModeFunctionality(coreObjects) {
     const { PrefersColorSchemeController, GameModeController, PuzzleGridController } = coreObjects;
-    const gameMode = gameModeManagement({ GameModeController, PuzzleGridController });
+    const gameMode = gameModeManagement({ GameModeController });
     const idPuzzle = GameModeController.modes[gameMode]({ PuzzleGridController });
     const puzzle = await loadPuzzle({ idPuzzle, renderPuzzleScene, selectPuzzleTile });
 

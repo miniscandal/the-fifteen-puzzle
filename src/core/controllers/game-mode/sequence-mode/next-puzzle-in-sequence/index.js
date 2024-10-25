@@ -1,6 +1,4 @@
-import { STAGE_SEQUENCE } from '@feat-play-screen-ui/constants/stage-sequence';
-
-function nextPuzzleInSequence(puzzleId) {
+function nextPuzzleInSequence({ puzzleId, STAGE_SEQUENCE }) {
     if (puzzleId === undefined) {
         return STAGE_SEQUENCE.at(0);
     }
