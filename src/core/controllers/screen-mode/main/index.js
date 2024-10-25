@@ -6,9 +6,6 @@ import { PLAY_SCREEN } from '@shared-constants/screen-modes';
 import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
 import { START_SCREEN } from '@shared-constants/screen-modes';
 
-/**
- * coreObjects in start key is ScreenModeController, ScreenSetupController and PrefersColorSchemeController
- */
 
 const ScreenModeController = {
     modes: {

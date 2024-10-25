@@ -12,10 +12,9 @@ const ScreenSetupController = {
             uiFunctionality();
         }
     },
-    setupRoutine: function ({ html, uiFunctionality, screenName, ScreenModeController }) {
+    setupRoutine: function ({ html, uiFunctionality, screenMode, ScreenModeController }) {
         this.setup.renderHtml(html);
         this.setup.initializeFunctionality(uiFunctionality);
-        ScreenModeController.currentMode = screenName;
     },
 };
 
