@@ -1,5 +1,3 @@
-import { PuzzleGridController } from '@core-controllers/puzzle-grid/main';
-
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
 import { loadPuzzle } from '@feat-puzzle-scene/load-puzzle';
 import { renderPuzzleScene } from '@feat-puzzle-scene/render-puzzle-scene';
@@ -14,8 +12,8 @@ import { START_SCREEN } from '@shared-constants/screen-modes';
 
 
 async function playModeFunctionality(coreObjects) {
-    const { PrefersColorSchemeController, GameModeController } = coreObjects;
-    const gameMode = gameModeManagement(GameModeController);
+    const { PrefersColorSchemeController, GameModeController, PuzzleGridController } = coreObjects;
+    const gameMode = gameModeManagement({ GameModeController, PuzzleGridController });
     const idPuzzle = GameModeController.modes[gameMode]({ PuzzleGridController });
     const puzzle = await loadPuzzle({ idPuzzle, renderPuzzleScene, selectPuzzleTile });
 

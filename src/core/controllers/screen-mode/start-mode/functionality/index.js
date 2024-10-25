@@ -10,6 +10,8 @@ import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
 
 
 function startModeFunctionality(coreObjects) {
+    const { GameModeController } = coreObjects;
+
     configureColorSchemePreference(coreObjects.PrefersColorSchemeController.appearance);
 
     addEventListenerSelectScreenMode({
@@ -25,6 +27,8 @@ function startModeFunctionality(coreObjects) {
         screenMode: PRACTICE_SCREEN,
         updateScreenMode
     });
+
+    GameModeController.currentMode = undefined;
 }
 
 export { startModeFunctionality };

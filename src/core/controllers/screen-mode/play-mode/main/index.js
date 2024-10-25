@@ -1,4 +1,5 @@
 import { Play } from '@feat-screen-ui-play/components/pages';
+import { PuzzleGridController } from '@core-controllers/puzzle-grid/main';
 
 import { playModeFunctionality } from '../functionality';
 
@@ -6,7 +7,12 @@ import { playModeFunctionality } from '../functionality';
 function playMode(coreObjects) {
     const settings = {
         html: Play,
-        uiFunctionality: function () { playModeFunctionality(coreObjects); }
+        uiFunctionality: function () {
+            playModeFunctionality({
+                PuzzleGridController,
+                ...coreObjects
+            });
+        }
     };
 
     return settings;
