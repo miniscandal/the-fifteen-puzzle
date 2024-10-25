@@ -1,7 +1,7 @@
 import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
 
-function isInitializedGameMode(GameModeController) {
+function gameModeManagement(GameModeController) {
     const { currentMode } = GameModeController;
 
     GameModeController.currentMode = currentMode === undefined
@@ -11,4 +11,4 @@ function isInitializedGameMode(GameModeController) {
     return GameModeController.currentMode;
 }
 
-export { isInitializedGameMode };
+export { gameModeManagement };

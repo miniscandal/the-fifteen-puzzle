@@ -1,7 +1,9 @@
-import { updateScreenMode } from '@feat-screen-mode/update-screen-mode';
-
-
-function addEventListenerSelectScreenMode({ coreObjects, getElement, screenMode }) {
+function addEventListenerSelectScreenMode({
+    coreObjects,
+    getElement,
+    screenMode,
+    updateScreenMode
+}) {
     const button = getElement();
 
     button.addEventListener('click', function () {

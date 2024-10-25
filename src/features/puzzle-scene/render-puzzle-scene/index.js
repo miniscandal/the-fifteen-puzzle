@@ -1,4 +1,5 @@
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
+
 import { puzzleGridGamePlay } from '@shared-components/organisms/puzzle-grid/variants';
 
 import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
