@@ -1,5 +1,5 @@
-import { puzzleGridPractice } from '@shared-components/organisms/puzzle-grid/variants';
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
+import { puzzleGridPractice } from '@shared-components/organisms/puzzle-grid/variants';
 
 import { PUZZLE_GRID_COLLECTION_ID } from '@shared-constants/dom-element-identifiers';
 

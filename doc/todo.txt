@@ -10,4 +10,7 @@
 ⚝ Implement function primarySideBar
 ⚝ Remove functions and implement arrow function in objects
 ⚝ Move injection of global objects as arguments to central controllers
+⚝ Delete undefined for comparisons 
+⚝ 
+⚝ 
 ⚝ 

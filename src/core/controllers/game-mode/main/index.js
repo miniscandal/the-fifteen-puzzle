@@ -10,7 +10,8 @@ const GameModeController = {
         [GAME_MODE_SEQUENCE]: (coreObjects) => sequenceMode(coreObjects),
         [GAME_MODE_PRACTICE]: (coreObjects) => practiceMode(coreObjects)
     },
-    currentMode: undefined
+    currentMode: undefined,
+    previousMode: undefined,
 };
 
 export { GameModeController };

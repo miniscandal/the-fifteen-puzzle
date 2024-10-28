@@ -4,6 +4,7 @@ import { selectPuzzleGrid } from '@feat-game-mode/select-puzzle-grid';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
+import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
 
 import { START_SCREEN } from '@shared-constants/screen-modes';
 import { PLAY_SCREEN } from '@shared-constants/screen-modes';
@@ -35,6 +36,14 @@ function practiceModeFunctionality({
         }
     });
 
+    addEventListenerSelectScreenMode({
+        getElement: domElementButtonSelectBackScreen,
+        updateScreenMode: () => {
+            const lastScreenMode = ScreenModeController.lastModeHistory();
+
+            ScreenSetupController.routine(ScreenModeController.modes[lastScreenMode]());
+        }
+    });
 
     GameModeController.currentMode = GAME_MODE_PRACTICE;
 }

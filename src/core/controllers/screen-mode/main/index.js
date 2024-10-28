@@ -14,11 +14,28 @@ import { START_SCREEN } from '@shared-constants/screen-modes';
 
 const ScreenModeController = {
     modes: {
-        [START_SCREEN]: () => startMode(coreObjects),
-        [PRACTICE_SCREEN]: () => practiceMode(coreObjects),
-        [PLAY_SCREEN]: () => playMode(coreObjects),
+        [START_SCREEN]: () => ScreenModeController.updateMode(START_SCREEN, startMode),
+        [PRACTICE_SCREEN]: () => ScreenModeController.updateMode(PRACTICE_SCREEN, practiceMode),
+        [PLAY_SCREEN]: () => ScreenModeController.updateMode(PLAY_SCREEN, playMode),
     },
+    previousMode: undefined,
     currentMode: undefined,
+    modeHistory: [],
+    updateMode(newMode, modeFunction) {
+        this.previousMode = this.currentMode;
+        this.currentMode = newMode;
+        this.modeHistory.push(newMode);
+
+        return modeFunction(coreObjects);
+    },
+    lastModeHistory() {
+        this.modeHistory.pop();
+
+        return this.modeHistory.pop();
+    },
+    clearModeHistory() {
+        this.modeHistory = this.modeHistory.slice(-1);
+    }
 };
 
 const coreObjects = {

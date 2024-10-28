@@ -34,6 +34,7 @@ function startModeFunctionality({
 
     GameModeController.currentMode = GAME_MODE_SEQUENCE;
     PuzzleGridController.puzzle.id = undefined;
+    ScreenModeController.clearModeHistory();
 }
 
 export { startModeFunctionality };
