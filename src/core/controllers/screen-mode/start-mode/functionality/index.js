@@ -21,14 +21,14 @@ function startModeFunctionality({
     addEventListenerSelectScreenMode({
         getElement: domElementButtonSelectPlayScreen,
         updateScreenMode: () => {
-            ScreenSetupController.setupRoutine(ScreenModeController.modes[PLAY_SCREEN]());
+            ScreenSetupController.routine(ScreenModeController.modes[PLAY_SCREEN]());
         }
     });
 
     addEventListenerSelectScreenMode({
         getElement: domElementButtonSelectPracticeScreen,
         updateScreenMode: () => {
-            ScreenSetupController.setupRoutine(ScreenModeController.modes[PRACTICE_SCREEN]());
+            ScreenSetupController.routine(ScreenModeController.modes[PRACTICE_SCREEN]());
         }
     });
 

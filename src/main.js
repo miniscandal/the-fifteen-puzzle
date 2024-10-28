@@ -6,4 +6,4 @@ import { START_SCREEN } from '@shared-constants/screen-modes';
 import './main.css';
 
 
-ScreenSetupController.setupRoutine(ScreenModeController.modes[START_SCREEN]());
+ScreenSetupController.routine(ScreenModeController.modes[START_SCREEN]());

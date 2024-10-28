@@ -31,7 +31,7 @@ async function playModeFunctionality({
     addEventListenerSelectScreenMode({
         getElement: domElementButtonSelectStartScreen,
         updateScreenMode: () => {
-            ScreenSetupController.setupRoutine(ScreenModeController.modes[START_SCREEN]());
+            ScreenSetupController.routine(ScreenModeController.modes[START_SCREEN]());
         }
     });
 }
