@@ -1,6 +1,5 @@
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
 import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
-import { updateScreenMode } from '@feat-screen-mode/update-screen-mode';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/buttons';
@@ -10,30 +9,31 @@ import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
 import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
 
-function startModeFunctionality(coreObjects) {
-    const { GameModeController, PuzzleGridController } = coreObjects;
-
-    configureColorSchemePreference(coreObjects.PrefersColorSchemeController.appearance);
+function startModeFunctionality({
+    GameModeController,
+    PuzzleGridController,
+    ScreenSetupController,
+    ScreenModeController,
+    PrefersColorSchemeController
+}) {
+    configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
     addEventListenerSelectScreenMode({
-        coreObjects,
         getElement: domElementButtonSelectPlayScreen,
-        screenMode: PLAY_SCREEN,
-        updateScreenMode
+        updateScreenMode: () => {
+            ScreenSetupController.setupRoutine(ScreenModeController.modes[PLAY_SCREEN]());
+        }
     });
 
     addEventListenerSelectScreenMode({
-        coreObjects,
         getElement: domElementButtonSelectPracticeScreen,
-        screenMode: PRACTICE_SCREEN,
-        updateScreenMode
+        updateScreenMode: () => {
+            ScreenSetupController.setupRoutine(ScreenModeController.modes[PRACTICE_SCREEN]());
+        }
     });
 
     GameModeController.currentMode = GAME_MODE_SEQUENCE;
-
-    if (PuzzleGridController) {
-        PuzzleGridController.puzzle.id = undefined;
-    }
+    PuzzleGridController.puzzle.id = undefined;
 }
 
 export { startModeFunctionality };

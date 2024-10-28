@@ -6,7 +6,9 @@ import { practiceModeFunctionality } from '../functionality';
 function practiceMode(coreObjects) {
     const settings = {
         html: Practice,
-        uiFunctionality: function () { practiceModeFunctionality(coreObjects); }
+        uiFunctionality: function () {
+            practiceModeFunctionality(coreObjects);
+        }
     };
 
     return settings;

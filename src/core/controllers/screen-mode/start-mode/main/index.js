@@ -6,7 +6,9 @@ import { startModeFunctionality } from '../functionality';
 function startMode(coreObjects) {
     const settings = {
         html: Start,
-        uiFunctionality: function () { startModeFunctionality(coreObjects); },
+        uiFunctionality: function () {
+            startModeFunctionality(coreObjects);
+        },
     };
 
     return settings;
