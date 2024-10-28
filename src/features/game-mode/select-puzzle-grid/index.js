@@ -1,9 +1,8 @@
-import { PuzzleGridController } from '@core-controllers/puzzle-grid/main';
 import { SELECT_PLAY_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
 
 import { PUZZLE_GRID_COLLECTION_ID } from '@shared-constants/dom-element-identifiers';
 
-function selectPuzzleGrid() {
+function selectPuzzleGrid({ PuzzleGridController }) {
     const button = document.getElementById(PUZZLE_GRID_COLLECTION_ID);
 
     button.addEventListener('click', function (event) {

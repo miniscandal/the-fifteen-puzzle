@@ -7,10 +7,11 @@ import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/butto
 
 import { PLAY_SCREEN } from '@shared-constants/screen-modes';
 import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
+import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
 
 function startModeFunctionality(coreObjects) {
-    const { GameModeController } = coreObjects;
+    const { GameModeController, PuzzleGridController } = coreObjects;
 
     configureColorSchemePreference(coreObjects.PrefersColorSchemeController.appearance);
 
@@ -28,7 +29,11 @@ function startModeFunctionality(coreObjects) {
         updateScreenMode
     });
 
-    GameModeController.currentMode = undefined;
+    GameModeController.currentMode = GAME_MODE_SEQUENCE;
+
+    if (PuzzleGridController) {
+        PuzzleGridController.puzzle.id = undefined;
+    }
 }
 
 export { startModeFunctionality };

@@ -1,6 +1,8 @@
+import { PuzzleGridController } from '@core-controllers/puzzle-grid/main';
+
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
 import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
-import { selectPuzzleGrid } from '@core-controllers/game-mode/practice-mode/select-puzzle-grid';
+import { selectPuzzleGrid } from '@feat-game-mode/select-puzzle-grid';
 import { updateScreenMode } from '@feat-screen-mode/update-screen-mode';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
@@ -29,7 +31,7 @@ function practiceModeFunctionality(coreObjects) {
         updateScreenMode
     });
 
-    selectPuzzleGrid();
+    selectPuzzleGrid({ PuzzleGridController });
 
     GameModeController.currentMode = GAME_MODE_PRACTICE;
 }
