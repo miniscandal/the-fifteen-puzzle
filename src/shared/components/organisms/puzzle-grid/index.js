@@ -38,7 +38,7 @@ function PuzzleGrid({
     const puzzleTiles = permutation.map((value, index) => {
         const movableTile = getMovableTileIndices.find(tile => tile.index === index);
 
-        const item = PuzzleTile({
+        return PuzzleTile({
             id: value,
             symbol: value,
             size: 'auto',
@@ -49,8 +49,6 @@ function PuzzleGrid({
             index,
             ...'puzzleTile' in arguments[0] ? puzzleTile : {},
         });
-
-        return item;
     });
 
     const classList = [gameActive ? 'game-active' : ''];

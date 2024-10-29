@@ -4,14 +4,12 @@ import { playModeFunctionality } from '../functionality';
 
 
 function playMode(coreObjects) {
-    const settings = {
+    return {
         html: Play,
         uiFunctionality: function () {
             playModeFunctionality(coreObjects);
         }
     };
-
-    return settings;
 }
 
 export { playMode };

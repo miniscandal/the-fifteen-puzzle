@@ -7,9 +7,7 @@ import { updateBodyDataColorTheme } from '../update-body-color-theme';
 
 
 function configureColorSchemePreference(appearance) {
-    const iconButton = domElementIconButtonColorTheme();
-
-    iconButton.addEventListener('click', function () {
+    domElementIconButtonColorTheme().addEventListener('click', function () {
         toggleIconButtonColorTheme.call(this);
         updateAppearanceTheme(appearance);
         updateBodyDataColorTheme(appearance, domElementBody());

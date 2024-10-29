@@ -2,9 +2,7 @@ function addEventListenerSelectScreenMode({
     getElement,
     updateScreenMode
 }) {
-    const button = getElement();
-
-    button?.addEventListener('click', function () {
+    getElement()?.addEventListener('click', function () {
         updateScreenMode();
     });
 }

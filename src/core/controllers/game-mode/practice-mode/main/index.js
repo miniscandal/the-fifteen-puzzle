@@ -1,5 +1,6 @@
-function practiceMode(coreObjects) {
-    return coreObjects.PuzzleGridController.puzzle.id;
+function practiceMode({ PuzzleGridController }) {
+
+    return PuzzleGridController.puzzle.id;
 }
 
 export { practiceMode };

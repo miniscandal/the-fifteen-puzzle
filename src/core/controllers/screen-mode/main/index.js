@@ -29,6 +29,9 @@ const ScreenModeController = {
         return modeFunction(coreObjects);
     },
     lastModeHistory() {
+        /**
+         * Delete the current mode screen in history
+         */
         this.modeHistory.pop();
 
         return this.modeHistory.pop();

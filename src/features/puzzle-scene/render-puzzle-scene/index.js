@@ -10,7 +10,6 @@ function renderPuzzleScene({ puzzle }) {
         ...puzzleGridGamePlay,
         puzzle
     });
-
     const puzzleGame = document.getElementById(PUZZLE_GAME_ID);
     const parser = new DOMParser();
     const node = parser.parseFromString(puzzleGrid, 'text/html');

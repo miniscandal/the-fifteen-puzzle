@@ -7,8 +7,8 @@ import { GAME_MODE_PRACTICE } from '@shared-constants/game-modes';
 
 const GameModeController = {
     modes: {
-        [GAME_MODE_SEQUENCE]: (coreObjects) => sequenceMode(coreObjects),
-        [GAME_MODE_PRACTICE]: (coreObjects) => practiceMode(coreObjects)
+        [GAME_MODE_SEQUENCE]: ({ PuzzleGridController }) => sequenceMode({ PuzzleGridController }),
+        [GAME_MODE_PRACTICE]: ({ PuzzleGridController }) => practiceMode({ PuzzleGridController })
     },
     currentMode: undefined,
     previousMode: undefined,

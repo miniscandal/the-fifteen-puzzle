@@ -11,9 +11,7 @@ import { calculateIndexPositionInGrid } from '@shared-utils/calculate-index-posi
 
 
 function selectPuzzleTile() {
-    const puzzleGrid = domElementPuzzleGrid();
-
-    puzzleGrid.addEventListener('click', function (event) {
+    domElementPuzzleGrid().addEventListener('click', function (event) {
         const selectedTile = event.target;
 
         if (!validateSelectableTile(selectedTile)) {

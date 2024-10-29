@@ -4,14 +4,12 @@ import { startModeFunctionality } from '../functionality';
 
 
 function startMode(coreObjects) {
-    const settings = {
+    return {
         html: Start,
         uiFunctionality: function () {
             startModeFunctionality(coreObjects);
         },
     };
-
-    return settings;
 }
 
 export { startMode };

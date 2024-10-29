@@ -4,14 +4,12 @@ import { practiceModeFunctionality } from '../functionality';
 
 
 function practiceMode(coreObjects) {
-    const settings = {
+    return {
         html: Practice,
         uiFunctionality: function () {
             practiceModeFunctionality(coreObjects);
         }
     };
-
-    return settings;
 }
 
 export { practiceMode };
