@@ -4,12 +4,11 @@ import { practiceModeFunctionality } from '../functionality';
 
 
 function practiceMode(coreObjects) {
+
     return {
         html: Practice,
-        uiFunctionality: function () {
-            practiceModeFunctionality(coreObjects);
-        }
+        uiFunctionality: () => practiceModeFunctionality(coreObjects)
     };
-}
+};
 
 export { practiceMode };

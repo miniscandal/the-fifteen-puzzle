@@ -13,7 +13,11 @@ function PuzzleGridCollection({ puzzles = [] }) {
 
         const puzzleGrid = PuzzleGrid({
             ...puzzleGridPractice,
-            puzzle
+            puzzle: {
+                ...puzzle,
+                state: puzzle.permutation,
+                movableTileIndices: []
+            }
         });
 
         return puzzleGrid;

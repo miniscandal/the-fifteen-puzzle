@@ -3,16 +3,10 @@ import { APP_ID } from '@shared-constants/dom-element-identifiers';
 
 const ScreenSetupController = {
     setup: {
-        renderHtml: function (html) {
-            const appElement = document.querySelector(APP_ID);
-
-            appElement.innerHTML = html();
-        },
-        initializeFunctionality: function (uiFunctionality) {
-            uiFunctionality();
-        }
+        renderHtml: (html) => document.querySelector(APP_ID).innerHTML = html(),
+        initializeFunctionality: (uiFunctionality) => uiFunctionality()
     },
-    routine: function ({ html, uiFunctionality }) {
+    routine({ html, uiFunctionality }) {
         this.setup.renderHtml(html);
         this.setup.initializeFunctionality(uiFunctionality);
     },

@@ -4,11 +4,10 @@ import { playModeFunctionality } from '../functionality';
 
 
 function playMode(coreObjects) {
+
     return {
         html: Play,
-        uiFunctionality: function () {
-            playModeFunctionality(coreObjects);
-        }
+        uiFunctionality: () => playModeFunctionality(coreObjects)
     };
 }
 

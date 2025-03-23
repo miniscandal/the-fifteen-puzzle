@@ -1,11 +1,11 @@
-const MOVE_ABOVE = 'above';
-const MOVE_BELOW = 'below';
-const MOVE_LEFT = 'left';
-const MOVE_RIGHT = 'right';
+const TILE_MOVE_UP = 'up';
+const TILE_MOVE_DOWN = 'down';
+const TILE_MOVE_LEFT = 'left';
+const TILE_MOVE_RIGHT = 'right';
 
 export {
-    MOVE_ABOVE,
-    MOVE_BELOW,
-    MOVE_LEFT,
-    MOVE_RIGHT
+    TILE_MOVE_UP,
+    TILE_MOVE_DOWN,
+    TILE_MOVE_LEFT,
+    TILE_MOVE_RIGHT
 };

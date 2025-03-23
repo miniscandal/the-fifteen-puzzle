@@ -19,14 +19,20 @@ async function playModeFunctionality({
 }) {
     const gameMode = GameModeController.currentMode;
     const idPuzzle = GameModeController.modes[gameMode]({ PuzzleGridController });
-    const puzzle = await loadPuzzle({
-        idPuzzle,
-        renderPuzzleScene,
-        selectPuzzleTile
-    });
+    const puzzle = await loadPuzzle({ idPuzzle });
+
+    PuzzleGridController.puzzle = {
+        ...PuzzleGridController.puzzle,
+        id: puzzle.id,
+        permutation: puzzle.permutation,
+        state: puzzle.permutation
+    };
 
     renderPuzzleScene({ puzzle });
-    selectPuzzleTile();
+
+    const onSelectPuzzleTile = (index) => PuzzleGridController.updateState(index);
+    selectPuzzleTile({ onSelectPuzzleTile });
+
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
     addEventListenerSelectScreenMode({

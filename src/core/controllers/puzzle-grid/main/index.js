@@ -3,15 +3,17 @@ const PuzzleGridController = {
         id: undefined,
         permutation: [],
         state: [],
-        solved: false,
-        updateState: function ({ currentElement, emptyElement }) {
-            const { id: currentId, index: currentIndex } = currentElement;
-            const { id: emptyId, index: emptyIndex } = emptyElement;
-
-            this.state[currentIndex] = currentId;
-            this.state[emptyIndex] = emptyId;
-        }
+        solved: false
     },
+    updateState(index) {
+        const stateCopy = [...this.puzzle.state];
+        const zeroIndex = this.puzzle.state.indexOf(0);
+        [stateCopy[zeroIndex], stateCopy[index]] = [stateCopy[index], stateCopy[zeroIndex]];
+
+        this.puzzle.state = stateCopy;
+
+        console.log(this.puzzle);
+    }
 };
 
 export { PuzzleGridController };

@@ -1,5 +1,4 @@
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
-import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/buttons';
@@ -18,18 +17,12 @@ function startModeFunctionality({
 }) {
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
-    addEventListenerSelectScreenMode({
-        getElement: domElementButtonSelectPlayScreen,
-        updateScreenMode: () => {
-            ScreenSetupController.routine(ScreenModeController.modes[PLAY_SCREEN]());
-        }
+    domElementButtonSelectPlayScreen().addEventListener('click', () => {
+        ScreenSetupController.routine(ScreenModeController.modes[PLAY_SCREEN]());
     });
 
-    addEventListenerSelectScreenMode({
-        getElement: domElementButtonSelectPracticeScreen,
-        updateScreenMode: () => {
-            ScreenSetupController.routine(ScreenModeController.modes[PRACTICE_SCREEN]());
-        }
+    domElementButtonSelectPracticeScreen().addEventListener('click', () => {
+        ScreenSetupController.routine(ScreenModeController.modes[PRACTICE_SCREEN]());
     });
 
     GameModeController.currentMode = GAME_MODE_SEQUENCE;

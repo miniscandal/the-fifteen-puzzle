@@ -1,12 +1,3 @@
-import { puzzleA5 } from '@shared-constants/puzzle-collection.js';
-
-const puzzleGridArt = {
-    puzzle: puzzleA5,
-    puzzleTile: {
-        playEnabled: false
-    }
-};
-
 const puzzleGridPractice = {
     playEnabled: true,
     size: 'small',
@@ -29,7 +20,6 @@ const puzzleGridGamePlay = {
 };
 
 export {
-    puzzleGridArt,
     puzzleGridPractice,
     puzzleGridPlay,
     puzzleGridGamePlay

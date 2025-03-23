@@ -4,11 +4,10 @@ import { startModeFunctionality } from '../functionality';
 
 
 function startMode(coreObjects) {
+
     return {
         html: Start,
-        uiFunctionality: function () {
-            startModeFunctionality(coreObjects);
-        },
+        uiFunctionality: () => startModeFunctionality(coreObjects)
     };
 }
 

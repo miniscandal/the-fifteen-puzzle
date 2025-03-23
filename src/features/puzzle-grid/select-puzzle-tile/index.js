@@ -10,7 +10,7 @@ import { getAdjacentIndicesInGrid } from '@shared-utils/get-adjacent-indices-in-
 import { calculateIndexPositionInGrid } from '@shared-utils/calculate-index-position-in-grid';
 
 
-function selectPuzzleTile() {
+function selectPuzzleTile({ onSelectPuzzleTile }) {
     domElementPuzzleGrid().addEventListener('click', function (event) {
         const selectedTile = event.target;
 
@@ -31,6 +31,8 @@ function selectPuzzleTile() {
         });
 
         updateSelectableTiles(movableTileIndices);
+
+        onSelectPuzzleTile(index);
     });
 }
 

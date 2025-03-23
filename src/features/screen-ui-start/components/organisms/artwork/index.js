@@ -3,13 +3,11 @@ import { pictureAnimeCharacter } from '@feat-screen-ui-start/components/atoms/an
 
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
-import { puzzleGridArt } from '@shared-components/organisms/puzzle-grid/variants';
-
 import './style.css';
 
 function Artwork() {
     const animeCharacter = AnimeCharacter(pictureAnimeCharacter);
-    const puzzleGrid = PuzzleGrid(puzzleGridArt);
+    const puzzleGrid = PuzzleGrid({});
 
     return (
         `

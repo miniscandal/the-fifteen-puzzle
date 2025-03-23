@@ -3,8 +3,8 @@ import { PuzzleTile } from '@shared-components/molecules/puzzle-tile';
 import { GRID_ROW } from '@shared-constants/puzzle-grid-settings';
 import { GRID_COLUMN } from '@shared-constants/puzzle-grid-settings';
 
-import { MOVE_RIGHT } from '@shared-constants/movement-direction';
-import { MOVE_ABOVE } from '@shared-constants/movement-direction';
+import { TILE_MOVE_LEFT } from '@shared-constants/movement-direction';
+import { TILE_MOVE_UP } from '@shared-constants/movement-direction';
 
 import './style.css';
 
@@ -16,10 +16,11 @@ function PuzzleGrid({
     puzzle = {
         id: undefined,
         permutation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        state: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
         description: '',
-        getMovableTileIndices: [
-            { index: 1, movementDirection: MOVE_RIGHT },
-            { index: 4, movementDirection: MOVE_ABOVE }
+        movableTileIndices: [
+            { index: 1, movementDirection: TILE_MOVE_LEFT },
+            { index: 4, movementDirection: TILE_MOVE_UP }
         ],
         enabled: true
     },
@@ -34,9 +35,9 @@ function PuzzleGrid({
         index: undefined
     }
 }) {
-    const { id, permutation, getMovableTileIndices } = puzzle;
-    const puzzleTiles = permutation.map((value, index) => {
-        const movableTile = getMovableTileIndices.find(tile => tile.index === index);
+    const { id, movableTileIndices, state } = puzzle;
+    const puzzleTiles = state.map((value, index) => {
+        const movableTile = movableTileIndices.find(tile => tile.index === index);
 
         return PuzzleTile({
             id: value,
@@ -52,6 +53,7 @@ function PuzzleGrid({
     });
 
     const classList = [gameActive ? 'game-active' : ''];
+
 
     return (
         `
