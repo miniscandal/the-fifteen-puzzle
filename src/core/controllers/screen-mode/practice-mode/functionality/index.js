@@ -5,8 +5,8 @@ import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
 
-import { START_SCREEN } from '@shared-constants/screen-modes';
-import { PLAY_SCREEN } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_MODE_PRACTICE } from '@shared-constants/game-modes';
 
 
@@ -22,11 +22,11 @@ function practiceModeFunctionality({
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
     domElementButtonSelectStartScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[START_SCREEN]());
+        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_START]());
     });
 
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[PLAY_SCREEN]());
+        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_PLAY]());
     });
 
     domElementButtonSelectBackScreen().addEventListener('click', () => {

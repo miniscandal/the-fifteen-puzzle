@@ -3,8 +3,8 @@ import { configureColorSchemePreference } from '@feat-prefers-color-scheme/confi
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/buttons';
 
-import { PLAY_SCREEN } from '@shared-constants/screen-modes';
-import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
 import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
 
@@ -18,15 +18,15 @@ function startModeFunctionality({
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[PLAY_SCREEN]());
+        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_PLAY]());
     });
 
     domElementButtonSelectPracticeScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[PRACTICE_SCREEN]());
+        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_PRACTICE]());
     });
 
     GameModeController.currentMode = GAME_MODE_SEQUENCE;
-    PuzzleGridController.puzzle.id = undefined;
+    PuzzleGridController.puzzle.id = null;
     ScreenModeController.clearModeHistory();
 }
 

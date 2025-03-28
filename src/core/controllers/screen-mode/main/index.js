@@ -7,16 +7,16 @@ import { startMode } from '@core-controllers/screen-mode/start-mode/main';
 import { practiceMode } from '@core-controllers/screen-mode/practice-mode/main';
 import { playMode } from '@core-controllers/screen-mode/play-mode/main';
 
-import { PLAY_SCREEN } from '@shared-constants/screen-modes';
-import { PRACTICE_SCREEN } from '@shared-constants/screen-modes';
-import { START_SCREEN } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 
 
 const ScreenModeController = {
     modes: {
-        [START_SCREEN]: () => ScreenModeController.updateMode(START_SCREEN, startMode),
-        [PRACTICE_SCREEN]: () => ScreenModeController.updateMode(PRACTICE_SCREEN, practiceMode),
-        [PLAY_SCREEN]: () => ScreenModeController.updateMode(PLAY_SCREEN, playMode),
+        [GAME_SCREEN_START]: () => ScreenModeController.updateMode(GAME_SCREEN_START, startMode),
+        [GAME_SCREEN_PRACTICE]: () => ScreenModeController.updateMode(GAME_SCREEN_PRACTICE, practiceMode),
+        [GAME_SCREEN_PLAY]: () => ScreenModeController.updateMode(GAME_SCREEN_PLAY, playMode),
     },
     previousMode: undefined,
     currentMode: undefined,

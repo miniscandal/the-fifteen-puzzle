@@ -7,8 +7,7 @@ import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-li
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 
-import { START_SCREEN } from '@shared-constants/screen-modes';
-
+import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 
 async function playModeFunctionality({
     GameModeController,
@@ -17,16 +16,17 @@ async function playModeFunctionality({
     ScreenModeController,
     PrefersColorSchemeController,
 }) {
-    const gameMode = GameModeController.currentMode;
-    const idPuzzle = GameModeController.modes[gameMode]({ PuzzleGridController });
-    const puzzle = await loadPuzzle({ idPuzzle });
+    const { currentMode, modes } = GameModeController;
+    const { puzzleId } = modes[currentMode]({ PuzzleGridController });
+    const { puzzle } = await loadPuzzle({ puzzleId });
 
     PuzzleGridController.puzzle = {
         ...PuzzleGridController.puzzle,
         id: puzzle.id,
-        permutation: puzzle.permutation,
-        state: puzzle.permutation
+        permutation: puzzle.permutation
     };
+
+    // TODO: Desacoplar codigo de esta funcion, para el estado
 
     renderPuzzleScene({ puzzle });
 
@@ -38,7 +38,7 @@ async function playModeFunctionality({
     addEventListenerSelectScreenMode({
         getElement: domElementButtonSelectStartScreen,
         updateScreenMode: () => {
-            ScreenSetupController.routine(ScreenModeController.modes[START_SCREEN]());
+            ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_START]());
         }
     });
 
