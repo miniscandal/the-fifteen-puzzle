@@ -1,4 +1,4 @@
-import { SELECT_PLAY_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { SELECT_GAME_SCREEN_PLAY_ID } from '@shared-constants/dom-element-identifiers';
 
 import { PUZZLE_GRID_COLLECTION_ID } from '@shared-constants/dom-element-identifiers';
 
@@ -22,7 +22,7 @@ function selectPuzzleGrid({ PuzzleGridController }) {
 
         puzzleGrid.classList.add('selected');
 
-        document.getElementById(SELECT_PLAY_SCREEN_ID).classList.add('enabled');
+        document.getElementById(SELECT_GAME_SCREEN_PLAY_ID).classList.add('enabled');
     });
 };
 
