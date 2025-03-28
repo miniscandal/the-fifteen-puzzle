@@ -10,8 +10,8 @@ const GameModeController = {
         [GAME_MODE_SEQUENCE]: ({ PuzzleGridController }) => sequenceMode({ PuzzleGridController }),
         [GAME_MODE_PRACTICE]: ({ PuzzleGridController }) => practiceMode({ PuzzleGridController })
     },
-    currentMode: undefined,
-    previousMode: undefined,
+    currentMode: null,
+    previousMode: null,
 };
 
 export { GameModeController };

@@ -1,5 +1,5 @@
 function nextPuzzleInSequence({ puzzleId, STAGE_SEQUENCE }) {
-    if (puzzleId === undefined) {
+    if (puzzleId === null) {
         return STAGE_SEQUENCE.at(0);
     }
 
