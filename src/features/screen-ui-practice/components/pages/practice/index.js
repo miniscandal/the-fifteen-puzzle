@@ -5,7 +5,7 @@ import { ButtonSelectScreen } from '@shared-components/atoms/button-select-scree
 
 import { PuzzleGridCollection } from '@feat-screen-ui-practice/components/organisms/puzzle-grid-collection';
 
-import { SELECT_PLAY_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { SELECT_GAME_SCREEN_PLAY_ID } from '@shared-constants/dom-element-identifiers';
 
 import * as puzzles from '@shared-constants/puzzle-collection.js';
 
@@ -16,7 +16,7 @@ function Practice() {
     const puzzleGridCollection = PuzzleGridCollection({ puzzles });
     const buttonSelectScreen = ButtonSelectScreen({
         text: 'play',
-        id: SELECT_PLAY_SCREEN_ID,
+        id: SELECT_GAME_SCREEN_PLAY_ID,
         enabled: false
     });
 
