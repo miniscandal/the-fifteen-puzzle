@@ -1,9 +1,9 @@
-const START_SCREEN = Symbol('start');
-const PRACTICE_SCREEN = Symbol('practice');
-const PLAY_SCREEN = Symbol('play');
+const GAME_SCREEN_START = Symbol('game_start');
+const GAME_SCREEN_PRACTICE = Symbol('game_practice');
+const GAME_SCREEN_PLAY = Symbol('game_play');
 
 export {
-    START_SCREEN,
-    PRACTICE_SCREEN,
-    PLAY_SCREEN
+    GAME_SCREEN_START,
+    GAME_SCREEN_PRACTICE,
+    GAME_SCREEN_PLAY
 };

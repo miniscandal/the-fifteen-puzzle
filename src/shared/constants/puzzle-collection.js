@@ -1,13 +1,3 @@
-function shuffleArray(array) {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-}
-
-
 const puzzleA1 = {
     id: 'puzzleA1',
     permutation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
@@ -80,6 +70,5 @@ export {
     puzzleA6,
     puzzleA7,
     puzzleA8,
-    puzzleA9,
-    shuffleArray
+    puzzleA9
 };
