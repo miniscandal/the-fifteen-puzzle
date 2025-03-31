@@ -1,5 +1,5 @@
 import { ScreenModeController } from '@core-controllers/screen-mode/main';
-import { SELECT_START_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { SELECT_GAME_SCREEN_START_ID } from '@shared-constants/dom-element-identifiers';
 
 
 const primarySideBar = {
@@ -10,7 +10,7 @@ const primarySideBar = {
 
         return {
             text: 'main menu',
-            id: SELECT_START_SCREEN_ID
+            id: SELECT_GAME_SCREEN_START_ID
         };
     }
 };
