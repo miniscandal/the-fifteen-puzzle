@@ -2,7 +2,7 @@ import { primarySideBar } from './variants';
 
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
-import { SELECT_START_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { SELECT_GAME_SCREEN_START_ID } from '@shared-constants/dom-element-identifiers';
 import { SELECT_BACK_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
 
 import './style.css';
@@ -11,7 +11,7 @@ function PrimarySideBar() {
     const buttonSelectStartScreen = primarySideBar.buttonSelectStartScreen
         ? ButtonSelectScreen({
             text: 'main menu',
-            id: SELECT_START_SCREEN_ID
+            id: SELECT_GAME_SCREEN_START_ID
         })
         : '';
 
