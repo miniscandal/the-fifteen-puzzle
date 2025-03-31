@@ -7,7 +7,12 @@ import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-li
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 
+import { getAdjacentIndicesInGrid } from '@shared-utils/get-adjacent-indices-in-grid';
+import { getItemPositionInGrid } from '@shared-utils/get-item-position-in-grid';
+import { createPermutation, shuffleSimplePuzzleState } from '@shared-utils/game-state-generate';
+
 import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
+
 
 async function playModeFunctionality({
     GameModeController,
@@ -19,20 +24,17 @@ async function playModeFunctionality({
     const { currentMode, modes } = GameModeController;
     const { puzzleId } = modes[currentMode]({ PuzzleGridController });
     const { puzzle } = await loadPuzzle({ puzzleId });
+    const state = shuffleSimplePuzzleState(createPermutation());
+    const onSelectPuzzleTile = (index) => PuzzleGridController.updateState(index);
 
     PuzzleGridController.puzzle = {
-        ...PuzzleGridController.puzzle,
-        id: puzzle.id,
-        permutation: puzzle.permutation
+        ...puzzle,
+        state,
+        movableTileIndices: getAdjacentIndicesInGrid(getItemPositionInGrid(state))
     };
 
-    // TODO: Desacoplar codigo de esta funcion, para el estado
-
-    renderPuzzleScene({ puzzle });
-
-    const onSelectPuzzleTile = (index) => PuzzleGridController.updateState(index);
+    renderPuzzleScene({ puzzle: PuzzleGridController.puzzle });
     selectPuzzleTile({ onSelectPuzzleTile });
-
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
     addEventListenerSelectScreenMode({
