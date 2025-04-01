@@ -13,14 +13,14 @@ import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 
 
 const ScreenModeController = {
+    previousMode: undefined,
+    currentMode: undefined,
+    modeHistory: [],
     modes: {
         [GAME_SCREEN_START]: () => ScreenModeController.updateMode(GAME_SCREEN_START, startMode),
         [GAME_SCREEN_PRACTICE]: () => ScreenModeController.updateMode(GAME_SCREEN_PRACTICE, practiceMode),
         [GAME_SCREEN_PLAY]: () => ScreenModeController.updateMode(GAME_SCREEN_PLAY, playMode),
     },
-    previousMode: undefined,
-    currentMode: undefined,
-    modeHistory: [],
     updateMode(newMode, modeFunction) {
         this.previousMode = this.currentMode;
         this.currentMode = newMode;
