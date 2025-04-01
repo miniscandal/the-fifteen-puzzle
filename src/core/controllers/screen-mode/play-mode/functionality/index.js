@@ -25,7 +25,14 @@ async function playModeFunctionality({
     const { puzzleId } = modes[currentMode]({ PuzzleGridController });
     const { puzzle } = await loadPuzzle({ puzzleId });
     const state = shuffleSimplePuzzleState(createPermutation());
-    const onSelectPuzzleTile = (index) => PuzzleGridController.updateState(index);
+    const onSelectPuzzleTile = (index) => {
+        const state = PuzzleGridController.updateState(index);
+        const isSolved = PuzzleGridController.checkState(state);
+
+        // modal
+
+        console.log(isSolved);
+    };
 
     PuzzleGridController.puzzle = {
         ...puzzle,
