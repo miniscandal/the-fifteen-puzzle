@@ -15,19 +15,33 @@ function startModeFunctionality({
     ScreenModeController,
     PrefersColorSchemeController
 }) {
-    configureColorSchemePreference(PrefersColorSchemeController.appearance);
-
-    domElementButtonSelectPlayScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_PLAY]());
-    });
-
-    domElementButtonSelectPracticeScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_PRACTICE]());
-    });
+    const coreControllers = {
+        ScreenSetupController,
+        PrefersColorSchemeController,
+        GameModeController,
+        ScreenModeController,
+        PuzzleGridController
+    };
 
     GameModeController.currentMode = GAME_MODE_SEQUENCE;
     PuzzleGridController.puzzle.id = null;
     ScreenModeController.clearModeHistory();
+
+    configureColorSchemePreference(PrefersColorSchemeController.appearance);
+
+    domElementButtonSelectPlayScreen().addEventListener('click', () => {
+        ScreenSetupController.routine(ScreenModeController.transitionTo({
+            modeId: GAME_SCREEN_PLAY,
+            coreControllers
+        }));
+    });
+
+    domElementButtonSelectPracticeScreen().addEventListener('click', () => {
+        ScreenSetupController.routine(ScreenModeController.transitionTo({
+            modeId: GAME_SCREEN_PRACTICE,
+            coreControllers
+        }));
+    });
 }
 
 export { startModeFunctionality };
