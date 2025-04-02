@@ -5,13 +5,10 @@ import { configureColorSchemePreference } from '@feat-prefers-color-scheme/confi
 import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
 
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
-import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 
 import { getAdjacentIndicesInGrid } from '@shared-utils/get-adjacent-indices-in-grid';
 import { getItemPositionInGrid } from '@shared-utils/get-item-position-in-grid';
 import { createPermutation, shuffleSimplePuzzleState } from '@shared-utils/game-state-generate';
-
-import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 
 
 async function playModeFunctionality({
@@ -29,15 +26,14 @@ async function playModeFunctionality({
         const state = PuzzleGridController.updateState(index);
         const isSolved = PuzzleGridController.checkState(state);
 
-        // modal
-
+        //TODO: implement modal component
         console.log(isSolved);
     };
 
     PuzzleGridController.puzzle = {
         ...puzzle,
-        state,
-        movableTileIndices: getAdjacentIndicesInGrid(getItemPositionInGrid(state))
+        state: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        movableTileIndices: getAdjacentIndicesInGrid(getItemPositionInGrid([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]))
     };
 
     renderPuzzleScene({ puzzle: PuzzleGridController.puzzle });
@@ -45,18 +41,18 @@ async function playModeFunctionality({
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
     addEventListenerSelectScreenMode({
-        getElement: domElementButtonSelectStartScreen,
-        updateScreenMode: () => {
-            ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_START]());
-        }
-    });
-
-    addEventListenerSelectScreenMode({
         getElement: domElementButtonSelectBackScreen,
         updateScreenMode: () => {
-            const lastScreenMode = ScreenModeController.lastModeHistory();
-
-            ScreenSetupController.routine(ScreenModeController.modes[lastScreenMode]());
+            ScreenSetupController.routine(ScreenModeController.transitionTo({
+                modeId: ScreenModeController.lastModeHistory(),
+                coreControllers: {
+                    ScreenSetupController,
+                    PrefersColorSchemeController,
+                    GameModeController,
+                    ScreenModeController,
+                    PuzzleGridController
+                }
+            }));
         }
     });
 }
