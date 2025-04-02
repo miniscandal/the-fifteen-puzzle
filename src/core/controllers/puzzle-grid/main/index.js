@@ -1,3 +1,5 @@
+// TODO: add update puzzle method
+
 const PuzzleGridController = {
     puzzle: {
         id: undefined,
