@@ -1,6 +1,6 @@
 function practiceMode({ PuzzleGridController }) {
 
-    return PuzzleGridController.puzzle.id;
+    return { puzzleId: PuzzleGridController.puzzle.id };
 }
 
 export { practiceMode };
