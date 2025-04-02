@@ -1,11 +1,10 @@
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
 import { selectPuzzleGrid } from '@feat-game-mode/select-puzzle-grid';
+import { addEventListenerSelectScreenMode } from '@feat-screen-mode/add-event-listener-select-screen-mode';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
-import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
 
-import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_MODE_PRACTICE } from '@shared-constants/game-modes';
 
@@ -17,20 +16,36 @@ function practiceModeFunctionality({
     PuzzleGridController,
     PrefersColorSchemeController
 }) {
+    const coreControllers = {
+        ScreenSetupController,
+        PrefersColorSchemeController,
+        GameModeController,
+        ScreenModeController,
+        PuzzleGridController
+    };
+
     selectPuzzleGrid({ PuzzleGridController });
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
-    domElementButtonSelectStartScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_START]());
+    addEventListenerSelectScreenMode({
+        getElement: domElementButtonSelectPlayScreen,
+        updateScreenMode: () => {
+            ScreenSetupController.routine(ScreenModeController.transitionTo({
+                modeId: GAME_SCREEN_PLAY,
+                coreControllers
+            }));
+        }
     });
 
-    domElementButtonSelectPlayScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[GAME_SCREEN_PLAY]());
-    });
-
-    domElementButtonSelectBackScreen().addEventListener('click', () => {
-        ScreenSetupController.routine(ScreenModeController.modes[ScreenModeController.lastModeHistory()]());
+    addEventListenerSelectScreenMode({
+        getElement: domElementButtonSelectBackScreen,
+        updateScreenMode: () => {
+            ScreenSetupController.routine(ScreenModeController.transitionTo({
+                modeId: ScreenModeController.lastModeHistory(),
+                coreControllers
+            }));
+        }
     });
 
     GameModeController.currentMode = GAME_MODE_PRACTICE;
