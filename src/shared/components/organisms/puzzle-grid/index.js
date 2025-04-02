@@ -32,7 +32,7 @@ function PuzzleGrid({
 
 
         return PuzzleTile({
-            id: value,
+            id: permutation[value],
             symbol: permutation[value],
             size: 'auto',
             playEnabled: !!movableTile && playEnabled,
