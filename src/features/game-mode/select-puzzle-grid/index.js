@@ -1,6 +1,6 @@
 import { SELECT_GAME_SCREEN_PLAY_ID } from '@shared-constants/dom-element-identifiers';
-
 import { PUZZLE_GRID_COLLECTION_ID } from '@shared-constants/dom-element-identifiers';
+
 
 function selectPuzzleGrid({ PuzzleGridController }) {
     const button = document.getElementById(PUZZLE_GRID_COLLECTION_ID);
@@ -14,14 +14,10 @@ function selectPuzzleGrid({ PuzzleGridController }) {
         }
 
         const currentPuzzleGridSelected = document.querySelector(`[${attribute}][class~="selected"]`);
+
         currentPuzzleGridSelected?.classList.remove('selected');
-
-        const puzzleId = puzzleGrid.dataset.puzzleId;
-
-        PuzzleGridController.puzzle.id = puzzleId;
-
+        PuzzleGridController.puzzle.id = puzzleGrid.dataset.puzzleId;
         puzzleGrid.classList.add('selected');
-
         document.getElementById(SELECT_GAME_SCREEN_PLAY_ID).classList.add('enabled');
     });
 };
