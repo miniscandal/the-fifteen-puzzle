@@ -15,7 +15,7 @@ function startModeFunctionality({
     ScreenModeController,
     PrefersColorSchemeController
 }) {
-    const coreControllers = {
+    const coreGameControllers = {
         ScreenSetupController,
         PrefersColorSchemeController,
         GameModeController,
@@ -32,14 +32,14 @@ function startModeFunctionality({
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
         ScreenSetupController.routine(ScreenModeController.transitionTo({
             modeId: GAME_SCREEN_PLAY,
-            coreControllers
+            coreGameControllers
         }));
     });
 
     domElementButtonSelectPracticeScreen().addEventListener('click', () => {
         ScreenSetupController.routine(ScreenModeController.transitionTo({
             modeId: GAME_SCREEN_PRACTICE,
-            coreControllers
+            coreGameControllers
         }));
     });
 }
