@@ -8,8 +8,8 @@ import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 
 
 function createScreenModeManager() {
-    let previousMode = undefined;
-    let currentMode = undefined;
+    let previousMode = null;
+    let currentMode = null;
     let modeHistory = [];
 
     const modesConfig = {
@@ -24,14 +24,12 @@ function createScreenModeManager() {
         modeHistory.push(modeId);
     };
 
-    const transitionTo = ({ modeId, coreControllers }) => {
+    const transitionTo = ({ modeId, coreGameControllers }) => {
         const { handlerMode } = modesConfig[modeId];
 
         updateMode(modeId);
 
-        console.log(coreControllers);
-
-        return handlerMode(coreControllers);
+        return handlerMode(coreGameControllers);
     };
 
     const lastModeHistory = () => {
