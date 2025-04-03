@@ -3,11 +3,11 @@ import { Practice } from '@feat-screen-ui-practice/components/pages/practice';
 import { practiceModeFunctionality } from '../functionality';
 
 
-function practiceMode(coreObjects) {
+function practiceMode(coreGameControllers) {
 
     return {
-        html: Practice,
-        uiFunctionality: () => practiceModeFunctionality(coreObjects)
+        html: () => Practice({ coreGameControllers }),
+        uiFunctionality: () => practiceModeFunctionality(coreGameControllers)
     };
 };
 
