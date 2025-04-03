@@ -3,12 +3,15 @@ import { IconButtonColorTheme } from '@shared-components/molecules/icon-button-c
 
 import './style.css';
 
+
 function ScreenMode({
     children = '',
-    enablePrimarySideBar = true
+    enablePrimarySideBar = true,
+    coreGameControllers
 }) {
-    const primarySideBar = enablePrimarySideBar ? PrimarySideBar() : '';
+    const primarySideBar = enablePrimarySideBar ? PrimarySideBar({ coreGameControllers }) : '';
     const iconButtonAppearanceTheme = IconButtonColorTheme();
+
 
     return (
         `

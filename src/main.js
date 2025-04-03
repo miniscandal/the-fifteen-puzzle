@@ -11,7 +11,7 @@ import './main.css';
 
 ScreenSetupController.routine(ScreenModeController.transitionTo({
     modeId: GAME_SCREEN_START,
-    coreControllers: {
+    coreGameControllers: {
         ScreenSetupController,
         PrefersColorSchemeController,
         GameModeController,
