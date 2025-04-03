@@ -1,5 +1,3 @@
-import { primarySideBar } from './variants';
-
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
 import { SELECT_GAME_SCREEN_START_ID } from '@shared-constants/dom-element-identifiers';
@@ -7,25 +5,28 @@ import { SELECT_BACK_SCREEN_ID } from '@shared-constants/dom-element-identifiers
 
 import './style.css';
 
-function PrimarySideBar() {
-    const buttonSelectStartScreen = primarySideBar.buttonSelectStartScreen
+
+function PrimarySideBar({ coreGameControllers }) {
+    const { ScreenModeController } = coreGameControllers;
+
+    const buttonSelectBackScreen = ScreenModeController.modeHistory.length > 2
         ? ButtonSelectScreen({
-            text: 'main menu',
-            id: SELECT_GAME_SCREEN_START_ID
+            text: 'back',
+            id: SELECT_BACK_SCREEN_ID
         })
         : '';
 
-
-    const buttonSelectBackScreen = ButtonSelectScreen({
-        text: 'back',
-        id: SELECT_BACK_SCREEN_ID
+    const buttonSelectStartScreen = ButtonSelectScreen({
+        text: 'main menu',
+        id: SELECT_GAME_SCREEN_START_ID
     });
+
 
     return (
         `
         <section class="primary-side-bar">
-            ${buttonSelectStartScreen}
             ${buttonSelectBackScreen}
+            ${buttonSelectStartScreen}
         </section>
         `
     );
