@@ -5,6 +5,7 @@ import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
 import './style.css';
 
+
 function Artwork() {
     const animeCharacter = AnimeCharacter(pictureAnimeCharacter);
     const puzzleGrid = PuzzleGrid({});
