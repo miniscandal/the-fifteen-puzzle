@@ -2,9 +2,7 @@ import { startMode } from '@core-controllers/screen-mode/start-mode/main';
 import { practiceMode } from '@core-controllers/screen-mode/practice-mode/main';
 import { playMode } from '@core-controllers/screen-mode/play-mode/main';
 
-import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
-import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
-import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
+import { GAME_SCREEN_PLAY, GAME_SCREEN_PRACTICE, GAME_SCREEN_START } from '@shared-constants/screen-modes';
 
 
 function createScreenModeManager() {
