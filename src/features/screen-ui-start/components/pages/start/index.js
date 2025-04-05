@@ -6,6 +6,7 @@ import { MainMenu } from '@feat-screen-ui-start/components/organisms/main-menu';
 
 import './style.css';
 
+
 function Start() {
     const titleH1 = TitleH1({ text: 'the fifteen puzzle' });
     const artwork = Artwork();
@@ -20,6 +21,7 @@ function Start() {
         </article>
         `
     );
+
 
     return ScreenMode({
         children,
