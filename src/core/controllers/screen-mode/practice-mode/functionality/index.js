@@ -30,6 +30,10 @@ function practiceModeFunctionality({
     addEventListenerSelectScreenMode({
         getElement: domElementButtonSelectPlayScreen,
         updateScreenMode: () => {
+            if (!PuzzleGridController.puzzle.id) {
+                return;
+            }
+
             ScreenSetupController.routine(ScreenModeController.transitionTo({
                 modeId: GAME_SCREEN_PLAY,
                 coreGameControllers
