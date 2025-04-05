@@ -7,24 +7,24 @@
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-.puzzle-grid[data-size='small'] {
+.puzzle-grid.small {
     width: 150px;
     height: 150px;
 }
 
-.puzzle-grid[data-size='regular'] {
+.puzzle-grid.regular {
     width: 310px;
     height: 310px;
     font-size: 2rem;
 }
 
-.puzzle-grid[data-size='medium'] {
+.puzzle-grid.medium {
     width: 380px;
     height: 380px;
     font-size: 2.5rem;
 }
 
-.puzzle-grid[data-play-enabled=true]:not(.game-active):hover {
+.puzzle-grid.pending-selection:hover:not(.active) {
     cursor: pointer;
     filter: brightness(1.1);
 }
@@ -32,8 +32,4 @@
 .puzzle-grid.selected {
     transform: scale(1.05);
     box-shadow: 0px 5px 15px var(--color-dark);
-}
-
-.puzzle-grid.game-active {
-    filter: none;
 }
