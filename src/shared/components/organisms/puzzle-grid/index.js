@@ -10,32 +10,39 @@ import './style.css';
 
 
 function PuzzleGrid({
-    playEnabled = false,
+    id = null,
     size = 'regular',
     gameActive = false,
+    pendingSelection = false,
     puzzle = {
-        id: undefined,
+        id: null,
         permutation: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
         state: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        description: '',
+        description: 'Sequential pattern of a solved Fifteen Puzzle',
+        playable: true,
         movableTileIndices: [
-            { index: 1, movementDirection: TILE_MOVE_LEFT },
-            { index: 4, movementDirection: TILE_MOVE_UP }
-        ],
-        enabled: true
+            {
+                index: 1,
+                movementDirection: TILE_MOVE_LEFT
+            },
+            {
+                index: 4,
+                movementDirection: TILE_MOVE_UP
+            }
+        ]
     },
     puzzleTile = {}
 }) {
-    const { id, permutation, state, movableTileIndices } = puzzle;
+    const { permutation, state, movableTileIndices } = puzzle;
+
     const puzzleTiles = state.map((value, index) => {
         const movableTile = movableTileIndices.find(tile => tile.index === index);
-
 
         return PuzzleTile({
             id: permutation[value],
             symbol: permutation[value],
             size: 'auto',
-            playEnabled: !!movableTile && playEnabled,
+            playEnabled: !!movableTile && gameActive,
             movementDirection: movableTile ? movableTile.movementDirection : null,
             row: Math.floor(index / GRID_ROW) + 1,
             column: (index % GRID_COLUMN) + 1,
@@ -44,18 +51,17 @@ function PuzzleGrid({
         });
     });
 
-    const classList = [gameActive ? 'game-active' : ''];
+    const classList = [
+        'puzzle-grid',
+        gameActive ? 'active' : '',
+        pendingSelection ? 'pending-selection' : '',
+        size
+    ];
 
 
     return (
         `
-        <section
-            class="puzzle-grid ${classList.join('')}"
-            id="puzzle-grid"
-            data-size=${size}
-            data-play-enabled=${playEnabled}
-            data-puzzle-id=${id}
-        >
+        <section id=${id} class="puzzle-grid ${classList.join(' ')}">
             ${puzzleTiles.join('')}
         </section>
         `
