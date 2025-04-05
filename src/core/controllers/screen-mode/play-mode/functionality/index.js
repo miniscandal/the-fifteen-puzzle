@@ -57,6 +57,7 @@ async function playModeFunctionality({
     addEventListenerSelectScreenMode({
         getElement: domElementButtonSelectBackScreen,
         updateScreenMode: () => {
+            PuzzleGridController.puzzle.id = null;
             ScreenSetupController.routine(ScreenModeController.transitionTo({
                 modeId: ScreenModeController.lastModeHistory(),
                 coreGameControllers
