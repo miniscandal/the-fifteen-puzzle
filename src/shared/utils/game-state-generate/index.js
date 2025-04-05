@@ -11,6 +11,7 @@ function shuffleSimplePuzzleState(permutation) {
     shuffled[0] = shuffled[1];
     shuffled[1] = a;
 
+
     return shuffled;
 }
 
@@ -21,6 +22,7 @@ function shufflePuzzleState(permutation) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
+
 
     return shuffled;
 }
