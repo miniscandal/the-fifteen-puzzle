@@ -1,5 +1,3 @@
-// TODO: add update puzzle method
-
 const PuzzleGridController = {
     puzzle: {
         id: undefined,
@@ -13,9 +11,8 @@ const PuzzleGridController = {
 
         return isSolved;
     },
-    updateState(index) {
+    updateState(index, zeroIndex) {
         const stateCopy = [...this.puzzle.state];
-        const zeroIndex = this.puzzle.state.indexOf(0);
 
         [stateCopy[zeroIndex], stateCopy[index]] = [stateCopy[index], stateCopy[zeroIndex]];
         this.puzzle.state = stateCopy;
