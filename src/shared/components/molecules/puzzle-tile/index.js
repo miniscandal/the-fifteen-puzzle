@@ -1,7 +1,7 @@
 import './style.css';
 
 function PuzzleTile({
-    id = undefined,
+    id = null,
     symbol = '',
     size = 'regular',
     playEnabled = false,
