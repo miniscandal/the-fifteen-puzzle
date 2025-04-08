@@ -1,6 +1,6 @@
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
-import { PUZZLE_GAME_ID, PUZZLE_HELPER_GAME } from '@shared-constants/dom-element-identifiers';
+import { PUZZLE_GAME_ID, PUZZLE_HELPER_GAME_ID } from '@shared-constants/dom-element-identifiers';
 
 import { PUZZLE_GRID } from '@shared-constants/dom-element-identifiers';
 
@@ -15,6 +15,7 @@ function PuzzleGame() {
         }
     });
     const puzzleGrid = PuzzleGrid({
+        id: PUZZLE_GRID,
         size: 'medium',
         puzzleTile: {
             symbol: '?'
@@ -25,7 +26,7 @@ function PuzzleGame() {
     return (
         `
         <div>
-            <section id=${PUZZLE_HELPER_GAME}>
+            <section id=${PUZZLE_HELPER_GAME_ID}>
                 ${puzzleGameHelp}
             </section>
             <section id=${PUZZLE_GAME_ID}>
