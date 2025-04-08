@@ -32,7 +32,7 @@ function selectPuzzleTile({ onSelectPuzzleTile }) {
 
         updateSelectableTiles(movableTileIndices);
 
-        onSelectPuzzleTile(index);
+        onSelectPuzzleTile(index, selectedTile.dataset.index);
     });
 }
 
