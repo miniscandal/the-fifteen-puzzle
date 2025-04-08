@@ -38,21 +38,28 @@ function PuzzleGrid({
     const puzzleTiles = state.map((value, index) => {
         const movableTile = movableTileIndices.find(tile => tile.index === index);
 
+        let id = '1';
+
+        if (gameActive) {
+            id = permutation[value];
+        } else {
+            id = permutation[value] === '0' ? 0 : '1';
+        }
+
         return PuzzleTile({
-            id: permutation[value],
+            id,
             symbol: permutation[value],
             size: 'auto',
             playEnabled: !!movableTile && gameActive,
             movementDirection: movableTile ? movableTile.movementDirection : null,
             row: Math.floor(index / GRID_ROW) + 1,
             column: (index % GRID_COLUMN) + 1,
-            index,
+            index: gameActive ? index : null,
             ...(puzzleTile ? puzzleTile : {})
         });
     });
 
     const classList = [
-        'puzzle-grid',
         gameActive ? 'active' : '',
         pendingSelection ? 'pending-selection' : '',
         size
