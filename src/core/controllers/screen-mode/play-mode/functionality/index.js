@@ -31,12 +31,12 @@ async function playModeFunctionality({
         ScreenModeController,
         PuzzleGridController
     };
-    const onSelectPuzzleTile = (index) => {
-        const state = PuzzleGridController.updateState(index);
+    const onSelectPuzzleTile = (index, selectedTileIndex) => {
+        const state = PuzzleGridController.updateState(index, selectedTileIndex);
         const isSolved = PuzzleGridController.checkState(state);
 
         if (isSolved) {
-            // code
+            console.log(isSolved);
         }
     };
 
