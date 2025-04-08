@@ -3,7 +3,7 @@ import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 import {
     PUZZLE_GAME_ID,
     PUZZLE_GRID,
-    PUZZLE_HELPER_GAME,
+    PUZZLE_HELPER_GAME_ID,
 } from '@shared-constants/dom-element-identifiers';
 
 import { createPermutation } from '@shared-utils/game-state-generate';
@@ -38,7 +38,7 @@ function renderPuzzleScene({ puzzle }) {
         },
     });
 
-    updateDOMElementWithGrid(PUZZLE_HELPER_GAME, helperGridHTML);
+    updateDOMElementWithGrid(PUZZLE_HELPER_GAME_ID, helperGridHTML);
 }
 
 export { renderPuzzleScene };
