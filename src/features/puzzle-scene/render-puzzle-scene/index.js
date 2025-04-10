@@ -1,10 +1,7 @@
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
-import {
-    PUZZLE_GAME_ID,
-    PUZZLE_GRID,
-    PUZZLE_HELPER_GAME_ID,
-} from '@shared-constants/dom-element-identifiers';
+import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
+import { PUZZLE_HELPER_GAME_ID, } from '@shared-constants/dom-element-identifiers';
 
 import { createPermutation } from '@shared-utils/game-state-generate';
 
@@ -22,7 +19,6 @@ function updateDOMElementWithGrid(containerId, gridHTML) {
 
 function renderPuzzleScene({ puzzle }) {
     const mainGridHTML = PuzzleGrid({
-        id: PUZZLE_GRID,
         size: 'medium',
         gameActive: true,
         puzzle,
