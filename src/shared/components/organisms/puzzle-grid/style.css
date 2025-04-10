@@ -7,18 +7,18 @@
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-.puzzle-grid.small {
+.puzzle-grid.size-small {
     width: 150px;
     height: 150px;
 }
 
-.puzzle-grid.regular {
+.puzzle-grid.size-regular {
     width: 310px;
     height: 310px;
     font-size: 2rem;
 }
 
-.puzzle-grid.medium {
+.puzzle-grid.size-medium {
     width: 380px;
     height: 380px;
     font-size: 2.5rem;
