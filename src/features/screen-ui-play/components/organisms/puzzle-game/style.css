@@ -1,0 +1,11 @@
+.puzzle-game {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.puzzle-game > div:last-child {
+    position: absolute;
+    right: 0;
+}
