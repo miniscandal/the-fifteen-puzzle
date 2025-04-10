@@ -1,23 +1,23 @@
 import './style.css';
 
+
 function PuzzleTile({
-    id = null,
-    symbol = '',
+    id = 'puzzle-tile',
+    symbol = '?',
     size = 'regular',
     playEnabled = false,
-    movementDirection = undefined,
-    row = undefined,
-    column = undefined,
-    index = undefined
+    movementDirection = null,
+    row = null,
+    column = null,
+    index = null
 }) {
 
     return (
         `
         <div
-            class="puzzle-tile"
+            class="puzzle-tile ${size}"
             data-symbol=${symbol}
             data-id=${id}
-            data-size=${size}
             data-play-enabled=${playEnabled}
             data-movement-direction=${movementDirection}
             data-row=${row}
