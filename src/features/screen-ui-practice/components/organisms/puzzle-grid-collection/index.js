@@ -7,7 +7,7 @@ import './style.css';
 
 function PuzzleGridCollection({ puzzles = [] }) {
     const puzzleGrids = Object.values(puzzles).map(puzzle => {
-        if (!puzzle.enabled) {
+        if (!puzzle.playable) {
             return;
         }
 
