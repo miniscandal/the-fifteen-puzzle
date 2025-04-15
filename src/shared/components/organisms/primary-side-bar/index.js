@@ -6,10 +6,10 @@ import { SELECT_BACK_SCREEN_ID } from '@shared-constants/dom-element-identifiers
 import './style.css';
 
 
-function PrimarySideBar({ coreGameControllers }) {
-    const { ScreenModeController } = coreGameControllers;
+function PrimarySideBar({ GameCoreControllers }) {
+    const { ScreenController } = GameCoreControllers;
 
-    const buttonSelectBackScreen = ScreenModeController.modeHistory.length > 2
+    const buttonSelectBackScreen = ScreenController.screenHistory.length > 2
         ? ButtonSelectScreen({
             text: 'back',
             id: SELECT_BACK_SCREEN_ID
