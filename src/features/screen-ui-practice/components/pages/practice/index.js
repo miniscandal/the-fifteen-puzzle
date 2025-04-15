@@ -12,7 +12,7 @@ import * as puzzles from '@shared-constants/puzzle-collection.js';
 import './style.css';
 
 
-function Practice({ coreGameControllers }) {
+function Practice(GameCoreControllers) {
     const titleH2 = TitleH2({ text: 'select practice puzzle' });
     const puzzleGridCollection = PuzzleGridCollection({ puzzles });
     const buttonSelectScreen = ButtonSelectScreen({
@@ -35,7 +35,7 @@ function Practice({ coreGameControllers }) {
 
     return ScreenMode({
         children,
-        coreGameControllers
+        GameCoreControllers
     });
 }
 
