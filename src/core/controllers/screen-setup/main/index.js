@@ -1,18 +1,13 @@
 import { APP_ID } from '@shared-constants/dom-element-identifiers';
 
 
-function createScreenSetupManager() {
-    const renderHtml = (html) => document.querySelector(APP_ID).innerHTML = html();
-    const initializeFunctionality = (uiFunctionality) => uiFunctionality();
+const ScreenSetupController = {
+    render: (selector, html) => document.querySelector(selector).innerHTML = html,
 
-    const routine = ({ html, uiFunctionality }) => {
-        renderHtml(html);
-        initializeFunctionality(uiFunctionality);
-    };
-
-    return { routine };
-}
-
-const ScreenSetupController = createScreenSetupManager();
+    setup({ htmlFunctionality, uiFunctionality }) {
+        this.render(APP_ID, htmlFunctionality());
+        uiFunctionality();
+    }
+};
 
 export { ScreenSetupController };
