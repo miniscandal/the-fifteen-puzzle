@@ -8,6 +8,7 @@ export default defineConfig({
             '@assets-textures': '/src/assets/textures',
 
             '@core-controllers': '/src/core/controllers',
+            '@core-factories': '/src/core/factories',
 
             '@feat-game-mode': '/src/features/game-mode',
             '@feat-prefers-color-scheme': '/src/features/prefers-color-scheme',

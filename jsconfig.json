@@ -14,6 +14,9 @@
             "@core-controllers/*": [
                 "core/controllers/*"
             ],
+            "@core-factories/*": [
+                "core/factories/*"
+            ],
             "@feat-game-mode/*": [
                 "features/game-mode/*"
             ],
