@@ -1,9 +1,9 @@
-async function loadPuzzle({ puzzleId }) {
+async function loadPuzzle({ id }) {
     try {
-        const { [puzzleId]: puzzle } = await import('@shared-constants/puzzle-collection');
+        const { [id]: puzzle } = await import('@shared-constants/puzzle-collection');
 
         if (!puzzle) {
-            throw new Error(`Puzzle with id ${puzzleId} not found`);
+            throw new Error(`Puzzle with id ${id} not found`);
         }
 
         return { puzzle };
