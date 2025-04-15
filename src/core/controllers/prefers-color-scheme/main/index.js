@@ -1,5 +1,6 @@
 import { LIGHT_THEME } from '@shared-constants/color-themes';
 
+
 const PrefersColorSchemeController = {
     appearance: {
         theme: {
