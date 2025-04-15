@@ -7,9 +7,9 @@ import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
 
 
-function uiStartFunctionality(GameCoreControllers, GamePlaySetup) {
+function uiStartFunctionality(GameCoreControllers, GameCoreFactories, GamePlaySetup) {
     const {
-        ScreenSetupController,
+        DomScreenSetupController,
         ScreenController,
         PrefersColorSchemeController
     } = GameCoreControllers;
@@ -18,18 +18,20 @@ function uiStartFunctionality(GameCoreControllers, GamePlaySetup) {
 
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
 
-        ScreenSetupController.setup(ScreenController.transitionTo({
+        DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_PLAY,
             GameCoreControllers,
+            GameCoreFactories,
             GamePlaySetup
         }));
     });
 
     domElementButtonSelectPracticeScreen().addEventListener('click', () => {
 
-        ScreenSetupController.setup(ScreenController.transitionTo({
+        DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_PRACTICE,
-            GameCoreControllers
+            GameCoreControllers,
+            GameCoreFactories
         }));
     });
 }
