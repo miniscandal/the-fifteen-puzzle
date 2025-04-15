@@ -1,16 +1,1 @@
-⚝ Redefine the logic for the screen template; it has the potential to become a feature
-⚝ Update GameArtwork, the color theme selection should not be tied to the body element
-⚝ Generate a random permutation for the puzzle state
-⚝ Rename the regular size of the components to the name of the predefined size
-⚝ Separate the color or theme preference logic from the global Game object
-⚝ Add a helper puzzle with the permutation to solve within the game screen
-⚝ Rename CSS variables for colors to semantic names
-⚝ Implement constants to define custom data attributes on HTML elements 
-⚝ Rename screenName property or key to screenMode
-⚝ Implement function primarySideBar
-⚝ Remove functions and implement arrow function in objects
-⚝ Move injection of global objects as arguments to central controllers
-⚝ Delete undefined for comparisons 
-⚝ 
-⚝ 
 ⚝ 
