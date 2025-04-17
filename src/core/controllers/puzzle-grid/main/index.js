@@ -1,3 +1,15 @@
+import { EMPTY_TILE_VALUE } from '@shared-constants/puzzle-grid-settings';
+import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle-grid-settings';
+import { FIRST_TILE_INDEX } from '@shared-constants/puzzle-grid-settings';
+import { TILES_PER_ROW } from '@shared-constants/puzzle-grid-settings';
+import { TILES_PER_COLUMN } from '@shared-constants/puzzle-grid-settings';
+
+import { TILE_MOVE_UP } from '@shared-constants/movement-direction';
+import { TILE_MOVE_DOWN } from '@shared-constants/movement-direction';
+import { TILE_MOVE_LEFT } from '@shared-constants/movement-direction';
+import { TILE_MOVE_RIGHT } from '@shared-constants/movement-direction';
+
+
 const PuzzleGridController = {
     generateSolvedPuzzleState: (maxTiles) => Array.from({ length: maxTiles + 1 }, (_, index) => index),
 
@@ -21,6 +33,93 @@ const PuzzleGridController = {
 
 
         return shuffled;
+    },
+
+    isSolved: (state) => state.every((num, index) => num === index),
+
+    updateState: ({ state, selectedIndex, zeroIndex }) => {
+        const stateCopy = [...state];
+
+        [stateCopy[zeroIndex], stateCopy[selectedIndex]] = [stateCopy[selectedIndex], stateCopy[zeroIndex]];
+
+
+        return stateCopy;
+    },
+
+    calculateIndexPositionInGrid: ({ emptyTileIndex, tilesPerRow, tilesPerColumn }) => {
+        const position = {
+            row: Math.floor(emptyTileIndex / tilesPerRow),
+            column: emptyTileIndex % tilesPerColumn
+        };
+
+
+        return position;
+    },
+
+    getEmptyTilePositionInGrid: (items, emptyTileValue) => items.findIndex(value => value === emptyTileValue),
+
+    getAdjacentIndicesInGrid: ({
+        positionInGrid,
+        firstTileIndex,
+        tilesPerRow,
+        tileMoveUp,
+        tileMoveDown,
+        tileMoveLeft,
+        tileMoveRight,
+        movementDistance
+    }) => {
+        const { index, row, column } = positionInGrid;
+        const adjacentIndices = [];
+        const pushIndex = (index, movementDirection) => adjacentIndices.push({
+            index,
+            movementDirection
+        });
+
+        if (row > firstTileIndex) {
+            pushIndex(index - tilesPerRow, tileMoveDown);
+        }
+
+        if (row < tilesPerRow - movementDistance) {
+            pushIndex(index + tilesPerRow, tileMoveUp);
+        }
+
+        if (column > firstTileIndex) {
+            pushIndex(index - movementDistance, tileMoveRight);
+        }
+
+        if (column < tilesPerRow - movementDistance) {
+            pushIndex(index + movementDistance, tileMoveLeft);
+        }
+
+        return adjacentIndices;
+    },
+
+    getMovableTileIndices(state, permutation) {
+        const mappedPermutation = state.map(value => permutation[value]);
+
+        const emptyTileIndex = this.getEmptyTilePositionInGrid(mappedPermutation, EMPTY_TILE_VALUE);
+        const positionInGrid = this.calculateIndexPositionInGrid({
+            emptyTileIndex,
+            tilesPerRow: TILES_PER_ROW,
+            tilesPerColumn: TILES_PER_COLUMN
+        });
+
+        const movableTileIndices = this.getAdjacentIndicesInGrid({
+            positionInGrid: {
+                ...positionInGrid,
+                index: emptyTileIndex
+            },
+            firstTileIndex: FIRST_TILE_INDEX,
+            tilesPerRow: TILES_PER_ROW,
+            tileMoveUp: TILE_MOVE_UP,
+            tileMoveDown: TILE_MOVE_DOWN,
+            tileMoveLeft: TILE_MOVE_LEFT,
+            tileMoveRight: TILE_MOVE_RIGHT,
+            movementDistance: MOVEMENT_DISTANCE
+        });
+
+
+        return movableTileIndices;
     }
 };
 
