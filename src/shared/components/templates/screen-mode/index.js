@@ -7,9 +7,9 @@ import './style.css';
 function ScreenMode({
     children = '',
     enablePrimarySideBar = true,
-    GameCoreControllers
+    coreControllers
 }) {
-    const primarySideBar = enablePrimarySideBar ? PrimarySideBar({ GameCoreControllers }) : '';
+    const primarySideBar = enablePrimarySideBar ? PrimarySideBar({ coreControllers }) : '';
     const iconButtonAppearanceTheme = IconButtonColorTheme();
 
 

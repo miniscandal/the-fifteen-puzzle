@@ -17,7 +17,7 @@ function uiPracticeFunctionality({
     PuzzleSequenceController,
     PrefersColorSchemeController
 }) {
-    const GameCoreControllers = {
+    const coreControllers = {
         DomScreenSetupController,
         PrefersColorSchemeController,
         GameModeController,
@@ -41,7 +41,7 @@ function uiPracticeFunctionality({
 
     //         DomScreenSetupController.setup(ScreenController.transitionTo({
     //             screenId: GAME_SCREEN_PLAY,
-    //             GameCoreControllers,
+    //             coreControllers,
     //             gameModeFunctionality: () => { return { puzzleId }; }
     //         }));
     //     }
@@ -52,7 +52,7 @@ function uiPracticeFunctionality({
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_PLAY,
-            GameCoreControllers
+            coreControllers
         }));
     });
 
@@ -61,7 +61,7 @@ function uiPracticeFunctionality({
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_START,
-            GameCoreControllers
+            coreControllers
         }));
     });
 

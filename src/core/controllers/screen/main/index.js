@@ -24,10 +24,10 @@ const ScreenController = {
         this.screenHistory.push(screenId);
     },
 
-    transitionTo({ screenId, GameCoreControllers, GameCoreFactories, GamePlaySetup }) {
+    transitionTo({ screenId, coreControllers, coreFactories, GamePlaySetup }) {
         this.updateDataScreen(screenId);
 
-        return this.screenHandlers[screenId]({ GameCoreControllers, GameCoreFactories, GamePlaySetup });
+        return this.screenHandlers[screenId]({ coreControllers, coreFactories, GamePlaySetup });
     },
 
     getLastVisitedScreen() {

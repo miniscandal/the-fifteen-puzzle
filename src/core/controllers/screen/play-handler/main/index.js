@@ -7,19 +7,19 @@ import { loadPuzzle } from '@feat-puzzle-scene/load-puzzle';
 import { uiPlayFunctionality } from '../functionality';
 
 
-function playHandler({ GameCoreControllers, GameCoreFactories, GamePlaySetup }) {
+function playHandler({ coreControllers, coreFactories, GamePlaySetup }) {
     const { puzzleId } = GamePlaySetup();
-    const { PuzzleGridController } = GameCoreControllers;
-    const { PuzzleGridFactory } = GameCoreFactories;
+    const { PuzzleGridController } = coreControllers;
+    const { PuzzleGridFactory } = coreFactories;
 
 
     return {
-        htmlFunctionality: () => Play(GameCoreControllers),
+        htmlFunctionality: () => Play(coreControllers),
         uiFunctionality: async () => {
             const puzzleData = await PuzzleGridFactory({ PuzzleGridController, puzzleId, loadPuzzle });;
 
 
-            return uiPlayFunctionality({ GameCoreControllers, GameCoreFactories, DomPuzzleGrid, puzzleData });
+            return uiPlayFunctionality({ coreControllers, coreFactories, DomPuzzleGrid, puzzleData });
         }
     };
 }

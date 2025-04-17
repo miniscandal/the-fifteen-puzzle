@@ -13,7 +13,7 @@ import './main.css';
 
 DomScreenSetupController.setup(ScreenController.transitionTo({
     screenId: GAME_SCREEN_START,
-    GameCoreControllers: {
+    coreControllers: {
         GameModeController,
         DomScreenSetupController,
         ScreenController,
@@ -21,7 +21,7 @@ DomScreenSetupController.setup(ScreenController.transitionTo({
         PuzzleGridController,
         PrefersColorSchemeController
     },
-    GameCoreFactories: {
+    coreFactories: {
         PuzzleGridFactory
     }
 }));

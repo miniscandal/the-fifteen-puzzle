@@ -7,12 +7,12 @@ import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
 
 
-function uiStartFunctionality({ GameCoreControllers, GameCoreFactories, GamePlaySetup }) {
+function uiStartFunctionality({ coreControllers, coreFactories, GamePlaySetup }) {
     const {
         DomScreenSetupController,
         ScreenController,
         PrefersColorSchemeController
-    } = GameCoreControllers;
+    } = coreControllers;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
@@ -20,8 +20,8 @@ function uiStartFunctionality({ GameCoreControllers, GameCoreFactories, GamePlay
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_PLAY,
-            GameCoreControllers,
-            GameCoreFactories,
+            coreControllers,
+            coreFactories,
             GamePlaySetup
         }));
     });
@@ -30,8 +30,8 @@ function uiStartFunctionality({ GameCoreControllers, GameCoreFactories, GamePlay
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_PRACTICE,
-            GameCoreControllers,
-            GameCoreFactories
+            coreControllers,
+            coreFactories
         }));
     });
 }

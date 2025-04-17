@@ -17,8 +17,8 @@ import { DATA_ATTR_INDEX_TILE, DATA_ATTR_MOVE_DIRECTION, DATA_ATTR_PLAY_ENABLED,
 
 
 function uiPlayFunctionality({
-    GameCoreControllers,
-    GameCoreFactories,
+    coreControllers,
+    coreFactories,
     DomPuzzleGrid,
     puzzleData
 }) {
@@ -27,7 +27,7 @@ function uiPlayFunctionality({
         DomScreenSetupController,
         ScreenController,
         PrefersColorSchemeController
-    } = GameCoreControllers;
+    } = coreControllers;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
@@ -93,8 +93,8 @@ function uiPlayFunctionality({
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: ScreenController.getLastVisitedScreen(),
-            GameCoreControllers,
-            GameCoreFactories
+            coreControllers,
+            coreFactories
         }));
     });
 
@@ -102,8 +102,8 @@ function uiPlayFunctionality({
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_START,
-            GameCoreControllers,
-            GameCoreFactories
+            coreControllers,
+            coreFactories
         }));
     });
 }
