@@ -7,7 +7,7 @@ import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
 
 
-function uiStartFunctionality(GameCoreControllers, GameCoreFactories, GamePlaySetup) {
+function uiStartFunctionality({ GameCoreControllers, GameCoreFactories, GamePlaySetup }) {
     const {
         DomScreenSetupController,
         ScreenController,

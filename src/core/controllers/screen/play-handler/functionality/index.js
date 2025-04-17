@@ -1,5 +1,3 @@
-import { domReplaceElementContent } from '@feat-puzzle-scene/render-puzzle-scene';
-import { selectPuzzleTile } from '@feat-puzzle-grid/select-puzzle-tile';
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
 
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
@@ -9,13 +7,21 @@ import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons'
 import { domElementPuzzleGrid } from '@shared-dom-elements/structural';
 
 import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
-
 import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
 import { PUZZLE_HELPER_GAME_ID, } from '@shared-constants/dom-element-identifiers';
 import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
+import { domElementEmptyTile, domElementPlayEnabledTiles } from '@shared-dom-elements/data-attributes';
 
 
-function uiPlayFunctionality(GameCoreControllers, puzzleData) {
+import { DATA_ATTR_INDEX_TILE, DATA_ATTR_MOVE_DIRECTION, DATA_ATTR_PLAY_ENABLED, DATA_ATTR_SYMBOL_TILE } from '@shared-constants/dom-element-data-attributes';
+
+
+function uiPlayFunctionality({
+    GameCoreControllers,
+    GameCoreFactories,
+    DomPuzzleGrid,
+    puzzleData
+}) {
     const {
         PuzzleGridController,
         DomScreenSetupController,
@@ -42,13 +48,39 @@ function uiPlayFunctionality(GameCoreControllers, puzzleData) {
         }
     });
 
-    domReplaceElementContent(PUZZLE_GAME_ID, mainPuzzleHTML);
-    domReplaceElementContent(PUZZLE_HELPER_GAME_ID, solvedPuzzleHTML);
+    DomPuzzleGrid.domReplaceElementContent(PUZZLE_GAME_ID, mainPuzzleHTML);
+    DomPuzzleGrid.domReplaceElementContent(PUZZLE_HELPER_GAME_ID, solvedPuzzleHTML);
 
     domElementPuzzleGrid().addEventListener('click', function (event) {
-        const { index, selectedTileIndex } = selectPuzzleTile(event);
+        const selectedTile = event.target;
 
-        puzzleData.updateState(index, selectedTileIndex);
+        const isValid = DomPuzzleGrid.validateSelectableTile({
+            element: selectedTile,
+            dataAttrSymbolTile: DATA_ATTR_SYMBOL_TILE
+        });
+
+        if (!isValid) return;
+
+        const emptyTile = domElementEmptyTile();
+
+        DomPuzzleGrid.resetSelectableTiles({
+            tiles: domElementPlayEnabledTiles(),
+            dataAttrPlayEnabled: DATA_ATTR_PLAY_ENABLED,
+            dataAttrMoveDirection: DATA_ATTR_MOVE_DIRECTION
+        });
+
+        DomPuzzleGrid.swapTilesData(selectedTile, emptyTile);
+
+        const emptyTileIndex = Number(emptyTile.dataset.index);
+
+        const newState = PuzzleGridController.updateState({ state: puzzle.state, selectedIndex: selectedTile.dataset.index, zeroIndex: emptyTileIndex });
+
+        puzzle.state = newState;
+
+        const movableTileIndices = PuzzleGridController.getMovableTileIndices(newState, puzzle.permutation);
+
+        DomPuzzleGrid.updateSelectableTiles({ tiles: movableTileIndices, dataAttrIndexTile: DATA_ATTR_INDEX_TILE });
+
 
         const { isSolved } = puzzleData;
 
@@ -61,7 +93,8 @@ function uiPlayFunctionality(GameCoreControllers, puzzleData) {
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: ScreenController.getLastVisitedScreen(),
-            GameCoreControllers
+            GameCoreControllers,
+            GameCoreFactories
         }));
     });
 
@@ -69,7 +102,8 @@ function uiPlayFunctionality(GameCoreControllers, puzzleData) {
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_START,
-            GameCoreControllers
+            GameCoreControllers,
+            GameCoreFactories
         }));
     });
 }

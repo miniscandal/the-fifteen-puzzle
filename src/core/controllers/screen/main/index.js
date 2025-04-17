@@ -27,7 +27,7 @@ const ScreenController = {
     transitionTo({ screenId, GameCoreControllers, GameCoreFactories, GamePlaySetup }) {
         this.updateDataScreen(screenId);
 
-        return this.screenHandlers[screenId](GameCoreControllers, GameCoreFactories, GamePlaySetup);
+        return this.screenHandlers[screenId]({ GameCoreControllers, GameCoreFactories, GamePlaySetup });
     },
 
     getLastVisitedScreen() {
