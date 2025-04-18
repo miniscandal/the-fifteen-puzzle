@@ -12,7 +12,7 @@ function startHandler({ coreControllers, coreFactories }) {
         PuzzleSequenceController
     } = coreControllers;
 
-    const GamePlaySetup = () => {
+    const gamePlaySetup = () => {
         GameModeController.mode = GAME_MODE_SEQUENCE;
         ScreenController.clearScreenHistory();
         PuzzleSequenceController.reset();
@@ -25,7 +25,7 @@ function startHandler({ coreControllers, coreFactories }) {
 
     return {
         htmlFunctionality: Start,
-        uiFunctionality: () => uiStartFunctionality({ coreControllers, coreFactories, GamePlaySetup })
+        uiFunctionality: () => uiStartFunctionality({ coreControllers, coreFactories, gamePlaySetup })
     };
 }
 
