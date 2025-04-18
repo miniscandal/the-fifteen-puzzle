@@ -20,7 +20,7 @@ function uiPlayFunctionality({
     coreControllers,
     coreFactories,
     DomPuzzleGrid,
-    puzzleData
+    puzzleGrid
 }) {
     const {
         PuzzleGridController,
@@ -31,7 +31,7 @@ function uiPlayFunctionality({
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
-    const { properties } = puzzleData;
+    const { properties } = puzzleGrid;
     const puzzle = properties();
 
     const mainPuzzleHTML = PuzzleGrid({
@@ -81,8 +81,10 @@ function uiPlayFunctionality({
 
         DomPuzzleGrid.updateSelectableTiles({ tiles: movableTileIndices, dataAttrIndexTile: DATA_ATTR_INDEX_TILE });
 
+        // actualizar PuzzleData
+        console.log(puzzle);
 
-        const { isSolved } = puzzleData;
+        const { isSolved } = puzzleGrid;
 
         if (isSolved) {
             console.log(isSolved);
