@@ -3,6 +3,7 @@ import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle-grid-settings';
 import { FIRST_TILE_INDEX } from '@shared-constants/puzzle-grid-settings';
 import { TILES_PER_ROW } from '@shared-constants/puzzle-grid-settings';
 import { TILES_PER_COLUMN } from '@shared-constants/puzzle-grid-settings';
+import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
 
 import { TILE_MOVE_UP } from '@shared-constants/movement-direction';
 import { TILE_MOVE_DOWN } from '@shared-constants/movement-direction';
@@ -15,9 +16,8 @@ const PuzzleGridController = {
 
     generateShuffleSimplePuzzleState: (permutation) => {
         const shuffled = [...permutation];
-        const a = shuffled[0];
-        shuffled[0] = shuffled[1];
-        shuffled[1] = a;
+
+        [shuffled[0], shuffled[1]] = [shuffled[1], shuffled[0]];
 
 
         return shuffled;
@@ -120,6 +120,36 @@ const PuzzleGridController = {
 
 
         return movableTileIndices;
+    },
+
+    async preparePuzzleGrid({ PuzzleGridFactory, puzzleId }) {
+        const statusSolved = this.generateSolvedPuzzleState(MAX_TILES);
+        const state = this.generateShufflePuzzleState(statusSolved);
+
+        const PuzzleGrid = await PuzzleGridFactory({
+            puzzleId,
+            state,
+            loadPuzzle: this.loadPuzzle
+        });
+
+        PuzzleGrid.movableTileIndices = this.getMovableTileIndices(state, PuzzleGrid.permutation);
+
+
+        return PuzzleGrid;
+    },
+
+    async loadPuzzle({ id }) {
+        try {
+            const { [id]: puzzle } = await import('@shared-constants/puzzle-collection');
+
+            if (!puzzle) {
+                throw new Error(`Puzzle with id ${id} not found`);
+            }
+
+            return { puzzle };
+        } catch (error) {
+            console.error('Error loading puzzle: ', error);
+        }
     }
 };
 
