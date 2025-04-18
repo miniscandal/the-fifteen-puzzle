@@ -1,12 +1,6 @@
-import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
-
-
-async function PuzzleGridFactory({ PuzzleGridController, puzzleId, loadPuzzle }) {
+async function PuzzleGridFactory({ puzzleId, loadPuzzle, state }) {
     let solved = false;
     let movableTileIndices = [];
-
-    const solution = PuzzleGridController.generateSolvedPuzzleState(MAX_TILES);
-    let state = PuzzleGridController.generateShufflePuzzleState(solution);
 
     const { puzzle } = await loadPuzzle({ id: puzzleId });
 
@@ -19,7 +13,7 @@ async function PuzzleGridFactory({ PuzzleGridController, puzzleId, loadPuzzle })
             permutation,
             state,
             solved,
-            movableTileIndices: PuzzleGridController.getMovableTileIndices(state, permutation)
+            movableTileIndices
         };
     };
 
@@ -27,6 +21,8 @@ async function PuzzleGridFactory({ PuzzleGridController, puzzleId, loadPuzzle })
     return {
         get id() { return puzzleId; },
         get movableTileIndices() { return movableTileIndices; },
+        set movableTileIndices(tiles) { movableTileIndices = tiles; },
+        get permutation() { return permutation; },
         properties
     };
 }
