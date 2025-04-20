@@ -5,6 +5,7 @@ import { ScreenController } from '@core-controllers/screen/main';
 import { PuzzleSequenceController } from '@core-controllers/puzzle-sequence/main';
 import { PuzzleGridController } from '@core-controllers/puzzle-grid/main';
 import { PrefersColorSchemeController } from '@core-controllers/prefers-color-scheme/main';
+import { DomPuzzleGrid } from '@core-controllers/dom-puzzle-grid/main';
 
 import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 
@@ -19,9 +20,12 @@ DomScreenSetupController.setup(ScreenController.transitionTo({
         ScreenController,
         PuzzleSequenceController,
         PuzzleGridController,
-        PrefersColorSchemeController
+        PrefersColorSchemeController,
     },
     coreFactories: {
         PuzzleGridFactory
+    },
+    domActions: {
+        DomPuzzleGrid
     }
 }));
