@@ -5,22 +5,25 @@ import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 import { domElementPuzzleGrid } from '@shared-dom-elements/structural';
+import { domElementEmptyTile, } from '@shared-dom-elements/data-attributes';
+import { domElementPlayEnabledTiles } from '@shared-dom-elements/data-attributes';
 
 import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
 import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
 import { PUZZLE_HELPER_GAME_ID, } from '@shared-constants/dom-element-identifiers';
 import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
-import { domElementEmptyTile, domElementPlayEnabledTiles } from '@shared-dom-elements/data-attributes';
 
-
-import { DATA_ATTR_INDEX_TILE, DATA_ATTR_MOVE_DIRECTION, DATA_ATTR_PLAY_ENABLED, DATA_ATTR_SYMBOL_TILE } from '@shared-constants/dom-element-data-attributes';
+import { DATA_ATTR_INDEX_TILE } from '@shared-constants/dom-element-data-attributes';
+import { DATA_ATTR_MOVE_DIRECTION } from '@shared-constants/dom-element-data-attributes';
+import { DATA_ATTR_PLAY_ENABLED } from '@shared-constants/dom-element-data-attributes';
+import { DATA_ATTR_SYMBOL_TILE } from '@shared-constants/dom-element-data-attributes';
 
 
 function uiPlayFunctionality({
     coreControllers,
     coreFactories,
-    DomPuzzleGrid,
-    puzzleGrid
+    domActions,
+    puzzle
 }) {
     const {
         PuzzleGridController,
@@ -31,25 +34,21 @@ function uiPlayFunctionality({
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
-    const { properties } = puzzleGrid;
-    const puzzle = properties();
+    const { DomPuzzleGrid } = domActions;
 
-    const mainPuzzleHTML = PuzzleGrid({
+    DomPuzzleGrid.domReplaceElementContent(PUZZLE_GAME_ID, PuzzleGrid({
         size: 'medium',
         gameActive: true,
         puzzle,
-    });
+    }));
 
-    const solvedPuzzleHTML = PuzzleGrid({
+    DomPuzzleGrid.domReplaceElementContent(PUZZLE_HELPER_GAME_ID, PuzzleGrid({
         size: 'small',
         puzzle: {
             ...puzzle,
             state: PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
         }
-    });
-
-    DomPuzzleGrid.domReplaceElementContent(PUZZLE_GAME_ID, mainPuzzleHTML);
-    DomPuzzleGrid.domReplaceElementContent(PUZZLE_HELPER_GAME_ID, solvedPuzzleHTML);
+    }));
 
     domElementPuzzleGrid().addEventListener('click', function (event) {
         const selectedTile = event.target;
@@ -59,7 +58,9 @@ function uiPlayFunctionality({
             dataAttrSymbolTile: DATA_ATTR_SYMBOL_TILE
         });
 
-        if (!isValid) return;
+        if (!isValid) {
+            return;
+        };
 
         const emptyTile = domElementEmptyTile();
 
@@ -73,18 +74,24 @@ function uiPlayFunctionality({
 
         const emptyTileIndex = Number(emptyTile.dataset.index);
 
-        const newState = PuzzleGridController.updateState({ state: puzzle.state, selectedIndex: selectedTile.dataset.index, zeroIndex: emptyTileIndex });
+        const newState = PuzzleGridController.updateState({
+            state: puzzle.state,
+            selectedIndex: selectedTile.dataset.index,
+            zeroIndex: emptyTileIndex
+        });
 
         puzzle.state = newState;
 
         const movableTileIndices = PuzzleGridController.getMovableTileIndices(newState, puzzle.permutation);
 
-        DomPuzzleGrid.updateSelectableTiles({ tiles: movableTileIndices, dataAttrIndexTile: DATA_ATTR_INDEX_TILE });
+        DomPuzzleGrid.updateSelectableTiles({
+            tiles: movableTileIndices,
+            dataAttrIndexTile: DATA_ATTR_INDEX_TILE
+        });
 
-        // actualizar PuzzleData
         console.log(puzzle);
 
-        const { isSolved } = puzzleGrid;
+        const { isSolved } = puzzle;
 
         if (isSolved) {
             console.log(isSolved);
