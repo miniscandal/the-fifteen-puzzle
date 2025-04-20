@@ -1,11 +1,9 @@
-import { DomPuzzleGrid } from '@core-controllers/dom-puzzle-grid/main';
-
 import { Play } from '@feat-screen-ui-play/components/pages';
 
 import { uiPlayFunctionality } from '../functionality';
 
 
-function playHandler({ coreControllers, coreFactories, gamePlaySetup }) {
+function playHandler({ coreControllers, coreFactories, gamePlaySetup, domActions }) {
     const { puzzleId } = gamePlaySetup();
     const { PuzzleGridController } = coreControllers;
     const { PuzzleGridFactory } = coreFactories;
@@ -19,7 +17,15 @@ function playHandler({ coreControllers, coreFactories, gamePlaySetup }) {
                 puzzleId
             });
 
-            return uiPlayFunctionality({ coreControllers, coreFactories, DomPuzzleGrid, puzzleGrid: PuzzleGrid });
+            const puzzle = PuzzleGrid.properties();
+
+
+            return uiPlayFunctionality({
+                coreControllers,
+                coreFactories,
+                domActions,
+                puzzle
+            });
         }
     };
 }
