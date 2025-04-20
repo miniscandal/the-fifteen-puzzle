@@ -5,7 +5,7 @@ import { uiStartFunctionality } from '../functionality';
 import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
 
-function startHandler({ coreControllers, coreFactories }) {
+function startHandler({ coreControllers, coreFactories, domActions }) {
     const {
         GameModeController,
         ScreenController,
@@ -25,7 +25,12 @@ function startHandler({ coreControllers, coreFactories }) {
 
     return {
         htmlFunctionality: Start,
-        uiFunctionality: () => uiStartFunctionality({ coreControllers, coreFactories, gamePlaySetup })
+        uiFunctionality: () => uiStartFunctionality({
+            coreControllers,
+            coreFactories,
+            gamePlaySetup,
+            domActions
+        })
     };
 }
 
