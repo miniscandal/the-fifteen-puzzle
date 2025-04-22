@@ -1,4 +1,4 @@
-async function PuzzleGridFactory({ puzzleId, loadPuzzle, state }) {
+async function PuzzleGridFactory({ puzzleId, solution, loadPuzzle }) {
     let solved = false;
     let movableTileIndices = [];
 
@@ -11,7 +11,7 @@ async function PuzzleGridFactory({ puzzleId, loadPuzzle, state }) {
         return {
             id: puzzleId,
             permutation,
-            state,
+            solution,
             solved,
             movableTileIndices
         };
