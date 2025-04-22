@@ -5,7 +5,7 @@ import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 import { domElementPuzzleGrid } from '@shared-dom-elements/structural';
-import { domElementEmptyTile, } from '@shared-dom-elements/data-attributes';
+import { domElementEmptyTile } from '@shared-dom-elements/data-attributes';
 import { domElementPlayEnabledTiles } from '@shared-dom-elements/data-attributes';
 
 import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
@@ -23,7 +23,8 @@ function uiPlayFunctionality({
     coreControllers,
     coreFactories,
     domActions,
-    puzzle
+    puzzle,
+    onPuzzleTileClick
 }) {
     const {
         PuzzleGridController,
@@ -34,26 +35,34 @@ function uiPlayFunctionality({
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
-    const { DomPuzzleGrid } = domActions;
+    const {
+        DomPuzzleGrid: {
+            domReplaceElementContent,
+            resetSelectableTiles,
+            swapTilesData,
+            updateSelectableTiles,
+            validateSelectableTile
+        }
+    } = domActions;
 
-    DomPuzzleGrid.domReplaceElementContent(PUZZLE_GAME_ID, PuzzleGrid({
+    domReplaceElementContent(PUZZLE_GAME_ID, PuzzleGrid({
         size: 'medium',
         gameActive: true,
-        puzzle,
+        puzzle
     }));
 
-    DomPuzzleGrid.domReplaceElementContent(PUZZLE_HELPER_GAME_ID, PuzzleGrid({
+    domReplaceElementContent(PUZZLE_HELPER_GAME_ID, PuzzleGrid({
         size: 'small',
         puzzle: {
             ...puzzle,
-            state: PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
+            solution: PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
         }
     }));
 
     domElementPuzzleGrid().addEventListener('click', function (event) {
         const selectedTile = event.target;
 
-        const isValid = DomPuzzleGrid.validateSelectableTile({
+        const isValid = validateSelectableTile({
             element: selectedTile,
             dataAttrSymbolTile: DATA_ATTR_SYMBOL_TILE
         });
@@ -64,38 +73,25 @@ function uiPlayFunctionality({
 
         const emptyTile = domElementEmptyTile();
 
-        DomPuzzleGrid.resetSelectableTiles({
+        resetSelectableTiles({
             tiles: domElementPlayEnabledTiles(),
             dataAttrPlayEnabled: DATA_ATTR_PLAY_ENABLED,
             dataAttrMoveDirection: DATA_ATTR_MOVE_DIRECTION
         });
 
-        DomPuzzleGrid.swapTilesData(selectedTile, emptyTile);
+        swapTilesData(selectedTile, emptyTile);
 
-        const emptyTileIndex = Number(emptyTile.dataset.index);
-
-        const newState = PuzzleGridController.updateState({
-            state: puzzle.state,
-            selectedIndex: selectedTile.dataset.index,
-            zeroIndex: emptyTileIndex
+        const { movableTileIndices } = onPuzzleTileClick({
+            PuzzleGridController,
+            selectedTile,
+            emptyTile,
+            puzzle
         });
 
-        puzzle.state = newState;
-
-        const movableTileIndices = PuzzleGridController.getMovableTileIndices(newState, puzzle.permutation);
-
-        DomPuzzleGrid.updateSelectableTiles({
+        updateSelectableTiles({
             tiles: movableTileIndices,
             dataAttrIndexTile: DATA_ATTR_INDEX_TILE
         });
-
-        console.log(puzzle);
-
-        const { isSolved } = puzzle;
-
-        if (isSolved) {
-            console.log(isSolved);
-        }
     });
 
     domElementButtonSelectBackScreen()?.addEventListener('click', () => {
@@ -103,7 +99,8 @@ function uiPlayFunctionality({
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: ScreenController.getLastVisitedScreen(),
             coreControllers,
-            coreFactories
+            coreFactories,
+            domActions
         }));
     });
 
@@ -112,7 +109,8 @@ function uiPlayFunctionality({
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: GAME_SCREEN_START,
             coreControllers,
-            coreFactories
+            coreFactories,
+            domActions
         }));
     });
 }
