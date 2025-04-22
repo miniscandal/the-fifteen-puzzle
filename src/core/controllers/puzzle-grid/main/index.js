@@ -3,7 +3,6 @@ import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle-grid-settings';
 import { FIRST_TILE_INDEX } from '@shared-constants/puzzle-grid-settings';
 import { TILES_PER_ROW } from '@shared-constants/puzzle-grid-settings';
 import { TILES_PER_COLUMN } from '@shared-constants/puzzle-grid-settings';
-import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
 
 import { TILE_MOVE_UP } from '@shared-constants/movement-direction';
 import { TILE_MOVE_DOWN } from '@shared-constants/movement-direction';
@@ -35,10 +34,10 @@ const PuzzleGridController = {
         return shuffled;
     },
 
-    isSolved: (state) => state.every((num, index) => num === index),
+    isSolved: (solution) => solution.every((num, index) => num === index),
 
-    updateState: ({ state, selectedIndex, zeroIndex }) => {
-        const stateCopy = [...state];
+    updateState: ({ solution, selectedIndex, zeroIndex }) => {
+        const stateCopy = [...solution];
 
         [stateCopy[zeroIndex], stateCopy[selectedIndex]] = [stateCopy[selectedIndex], stateCopy[zeroIndex]];
 
@@ -94,8 +93,8 @@ const PuzzleGridController = {
         return adjacentIndices;
     },
 
-    getMovableTileIndices(state, permutation) {
-        const mappedPermutation = state.map(value => permutation[value]);
+    getMovableTileIndices({ solution, permutation }) {
+        const mappedPermutation = solution.map(value => permutation[value]);
 
         const emptyTileIndex = this.getEmptyTilePositionInGrid(mappedPermutation, EMPTY_TILE_VALUE);
         const positionInGrid = this.calculateIndexPositionInGrid({
@@ -120,22 +119,6 @@ const PuzzleGridController = {
 
 
         return movableTileIndices;
-    },
-
-    async preparePuzzleGrid({ PuzzleGridFactory, puzzleId }) {
-        const statusSolved = this.generateSolvedPuzzleState(MAX_TILES);
-        const state = this.generateShufflePuzzleState(statusSolved);
-
-        const PuzzleGrid = await PuzzleGridFactory({
-            puzzleId,
-            state,
-            loadPuzzle: this.loadPuzzle
-        });
-
-        PuzzleGrid.movableTileIndices = this.getMovableTileIndices(state, PuzzleGrid.permutation);
-
-
-        return PuzzleGrid;
     },
 
     async loadPuzzle({ id }) {
