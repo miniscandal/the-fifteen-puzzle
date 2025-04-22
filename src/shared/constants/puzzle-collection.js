@@ -1,7 +1,7 @@
 const puzzleA1 = {
     id: 'puzzleA1',
     permutation: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
-    description: 'Solved state (ascending left to right, top to bottom)',
+    description: 'Solved solution (ascending left to right, top to bottom)',
     playable: false
 };
 
