@@ -17,7 +17,7 @@ function PuzzleGrid({
     puzzle = {
         id: 'puzzleA0',
         permutation: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
-        state: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        solution: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
         description: 'Sequential pattern of a solved Fifteen Puzzle',
         playable: true,
         movableTileIndices: [
@@ -33,9 +33,9 @@ function PuzzleGrid({
     },
     puzzleTile = {}
 }) {
-    const { id, permutation, state, movableTileIndices } = puzzle;
+    const { id, permutation, solution, movableTileIndices } = puzzle;
 
-    const puzzleTiles = state.map((value, index) => {
+    const puzzleTiles = solution.map((value, index) => {
 
         const movableTile = movableTileIndices.find(tile => tile.index === index);
 
