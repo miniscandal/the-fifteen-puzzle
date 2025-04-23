@@ -24,7 +24,7 @@ function uiPlayFunctionality({
     coreFactories,
     domActions,
     puzzle,
-    onPuzzleTileClick
+    onPuzzleSolved
 }) {
     const {
         PuzzleGridController,
@@ -81,7 +81,7 @@ function uiPlayFunctionality({
 
         swapTilesData(selectedTile, emptyTile);
 
-        const { movableTileIndices } = onPuzzleTileClick({
+        const { movableTileIndices } = PuzzleGridController.onPuzzleTileClick({
             PuzzleGridController,
             selectedTile,
             emptyTile,

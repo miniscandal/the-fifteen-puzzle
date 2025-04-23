@@ -5,6 +5,10 @@ import { uiStartFunctionality } from '../functionality';
 import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
 
+function onPuzzleSolved({ isSolved }) {
+    console.log(isSolved);
+}
+
 function startHandler({ coreControllers, coreFactories, domActions }) {
     const {
         GameModeController,
@@ -19,7 +23,8 @@ function startHandler({ coreControllers, coreFactories, domActions }) {
 
 
         return {
-            puzzleId: PuzzleSequenceController.goToNextPuzzleIdSequence(null)
+            puzzleId: PuzzleSequenceController.goToNextPuzzleIdSequence(null),
+            onPuzzleSolved
         };
     };
 

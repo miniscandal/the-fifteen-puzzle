@@ -6,7 +6,7 @@ import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
 
 
 function playHandler({ coreControllers, coreFactories, gamePlaySetup, domActions }) {
-    const { puzzleId, onPuzzleTileClick } = gamePlaySetup();
+    const { puzzleId, onPuzzleSolved } = gamePlaySetup();
     const { PuzzleGridController } = coreControllers;
     const { PuzzleGridFactory } = coreFactories;
 
@@ -37,7 +37,7 @@ function playHandler({ coreControllers, coreFactories, gamePlaySetup, domActions
                 coreFactories,
                 domActions,
                 puzzle,
-                onPuzzleTileClick
+                onPuzzleSolved
             });
         }
     };
