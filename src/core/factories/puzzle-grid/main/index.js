@@ -1,8 +1,8 @@
-async function PuzzleGridFactory({ puzzleId, solution, loadPuzzle }) {
+async function PuzzleGridFactory({ puzzleId, solution, loadPuzzleById }) {
     let solved = false;
     let movableTileIndices = [];
 
-    const { puzzle } = await loadPuzzle({ id: puzzleId });
+    const { puzzle } = await loadPuzzleById({ id: puzzleId });
 
     const permutation = puzzle.permutation;
 
