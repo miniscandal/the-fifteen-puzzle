@@ -14,17 +14,17 @@ function playHandler({ coreControllers, coreFactories, gamePlaySetup, domActions
     return {
         htmlFunctionality: () => Play(coreControllers),
         uiFunctionality: async () => {
-            const solution = PuzzleGridController.generateShufflePuzzleState(
+            const solution = PuzzleGridController.shuffleFromSolvedState(
                 PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
             );
 
             const puzzleGrid = await PuzzleGridFactory({
                 puzzleId,
                 solution,
-                loadPuzzle: PuzzleGridController.loadPuzzle
+                loadPuzzleById: PuzzleGridController.loadPuzzleById
             });
 
-            puzzleGrid.movableTileIndices = PuzzleGridController.getMovableTileIndices({
+            puzzleGrid.movableTileIndices = PuzzleGridController.getValidMoveTileIndices({
                 solution,
                 permutation: puzzleGrid.permutation
             });

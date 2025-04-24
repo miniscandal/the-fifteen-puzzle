@@ -51,11 +51,13 @@ function uiPlayFunctionality({
         puzzle
     }));
 
+    const { generateSolutionPuzzle } = PuzzleGridController;
+
     domReplaceElementContent(PUZZLE_HELPER_GAME_ID, PuzzleGrid({
         size: 'small',
         puzzle: {
             ...puzzle,
-            solution: PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
+            solution: generateSolutionPuzzle(MAX_TILES)
         }
     }));
 

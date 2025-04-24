@@ -18,14 +18,14 @@ const ScreenController = {
         [GAME_SCREEN_PLAY]: playHandler,
     },
 
-    updateDataScreen(screenId) {
+    updateScreenState(screenId) {
         this.previousScreenId = this.currentScreenId;
         this.currentScreenId = screenId;
         this.screenHistory.push(screenId);
     },
 
     transitionToGamePlay({ screenId, coreControllers, coreFactories, gamePlaySetup, domActions }) {
-        this.updateDataScreen(screenId);
+        this.updateScreenState(screenId);
 
         return this.screenHandlers[screenId]({
             coreControllers,
@@ -36,7 +36,7 @@ const ScreenController = {
     },
 
     transitionTo({ screenId, coreControllers, coreFactories, domActions }) {
-        this.updateDataScreen(screenId);
+        this.updateScreenState(screenId);
 
 
         return this.screenHandlers[screenId]({

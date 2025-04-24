@@ -5,8 +5,8 @@ import { uiStartFunctionality } from '../functionality';
 import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
 
-function onPuzzleSolved({ isSolved }) {
-    console.log(isSolved);
+function onPuzzleSolved() {
+    console.log('solved');
 }
 
 function startHandler({ coreControllers, coreFactories, domActions }) {
