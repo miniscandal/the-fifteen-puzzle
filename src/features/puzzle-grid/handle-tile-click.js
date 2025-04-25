@@ -1,7 +1,13 @@
-function handleTileClick({ selectedTile, emptyTile, puzzle }) {
-    const emptyTileIndex = Number(emptyTile.dataset.index);
-
-    const solution = this.updateState({
+function handleTileClick({
+    selectedTile,
+    emptyTileIndex,
+    puzzle,
+    swapTileIndices,
+    getTilesMovableToEmpty,
+    getGridPositionFromIndex,
+    getMovableAdjacentTileIndices
+}) {
+    const solution = swapTileIndices({
         solution: puzzle.solution,
         selectedIndex: selectedTile.dataset.index,
         zeroIndex: emptyTileIndex
@@ -9,9 +15,11 @@ function handleTileClick({ selectedTile, emptyTile, puzzle }) {
 
     puzzle.solution = solution;
 
-    const movableTileIndices = this.getMovableTileIndices({
+    const movableTileIndices = getTilesMovableToEmpty({
         solution,
-        permutation: puzzle.permutation
+        permutation: puzzle.permutation,
+        getGridPositionFromIndex: getGridPositionFromIndex,
+        getMovableAdjacentTileIndices: getMovableAdjacentTileIndices
     });
 
     console.log(puzzle);
