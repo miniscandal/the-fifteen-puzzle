@@ -1,13 +1,16 @@
-function getMovableAdjacentTileIndices({
-    positionInGrid,
-    firstTileIndex,
-    tilesPerRow,
-    tileMoveUp,
-    tileMoveDown,
-    tileMoveLeft,
-    tileMoveRight,
-    movementDistance
-}) {
+import { TILE_MOVE_UP } from '@shared-constants/movement-direction';
+import { TILE_MOVE_DOWN } from '@shared-constants/movement-direction';
+import { TILE_MOVE_LEFT } from '@shared-constants/movement-direction';
+import { TILE_MOVE_RIGHT } from '@shared-constants/movement-direction';
+
+import { TILES_PER_ROW } from '@shared-constants/puzzle-grid-settings';
+import { TILES_PER_COLUMN } from '@shared-constants/puzzle-grid-settings';
+
+import { FIRST_TILE_INDEX } from '@shared-constants/puzzle-grid-settings';
+import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle-grid-settings';
+
+
+function getMovableAdjacentTileIndices({ positionInGrid }) {
     const { index, row, column } = positionInGrid;
     const adjacentIndices = [];
     const pushIndex = (index, movementDirection) => adjacentIndices.push({
@@ -15,20 +18,20 @@ function getMovableAdjacentTileIndices({
         movementDirection
     });
 
-    if (row > firstTileIndex) {
-        pushIndex(index - tilesPerRow, tileMoveDown);
+    if (row > FIRST_TILE_INDEX) {
+        pushIndex(index - TILES_PER_ROW, TILE_MOVE_DOWN);
     }
 
-    if (row < tilesPerRow - movementDistance) {
-        pushIndex(index + tilesPerRow, tileMoveUp);
+    if (row < TILES_PER_ROW - MOVEMENT_DISTANCE) {
+        pushIndex(index + TILES_PER_ROW, TILE_MOVE_UP);
     }
 
-    if (column > firstTileIndex) {
-        pushIndex(index - movementDistance, tileMoveRight);
+    if (column > FIRST_TILE_INDEX) {
+        pushIndex(index - MOVEMENT_DISTANCE, TILE_MOVE_RIGHT);
     }
 
-    if (column < tilesPerRow - movementDistance) {
-        pushIndex(index + movementDistance, tileMoveLeft);
+    if (column < TILES_PER_COLUMN - MOVEMENT_DISTANCE) {
+        pushIndex(index + MOVEMENT_DISTANCE, TILE_MOVE_LEFT);
     }
 
     return adjacentIndices;
