@@ -4,7 +4,6 @@ import { uiPlayFunctionality } from '../functionality';
 
 import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
 
-
 function playHandler({ coreControllers, coreFactories, gamePlaySetup, domActions }) {
     const { puzzleId, onPuzzleSolved } = gamePlaySetup();
     const { PuzzleGridController } = coreControllers;
@@ -24,10 +23,16 @@ function playHandler({ coreControllers, coreFactories, gamePlaySetup, domActions
                 loadPuzzleById: PuzzleGridController.loadPuzzleById
             });
 
-            puzzleGrid.movableTileIndices = PuzzleGridController.getValidMoveTileIndices({
+            const { permutation } = puzzleGrid;
+
+            const movableTileIndices = PuzzleGridController.getTilesMovableToEmpty({
                 solution,
-                permutation: puzzleGrid.permutation
+                permutation,
+                getGridPositionFromIndex: PuzzleGridController.getGridPositionFromIndex,
+                getMovableAdjacentTileIndices: PuzzleGridController.getMovableAdjacentTileIndices,
             });
+
+            puzzleGrid.movableTileIndices = movableTileIndices;
 
             const puzzle = puzzleGrid.properties();
 
