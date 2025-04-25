@@ -23,8 +23,7 @@ function uiPlayFunctionality({
     coreControllers,
     coreFactories,
     domActions,
-    puzzle,
-    onPuzzleSolved
+    puzzle
 }) {
     const {
         PuzzleGridController,
@@ -51,13 +50,11 @@ function uiPlayFunctionality({
         puzzle
     }));
 
-    const { generateSolutionPuzzle } = PuzzleGridController;
-
     domReplaceElementContent(PUZZLE_HELPER_GAME_ID, PuzzleGrid({
         size: 'small',
         puzzle: {
             ...puzzle,
-            solution: generateSolutionPuzzle(MAX_TILES)
+            solution: PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
         }
     }));
 
@@ -83,11 +80,14 @@ function uiPlayFunctionality({
 
         swapTilesData(selectedTile, emptyTile);
 
-        const { movableTileIndices } = PuzzleGridController.onPuzzleTileClick({
-            PuzzleGridController,
+        const { movableTileIndices } = PuzzleGridController.handleTileClick({
             selectedTile,
-            emptyTile,
-            puzzle
+            emptyTileIndex: Number(emptyTile.dataset.index),
+            puzzle,
+            swapTileIndices: PuzzleGridController.swapTileIndices,
+            getTilesMovableToEmpty: PuzzleGridController.getTilesMovableToEmpty,
+            getGridPositionFromIndex: PuzzleGridController.getGridPositionFromIndex,
+            getMovableAdjacentTileIndices: PuzzleGridController.getMovableAdjacentTileIndices
         });
 
         updateSelectableTiles({
