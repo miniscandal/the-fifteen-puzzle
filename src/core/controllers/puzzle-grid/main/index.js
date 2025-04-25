@@ -5,7 +5,7 @@ import { swapTileIndices } from '@feat-puzzle-grid/swap-tiles-indices';
 import { getGridPositionFromIndex } from '@feat-puzzle-grid/get-grid-position-from-index';
 import { getMovableAdjacentTileIndices } from '@feat-puzzle-grid/get-movable-adjacent-tile-indices';
 import { findEmptyTileIndex } from '@feat-puzzle-grid/find-empty-tile-index';
-import { getValidMoveTileIndices } from '@feat-puzzle-grid/get-valid-move-tile-indices';
+import { getTilesMovableToEmpty } from '@feat-puzzle-grid/get-tiles-movable-to-empty';
 import { loadPuzzleById } from '@feat-puzzle-grid/load-puzzle-by-id';
 import { handleTileClick } from '@feat-puzzle-grid/handle-tile-click';
 
@@ -19,7 +19,7 @@ const PuzzleGridController = {
     getGridPositionFromIndex,
     findEmptyTileIndex,
     getMovableAdjacentTileIndices,
-    getValidMoveTileIndices,
+    getTilesMovableToEmpty,
     handleTileClick,
     loadPuzzleById
 };
