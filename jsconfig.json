@@ -17,6 +17,9 @@
             "@core-factories/*": [
                 "core/factories/*"
             ],
+            "@core-states/*": [
+                "core/states/*"
+            ],
             "@feat-game-mode/*": [
                 "features/game-mode/*"
             ],
@@ -26,11 +29,8 @@
             "@feat-puzzle-grid/*": [
                 "features/puzzle-grid/*"
             ],
-            "@feat-puzzle-scene/*": [
-                "features/puzzle-scene/*"
-            ],
-            "@feat-screen-mode/*": [
-                "features/screen-mode/*"
+            "@feat-screen/*": [
+                "features/screen/*"
             ],
             "@feat-screen-ui-play/*": [
                 "features/screen-ui-play/*"
