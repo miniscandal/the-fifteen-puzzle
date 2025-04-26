@@ -6,7 +6,7 @@ import { PuzzleGame } from '@feat-screen-ui-play/components/organisms/puzzle-gam
 import './style.css';
 
 
-function Play(coreControllers) {
+function Play(coreState) {
     const titleH2 = TitleH2({ text: 'solve puzzles!' });
     const puzzleGame = PuzzleGame();
 
@@ -22,7 +22,7 @@ function Play(coreControllers) {
 
     return ScreenMode({
         children,
-        coreControllers
+        coreState
     });
 }
 
