@@ -22,8 +22,10 @@ import { DATA_ATTR_SYMBOL_TILE } from '@shared-constants/dom-element-data-attrib
 function uiPlayFunctionality({
     coreControllers,
     coreFactories,
+    coreState,
     domActions,
-    puzzle
+    puzzle,
+    onPuzzleSolved
 }) {
     const {
         PuzzleGridController,
@@ -108,10 +110,11 @@ function uiPlayFunctionality({
 
     domElementButtonSelectStartScreen().addEventListener('click', () => {
 
-        DomScreenSetupController.setup(ScreenController.transitionTo({
+        DomScreenSetupController.setup(ScreenController.goToScreen({
             screenId: GAME_SCREEN_START,
             coreControllers,
             coreFactories,
+            coreState,
             domActions
         }));
     });

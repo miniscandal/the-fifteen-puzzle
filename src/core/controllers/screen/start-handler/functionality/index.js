@@ -7,7 +7,13 @@ import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
 
 
-function uiStartFunctionality({ coreControllers, coreFactories, gamePlaySetup, domActions }) {
+function uiStartFunctionality({
+    coreControllers,
+    coreFactories,
+    coreState,
+    domActions,
+    setupGamePlay
+}) {
     const {
         DomScreenSetupController,
         ScreenController,
@@ -18,12 +24,13 @@ function uiStartFunctionality({ coreControllers, coreFactories, gamePlaySetup, d
 
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
 
-        DomScreenSetupController.setup(ScreenController.transitionToGamePlay({
+        DomScreenSetupController.setup(ScreenController.goToGamePlayScreen({
             screenId: GAME_SCREEN_PLAY,
             coreControllers,
             coreFactories,
-            gamePlaySetup,
-            domActions
+            coreState,
+            domActions,
+            setupGamePlay
         }));
     });
 

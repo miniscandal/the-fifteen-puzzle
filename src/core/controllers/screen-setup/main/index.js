@@ -6,9 +6,9 @@ const DomScreenSetupController = {
         document.querySelector(selector).innerHTML = html;
     },
 
-    setup({ htmlFunctionality, uiFunctionality }) {
-        this.render(APP_ID, htmlFunctionality());
-        uiFunctionality();
+    setup({ prepareHtmlStructure, setupUiLogic }) {
+        this.render(APP_ID, prepareHtmlStructure());
+        setupUiLogic();
     }
 };
 

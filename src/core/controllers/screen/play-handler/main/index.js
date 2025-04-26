@@ -4,44 +4,48 @@ import { uiPlayFunctionality } from '../functionality';
 
 import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
 
-function playHandler({ coreControllers, coreFactories, gamePlaySetup, domActions }) {
-    const { puzzleId, onPuzzleSolved } = gamePlaySetup();
+
+function playHandler({
+    coreControllers,
+    coreFactories,
+    coreState,
+    domActions,
+    setupGamePlay
+}) {
+    const { puzzleId, onPuzzleSolved } = setupGamePlay();
     const { PuzzleGridController } = coreControllers;
     const { PuzzleGridFactory } = coreFactories;
 
 
     return {
-        htmlFunctionality: () => Play(coreControllers),
-        uiFunctionality: async () => {
-            const solution = PuzzleGridController.shuffleFromSolvedState(
+        prepareHtmlStructure: () => Play(coreState),
+        setupUiLogic: async () => {
+            const puzzleSolution = PuzzleGridController.shuffleFromSolvedState(
                 PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
             );
 
             const puzzleGrid = await PuzzleGridFactory({
                 puzzleId,
-                solution,
+                solution: puzzleSolution,
                 loadPuzzleById: PuzzleGridController.loadPuzzleById
             });
 
-            const { permutation } = puzzleGrid;
-
             const movableTileIndices = PuzzleGridController.getTilesMovableToEmpty({
-                solution,
-                permutation,
+                solution: puzzleSolution,
+                permutation: puzzleGrid.permutation,
                 getGridPositionFromIndex: PuzzleGridController.getGridPositionFromIndex,
                 getMovableAdjacentTileIndices: PuzzleGridController.getMovableAdjacentTileIndices,
             });
 
             puzzleGrid.movableTileIndices = movableTileIndices;
 
-            const puzzle = puzzleGrid.properties();
-
 
             return uiPlayFunctionality({
                 coreControllers,
                 coreFactories,
+                coreState,
                 domActions,
-                puzzle,
+                puzzle: puzzleGrid.properties(),
                 onPuzzleSolved
             });
         }

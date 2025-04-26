@@ -2,39 +2,33 @@ import { Start } from '@feat-screen-ui-start/components/pages/start';
 
 import { uiStartFunctionality } from '../functionality';
 
-import { GAME_MODE_SEQUENCE } from '@shared-constants/game-modes';
 
-
-function onPuzzleSolved() {
-    console.log('solved');
-}
-
-function startHandler({ coreControllers, coreFactories, domActions }) {
+function startHandler({ coreControllers, coreFactories, coreState, domActions }) {
     const {
-        GameModeController,
         ScreenController,
         PuzzleSequenceController
     } = coreControllers;
 
-    const gamePlaySetup = () => {
-        GameModeController.mode = GAME_MODE_SEQUENCE;
-        ScreenController.clearScreenHistory();
-        PuzzleSequenceController.reset();
+    const history = ScreenController.resetHistory([]);
+    const data = PuzzleSequenceController.reset();
 
+    const setupGamePlay = () => {
 
         return {
             puzzleId: PuzzleSequenceController.goToNextPuzzleIdSequence(null),
-            onPuzzleSolved
+            onPuzzleSolved: () => console.log('solved')
         };
     };
 
+
     return {
-        htmlFunctionality: Start,
-        uiFunctionality: () => uiStartFunctionality({
+        prepareHtmlStructure: Start,
+        setupUiLogic: () => uiStartFunctionality({
             coreControllers,
             coreFactories,
-            gamePlaySetup,
-            domActions
+            coreState,
+            domActions,
+            setupGamePlay
         })
     };
 }
