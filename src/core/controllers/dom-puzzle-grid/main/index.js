@@ -46,6 +46,16 @@ const DomPuzzleGrid = {
             movableTile.dataset.playEnabled = true;
             movableTile.dataset.movementDirection = movementDirection;
         });
+    },
+
+    setSelectedPuzzleGridStyle: ({ selectedPuzzle, previousSelectedPuzzle }) => {
+        if (selectedPuzzle.dataset.puzzleId === previousSelectedPuzzle?.dataset.puzzleId) {
+
+            return;
+        }
+
+        selectedPuzzle.classList.add('selected');
+        previousSelectedPuzzle?.classList.remove('selected');
     }
 };
 
