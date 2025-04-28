@@ -6,7 +6,7 @@ import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons'
 
 import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
-// import { GAME_MODE_PRACTICE } from '@shared-constants/game-modes';
+import { SELECT_GAME_SCREEN_PLAY_ID } from '@shared-constants/dom-element-identifiers';
 
 
 function uiPracticeFunctionality({
@@ -16,6 +16,7 @@ function uiPracticeFunctionality({
     domActions,
 }) {
     const { DomScreenSetupController, ScreenController, PrefersColorSchemeController } = coreControllers;
+    const { DomPuzzleGrid: { setSelectedPuzzleGridStyle } } = domActions;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
@@ -23,19 +24,18 @@ function uiPracticeFunctionality({
         const attribute = 'data-puzzle-id';
         const puzzleGrid = event.target.closest(`[${attribute}]`);
 
-        console.log(event.target.tagName);
-
-
         if (!puzzleGrid) {
             return;
         }
 
-        // const currentPuzzleGridSelected = document.querySelector(`[${attribute}][class~="selected"]`);
+        setSelectedPuzzleGridStyle({
+            selectedPuzzle: puzzleGrid,
+            previousSelectedPuzzle: document.querySelector(`[${attribute}][class~="selected"]`)
+        });
 
-        // currentPuzzleGridSelected?.classList.remove('selected');
-        // PuzzleGridController.puzzle.id = puzzleGrid.dataset.puzzleId;
-        // puzzleGrid.classList.add('selected');
-        // document.getElementById(SELECT_GAME_SCREEN_PLAY_ID).classList.add('enabled');
+        // puzzleGrid.dataset.puzzleId
+
+        document.getElementById(SELECT_GAME_SCREEN_PLAY_ID).classList.add('enabled');
     });
 
 
