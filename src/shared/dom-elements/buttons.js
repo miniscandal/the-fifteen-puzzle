@@ -1,4 +1,4 @@
-import { COLOR_THEME_ID } from '@shared-constants/dom-element-identifiers';
+import { COLOR_THEME_ID, PUZZLE_GRID_COLLECTION_ID } from '@shared-constants/dom-element-identifiers';
 
 import { SELECT_GAME_SCREEN_PRACTICE_ID } from '@shared-constants/dom-element-identifiers';
 import { SELECT_GAME_SCREEN_START_ID } from '@shared-constants/dom-element-identifiers';
@@ -12,11 +12,13 @@ const domElementButtonSelectPracticeScreen = () => document.getElementById(SELEC
 const domElementButtonSelectStartScreen = () => document.getElementById(SELECT_GAME_SCREEN_START_ID);
 const domElementButtonSelectPlayScreen = () => document.getElementById(SELECT_GAME_SCREEN_PLAY_ID);
 const domElementButtonSelectBackScreen = () => document.getElementById(SELECT_BACK_SCREEN_ID);
+const domElementButtonSelectPuzzleGridCollection = () => document.getElementById(PUZZLE_GRID_COLLECTION_ID);
 
 export {
     domElementIconButtonColorTheme,
     domElementButtonSelectPracticeScreen,
     domElementButtonSelectStartScreen,
     domElementButtonSelectPlayScreen,
-    domElementButtonSelectBackScreen
+    domElementButtonSelectBackScreen,
+    domElementButtonSelectPuzzleGridCollection
 };
