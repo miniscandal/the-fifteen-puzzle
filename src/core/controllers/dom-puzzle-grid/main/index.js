@@ -1,21 +1,17 @@
 const DomPuzzleGrid = {
-    domReplaceElementContent: (containerId, htmlString) => {
-        const container = document.getElementById(containerId);
-        const parser = new DOMParser();
-        const parsedDocument = parser.parseFromString(htmlString, 'text/html');
-        const newContent = parsedDocument.body.firstElementChild;
-        const previousContent = container.firstElementChild;
+    replaceElementContent: ({ container, htmlString, domParser = new DOMParser() }) => {
+        const documentFragment = domParser.parseFromString(htmlString, 'text/html');
+        const newChild = documentFragment.body.firstElementChild;
+        const oldChild = container.firstElementChild;
 
-        container.replaceChild(newContent, previousContent);
+        container.replaceChild(newChild, oldChild);
     },
 
+    validateSelectableTile: ({ tile, dataAttr }) => {
+        const isTile = !!tile && tile.hasAttribute(dataAttr);
 
-    validateSelectableTile: ({ element, dataAttrSymbolTile }) => {
-        const isTile = !!element && element.hasAttribute(dataAttrSymbolTile);
-
-        return isTile && element.dataset.playEnabled === 'true';
+        return isTile && tile.dataset.playEnabled === 'true';
     },
-
 
     resetSelectableTiles: ({ tiles, dataAttrPlayEnabled, dataAttrMoveDirection }) => {
         tiles.forEach(tile => {
@@ -24,7 +20,7 @@ const DomPuzzleGrid = {
         });
     },
 
-    swapTilesData: (currentTile, emptyTile) => {
+    swapDataTiles: (currentTile, emptyTile) => {
         const { row: currentRow, column: currentColumn, index: currentIndex } = currentTile.dataset;
         const { row: emptyRow, column: emptyColumn, index: emptyIndex } = emptyTile.dataset;
 
@@ -38,15 +34,14 @@ const DomPuzzleGrid = {
         emptyTile.dataset.row = currentRow;
         emptyTile.dataset.column = currentColumn;
 
-
         emptyTile.dataset.index = currentIndex;
         currentTile.dataset.index = emptyIndex;
     },
 
-    updateSelectableTiles: ({ tiles, dataAttrIndexTile }) => {
+    updateSelectableTiles: ({ tiles, queryFn }) => {
         tiles.forEach(tile => {
             const { index, movementDirection } = tile;
-            const movableTile = document.querySelector(dataAttrIndexTile(index));
+            const movableTile = queryFn(index);
 
             movableTile.dataset.playEnabled = true;
             movableTile.dataset.movementDirection = movementDirection;
