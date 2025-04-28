@@ -1,34 +1,43 @@
 import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
-import { selectPuzzleGrid } from '@feat-game-mode/select-puzzle-grid';
 
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
+import { domElementButtonSelectPuzzleGridCollection } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 
 import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
-import { GAME_MODE_PRACTICE } from '@shared-constants/game-modes';
+// import { GAME_MODE_PRACTICE } from '@shared-constants/game-modes';
 
 
 function uiPracticeFunctionality({
-    GameModeController,
-    DomScreenSetupController,
-    ScreenController,
-    PuzzleGridController,
-    PuzzleSequenceController,
-    PrefersColorSchemeController
+    coreControllers,
+    coreFactories,
+    coreState,
+    domActions,
 }) {
-    const coreControllers = {
-        DomScreenSetupController,
-        PrefersColorSchemeController,
-        GameModeController,
-        ScreenController,
-        PuzzleSequenceController,
-        PuzzleGridController
-    };
-
-    selectPuzzleGrid({ PuzzleGridController });
+    const { DomScreenSetupController, ScreenController, PrefersColorSchemeController } = coreControllers;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
+
+    domElementButtonSelectPuzzleGridCollection().addEventListener('click', (event) => {
+        const attribute = 'data-puzzle-id';
+        const puzzleGrid = event.target.closest(`[${attribute}]`);
+
+        console.log(event.target.tagName);
+
+
+        if (!puzzleGrid) {
+            return;
+        }
+
+        // const currentPuzzleGridSelected = document.querySelector(`[${attribute}][class~="selected"]`);
+
+        // currentPuzzleGridSelected?.classList.remove('selected');
+        // PuzzleGridController.puzzle.id = puzzleGrid.dataset.puzzleId;
+        // puzzleGrid.classList.add('selected');
+        // document.getElementById(SELECT_GAME_SCREEN_PLAY_ID).classList.add('enabled');
+    });
+
 
     // addEventListenerSelectScreenMode({
     //     getElement: domElementButtonSelectPlayScreen,
@@ -59,13 +68,14 @@ function uiPracticeFunctionality({
 
     domElementButtonSelectStartScreen().addEventListener('click', () => {
 
-        DomScreenSetupController.setup(ScreenController.transitionTo({
+        DomScreenSetupController.setup(ScreenController.goToScreen({
             screenId: GAME_SCREEN_START,
-            coreControllers
+            coreControllers,
+            coreFactories,
+            coreState,
+            domActions
         }));
     });
-
-    GameModeController.currentMode = GAME_MODE_PRACTICE;
 }
 
 export { uiPracticeFunctionality };

@@ -14,11 +14,7 @@ function uiStartFunctionality({
     domActions,
     setupGamePlay
 }) {
-    const {
-        DomScreenSetupController,
-        ScreenController,
-        PrefersColorSchemeController
-    } = coreControllers;
+    const { DomScreenSetupController, ScreenController, PrefersColorSchemeController } = coreControllers;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
@@ -36,10 +32,12 @@ function uiStartFunctionality({
 
     domElementButtonSelectPracticeScreen().addEventListener('click', () => {
 
-        DomScreenSetupController.setup(ScreenController.transitionTo({
+        DomScreenSetupController.setup(ScreenController.goToScreen({
             screenId: GAME_SCREEN_PRACTICE,
             coreControllers,
-            coreFactories
+            coreFactories,
+            coreState,
+            domActions
         }));
     });
 }

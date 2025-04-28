@@ -6,35 +6,38 @@ import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
 
 
 function playHandler({
-    coreControllers,
-    coreFactories,
-    coreState,
-    domActions,
-    setupGamePlay
+    coreControllers, coreFactories, coreState, domActions, setupGamePlay
 }) {
-    const { puzzleId, onPuzzleSolved } = setupGamePlay();
-    const { PuzzleGridController } = coreControllers;
+    const { puzzleId, handlePuzzleSolved } = setupGamePlay();
     const { PuzzleGridFactory } = coreFactories;
+    const { PuzzleGridController: {
+        shuffleFromSolvedState,
+        generateSolvedPuzzleState,
+        loadPuzzleById,
+        getTilesMovableToEmpty,
+        getGridPositionFromIndex,
+        getMovableAdjacentTileIndices
+    } } = coreControllers;
 
 
     return {
         prepareHtmlStructure: () => Play(coreState),
         setupUiLogic: async () => {
-            const puzzleSolution = PuzzleGridController.shuffleFromSolvedState(
-                PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
+            const puzzleSolution = shuffleFromSolvedState(
+                generateSolvedPuzzleState(MAX_TILES)
             );
 
             const puzzleGrid = await PuzzleGridFactory({
                 puzzleId,
                 solution: puzzleSolution,
-                loadPuzzleById: PuzzleGridController.loadPuzzleById
+                loadPuzzleById: loadPuzzleById
             });
 
-            const movableTileIndices = PuzzleGridController.getTilesMovableToEmpty({
+            const movableTileIndices = getTilesMovableToEmpty({
                 solution: puzzleSolution,
                 permutation: puzzleGrid.permutation,
-                getGridPositionFromIndex: PuzzleGridController.getGridPositionFromIndex,
-                getMovableAdjacentTileIndices: PuzzleGridController.getMovableAdjacentTileIndices,
+                getGridPositionFromIndex: getGridPositionFromIndex,
+                getMovableAdjacentTileIndices: getMovableAdjacentTileIndices,
             });
 
             puzzleGrid.movableTileIndices = movableTileIndices;
@@ -46,7 +49,7 @@ function playHandler({
                 coreState,
                 domActions,
                 puzzle: puzzleGrid.properties(),
-                onPuzzleSolved
+                handlePuzzleSolved
             });
         }
     };

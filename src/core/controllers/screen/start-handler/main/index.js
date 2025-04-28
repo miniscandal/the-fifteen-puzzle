@@ -12,11 +12,13 @@ function startHandler({ coreControllers, coreFactories, coreState, domActions })
     const history = ScreenController.resetHistory([]);
     const data = PuzzleSequenceController.reset();
 
+    console.log(history, data);
+
     const setupGamePlay = () => {
 
         return {
             puzzleId: PuzzleSequenceController.goToNextPuzzleIdSequence(null),
-            onPuzzleSolved: () => console.log('solved')
+            handlePuzzleSolved: () => console.log('solved')
         };
     };
 

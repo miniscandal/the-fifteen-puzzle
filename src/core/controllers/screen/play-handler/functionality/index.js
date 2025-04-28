@@ -25,48 +25,62 @@ function uiPlayFunctionality({
     coreState,
     domActions,
     puzzle,
-    onPuzzleSolved
+    handlePuzzleSolved
 }) {
     const {
-        PuzzleGridController,
+        PuzzleGridController: {
+            handleTileClick,
+            generateSolvedPuzzleState,
+            swapTileIndices,
+            getTilesMovableToEmpty,
+            getGridPositionFromIndex,
+            getMovableAdjacentTileIndices
+        },
         DomScreenSetupController,
         ScreenController,
         PrefersColorSchemeController
     } = coreControllers;
 
-    configureColorSchemePreference(PrefersColorSchemeController.appearance);
-
     const {
         DomPuzzleGrid: {
-            domReplaceElementContent,
+            replaceElementContent,
             resetSelectableTiles,
-            swapTilesData,
+            swapDataTiles,
             updateSelectableTiles,
             validateSelectableTile
         }
     } = domActions;
 
-    domReplaceElementContent(PUZZLE_GAME_ID, PuzzleGrid({
-        size: 'medium',
-        gameActive: true,
-        puzzle
-    }));
+    configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
-    domReplaceElementContent(PUZZLE_HELPER_GAME_ID, PuzzleGrid({
-        size: 'small',
-        puzzle: {
-            ...puzzle,
-            solution: PuzzleGridController.generateSolvedPuzzleState(MAX_TILES)
-        }
-    }));
+    const parser = new DOMParser();
+
+    replaceElementContent({
+        container: document.getElementById(PUZZLE_GAME_ID),
+        htmlString: PuzzleGrid({
+            size: 'medium',
+            gameActive: true,
+            puzzle
+        }),
+        parser
+    });
+
+    replaceElementContent({
+        container: document.getElementById(PUZZLE_HELPER_GAME_ID),
+        htmlString: PuzzleGrid({
+            size: 'small',
+            puzzle: {
+                ...puzzle,
+                solution: generateSolvedPuzzleState(MAX_TILES)
+            }
+        }),
+        parser
+    });
 
     domElementPuzzleGrid().addEventListener('click', function (event) {
         const selectedTile = event.target;
 
-        const isValid = validateSelectableTile({
-            element: selectedTile,
-            dataAttrSymbolTile: DATA_ATTR_SYMBOL_TILE
-        });
+        const isValid = validateSelectableTile({ tile: selectedTile, dataAttr: DATA_ATTR_SYMBOL_TILE });
 
         if (!isValid) {
             return;
@@ -80,22 +94,24 @@ function uiPlayFunctionality({
             dataAttrMoveDirection: DATA_ATTR_MOVE_DIRECTION
         });
 
-        swapTilesData(selectedTile, emptyTile);
+        swapDataTiles(selectedTile, emptyTile);
 
-        const { movableTileIndices } = PuzzleGridController.handleTileClick({
+        const { movableTileIndices } = handleTileClick({
             selectedTile,
             emptyTileIndex: Number(emptyTile.dataset.index),
             puzzle,
-            swapTileIndices: PuzzleGridController.swapTileIndices,
-            getTilesMovableToEmpty: PuzzleGridController.getTilesMovableToEmpty,
-            getGridPositionFromIndex: PuzzleGridController.getGridPositionFromIndex,
-            getMovableAdjacentTileIndices: PuzzleGridController.getMovableAdjacentTileIndices
+            swapTileIndices: swapTileIndices,
+            getTilesMovableToEmpty: getTilesMovableToEmpty,
+            getGridPositionFromIndex: getGridPositionFromIndex,
+            getMovableAdjacentTileIndices: getMovableAdjacentTileIndices
         });
 
         updateSelectableTiles({
             tiles: movableTileIndices,
-            dataAttrIndexTile: DATA_ATTR_INDEX_TILE
+            queryFn: (index) => document.querySelector(DATA_ATTR_INDEX_TILE(index))
         });
+
+        handlePuzzleSolved();
     });
 
     domElementButtonSelectBackScreen()?.addEventListener('click', () => {
