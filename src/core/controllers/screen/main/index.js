@@ -6,9 +6,9 @@ import { goToScreen } from '@feat-screen/go-to-screen';
 import { goToGamePlayScreen } from '@feat-screen/go-to-game-play-screen';
 import { updateScreenState } from '@feat-screen/update-screen-state';
 
-import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
-import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
-import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
+import { SCREEN_ID_START } from '@shared-constants/screen-modes';
+import { SCREEN_ID_PRACTICE } from '@shared-constants/screen-modes';
+import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
 
 
 /**
@@ -41,9 +41,9 @@ import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
 
 const ScreenController = {
     screenHandlers: {
-        [GAME_SCREEN_START]: startHandler,
-        [GAME_SCREEN_PRACTICE]: practiceHandler,
-        [GAME_SCREEN_PLAY]: playHandler,
+        [SCREEN_ID_START]: startHandler,
+        [SCREEN_ID_PRACTICE]: practiceHandler,
+        [SCREEN_ID_PLAY]: playHandler,
     },
     goToScreen(coreObjects) {
         return goToScreen({ ...coreObjects, screenHandlers: this.screenHandlers });

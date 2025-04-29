@@ -1,10 +1,12 @@
-const APP_ID = '#app';
-const SELECT_GAME_SCREEN_START_ID = 'select-start-screen';
-const SELECT_BACK_SCREEN_ID = 'select-back-screen';
-const SELECT_GAME_SCREEN_PLAY_ID = 'select-play-screen';
-const SELECT_GAME_SCREEN_PRACTICE_ID = 'select-practice-screen';
-const SELECT_HELP_SCREEN_ID = 'select-help-screen';
-const SELECT_SETTINGS_SCREEN_ID = 'select-settings-screen';
+const DOM_ELEMENT_APP_ID = '#app';
+
+const BTN_START_SCREEN_ID = 'start-screen-btn';
+const BTN_BACK_SCREEN_ID = 'back-screen-btn';
+const BTN_PLAY_SCREEN_ID = 'play-screen-btn';
+const BTN_PRACTICE_SCREEN_ID = 'practice-screen-btn';
+const BTN_HELP_SCREEN_ID = 'help-screen-btn';
+const BTN_SETTINGS_SCREEN_ID = 'settings-screen-btn';
+
 const COLOR_THEME_ID = 'theme';
 const PUZZLE_GAME_ID = 'puzzle-game';
 const PUZZLE_HELPER_GAME_ID = 'puzzle-helper-game';
@@ -14,13 +16,13 @@ const BODY = 'body';
 
 
 export {
-    APP_ID,
-    SELECT_GAME_SCREEN_START_ID,
-    SELECT_BACK_SCREEN_ID,
-    SELECT_GAME_SCREEN_PLAY_ID,
-    SELECT_GAME_SCREEN_PRACTICE_ID,
-    SELECT_HELP_SCREEN_ID,
-    SELECT_SETTINGS_SCREEN_ID,
+    DOM_ELEMENT_APP_ID,
+    BTN_START_SCREEN_ID,
+    BTN_BACK_SCREEN_ID,
+    BTN_PLAY_SCREEN_ID,
+    BTN_PRACTICE_SCREEN_ID,
+    BTN_HELP_SCREEN_ID,
+    BTN_SETTINGS_SCREEN_ID,
     COLOR_THEME_ID,
     PUZZLE_GAME_ID,
     PUZZLE_HELPER_GAME_ID,

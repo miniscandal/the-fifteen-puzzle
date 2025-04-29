@@ -2,7 +2,7 @@ import { Play } from '@feat-screen-ui-play/components/pages';
 
 import { uiPlayFunctionality } from '../functionality';
 
-import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
+import { CONFIG_PUZZLE_GRID_MAX_TILES } from '@shared-constants/config-puzzle-grid';
 
 
 function playHandler({
@@ -24,7 +24,7 @@ function playHandler({
         prepareHtmlStructure: () => Play(coreState),
         setupUiLogic: async () => {
             const puzzleSolution = shuffleFromSolvedState(
-                generateSolvedPuzzleState(MAX_TILES)
+                generateSolvedPuzzleState(CONFIG_PUZZLE_GRID_MAX_TILES)
             );
 
             const puzzleGrid = await PuzzleGridFactory({

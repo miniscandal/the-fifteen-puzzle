@@ -3,8 +3,8 @@ import { configureColorSchemePreference } from '@feat-prefers-color-scheme/confi
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/buttons';
 
-import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
-import { GAME_SCREEN_PRACTICE } from '@shared-constants/screen-modes';
+import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
+import { SCREEN_ID_PRACTICE } from '@shared-constants/screen-modes';
 
 
 function uiStartFunctionality({
@@ -21,7 +21,7 @@ function uiStartFunctionality({
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
 
         DomScreenSetupController.setup(ScreenController.goToGamePlayScreen({
-            screenId: GAME_SCREEN_PLAY,
+            screenId: SCREEN_ID_PLAY,
             coreControllers,
             coreFactories,
             coreState,
@@ -33,7 +33,7 @@ function uiStartFunctionality({
     domElementButtonSelectPracticeScreen().addEventListener('click', () => {
 
         DomScreenSetupController.setup(ScreenController.goToScreen({
-            screenId: GAME_SCREEN_PRACTICE,
+            screenId: SCREEN_ID_PRACTICE,
             coreControllers,
             coreFactories,
             coreState,

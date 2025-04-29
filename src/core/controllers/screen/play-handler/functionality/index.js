@@ -8,10 +8,10 @@ import { domElementPuzzleGrid } from '@shared-dom-elements/structural';
 import { domElementEmptyTile } from '@shared-dom-elements/data-attributes';
 import { domElementPlayEnabledTiles } from '@shared-dom-elements/data-attributes';
 
-import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
+import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
 import { PUZZLE_HELPER_GAME_ID, } from '@shared-constants/dom-element-identifiers';
-import { MAX_TILES } from '@shared-constants/puzzle-grid-settings';
+import { CONFIG_PUZZLE_GRID_MAX_TILES } from '@shared-constants/config-puzzle-grid';
 
 import { DATA_ATTR_INDEX_TILE } from '@shared-constants/dom-element-data-attributes';
 import { DATA_ATTR_MOVE_DIRECTION } from '@shared-constants/dom-element-data-attributes';
@@ -71,7 +71,7 @@ function uiPlayFunctionality({
             size: 'small',
             puzzle: {
                 ...puzzle,
-                solution: generateSolvedPuzzleState(MAX_TILES)
+                solution: generateSolvedPuzzleState(CONFIG_PUZZLE_GRID_MAX_TILES)
             }
         }),
         parser
@@ -127,7 +127,7 @@ function uiPlayFunctionality({
     domElementButtonSelectStartScreen().addEventListener('click', () => {
 
         DomScreenSetupController.setup(ScreenController.goToScreen({
-            screenId: GAME_SCREEN_START,
+            screenId: SCREEN_ID_START,
             coreControllers,
             coreFactories,
             coreState,

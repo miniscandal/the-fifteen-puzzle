@@ -10,13 +10,13 @@ import { DomPuzzleGrid } from '@core-controllers/dom-puzzle-grid/main';
 import { ScreenState } from '@core-states/screen';
 import { GameModeState } from '@core-states/game-mode';
 
-import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
+import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 
 import './main.css';
 
 
 DomScreenSetupController.setup(ScreenController.goToScreen({
-    screenId: GAME_SCREEN_START,
+    screenId: SCREEN_ID_START,
     coreControllers: {
         PuzzleGridController,
         DomScreenSetupController,

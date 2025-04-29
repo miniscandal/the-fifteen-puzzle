@@ -4,9 +4,9 @@ import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPuzzleGridCollection } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
 
-import { GAME_SCREEN_PLAY } from '@shared-constants/screen-modes';
-import { GAME_SCREEN_START } from '@shared-constants/screen-modes';
-import { SELECT_GAME_SCREEN_PLAY_ID } from '@shared-constants/dom-element-identifiers';
+import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
+import { SCREEN_ID_START } from '@shared-constants/screen-modes';
+import { BTN_PLAY_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
 
 
 function uiPracticeFunctionality({
@@ -35,7 +35,7 @@ function uiPracticeFunctionality({
 
         // puzzleGrid.dataset.puzzleId
 
-        document.getElementById(SELECT_GAME_SCREEN_PLAY_ID).classList.add('enabled');
+        document.getElementById(BTN_PLAY_SCREEN_ID).classList.add('enabled');
     });
 
 
@@ -49,7 +49,7 @@ function uiPracticeFunctionality({
     //         }
 
     //         DomScreenSetupController.setup(ScreenController.transitionTo({
-    //             screenId: GAME_SCREEN_PLAY,
+    //             screenId: SCREEN_ID_PLAY,
     //             coreControllers,
     //             gameModeFunctionality: () => { return { puzzleId }; }
     //         }));
@@ -60,7 +60,7 @@ function uiPracticeFunctionality({
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
-            screenId: GAME_SCREEN_PLAY,
+            screenId: SCREEN_ID_PLAY,
             coreControllers
         }));
     });
@@ -69,7 +69,7 @@ function uiPracticeFunctionality({
     domElementButtonSelectStartScreen().addEventListener('click', () => {
 
         DomScreenSetupController.setup(ScreenController.goToScreen({
-            screenId: GAME_SCREEN_START,
+            screenId: SCREEN_ID_START,
             coreControllers,
             coreFactories,
             coreState,

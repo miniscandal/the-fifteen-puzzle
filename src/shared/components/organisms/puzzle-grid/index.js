@@ -1,7 +1,7 @@
 import { PuzzleTile } from '@shared-components/molecules/puzzle-tile';
 
-import { GRID_ROW } from '@shared-constants/puzzle-grid-settings';
-import { GRID_COLUMN } from '@shared-constants/puzzle-grid-settings';
+import { CONFIG_PUZZLE_GRID_ROW } from '@shared-constants/config-puzzle-grid';
+import { CONFIG_PUZZLE_GRID_COLUMN } from '@shared-constants/config-puzzle-grid';
 
 import { TILE_MOVE_LEFT } from '@shared-constants/movement-direction';
 import { TILE_MOVE_UP } from '@shared-constants/movement-direction';
@@ -46,8 +46,8 @@ function PuzzleGrid({
             size: 'auto',
             playEnabled: !!movableTile && gameActive,
             movementDirection: gameActive && movableTile ? movableTile.movementDirection : null,
-            row: Math.floor(index / GRID_ROW) + 1,
-            column: (index % GRID_COLUMN) + 1,
+            row: Math.floor(index / CONFIG_PUZZLE_GRID_ROW) + 1,
+            column: (index % CONFIG_PUZZLE_GRID_COLUMN) + 1,
             index: gameActive ? index : null,
             ...(puzzleTile ? puzzleTile : {})
         });

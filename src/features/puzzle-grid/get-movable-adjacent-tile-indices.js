@@ -3,11 +3,11 @@ import { TILE_MOVE_DOWN } from '@shared-constants/movement-direction';
 import { TILE_MOVE_LEFT } from '@shared-constants/movement-direction';
 import { TILE_MOVE_RIGHT } from '@shared-constants/movement-direction';
 
-import { TILES_PER_ROW } from '@shared-constants/puzzle-grid-settings';
-import { TILES_PER_COLUMN } from '@shared-constants/puzzle-grid-settings';
+import { CONFIG_PUZZLE_GRID_PER_ROW } from '@shared-constants/config-puzzle-grid';
+import { CONFIG_PUZZLE_GRID_TILES_PER_COLUMN } from '@shared-constants/config-puzzle-grid';
 
-import { FIRST_TILE_INDEX } from '@shared-constants/puzzle-grid-settings';
-import { MOVEMENT_DISTANCE } from '@shared-constants/puzzle-grid-settings';
+import { CONFIG_PUZZLE_GRID_FIRST_TILE_INDEX } from '@shared-constants/config-puzzle-grid';
+import { CONFIG_PUZZLE_GRID_MOVEMENT_DISTANCE } from '@shared-constants/config-puzzle-grid';
 
 
 function getMovableAdjacentTileIndices({ positionInGrid }) {
@@ -18,20 +18,20 @@ function getMovableAdjacentTileIndices({ positionInGrid }) {
         movementDirection
     });
 
-    if (row > FIRST_TILE_INDEX) {
-        pushIndex(index - TILES_PER_ROW, TILE_MOVE_DOWN);
+    if (row > CONFIG_PUZZLE_GRID_FIRST_TILE_INDEX) {
+        pushIndex(index - CONFIG_PUZZLE_GRID_PER_ROW, TILE_MOVE_DOWN);
     }
 
-    if (row < TILES_PER_ROW - MOVEMENT_DISTANCE) {
-        pushIndex(index + TILES_PER_ROW, TILE_MOVE_UP);
+    if (row < CONFIG_PUZZLE_GRID_PER_ROW - CONFIG_PUZZLE_GRID_MOVEMENT_DISTANCE) {
+        pushIndex(index + CONFIG_PUZZLE_GRID_PER_ROW, TILE_MOVE_UP);
     }
 
-    if (column > FIRST_TILE_INDEX) {
-        pushIndex(index - MOVEMENT_DISTANCE, TILE_MOVE_RIGHT);
+    if (column > CONFIG_PUZZLE_GRID_FIRST_TILE_INDEX) {
+        pushIndex(index - CONFIG_PUZZLE_GRID_MOVEMENT_DISTANCE, TILE_MOVE_RIGHT);
     }
 
-    if (column < TILES_PER_COLUMN - MOVEMENT_DISTANCE) {
-        pushIndex(index + MOVEMENT_DISTANCE, TILE_MOVE_LEFT);
+    if (column < CONFIG_PUZZLE_GRID_TILES_PER_COLUMN - CONFIG_PUZZLE_GRID_MOVEMENT_DISTANCE) {
+        pushIndex(index + CONFIG_PUZZLE_GRID_MOVEMENT_DISTANCE, TILE_MOVE_LEFT);
     }
 
     return adjacentIndices;

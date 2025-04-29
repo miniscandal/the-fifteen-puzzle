@@ -1,4 +1,4 @@
-import { APP_ID } from '@shared-constants/dom-element-identifiers';
+import { DOM_ELEMENT_APP_ID } from '@shared-constants/dom-element-identifiers';
 
 
 const DomScreenSetupController = {
@@ -7,7 +7,7 @@ const DomScreenSetupController = {
     },
 
     setup({ prepareHtmlStructure, setupUiLogic }) {
-        this.render(APP_ID, prepareHtmlStructure());
+        this.render(DOM_ELEMENT_APP_ID, prepareHtmlStructure());
         setupUiLogic();
     }
 };

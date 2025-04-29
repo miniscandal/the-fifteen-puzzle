@@ -1,9 +1,9 @@
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
-import { SELECT_GAME_SCREEN_PLAY_ID } from '@shared-constants/dom-element-identifiers';
-import { SELECT_GAME_SCREEN_PRACTICE_ID } from '@shared-constants/dom-element-identifiers';
-import { SELECT_HELP_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
-import { SELECT_SETTINGS_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { BTN_PLAY_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { BTN_PRACTICE_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { BTN_HELP_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
+import { BTN_SETTINGS_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
 
 import './style.css';
 
@@ -11,19 +11,19 @@ function NavigationScreenMode() {
     const buttons = [
         {
             text: 'play',
-            id: SELECT_GAME_SCREEN_PLAY_ID
+            id: BTN_PLAY_SCREEN_ID
         },
         {
             text: 'practice',
-            id: SELECT_GAME_SCREEN_PRACTICE_ID
+            id: BTN_PRACTICE_SCREEN_ID
         },
         {
             text: 'help',
-            id: SELECT_HELP_SCREEN_ID
+            id: BTN_HELP_SCREEN_ID
         },
         {
             text: 'settings',
-            id: SELECT_SETTINGS_SCREEN_ID
+            id: BTN_SETTINGS_SCREEN_ID
         },
     ];
 

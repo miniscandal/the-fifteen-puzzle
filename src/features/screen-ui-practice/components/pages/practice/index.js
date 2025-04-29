@@ -4,7 +4,7 @@ import { TitleH2 } from '@shared-components/atoms/title-h2';
 import { ScreenMode } from '@shared-components/templates/screen-mode';
 import { ButtonSelectScreen } from '@shared-components/atoms/button-select-screen';
 
-import { SELECT_GAME_SCREEN_PLAY_ID } from '@shared-constants/dom-element-identifiers';
+import { BTN_PLAY_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
 
 import * as puzzles from '@shared-constants/puzzle-collection.js';
 
@@ -16,7 +16,7 @@ function Practice(coreState) {
     const puzzleGridCollection = PuzzleGridCollection({ puzzles });
     const buttonSelectScreen = ButtonSelectScreen({
         text: 'play',
-        id: SELECT_GAME_SCREEN_PLAY_ID,
+        id: BTN_PLAY_SCREEN_ID,
         enabled: false
     });
 
