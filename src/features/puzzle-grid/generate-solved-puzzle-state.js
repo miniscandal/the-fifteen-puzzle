@@ -1,6 +1,9 @@
-function generateSolvedPuzzleState(totalTiles) {
+import { CONFIG_PUZZLE_GRID_MAX_TILES } from '@shared-constants/config-puzzle-grid';
 
-    return Array.from({ length: totalTiles + 1 }, (_, index) => index);
+
+function generateSolvedPuzzleState() {
+
+    return Array.from({ length: CONFIG_PUZZLE_GRID_MAX_TILES + 1 }, (_, index) => index);
 }
 
 export { generateSolvedPuzzleState };

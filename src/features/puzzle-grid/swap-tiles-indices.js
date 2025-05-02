@@ -1,7 +1,7 @@
-function swapTileIndices({ solution, selectedIndex, zeroIndex }) {
+function swapTileIndices({ solution, selectedTileIndex, emptyTileIndex }) {
     const stateCopy = [...solution];
 
-    [stateCopy[zeroIndex], stateCopy[selectedIndex]] = [stateCopy[selectedIndex], stateCopy[zeroIndex]];
+    [stateCopy[emptyTileIndex], stateCopy[selectedTileIndex]] = [stateCopy[selectedTileIndex], stateCopy[emptyTileIndex]];
 
 
     return stateCopy;

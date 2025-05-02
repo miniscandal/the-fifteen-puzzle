@@ -1,14 +1,21 @@
-import { PuzzleGridFactory } from '@core-factories/puzzle-grid/main';
+import { PuzzleGridState } from '@core-controllers/puzzle-grid-context/main';
+import { PuzzleGridShuffling } from '@core-controllers/puzzle-grid-shuffling/main';
+import { PuzzleGridTiles } from '@core-controllers/puzzle-grid-tiles/main';
 
-import { DomScreenSetupController } from '@core-controllers/screen-setup/main';
 import { ScreenController } from '@core-controllers/screen/main';
+
 import { PuzzleSequenceController } from '@core-controllers/puzzle-sequence/main';
-import { PuzzleGridController } from '@core-controllers/puzzle-grid/main';
+
 import { PrefersColorSchemeController } from '@core-controllers/prefers-color-scheme/main';
-import { DomPuzzleGrid } from '@core-controllers/dom-puzzle-grid/main';
+
+import { PuzzleGridFactory } from '@core-factories/puzzle-grid/main';
 
 import { ScreenState } from '@core-states/screen';
 import { GameModeState } from '@core-states/game-mode';
+import { createPuzzleState } from '@core-states/puzzle';
+
+import { DomPuzzleGrid } from '@core-controllers/dom-puzzle-grid/main';
+import { DomScreenSetupController } from '@core-controllers/screen-setup/main';
 
 import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 
@@ -18,8 +25,9 @@ import './main.css';
 DomScreenSetupController.setup(ScreenController.goToScreen({
     screenId: SCREEN_ID_START,
     coreControllers: {
-        PuzzleGridController,
-        DomScreenSetupController,
+        PuzzleGridState,
+        PuzzleGridShuffling,
+        PuzzleGridTiles,
         ScreenController,
         PuzzleSequenceController,
         PrefersColorSchemeController,
@@ -29,9 +37,11 @@ DomScreenSetupController.setup(ScreenController.goToScreen({
     },
     coreState: {
         ScreenState,
-        GameModeState
+        GameModeState,
+        createPuzzleState
     },
     domActions: {
-        DomPuzzleGrid
+        DomPuzzleGrid,
+        DomScreenSetupController
     }
 }));

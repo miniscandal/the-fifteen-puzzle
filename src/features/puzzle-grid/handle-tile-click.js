@@ -1,30 +1,19 @@
-function handleTileClick({
-    selectedTile,
-    emptyTileIndex,
-    puzzle,
-    swapTileIndices,
-    getTilesMovableToEmpty,
-    getGridPositionFromIndex,
-    getMovableAdjacentTileIndices
-}) {
-    const solution = swapTileIndices({
-        solution: puzzle.solution,
-        selectedIndex: selectedTile.dataset.index,
-        zeroIndex: emptyTileIndex
+function handleTileClick({ PuzzleState, PuzzleGridTiles, selectedTile, emptyTile }) {
+    const { isSolved } = PuzzleState;
+
+    const playerSolution = PuzzleGridTiles.swapTileIndices({
+        solution: PuzzleState.playerSolution,
+        selectedTileIndex: selectedTile.dataset.index,
+        emptyTileIndex: Number(emptyTile.dataset.index)
     });
 
-    puzzle.solution = solution;
-
-    const movableTileIndices = getTilesMovableToEmpty({
-        solution,
-        permutation: puzzle.permutation,
-        getGridPositionFromIndex: getGridPositionFromIndex,
-        getMovableAdjacentTileIndices: getMovableAdjacentTileIndices
+    const movableTileIndices = PuzzleGridTiles.getTilesMovableToEmpty({
+        solution: playerSolution,
+        permutation: PuzzleState.permutation,
+        getGridPositionFromIndex: PuzzleGridTiles.getGridPositionFromIndex,
+        getMovableAdjacentTileIndices: PuzzleGridTiles.getMovableAdjacentTileIndices
     });
 
-    console.log(puzzle);
-
-    const { isSolved } = puzzle;
 
     if (isSolved) {
         console.log(isSolved);
@@ -32,6 +21,7 @@ function handleTileClick({
 
 
     return {
+        playerSolution,
         movableTileIndices
     };
 }
