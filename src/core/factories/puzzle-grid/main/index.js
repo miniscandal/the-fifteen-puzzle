@@ -1,30 +1,18 @@
-async function PuzzleGridFactory({ puzzleId, solution, loadPuzzleById }) {
-    let solved = false;
-    let movableTileIndices = [];
-
-    const { puzzle } = await loadPuzzleById({ id: puzzleId });
-
-    const permutation = puzzle.permutation;
-
-    const properties = () => {
-
-        return {
-            id: puzzleId,
-            permutation,
-            solution,
-            solved,
-            movableTileIndices
-        };
-    };
+async function PuzzleGridFactory({
+    id,
+    targetSolution,
+    playerSolution,
+    loadPuzzleById,
+    createPuzzleState
+}) {
+    const { puzzle } = await loadPuzzleById({ id });
 
 
-    return {
-        get id() { return puzzleId; },
-        get movableTileIndices() { return movableTileIndices; },
-        set movableTileIndices(tiles) { movableTileIndices = tiles; },
-        get permutation() { return permutation; },
-        properties
-    };
+    return createPuzzleState({
+        targetSolution,
+        playerSolution,
+        ...puzzle
+    });
 }
 
 export { PuzzleGridFactory };
