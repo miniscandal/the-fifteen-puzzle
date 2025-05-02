@@ -39,12 +39,6 @@
     height: 80px;
 }
 
-.icon-button[data-name=code-bracket-square] {
-    div::after {
-        content: url('@assets-icons/vectors/code-bracket-square.svg');
-    }
-}
-
 .icon-button[data-name=sun] {
     div::after {
         content: url('@assets-icons/vectors/sun.svg');
