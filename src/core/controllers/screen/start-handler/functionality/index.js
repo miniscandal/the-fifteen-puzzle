@@ -14,7 +14,8 @@ function uiStartFunctionality({
     domActions,
     setupGamePlay
 }) {
-    const { DomScreenSetupController, ScreenController, PrefersColorSchemeController } = coreControllers;
+    const { ScreenController, PrefersColorSchemeController } = coreControllers;
+    const { DomScreenSetupController } = domActions;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 

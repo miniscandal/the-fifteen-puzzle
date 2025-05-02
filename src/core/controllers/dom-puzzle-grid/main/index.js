@@ -20,14 +20,14 @@ const DomPuzzleGrid = {
         });
     },
 
-    swapDataTiles: (currentTile, emptyTile) => {
-        const { row: currentRow, column: currentColumn, index: currentIndex } = currentTile.dataset;
+    swapDataTiles: ({ selectedTile, emptyTile }) => {
+        const { row: currentRow, column: currentColumn, index: currentIndex } = selectedTile.dataset;
         const { row: emptyRow, column: emptyColumn, index: emptyIndex } = emptyTile.dataset;
 
-        currentTile.style.gridRow = emptyRow;
-        currentTile.style.gridColumn = emptyColumn;
-        currentTile.dataset.row = emptyRow;
-        currentTile.dataset.column = emptyColumn;
+        selectedTile.style.gridRow = emptyRow;
+        selectedTile.style.gridColumn = emptyColumn;
+        selectedTile.dataset.row = emptyRow;
+        selectedTile.dataset.column = emptyColumn;
 
         emptyTile.style.gridRow = currentRow;
         emptyTile.style.gridColumn = currentColumn;
@@ -35,7 +35,7 @@ const DomPuzzleGrid = {
         emptyTile.dataset.column = currentColumn;
 
         emptyTile.dataset.index = currentIndex;
-        currentTile.dataset.index = emptyIndex;
+        selectedTile.dataset.index = emptyIndex;
     },
 
     updateSelectableTiles: ({ tiles, queryFn }) => {
@@ -56,7 +56,9 @@ const DomPuzzleGrid = {
 
         selectedPuzzle.classList.add('selected');
         previousSelectedPuzzle?.classList.remove('selected');
-    }
+    },
+
+    enabledButtonPlay: ({ button }) => button.classList.add('enabled')
 };
 
 export { DomPuzzleGrid };

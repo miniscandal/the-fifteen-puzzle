@@ -15,8 +15,11 @@ function uiPracticeFunctionality({
     coreState,
     domActions,
 }) {
-    const { DomScreenSetupController, ScreenController, PrefersColorSchemeController } = coreControllers;
-    const { DomPuzzleGrid: { setSelectedPuzzleGridStyle } } = domActions;
+    const { ScreenController, PrefersColorSchemeController } = coreControllers;
+    const {
+        DomScreenSetupController,
+        DomPuzzleGrid: { setSelectedPuzzleGridStyle, enabledButtonPlay }
+    } = domActions;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
 
@@ -35,29 +38,11 @@ function uiPracticeFunctionality({
 
         // puzzleGrid.dataset.puzzleId
 
-        document.getElementById(BTN_PLAY_SCREEN_ID).classList.add('enabled');
+        enabledButtonPlay({ button: document.getElementById(BTN_PLAY_SCREEN_ID) });
     });
 
-
-    // addEventListenerSelectScreenMode({
-    //     getElement: domElementButtonSelectPlayScreen,
-    //     updateScreenMode: () => {
-    //         const { id: puzzleId } = PuzzleGridController.puzzle;
-
-    //         if (!puzzleId) {
-    //             return;
-    //         }
-
-    //         DomScreenSetupController.setup(ScreenController.transitionTo({
-    //             screenId: SCREEN_ID_PLAY,
-    //             coreControllers,
-    //             gameModeFunctionality: () => { return { puzzleId }; }
-    //         }));
-    //     }
-    // });
-
-
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
+
 
         DomScreenSetupController.setup(ScreenController.transitionTo({
             screenId: SCREEN_ID_PLAY,

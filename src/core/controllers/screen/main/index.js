@@ -15,12 +15,13 @@ import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
  * 
  * goToScreen
  * 
- * coreObjects - Object containing the required dependencies.
- * coreObjects.screenId - ID of the target screen.
- * coreObjects.coreControllers - Main application controllers.
- * coreObjects.coreFactories - Factory methods for creating instances.
- * coreObjects.domActions - Functions to manipulate the DOM.
- * coreObjects.coreState - Global application state.
+ * coreObjects - Object containing the required dependencies
+ * 
+ * coreObjects.screenId - ID of the target screen
+ * coreObjects.coreControllers - Main application controllers
+ * coreObjects.coreFactories - Factory methods for creating instances
+ * coreObjects.coreState - Global application state
+ * coreObjects.domActions - Functions to manipulate the DOM
  * 
  */
 
@@ -28,13 +29,14 @@ import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
  * 
  * goToGamePlayScreen
  * 
- * coreObjects - Object containing the required dependencies.
- * coreObjects.screenId - ID of the gameplay screen.
- * coreObjects.coreControllers - Main application controllers.
- * coreObjects.coreFactories - Factory methods for creating instances.
- * } coreObjects.setupGamePlay - Function to set up gameplay logic.
- * coreObjects.domActions - Functions to manipulate the DOM.
- * coreObjects.coreState - Global application state.
+ * coreObjects - Object containing the required dependencies
+ * 
+ * coreObjects.screenId - ID of the gameplay screen
+ * coreObjects.coreControllers - Main application controllers
+ * coreObjects.coreFactories - Factory methods for creating instances
+ * coreObjects.setupGamePlay - Function to set up gameplay logic
+ * coreObjects.coreState - Global application state
+ * coreObjects.domActions - Functions to manipulate the DOM
  * 
  */
 

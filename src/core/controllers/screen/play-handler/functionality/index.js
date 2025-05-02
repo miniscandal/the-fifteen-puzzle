@@ -11,7 +11,6 @@ import { domElementPlayEnabledTiles } from '@shared-dom-elements/data-attributes
 import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
 import { PUZZLE_HELPER_GAME_ID, } from '@shared-constants/dom-element-identifiers';
-import { CONFIG_PUZZLE_GRID_MAX_TILES } from '@shared-constants/config-puzzle-grid';
 
 import { DATA_ATTR_INDEX_TILE } from '@shared-constants/dom-element-data-attributes';
 import { DATA_ATTR_MOVE_DIRECTION } from '@shared-constants/dom-element-data-attributes';
@@ -24,23 +23,11 @@ function uiPlayFunctionality({
     coreFactories,
     coreState,
     domActions,
-    puzzle,
     handlePuzzleSolved
 }) {
-    const {
-        PuzzleGridController: {
-            handleTileClick,
-            generateSolvedPuzzleState,
-            swapTileIndices,
-            getTilesMovableToEmpty,
-            getGridPositionFromIndex,
-            getMovableAdjacentTileIndices
-        },
-        DomScreenSetupController,
-        ScreenController,
-        PrefersColorSchemeController
-    } = coreControllers;
-
+    const { PuzzleGridTiles, ScreenController, PrefersColorSchemeController } = coreControllers;
+    const { DomScreenSetupController } = domActions;
+    const { PuzzleState } = coreState;
     const {
         DomPuzzleGrid: {
             replaceElementContent,
@@ -50,17 +37,20 @@ function uiPlayFunctionality({
             validateSelectableTile
         }
     } = domActions;
+    const parser = new DOMParser();
+    const puzzle = PuzzleState.properties();
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
-
-    const parser = new DOMParser();
 
     replaceElementContent({
         container: document.getElementById(PUZZLE_GAME_ID),
         htmlString: PuzzleGrid({
             size: 'medium',
             gameActive: true,
-            puzzle
+            puzzle: {
+                ...puzzle,
+                solution: puzzle.playerSolution
+            }
         }),
         parser
     });
@@ -71,7 +61,7 @@ function uiPlayFunctionality({
             size: 'small',
             puzzle: {
                 ...puzzle,
-                solution: generateSolvedPuzzleState(CONFIG_PUZZLE_GRID_MAX_TILES)
+                solution: puzzle.targetSolution
             }
         }),
         parser
@@ -88,28 +78,31 @@ function uiPlayFunctionality({
 
         const emptyTile = domElementEmptyTile();
 
+        swapDataTiles({ selectedTile, emptyTile });
+
         resetSelectableTiles({
             tiles: domElementPlayEnabledTiles(),
             dataAttrPlayEnabled: DATA_ATTR_PLAY_ENABLED,
             dataAttrMoveDirection: DATA_ATTR_MOVE_DIRECTION
         });
 
-        swapDataTiles(selectedTile, emptyTile);
-
-        const { movableTileIndices } = handleTileClick({
+        const { playerSolution, movableTileIndices } = PuzzleGridTiles.handleTileClick({
+            PuzzleState,
+            PuzzleGridTiles,
             selectedTile,
-            emptyTileIndex: Number(emptyTile.dataset.index),
-            puzzle,
-            swapTileIndices: swapTileIndices,
-            getTilesMovableToEmpty: getTilesMovableToEmpty,
-            getGridPositionFromIndex: getGridPositionFromIndex,
-            getMovableAdjacentTileIndices: getMovableAdjacentTileIndices
+            emptyTile
         });
+
+        PuzzleState.playerSolution = playerSolution;
+        PuzzleState.movableTileIndices = movableTileIndices;
 
         updateSelectableTiles({
             tiles: movableTileIndices,
             queryFn: (index) => document.querySelector(DATA_ATTR_INDEX_TILE(index))
         });
+
+        console.log(PuzzleState);
+
 
         handlePuzzleSolved();
     });

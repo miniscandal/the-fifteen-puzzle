@@ -18,7 +18,7 @@ function startHandler({ coreControllers, coreFactories, coreState, domActions })
 
         return {
             puzzleId: PuzzleSequenceController.goToNextPuzzleIdSequence(null),
-            handlePuzzleSolved: () => console.log('solved')
+            handlePuzzleSolved: () => { }
         };
     };
 
