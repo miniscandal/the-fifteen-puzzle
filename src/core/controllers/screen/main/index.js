@@ -12,33 +12,53 @@ import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
 
 
 /**
+ * ScreenController
  * 
- * goToScreen
+ * Central controller that manages screen navigation and state transitions in the application.
+ * It uses controllers, factories, state objects, and DOM actions to initialize and switch screens.
  * 
- * coreObjects - Object containing the required dependencies
+ * Methods:
  * 
- * coreObjects.screenId - ID of the target screen
- * coreObjects.coreControllers - Main application controllers
- * coreObjects.coreFactories - Factory methods for creating instances
- * coreObjects.coreState - Global application state
- * coreObjects.domActions - Functions to manipulate the DOM
+ * - goToScreen(coreObjects): Renders a specific screen using the provided controllers and state.
+ * - goToGamePlayScreen(coreObjects): Same as goToScreen, but intended for gameplay-specific screens.
+ * - updateScreenState: Function to update the current screen state.
+ * - getPreviousScreen(history): Returns the previous screen ID from the navigation history.
+ * - resetHistory(screenId): Resets the navigation history starting from the given screen ID.
  * 
+ * Expected structure of coreObjects for goToScreen and goToGamePlayScreen:
+ * 
+ * coreObjects: {
+ *   screenId: string; // ID of the target screen
+ * 
+ *   coreControllers: {
+ *     PuzzleGridState: Controller;              // Manages puzzle grid state
+ *     PuzzleGridShuffling: Controller;          // Handles puzzle shuffling logic
+ *     PuzzleGridTiles: Controller;              // Manages puzzle tile behaviors
+ *     ScreenController: Controller;             // Screen management controller (this object)
+ *     PuzzleSequenceController: Controller;     // Controls puzzle sequences/progress
+ *     PrefersColorSchemeController: Controller; // Applies system color scheme preference
+ *   };
+ * 
+ *   coreFactories: {
+ *     PuzzleGridFactory: FactoryFunction; // Responsible for creating puzzle grid instances
+ *   };
+ * 
+ *   coreState: {
+ *     ScreenState: State;          // Current screen state
+ *     GameModeState: State;        // Current game mode (e.g., practice, challenge)
+ *     createPuzzleState: Function; // Generates individual puzzle state instances
+ *   };
+ * 
+ *   domActions: {
+ *     DomPuzzleGrid: DOMController;             // Renders and updates the puzzle grid in the DOM
+ *     DomScreenSetupController: DOMController;  // Sets up initial screen DOM and events
+ *     DomScreenManagement: DOMController;       // Manages DOM behavior for screen transitions
+ *   };
+ * 
+ *   setupGamePlay?: Function; // (optional) Initializes gameplay-specific logic and state
+ * }
  */
 
-/**
- * 
- * goToGamePlayScreen
- * 
- * coreObjects - Object containing the required dependencies
- * 
- * coreObjects.screenId - ID of the gameplay screen
- * coreObjects.coreControllers - Main application controllers
- * coreObjects.coreFactories - Factory methods for creating instances
- * coreObjects.setupGamePlay - Function to set up gameplay logic
- * coreObjects.coreState - Global application state
- * coreObjects.domActions - Functions to manipulate the DOM
- * 
- */
 
 
 const ScreenController = {
@@ -55,7 +75,11 @@ const ScreenController = {
     },
     updateScreenState,
     getPreviousScreen: (history) => (history.pop(), history.pop()),
-    resetHistory: (history) => history.slice(-1),
+    resetHistory: (screenId) => ({
+        previousId: null,
+        currentId: screenId,
+        history: [screenId]
+    }),
 };
 
 export { ScreenController };
