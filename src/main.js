@@ -16,6 +16,7 @@ import { createPuzzleState } from '@core-states/puzzle';
 
 import { DomPuzzleGrid } from '@core-controllers/dom-puzzle-grid/main';
 import { DomScreenSetupController } from '@core-controllers/screen-setup/main';
+import { DomScreenManagement } from '@core-controllers/dom-screen-management/main';
 
 import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 
@@ -42,6 +43,7 @@ DomScreenSetupController.setup(ScreenController.goToScreen({
     },
     domActions: {
         DomPuzzleGrid,
-        DomScreenSetupController
+        DomScreenSetupController,
+        DomScreenManagement
     }
 }));
