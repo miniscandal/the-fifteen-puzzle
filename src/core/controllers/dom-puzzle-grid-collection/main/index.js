@@ -1,5 +1,0 @@
-const DomPuzzleGridCollection = {
-
-};
-
-export { DomPuzzleGridCollection };
