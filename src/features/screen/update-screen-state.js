@@ -1,11 +1,12 @@
-function updateScreenState(screenHistory, screenId) {
-    const { currentId, history } = screenHistory;
+function updateScreenState({ state, history, screenId }) {
+    const { currentId } = state;
+    const updatedHistory = [...history, screenId];
 
 
     return {
         previousId: currentId,
         currentId: screenId,
-        history: history.push(screenId)
+        history: updatedHistory
     };
 }
 
