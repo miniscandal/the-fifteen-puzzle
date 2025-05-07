@@ -2,11 +2,26 @@ import { Play } from '@feat-screen-ui-play/components/pages';
 
 import { uiPlayFunctionality } from '../functionality';
 
+import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
+
 
 function playHandler({ coreControllers, coreFactories, coreState, domActions, setupGamePlay }) {
     const { puzzleId, handlePuzzleSolved } = setupGamePlay();
     const { PuzzleGridFactory } = coreFactories;
-    const { PuzzleGridState, PuzzleGridShuffling, PuzzleGridTiles } = coreControllers;
+    const { PuzzleGridState, PuzzleGridShuffling, PuzzleGridTiles, ScreenController } = coreControllers;
+
+
+    const { ScreenState } = coreState;
+
+    const newScreenState = ScreenController.updateScreenState({
+        state: ScreenState,
+        history: ScreenState.history,
+        screenId: SCREEN_ID_PLAY
+    });
+
+    coreState.ScreenState = newScreenState;
+
+    console.log('play', coreState.ScreenState);
 
 
     return {
