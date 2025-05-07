@@ -27,7 +27,7 @@ function uiPlayFunctionality({
 }) {
     const { PuzzleGridTiles, ScreenController, PrefersColorSchemeController } = coreControllers;
     const { DomScreenSetupController } = domActions;
-    const { PuzzleState } = coreState;
+    const { PuzzleState, ScreenState } = coreState;
     const {
         DomPuzzleGrid: {
             replaceElementContent,
@@ -109,10 +109,11 @@ function uiPlayFunctionality({
 
     domElementButtonSelectBackScreen()?.addEventListener('click', () => {
 
-        DomScreenSetupController.setup(ScreenController.transitionTo({
-            screenId: ScreenController.getLastVisitedScreen(),
+        DomScreenSetupController.setup(ScreenController.goToScreen({
+            screenId: ScreenState.previousId,
             coreControllers,
             coreFactories,
+            coreState,
             domActions
         }));
     });
