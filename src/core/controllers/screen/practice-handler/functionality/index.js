@@ -14,14 +14,17 @@ function uiPracticeFunctionality({
     coreFactories,
     coreState,
     domActions,
+    setupGamePlay
 }) {
     const { ScreenController, PrefersColorSchemeController } = coreControllers;
     const {
         DomScreenSetupController,
-        DomPuzzleGrid: { setSelectedPuzzleGridStyle, enabledButtonPlay }
+        DomScreenManagement: { setSelectedPuzzleGridStyle, enabledButtonPlay }
     } = domActions;
 
     configureColorSchemePreference(PrefersColorSchemeController.appearance);
+
+    let puzzleId = null;
 
     domElementButtonSelectPuzzleGridCollection().addEventListener('click', (event) => {
         const attribute = 'data-puzzle-id';
@@ -36,17 +39,21 @@ function uiPracticeFunctionality({
             previousSelectedPuzzle: document.querySelector(`[${attribute}][class~="selected"]`)
         });
 
-        // puzzleGrid.dataset.puzzleId
+        puzzleId = puzzleGrid.dataset.puzzleId;
 
-        enabledButtonPlay({ button: document.getElementById(BTN_PLAY_SCREEN_ID) });
+        enabledButtonPlay(document.getElementById(BTN_PLAY_SCREEN_ID));
     });
 
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
 
 
-        DomScreenSetupController.setup(ScreenController.transitionTo({
+        DomScreenSetupController.setup(ScreenController.goToGamePlayScreen({
             screenId: SCREEN_ID_PLAY,
-            coreControllers
+            coreControllers,
+            coreFactories,
+            coreState,
+            domActions,
+            setupGamePlay: () => setupGamePlay({ puzzleId })
         }));
     });
 
