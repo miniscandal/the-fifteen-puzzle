@@ -1,4 +1,4 @@
-import { PrefersColorSchemeController } from '@core-controllers/prefers-color-scheme/main';
+import { PrefersColorSchemeController } from '@core-controllers/prefers-color-scheme-controller';
 
 import { iconMoon } from '@shared-components/atoms/icon-button/variants';
 import { iconSun } from '@shared-components/atoms/icon-button/variants';
