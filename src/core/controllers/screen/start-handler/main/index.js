@@ -2,29 +2,17 @@ import { Start } from '@feat-screen-ui-start/components/pages/start';
 
 import { uiStartFunctionality } from '../functionality';
 
-import { SCREEN_ID_START } from '@shared-constants/screen-modes';
-
 
 function startHandler({ coreControllers, coreFactories, coreState, domActions }) {
-    const {
-        ScreenController,
-        PuzzleSequenceController
-    } = coreControllers;
-    const newScreenState = ScreenController.resetHistory(SCREEN_ID_START);
+    const { StartScreenController: {
+        resetInitialScreenState,
+        resetGameState,
+        setupGamePlay
+    } } = coreControllers;
 
-    coreState.ScreenState = { ...newScreenState };
+    resetInitialScreenState({ coreControllers, coreState });
 
-    const data = PuzzleSequenceController.reset();
-
-    console.log('data', data);
-
-    const setupGamePlay = ({ puzzleId }) => {
-
-        return {
-            puzzleId,
-            handlePuzzleSolved: () => { }
-        };
-    };
+    const { sequence, activePuzzleIndex } = resetGameState({ coreControllers, coreState });
 
 
     return {
@@ -34,9 +22,7 @@ function startHandler({ coreControllers, coreFactories, coreState, domActions })
             coreFactories,
             coreState,
             domActions,
-            setupGamePlay: () => setupGamePlay({
-                puzzleId: PuzzleSequenceController.goToNextPuzzleIdSequence(null)
-            })
+            setupGamePlay: () => setupGamePlay({ coreControllers, sequence, activePuzzleIndex })
         })
     };
 }
