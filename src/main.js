@@ -4,7 +4,9 @@ import { PuzzleGridTiles } from '@core-controllers/puzzle-grid-tiles/main';
 
 import { ScreenController } from '@core-controllers/screen/main';
 
-import { PuzzleSequenceController } from '@core-controllers/puzzle-sequence/main';
+import { GameModeSequentialPuzzlesController } from '@core-controllers/game-mode-sequential-puzzles/main';
+import { StartScreenController } from '@core-controllers/start-screen-controller';
+import { PracticeScreenController } from '@core-controllers/practice-screen-controller';
 
 import { PrefersColorSchemeController } from '@core-controllers/prefers-color-scheme/main';
 
@@ -13,6 +15,7 @@ import { PuzzleGridFactory } from '@core-factories/puzzle-grid/main';
 import { ScreenState } from '@core-states/screen';
 import { GameModeState } from '@core-states/game-mode';
 import { createPuzzleState } from '@core-states/puzzle';
+import { GameModeSequentialPuzzlesState } from '@core-states/game-mode-sequential-puzzles';
 
 import { DomPuzzleGrid } from '@core-controllers/dom-puzzle-grid/main';
 import { DomScreenSetupController } from '@core-controllers/screen-setup/main';
@@ -30,8 +33,10 @@ DomScreenSetupController.setup(ScreenController.goToScreen({
         PuzzleGridShuffling,
         PuzzleGridTiles,
         ScreenController,
-        PuzzleSequenceController,
+        GameModeSequentialPuzzlesController,
         PrefersColorSchemeController,
+        StartScreenController,
+        PracticeScreenController
     },
     coreFactories: {
         PuzzleGridFactory
@@ -39,6 +44,7 @@ DomScreenSetupController.setup(ScreenController.goToScreen({
     coreState: {
         ScreenState,
         GameModeState,
+        GameModeSequentialPuzzlesState,
         createPuzzleState
     },
     domActions: {
