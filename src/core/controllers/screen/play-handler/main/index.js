@@ -9,10 +9,7 @@ function playHandler({ coreControllers, coreFactories, coreState, domActions, se
     const { puzzleId, handlePuzzleSolved } = setupGamePlay();
     const { PuzzleGridFactory } = coreFactories;
     const { PuzzleGridState, PuzzleGridShuffling, PuzzleGridTiles, ScreenController } = coreControllers;
-
-
     const { ScreenState } = coreState;
-
     const newScreenState = ScreenController.updateScreenState({
         state: ScreenState,
         history: ScreenState.history,
@@ -21,14 +18,11 @@ function playHandler({ coreControllers, coreFactories, coreState, domActions, se
 
     coreState.ScreenState = newScreenState;
 
-    console.log('play', coreState.ScreenState);
-
 
     return {
         prepareHtmlStructure: () => Play(coreState),
         setupUiLogic: async () => {
             const { createPuzzleState } = coreState;
-
             const PuzzleState = await PuzzleGridState.initializePuzzleGridState({
                 PuzzleGridState,
                 PuzzleGridShuffling,
