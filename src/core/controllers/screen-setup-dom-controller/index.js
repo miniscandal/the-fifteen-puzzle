@@ -1,7 +1,7 @@
 import { DOM_ELEMENT_APP_ID } from '@shared-constants/dom-element-identifiers';
 
 
-const DomScreenSetupController = {
+const ScreenSetupDomController = {
     render(selector, html) {
         document.querySelector(selector).innerHTML = html;
     },
@@ -12,4 +12,4 @@ const DomScreenSetupController = {
     }
 };
 
-export { DomScreenSetupController };
+export { ScreenSetupDomController };

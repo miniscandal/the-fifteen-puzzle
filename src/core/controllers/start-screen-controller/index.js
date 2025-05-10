@@ -3,10 +3,9 @@ import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 
 const StartScreenController = {
     resetInitialScreenState: ({ coreControllers, coreState }) => {
-        const { ScreenController } = coreControllers;
-        const newScreenState = ScreenController.resetHistory(SCREEN_ID_START);
+        const { ScreenNavigatorController: { resetHistory } } = coreControllers;
 
-        coreState.ScreenState = { ...newScreenState };
+        coreState.ScreenState = { ...resetHistory(SCREEN_ID_START) };
     },
     resetGameState: ({ coreControllers, coreState }) => {
         const { GameModeSequentialPuzzlesController } = coreControllers;

@@ -1,4 +1,4 @@
-import { PrefersColorSchemeController } from '@core-controllers/prefers-color-scheme-controller';
+import { PrefersColorSchemeState } from '@core-states/prefers-color-scheme-state';
 
 import { iconMoon } from '@shared-components/atoms/icon-button/variants';
 import { iconSun } from '@shared-components/atoms/icon-button/variants';
@@ -10,7 +10,7 @@ const iconButtonColorTheme = {
     get iconButton() {
         return {
             id: COLOR_THEME_ID,
-            name: PrefersColorSchemeController.appearance.theme.current === LIGHT_THEME ? iconMoon : iconSun,
+            name: PrefersColorSchemeState.appearance.theme.current === LIGHT_THEME ? iconMoon : iconSun,
             size: 'small'
         };
     }

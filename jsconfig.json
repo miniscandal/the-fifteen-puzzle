@@ -11,6 +11,9 @@
             "@assets-textures/*": [
                 "assets/textures/*"
             ],
+            "@core-composes/*": [
+                "core/composes/*"
+            ],
             "@core-controllers/*": [
                 "core/controllers/*"
             ],
@@ -29,17 +32,20 @@
             "@feat-puzzle-grid/*": [
                 "features/puzzle-grid/*"
             ],
-            "@feat-screen/*": [
-                "features/screen/*"
+            "@feat-screen-navigator/*": [
+                "features/screen-navigator/*"
             ],
-            "@feat-screen-ui-play/*": [
-                "features/screen-ui-play/*"
+            "@feat-setup-screen-ui-features/*": [
+                "features/setup-screen-ui-features/*"
             ],
-            "@feat-screen-ui-practice/*": [
-                "features/screen-ui-practice/*"
+            "@feat-atomic-design-start-screen/*": [
+                "features/atomic-design-features/start-screen/*"
             ],
-            "@feat-screen-ui-start/*": [
-                "features/screen-ui-start/*"
+            "@feat-atomic-design-practice-screen/*": [
+                "features/atomic-design-features/practice-screen/*"
+            ],
+            "@feat-atomic-design-play-screen/*": [
+                "features/atomic-design-features/play-screen/*"
             ],
             "@shared-components/*": [
                 "shared/components/*"

@@ -1,4 +1,4 @@
-const DomScreenManagement = {
+const ScreenManagementDomController = {
     enabledButtonPlay: (button) => button.classList.add('enabled'),
 
     setSelectedPuzzleGridStyle: ({ selectedPuzzle, previousSelectedPuzzle }) => {
@@ -13,4 +13,4 @@ const DomScreenManagement = {
 };
 
 
-export { DomScreenManagement };
+export { ScreenManagementDomController };

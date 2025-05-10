@@ -1,4 +1,4 @@
-const DomPuzzleGrid = {
+const PuzzleGridDomController = {
     replaceElementContent: ({ container, htmlString, domParser = new DOMParser() }) => {
         const documentFragment = domParser.parseFromString(htmlString, 'text/html');
         const newChild = documentFragment.body.firstElementChild;
@@ -49,4 +49,4 @@ const DomPuzzleGrid = {
     }
 };
 
-export { DomPuzzleGrid };
+export { PuzzleGridDomController };

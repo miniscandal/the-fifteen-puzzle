@@ -4,7 +4,7 @@ import { SCREEN_ID_PRACTICE } from '@shared-constants/screen-modes';
 const PracticeScreenController = {
     resetInitialScreenState: ({ coreControllers, coreState }) => {
         const { ScreenState } = coreState;
-        const newScreenState = coreControllers.ScreenController.updateScreenState({
+        const newScreenState = coreControllers.ScreenNavigatorController.updateScreenState({
             state: ScreenState,
             history: ScreenState.history,
             screenId: SCREEN_ID_PRACTICE

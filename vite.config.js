@@ -7,6 +7,7 @@ export default defineConfig({
             '@assets-images': '/src/assets/images',
             '@assets-textures': '/src/assets/textures',
 
+            '@core-composes': '/src/core/composes',
             '@core-controllers': '/src/core/controllers',
             '@core-factories': '/src/core/factories',
             '@core-states': '/src/core/states',
@@ -14,11 +15,13 @@ export default defineConfig({
             '@feat-game-mode': '/src/features/game-mode',
             '@feat-prefers-color-scheme': '/src/features/prefers-color-scheme',
             '@feat-puzzle-grid': '/src/features/puzzle-grid',
-            '@feat-screen': '/src/features/screen',
+            '@feat-screen-navigator': '/src/features/screen-navigator',
 
-            '@feat-screen-ui-play': '/src/features/screen-ui-play',
-            '@feat-screen-ui-practice': '/src/features/screen-ui-practice',
-            '@feat-screen-ui-start': '/src/features/screen-ui-start',
+            '@feat-setup-screen-ui-features': '/src/features/setup-screen-ui-features',
+
+            '@feat-atomic-design-start-screen': '/src/features/atomic-design-features/start-screen',
+            '@feat-atomic-design-practice-screen': '/src/features/atomic-design-features/practice-screen',
+            '@feat-atomic-design-play-screen': '/src/features/atomic-design-features/play-screen',
 
             '@shared-components': '/src/shared/components',
             '@shared-constants': '/src/shared/constants',
