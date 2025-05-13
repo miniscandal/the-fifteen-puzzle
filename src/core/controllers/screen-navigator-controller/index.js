@@ -4,7 +4,7 @@ import { composePlayScreen } from '@core-composes/screen-composes/compose-play-s
 
 import { goToScreen } from '@feat-screen-navigator/go-to-screen';
 import { goToGamePlayScreen } from '@feat-screen-navigator/go-to-game-play-screen';
-import { updateScreenState } from '@feat-screen-navigator/update-screen-state';
+import { pushScreenState } from '@feat-screen-navigator/update-screen-state';
 
 import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 import { SCREEN_ID_PRACTICE } from '@shared-constants/screen-modes';
@@ -21,13 +21,13 @@ import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
  * 
  * - goToScreen(coreObjects): Renders a specific screen using the provided controllers and state.
  * - goToGamePlayScreen(coreObjects): Same as goToScreen, but intended for gameplay-specific screens.
- * - updateScreenState: Function to update the current screen state.
+ * - pushScreenState: Function to update the current screen state.
  * - getPreviousScreen(history): Returns the previous screen ID from the navigation history.
  * - resetHistory(screenId): Resets the navigation history starting from the given screen ID.
  * 
  * Expected structure of coreObjects for goToScreen and goToGamePlayScreen:
  * 
- * coreObjects: {
+ * coreObjs: {
  *   screenId: string; // ID of the target screen
  * 
  *   coreControllers: {
@@ -44,7 +44,7 @@ import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
  *   };
  * 
  *   coreState: {
- *     ScreenState: State;          // Current screen state
+ *     currentState: State;          // Current screen state
  *     GameModeState: State;        // Current game mode (e.g., practice, challenge)
  *     createPuzzleState: Function; // Generates individual puzzle state instances
  *   };
@@ -73,12 +73,23 @@ const ScreenNavigatorController = {
     goToGamePlayScreen(coreObjects) {
         return goToGamePlayScreen({ ...coreObjects, screenHandlers: this.screenHandlers });
     },
-    updateScreenState,
+    pushScreenState,
+    backScreenState: ({ state }) => {
+        const { previousId, history } = state;
+        history.pop();
+        history.pop();
+
+
+        return {
+            currentId: previousId,
+            history
+        };
+    },
     getPreviousScreen: (history) => (history.pop(), history.pop()),
-    resetHistory: (screenId) => ({
+    resetHistory: () => ({
         previousId: null,
-        currentId: screenId,
-        history: [screenId]
+        currentId: SCREEN_ID_START,
+        history: [SCREEN_ID_START]
     }),
 };
 
