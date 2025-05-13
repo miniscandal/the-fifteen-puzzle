@@ -1,6 +1,6 @@
-import { Play } from '@feat-atomic-design-play-screen/components/pages';
+import { Play } from '@feat-atomic-design-play-screen/components/pages/play';
 
-import { setupPlayScreenUiFeature } from '@feat-setup-screen-ui-features/setup-play-screen-ui-feature';
+import { setupPlayScreenUiFeature } from '@feat-setup-screen-ui-features/setup-play-screen-ui';
 
 import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
 
@@ -10,7 +10,7 @@ function composePlayScreen({ coreControllers, coreFactories, coreState, domActio
     const { PuzzleGridFactory } = coreFactories;
     const { PuzzleGridState, PuzzleGridShuffling, PuzzleGridTiles, ScreenNavigatorController } = coreControllers;
     const { ScreenState } = coreState;
-    const newScreenState = ScreenNavigatorController.updateScreenState({
+    const newScreenState = ScreenNavigatorController.pushScreenState({
         state: ScreenState,
         history: ScreenState.history,
         screenId: SCREEN_ID_PLAY
