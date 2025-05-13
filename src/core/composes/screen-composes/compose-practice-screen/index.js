@@ -1,13 +1,10 @@
 import { Practice } from '@feat-atomic-design-practice-screen/components/pages/practice';
 
-import { setupPracticeScreenUiFunctionality } from '@feat-setup-screen-ui-features/setup-practice-screen-ui-feature';
+import { setupPracticeScreenUiFunctionality } from '@feat-setup-screen-ui-features/setup-practice-screen-ui';
 
 
 function composePracticeScreen({ coreControllers, coreFactories, coreState, domActions }) {
-    const { PracticeScreenController: {
-        resetInitialScreenState,
-        setupGamePlay
-    } } = coreControllers;
+    const { PracticeScreenController: { resetInitialScreenState, setupGamePlay } } = coreControllers;
 
     resetInitialScreenState({ coreControllers, coreState });
 
