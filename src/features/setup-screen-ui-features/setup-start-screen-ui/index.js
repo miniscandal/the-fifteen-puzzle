@@ -1,5 +1,3 @@
-import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
-
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/buttons';
 
@@ -15,10 +13,7 @@ function setupStartScreenUiFunctionality({
     setupGamePlay
 }) {
     const { ScreenNavigatorController } = coreControllers;
-    const { PrefersColorSchemeState } = coreState;
     const { ScreenSetupDomController } = domActions;
-
-    configureColorSchemePreference(PrefersColorSchemeState.appearance);
 
     domElementButtonSelectPlayScreen().addEventListener('click', () => {
 

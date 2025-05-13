@@ -1,5 +1,3 @@
-import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
-
 import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectPuzzleGridCollection } from '@shared-dom-elements/buttons';
 import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
@@ -17,13 +15,10 @@ function setupPracticeScreenUiFunctionality({
     setupGamePlay
 }) {
     const { ScreenNavigatorController } = coreControllers;
-    const { PrefersColorSchemeState } = coreState;
     const {
         ScreenSetupDomController,
         ScreenManagementDomController: { setSelectedPuzzleGridStyle, enabledButtonPlay }
     } = domActions;
-
-    configureColorSchemePreference(PrefersColorSchemeState.appearance);
 
     let puzzleId = null;
 

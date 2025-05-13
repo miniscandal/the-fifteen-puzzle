@@ -1,5 +1,3 @@
-import { configureColorSchemePreference } from '@feat-prefers-color-scheme/configure-color-scheme-preference';
-
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
 import { domElementButtonSelectBackScreen } from '@shared-dom-elements/buttons';
@@ -26,7 +24,7 @@ function setupPlayScreenUiFeature({
     handlePuzzleSolved
 }) {
     const { PuzzleGridTiles, ScreenNavigatorController } = coreControllers;
-    const { PrefersColorSchemeState, PuzzleState, ScreenState } = coreState;
+    const { PuzzleState, ScreenState } = coreState;
     const {
         ScreenSetupDomController,
         PuzzleGridDomController: {
@@ -39,8 +37,6 @@ function setupPlayScreenUiFeature({
     } = domActions;
     const parser = new DOMParser();
     const puzzle = PuzzleState.properties();
-
-    configureColorSchemePreference(PrefersColorSchemeState.appearance);
 
     replaceElementContent({
         container: document.getElementById(PUZZLE_GAME_ID),

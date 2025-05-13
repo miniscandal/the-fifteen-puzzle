@@ -12,10 +12,9 @@ const PUZZLE_GAME_ID = 'puzzle-game';
 const PUZZLE_HELPER_GAME_ID = 'puzzle-helper-game';
 const PUZZLE_GRID_COLLECTION_ID = 'puzzle-grid-collection';
 const PUZZLE_GRID = 'puzzle-grid';
-const BODY = 'body';
-
 
 export {
+    COLOR_THEME_ID,
     DOM_ELEMENT_APP_ID,
     BTN_START_SCREEN_ID,
     BTN_BACK_SCREEN_ID,
@@ -23,10 +22,8 @@ export {
     BTN_PRACTICE_SCREEN_ID,
     BTN_HELP_SCREEN_ID,
     BTN_SETTINGS_SCREEN_ID,
-    COLOR_THEME_ID,
     PUZZLE_GAME_ID,
     PUZZLE_HELPER_GAME_ID,
     PUZZLE_GRID_COLLECTION_ID,
-    PUZZLE_GRID,
-    BODY
+    PUZZLE_GRID
 };
