@@ -1,6 +1,6 @@
 import { Start } from '@feat-atomic-design-start-screen/components/pages/start';
 
-import { setupStartScreenUiFunctionality } from '@feat-setup-screen-ui-features/setup-start-screen-ui-feature';
+import { setupStartScreenUiFunctionality } from '@feat-setup-screen-ui-features/setup-start-screen-ui';
 
 
 function composeStartScreen({ coreControllers, coreFactories, coreState, domActions }) {
