@@ -1,4 +1,4 @@
-function updateScreenState({ state, history, screenId }) {
+function pushScreenState({ state, history, screenId }) {
     const { currentId } = state;
     const updatedHistory = [...history, screenId];
 
@@ -10,4 +10,4 @@ function updateScreenState({ state, history, screenId }) {
     };
 }
 
-export { updateScreenState };
+export { pushScreenState };
