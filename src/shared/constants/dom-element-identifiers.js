@@ -6,6 +6,7 @@ const BTN_PLAY_SCREEN_ID = 'play-screen-btn';
 const BTN_PRACTICE_SCREEN_ID = 'practice-screen-btn';
 const BTN_HELP_SCREEN_ID = 'help-screen-btn';
 const BTN_SETTINGS_SCREEN_ID = 'settings-screen-btn';
+const BTN_THEME_TOGGLE_ID = 'theme';
 
 const COLOR_THEME_ID = 'theme';
 const PUZZLE_GAME_ID = 'puzzle-game';
@@ -22,6 +23,7 @@ export {
     BTN_PRACTICE_SCREEN_ID,
     BTN_HELP_SCREEN_ID,
     BTN_SETTINGS_SCREEN_ID,
+    BTN_THEME_TOGGLE_ID,
     PUZZLE_GAME_ID,
     PUZZLE_HELPER_GAME_ID,
     PUZZLE_GRID_COLLECTION_ID,

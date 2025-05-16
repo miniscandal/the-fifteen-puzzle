@@ -2,6 +2,8 @@ import { Start } from '@feat-atomic-design-start-screen/components/pages/start';
 
 import { setupStartScreenUiFunctionality } from '@feat-setup-screen-ui-features/setup-start-screen-ui';
 
+import { domElementButtonSelectThemeToggle } from '@shared-dom-elements/buttons';
+
 
 function composeStartScreen({ coreControllers, coreFactories, coreState, domActions }) {
     const { StartScreenController: {
@@ -9,21 +11,28 @@ function composeStartScreen({ coreControllers, coreFactories, coreState, domActi
         resetGameState,
         setupGamePlay
     } } = coreControllers;
+    const { ScreenManagementDomController } = domActions;
+    const { sequence, activePuzzleIndex } = resetGameState({ coreControllers, coreState });
 
     resetInitialScreenState({ coreControllers, coreState });
 
-    const { sequence, activePuzzleIndex } = resetGameState({ coreControllers, coreState });
-
 
     return {
-        prepareHtmlStructure: Start,
-        setupUiLogic: () => setupStartScreenUiFunctionality({
-            coreControllers,
-            coreFactories,
-            coreState,
-            domActions,
-            setupGamePlay: () => setupGamePlay({ coreControllers, sequence, activePuzzleIndex })
-        })
+        prepareHtmlStructure: () => Start(coreState),
+        setupUiLogic: () => {
+            setupStartScreenUiFunctionality({
+                coreControllers,
+                coreFactories,
+                coreState,
+                domActions,
+                setupGamePlay: () => setupGamePlay({ coreControllers, sequence, activePuzzleIndex })
+            });
+
+            domElementButtonSelectThemeToggle().addEventListener.addEventListener('click', () => {
+
+                ScreenManagementDomController.toggleThemeListener({ coreState });
+            });
+        }
     };
 }
 

@@ -1,1 +1,27 @@
+.icon-button-color-theme {
 
+    input {
+        display: none;
+    }
+}
+
+.icon-button-color-theme[data-size=small] {
+    width: 35px;
+    height: 35px;
+}
+
+.icon-button-color-theme {
+
+    > div::after {
+        content: url('@assets-icons/vectors/sun.svg');
+        filter: drop-shadow(3px 3px 6px var(--color-cinnamon));
+    }
+
+    &:has(input:checked) {
+
+        div::after {
+            content: url('@assets-icons/vectors/moon.svg');
+            filter: drop-shadow(3px 3px 6px var(--color-slate));
+        }
+    }
+}

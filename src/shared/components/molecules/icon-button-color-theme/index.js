@@ -1,18 +1,19 @@
-import { IconButton } from '@shared-components/atoms/icon-button';
-
-import { iconButtonColorTheme } from './variant';
+import { DARK_THEME } from '@shared-constants/color-themes';
 
 import './style.css';
 
 
-function IconButtonColorTheme() {
-    const iconButton = IconButton(iconButtonColorTheme.iconButton);
+function IconButtonColorTheme({ coreState }) {
+    const { UserPreferencesState: { appearance: { colorTheme } } } = coreState;
+    const checked = colorTheme === DARK_THEME ? true : false;
 
     return (
         `
-        <div>
-            ${iconButton}
-        </div>
+        <label class="icon-button-color-theme" data-size="small">
+            <div>
+                <input id="theme" type="checkbox" ${checked ? 'checked' : ''} />
+            </div>
+        </label>
         `
     );
 }

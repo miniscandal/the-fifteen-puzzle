@@ -7,7 +7,7 @@ import { MainMenu } from '@feat-atomic-design-start-screen/components/organisms/
 import './style.css';
 
 
-function Start() {
+function Start(coreState) {
     const titleH1 = TitleH1({ text: 'the fifteen puzzle' });
     const artwork = Artwork();
     const mainMenu = MainMenu();
@@ -25,7 +25,8 @@ function Start() {
 
     return ScreenMode({
         children,
-        enablePrimarySideBar: false
+        enablePrimarySideBar: false,
+        coreState
     });
 }
 export { Start };

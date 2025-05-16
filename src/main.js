@@ -15,7 +15,7 @@ import { PuzzleGridFactory } from '@core-factories/puzzle-grid-factory';
 import { ScreenState } from '@core-states/screen-state';
 import { GameModeState } from '@core-states/game-mode-state';
 import { GameModeSequentialPuzzlesState } from '@core-states/game-mode-sequential-puzzles-state';
-import { PrefersColorSchemeState } from '@core-states/prefers-color-scheme-state';
+import { UserPreferencesState } from '@core-states/user-preferences-state';
 
 import { createPuzzleState } from '@core-states/puzzle-state';
 
@@ -42,7 +42,7 @@ ScreenSetupDomController.setup(ScreenNavigatorController.goToScreen({
         ScreenState,
         GameModeState,
         GameModeSequentialPuzzlesState,
-        PrefersColorSchemeState,
+        UserPreferencesState,
         createPuzzleState
     },
     domActions: {

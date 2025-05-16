@@ -68,14 +68,17 @@ const ScreenNavigatorController = {
         [SCREEN_ID_PLAY]: composePlayScreen,
     },
     goToScreen(coreObjects) {
+
         return goToScreen({ ...coreObjects, screenHandlers: this.screenHandlers });
     },
     goToGamePlayScreen(coreObjects) {
+
         return goToGamePlayScreen({ ...coreObjects, screenHandlers: this.screenHandlers });
     },
     pushScreenState,
     backScreenState: ({ state }) => {
         const { previousId, history } = state;
+
         history.pop();
         history.pop();
 

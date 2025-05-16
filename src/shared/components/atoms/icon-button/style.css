@@ -38,17 +38,3 @@
     width: 80px;
     height: 80px;
 }
-
-.icon-button[data-name=sun] {
-    div::after {
-        content: url('@assets-icons/vectors/sun.svg');
-        filter: drop-shadow(3px 3px 6px var(--color-cinnamon));
-    }
-}
-
-.icon-button[data-name=moon] {
-    div::after {
-        content: url('@assets-icons/vectors/moon.svg');
-        filter: drop-shadow(3px 3px 6px var(--color-slate));
-    }
-}

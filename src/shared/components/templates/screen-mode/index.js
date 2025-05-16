@@ -10,7 +10,7 @@ function ScreenMode({
     coreState
 }) {
     const primarySideBar = enablePrimarySideBar ? PrimarySideBar({ coreState }) : '';
-    const iconButtonAppearanceTheme = IconButtonColorTheme();
+    const iconButtonAppearanceTheme = IconButtonColorTheme({ coreState });
 
 
     return (

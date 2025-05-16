@@ -2,12 +2,15 @@ import { Play } from '@feat-atomic-design-play-screen/components/pages/play';
 
 import { setupPlayScreenUiFeature } from '@feat-setup-screen-ui-features/setup-play-screen-ui';
 
+import { domElementButtonSelectThemeToggle } from '@shared-dom-elements/buttons';
+
 import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
 
 
 function composePlayScreen({ coreControllers, coreFactories, coreState, domActions, setupGamePlay }) {
     const { puzzleId, handlePuzzleSolved } = setupGamePlay();
     const { PuzzleGridFactory } = coreFactories;
+    const { ScreenManagementDomController } = domActions;
     const { PuzzleGridState, PuzzleGridShuffling, PuzzleGridTiles, ScreenNavigatorController } = coreControllers;
     const { ScreenState } = coreState;
     const newScreenState = ScreenNavigatorController.pushScreenState({
@@ -30,6 +33,11 @@ function composePlayScreen({ coreControllers, coreFactories, coreState, domActio
                 PuzzleGridFactory,
                 createPuzzleState,
                 puzzleId
+            });
+
+            domElementButtonSelectThemeToggle().addEventListener.addEventListener('click', () => {
+
+                ScreenManagementDomController.toggleThemeListener({ coreState });
             });
 
 
