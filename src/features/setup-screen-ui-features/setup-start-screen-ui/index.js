@@ -1,6 +1,3 @@
-import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
-import { domElementButtonSelectPracticeScreen } from '@shared-dom-elements/buttons';
-
 import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
 import { SCREEN_ID_PRACTICE } from '@shared-constants/screen-modes';
 
@@ -10,12 +7,14 @@ function setupStartScreenUiFunctionality({
     coreFactories,
     coreState,
     domActions,
+    domElementAccessors,
     setupGamePlay
 }) {
     const { ScreenNavigatorController } = coreControllers;
     const { ScreenSetupDomController } = domActions;
+    const { ButtonsDomElementAccessors: { getPracticeScreenButton, getPlayScreenButton } } = domElementAccessors;
 
-    domElementButtonSelectPlayScreen().addEventListener('click', () => {
+    getPlayScreenButton().addEventListener('click', () => {
 
         ScreenSetupDomController.setup(ScreenNavigatorController.goToGamePlayScreen({
             screenId: SCREEN_ID_PLAY,
@@ -23,18 +22,20 @@ function setupStartScreenUiFunctionality({
             coreFactories,
             coreState,
             domActions,
+            domElementAccessors,
             setupGamePlay
         }));
     });
 
-    domElementButtonSelectPracticeScreen().addEventListener('click', () => {
+    getPracticeScreenButton().addEventListener('click', () => {
 
         ScreenSetupDomController.setup(ScreenNavigatorController.goToScreen({
             screenId: SCREEN_ID_PRACTICE,
             coreControllers,
             coreFactories,
             coreState,
-            domActions
+            domActions,
+            domElementAccessors
         }));
     });
 }

@@ -4,6 +4,7 @@ function goToGamePlayScreen({
     coreFactories,
     setupGamePlay,
     domActions,
+    domElementAccessors,
     screenHandlers,
     coreState
 }) {
@@ -13,6 +14,7 @@ function goToGamePlayScreen({
         coreFactories,
         setupGamePlay,
         domActions,
+        domElementAccessors,
         coreState
     });
 

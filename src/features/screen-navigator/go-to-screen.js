@@ -3,6 +3,7 @@ function goToScreen({
     coreControllers,
     coreFactories,
     domActions,
+    domElementAccessors,
     screenHandlers,
     coreState
 }) {
@@ -11,6 +12,7 @@ function goToScreen({
         coreControllers,
         coreFactories,
         domActions,
+        domElementAccessors,
         coreState
     });
 }

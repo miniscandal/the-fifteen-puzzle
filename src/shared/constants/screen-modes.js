@@ -1,6 +1,6 @@
-const SCREEN_ID_START = Symbol('SCREEN_ID_START');
-const SCREEN_ID_PRACTICE = Symbol('SCREEN_ID_PRACTICE');
-const SCREEN_ID_PLAY = Symbol('SCREEN_ID_PLAY');
+const SCREEN_ID_START = Symbol('screen-id-start');
+const SCREEN_ID_PRACTICE = Symbol('screen-id-practice');
+const SCREEN_ID_PLAY = Symbol('screen-id-play');
 
 export {
     SCREEN_ID_START,

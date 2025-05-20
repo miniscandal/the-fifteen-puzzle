@@ -58,6 +58,9 @@
             ],
             "@shared-dom-elements/*": [
                 "shared/dom-elements/*"
+            ],
+            "@shared-accessors-dom-elements/*": [
+                "shared/accessors/dom-elements/*"
             ]
         }
     }

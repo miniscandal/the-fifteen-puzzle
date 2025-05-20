@@ -2,12 +2,11 @@ import { Practice } from '@feat-atomic-design-practice-screen/components/pages/p
 
 import { setupPracticeScreenUiFunctionality } from '@feat-setup-screen-ui-features/setup-practice-screen-ui';
 
-import { domElementButtonSelectThemeToggle } from '@shared-dom-elements/buttons';
 
-
-function composePracticeScreen({ coreControllers, coreFactories, coreState, domActions }) {
+function composePracticeScreen({ coreControllers, coreFactories, coreState, domActions, domElementAccessors }) {
     const { PracticeScreenController: { resetInitialScreenState, setupGamePlay } } = coreControllers;
     const { ScreenManagementDomController } = domActions;
+    const { ButtonsDomElementAccessors: { getThemeToggleButton } } = domElementAccessors;
 
     resetInitialScreenState({ coreControllers, coreState });
 
@@ -20,10 +19,11 @@ function composePracticeScreen({ coreControllers, coreFactories, coreState, domA
                 coreFactories,
                 coreState,
                 domActions,
+                domElementAccessors,
                 setupGamePlay
             });
 
-            domElementButtonSelectThemeToggle().addEventListener.addEventListener('click', () => {
+            getThemeToggleButton().addEventListener('click', () => {
 
                 ScreenManagementDomController.toggleThemeListener({ coreState });
             });

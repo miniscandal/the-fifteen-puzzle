@@ -9,6 +9,7 @@ const BTN_SETTINGS_SCREEN_ID = 'settings-screen-btn';
 const BTN_THEME_TOGGLE_ID = 'theme';
 
 const COLOR_THEME_ID = 'theme';
+
 const PUZZLE_GAME_ID = 'puzzle-game';
 const PUZZLE_HELPER_GAME_ID = 'puzzle-helper-game';
 const PUZZLE_GRID_COLLECTION_ID = 'puzzle-grid-collection';

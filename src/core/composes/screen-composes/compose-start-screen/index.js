@@ -2,10 +2,8 @@ import { Start } from '@feat-atomic-design-start-screen/components/pages/start';
 
 import { setupStartScreenUiFunctionality } from '@feat-setup-screen-ui-features/setup-start-screen-ui';
 
-import { domElementButtonSelectThemeToggle } from '@shared-dom-elements/buttons';
 
-
-function composeStartScreen({ coreControllers, coreFactories, coreState, domActions }) {
+function composeStartScreen({ coreControllers, coreFactories, coreState, domActions, domElementAccessors }) {
     const { StartScreenController: {
         resetInitialScreenState,
         resetGameState,
@@ -13,6 +11,8 @@ function composeStartScreen({ coreControllers, coreFactories, coreState, domActi
     } } = coreControllers;
     const { ScreenManagementDomController } = domActions;
     const { sequence, activePuzzleIndex } = resetGameState({ coreControllers, coreState });
+    const { ButtonsDomElementAccessors: { getThemeToggleButton } } = domElementAccessors;
+
 
     resetInitialScreenState({ coreControllers, coreState });
 
@@ -25,10 +25,11 @@ function composeStartScreen({ coreControllers, coreFactories, coreState, domActi
                 coreFactories,
                 coreState,
                 domActions,
+                domElementAccessors,
                 setupGamePlay: () => setupGamePlay({ coreControllers, sequence, activePuzzleIndex })
             });
 
-            domElementButtonSelectThemeToggle().addEventListener.addEventListener('click', () => {
+            getThemeToggleButton().addEventListener('click', () => {
 
                 ScreenManagementDomController.toggleThemeListener({ coreState });
             });

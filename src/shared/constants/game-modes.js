@@ -1,5 +1,5 @@
-const GAME_MODE_SEQUENCE = Symbol('game_mode_sequence');
-const GAME_MODE_PRACTICE = Symbol('game_mode_practice');
+const GAME_MODE_SEQUENCE = Symbol('game-mode-sequence');
+const GAME_MODE_PRACTICE = Symbol('game-mode-practice');
 
 export {
     GAME_MODE_SEQUENCE,

@@ -19,6 +19,10 @@ import { UserPreferencesState } from '@core-states/user-preferences-state';
 
 import { createPuzzleState } from '@core-states/puzzle-state';
 
+import { ButtonsDomElementAccessors } from '@shared-accessors-dom-elements/buttons-dom-elements-accessors';
+import { DataAttributeDomElementsAccessor } from '@shared-accessors-dom-elements/data-attributes-dom-elements-accessors';
+import { PuzzleDomElementAccessors } from '@shared-accessors-dom-elements/puzzle-dom-element-accessors';
+
 import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 
 import './main.css';
@@ -49,5 +53,10 @@ ScreenSetupDomController.setup(ScreenNavigatorController.goToScreen({
         PuzzleGridDomController,
         ScreenSetupDomController,
         ScreenManagementDomController
+    },
+    domElementAccessors: {
+        ButtonsDomElementAccessors,
+        DataAttributeDomElementsAccessor,
+        PuzzleDomElementAccessors
     }
 }));

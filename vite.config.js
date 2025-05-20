@@ -27,6 +27,7 @@ export default defineConfig({
             '@shared-constants': '/src/shared/constants',
             '@shared-utils': '/src/shared/utils',
             '@shared-dom-elements': '/src/shared/dom-elements',
+            '@shared-accessors-dom-elements': '/src/shared/accessors/dom-elements',
         }
     }
 });

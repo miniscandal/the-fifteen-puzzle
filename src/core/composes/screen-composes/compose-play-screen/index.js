@@ -2,12 +2,17 @@ import { Play } from '@feat-atomic-design-play-screen/components/pages/play';
 
 import { setupPlayScreenUiFeature } from '@feat-setup-screen-ui-features/setup-play-screen-ui';
 
-import { domElementButtonSelectThemeToggle } from '@shared-dom-elements/buttons';
-
 import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
 
 
-function composePlayScreen({ coreControllers, coreFactories, coreState, domActions, setupGamePlay }) {
+function composePlayScreen({
+    coreControllers,
+    coreFactories,
+    coreState,
+    domActions,
+    domElementAccessors,
+    setupGamePlay
+}) {
     const { puzzleId, handlePuzzleSolved } = setupGamePlay();
     const { PuzzleGridFactory } = coreFactories;
     const { ScreenManagementDomController } = domActions;
@@ -18,6 +23,7 @@ function composePlayScreen({ coreControllers, coreFactories, coreState, domActio
         history: ScreenState.history,
         screenId: SCREEN_ID_PLAY
     });
+    const { ButtonsDomElementAccessors: { getThemeToggleButton } } = domElementAccessors;
 
     coreState.ScreenState = newScreenState;
 
@@ -35,7 +41,7 @@ function composePlayScreen({ coreControllers, coreFactories, coreState, domActio
                 puzzleId
             });
 
-            domElementButtonSelectThemeToggle().addEventListener.addEventListener('click', () => {
+            getThemeToggleButton().addEventListener('click', () => {
 
                 ScreenManagementDomController.toggleThemeListener({ coreState });
             });
@@ -46,6 +52,7 @@ function composePlayScreen({ coreControllers, coreFactories, coreState, domActio
                 coreFactories,
                 coreState: { ...coreState, PuzzleState },
                 domActions,
+                domElementAccessors,
                 handlePuzzleSolved
             });
         }

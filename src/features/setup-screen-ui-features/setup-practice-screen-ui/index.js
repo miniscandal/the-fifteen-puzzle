@@ -1,7 +1,3 @@
-import { domElementButtonSelectPlayScreen } from '@shared-dom-elements/buttons';
-import { domElementButtonSelectPuzzleGridCollection } from '@shared-dom-elements/buttons';
-import { domElementButtonSelectStartScreen } from '@shared-dom-elements/buttons';
-
 import { SCREEN_ID_PLAY } from '@shared-constants/screen-modes';
 import { SCREEN_ID_START } from '@shared-constants/screen-modes';
 import { BTN_PLAY_SCREEN_ID } from '@shared-constants/dom-element-identifiers';
@@ -12,6 +8,7 @@ function setupPracticeScreenUiFunctionality({
     coreFactories,
     coreState,
     domActions,
+    domElementAccessors,
     setupGamePlay
 }) {
     const { ScreenNavigatorController } = coreControllers;
@@ -19,10 +16,14 @@ function setupPracticeScreenUiFunctionality({
         ScreenSetupDomController,
         ScreenManagementDomController: { setSelectedPuzzleGridStyle, enabledButtonPlay }
     } = domActions;
+    const {
+        ButtonsDomElementAccessors: { getStartScreenButton, getPlayScreenButton, getPuzzleGridCollection }
+    } = domElementAccessors;
+
 
     let puzzleId = null;
 
-    domElementButtonSelectPuzzleGridCollection().addEventListener('click', (event) => {
+    getPuzzleGridCollection().addEventListener('click', (event) => {
         const attribute = 'data-puzzle-id';
         const puzzleGrid = event.target.closest(`[${attribute}]`);
 
@@ -40,7 +41,7 @@ function setupPracticeScreenUiFunctionality({
         enabledButtonPlay(document.getElementById(BTN_PLAY_SCREEN_ID));
     });
 
-    domElementButtonSelectPlayScreen().addEventListener('click', () => {
+    getPlayScreenButton().addEventListener('click', () => {
         if (!puzzleId) {
 
             return;
@@ -52,18 +53,20 @@ function setupPracticeScreenUiFunctionality({
             coreFactories,
             coreState,
             domActions,
+            domElementAccessors,
             setupGamePlay: () => setupGamePlay({ puzzleId })
         }));
     });
 
-    domElementButtonSelectStartScreen().addEventListener('click', () => {
+    getStartScreenButton().addEventListener('click', () => {
 
         ScreenSetupDomController.setup(ScreenNavigatorController.goToScreen({
             screenId: SCREEN_ID_START,
             coreControllers,
             coreFactories,
             coreState,
-            domActions
+            domActions,
+            domElementAccessors
         }));
     });
 }
