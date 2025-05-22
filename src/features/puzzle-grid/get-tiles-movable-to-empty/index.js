@@ -1,4 +1,4 @@
-import { findEmptyTileIndex } from './find-empty-tile-index';
+import { findEmptyTileIndex } from '@feat-puzzle-grid/find-empty-tile-index';
 
 
 function getTilesMovableToEmpty({
