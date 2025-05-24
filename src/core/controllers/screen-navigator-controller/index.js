@@ -2,8 +2,6 @@ import { composeStartScreen } from '@core-composes/screen-composes/compose-start
 import { composePracticeScreen } from '@core-composes/screen-composes/compose-practice-screen';
 import { composePlayScreen } from '@core-composes/screen-composes/compose-play-screen';
 
-import { goToScreen } from '@feat-screen-navigator/go-to-screen';
-import { goToGamePlayScreen } from '@feat-screen-navigator/go-to-game-play-screen';
 import { pushScreenState } from '@feat-screen-navigator/update-screen-state';
 
 import { SCREEN_ID_START } from '@shared-constants/screen-modes';
@@ -67,13 +65,13 @@ const ScreenNavigatorController = {
         [SCREEN_ID_PRACTICE]: composePracticeScreen,
         [SCREEN_ID_PLAY]: composePlayScreen,
     },
-    goToScreen(coreObjects) {
+    goToScreen({ screenId, ...coreObjects }) {
 
-        return goToScreen({ ...coreObjects, screenHandlers: this.screenHandlers });
+        return this.screenHandlers[screenId](coreObjects);
     },
-    goToGamePlayScreen(coreObjects) {
+    goToGamePlayScreen({ screenId, ...coreObjects }) {
 
-        return goToGamePlayScreen({ ...coreObjects, screenHandlers: this.screenHandlers });
+        return this.screenHandlers[screenId](coreObjects);
     },
     pushScreenState,
     backScreenState: ({ state }) => {
