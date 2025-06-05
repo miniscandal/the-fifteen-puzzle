@@ -15,15 +15,13 @@ function composePlayScreen({
 }) {
     const { puzzleId, handlePuzzleSolved } = setupGamePlay();
     const { PuzzleGridFactory } = coreFactories;
-    const { ScreenManagementDomController } = domActions;
-    const { PuzzleGridState, PuzzleGridShuffling, PuzzleGridTiles, ScreenNavigatorController } = coreControllers;
+    const { PuzzleGridStateController, PuzzleGridShuffling, PuzzleGridTiles, ScreenNavigatorController } = coreControllers;
     const { ScreenState } = coreState;
     const newScreenState = ScreenNavigatorController.pushScreenState({
         state: ScreenState,
         history: ScreenState.history,
         screenId: SCREEN_ID_PLAY
     });
-    const { ButtonsDomElementAccessors: { getThemeToggleButton } } = domElementAccessors;
 
     coreState.ScreenState = newScreenState;
 
@@ -32,8 +30,8 @@ function composePlayScreen({
         prepareHtmlStructure: () => Play(coreState),
         setupUiLogic: async () => {
             const { createPuzzleState } = coreState;
-            const PuzzleState = await PuzzleGridState.initializePuzzleGridState({
-                PuzzleGridState,
+            const PuzzleState = await PuzzleGridStateController.initializePuzzleGridState({
+                PuzzleGridStateController,
                 PuzzleGridShuffling,
                 PuzzleGridTiles,
                 PuzzleGridFactory,
@@ -41,13 +39,7 @@ function composePlayScreen({
                 puzzleId
             });
 
-            getThemeToggleButton().addEventListener('click', () => {
-
-                ScreenManagementDomController.toggleThemeListener({ coreState });
-            });
-
-
-            return setupPlayScreenUiFeature({
+            setupPlayScreenUiFeature({
                 coreControllers,
                 coreFactories,
                 coreState: { ...coreState, PuzzleState },
