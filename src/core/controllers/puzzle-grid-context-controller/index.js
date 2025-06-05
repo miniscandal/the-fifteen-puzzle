@@ -3,11 +3,11 @@ import { generateSolvedPuzzleState } from '@feat-puzzle-grid/generate-solved-puz
 import { loadPuzzleById } from '@feat-puzzle-grid/load-puzzle-by-id';
 
 
-const PuzzleGridState = {
+const PuzzleGridStateController = {
     initializePuzzleGridState,
     generateSolvedPuzzleState,
     loadPuzzleById,
-    isSolved: (solution) => solution.every((num, index) => num === index)
+    isSolved: (targetSolution, playerSolution) => targetSolution.every((value, index) => value === playerSolution[index])
 };
 
-export { PuzzleGridState };
+export { PuzzleGridStateController };
