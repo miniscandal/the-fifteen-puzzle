@@ -1,7 +1,6 @@
 async function PuzzleGridFactory({
     id,
     targetSolution,
-    playerSolution,
     loadPuzzleById,
     createPuzzleState
 }) {
@@ -10,7 +9,6 @@ async function PuzzleGridFactory({
 
     return createPuzzleState({
         targetSolution,
-        playerSolution,
         ...puzzle
     });
 }
