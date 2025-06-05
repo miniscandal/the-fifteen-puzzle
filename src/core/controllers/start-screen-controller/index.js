@@ -28,7 +28,7 @@ const StartScreenController = {
                 sequence,
                 activePuzzleIndex
             }),
-            handlePuzzleSolved: () => { }
+            handlePuzzleSolved: ({ PuzzleState }) => { console.log(PuzzleState.isSolved); }
         };
     }
 };
