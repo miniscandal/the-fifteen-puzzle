@@ -1,4 +1,4 @@
-import { PuzzleGridState } from '@core-controllers/puzzle-grid-context-controller';
+import { PuzzleGridStateController } from '@core-controllers/puzzle-grid-context-controller';
 import { PuzzleGridShuffling } from '@core-controllers/puzzle-grid-shuffling-controller';
 import { PuzzleGridTiles } from '@core-controllers/puzzle-grid-tiles-controller';
 
@@ -31,7 +31,7 @@ import './main.css';
 ScreenSetupDomController.setup(ScreenNavigatorController.goToScreen({
     screenId: SCREEN_ID_START,
     coreControllers: {
-        PuzzleGridState,
+        PuzzleGridStateController,
         PuzzleGridShuffling,
         PuzzleGridTiles,
         ScreenNavigatorController,
