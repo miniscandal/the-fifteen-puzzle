@@ -14,14 +14,18 @@ function setupPracticeScreenUiFunctionality({
     const { ScreenNavigatorController } = coreControllers;
     const {
         ScreenSetupDomController,
-        ScreenManagementDomController: { setSelectedPuzzleGridStyle, enabledButtonPlay }
+        ScreenManagementDomController: { setSelectedPuzzleGridStyle, enabledButtonPlay, toggleThemeListener }
     } = domActions;
-    const {
-        ButtonsDomElementAccessors: { getStartScreenButton, getPlayScreenButton, getPuzzleGridCollection }
-    } = domElementAccessors;
+    const { ButtonsDomElementAccessors: {
+        getStartScreenButton, getPlayScreenButton, getPuzzleGridCollection, getThemeToggleButton
+    } } = domElementAccessors;
 
 
     let puzzleId = null;
+
+
+    getThemeToggleButton().addEventListener('click', () => toggleThemeListener({ coreState }));
+
 
     getPuzzleGridCollection().addEventListener('click', (event) => {
         const attribute = 'data-puzzle-id';

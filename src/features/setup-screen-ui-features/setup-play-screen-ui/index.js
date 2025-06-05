@@ -1,6 +1,6 @@
 import { PuzzleGrid } from '@shared-components/organisms/puzzle-grid';
 
-import { SCREEN_ID_START } from '@shared-constants/screen-modes';
+import { SCREEN_ID_PLAY, SCREEN_ID_START } from '@shared-constants/screen-modes';
 import { PUZZLE_GAME_ID } from '@shared-constants/dom-element-identifiers';
 import { PUZZLE_HELPER_GAME_ID, } from '@shared-constants/dom-element-identifiers';
 
@@ -17,7 +17,7 @@ function setupPlayScreenUiFeature({
     domElementAccessors,
     handlePuzzleSolved
 }) {
-    const { PuzzleGridTiles, ScreenNavigatorController } = coreControllers;
+    const { PuzzleGridTiles, ScreenNavigatorController, PuzzleGridStateController: { isSolved } } = coreControllers;
     const { PuzzleState, ScreenState } = coreState;
     const {
         ScreenSetupDomController,
@@ -27,15 +27,18 @@ function setupPlayScreenUiFeature({
             swapDataTiles,
             updateSelectableTiles,
             validateSelectableTile
-        }
+        },
+        ScreenManagementDomController: { toggleThemeListener }
     } = domActions;
     const {
         DataAttributeDomElementsAccessor: { getPlayEnabledTiles, getEmptyTile, getTileByIndex },
-        ButtonsDomElementAccessors: { getBackScreenButton, getStartScreenButton },
-        PuzzleDomElementAccessors: { getPuzzleGrid },
+        ButtonsDomElementAccessors: { getBackScreenButton, getStartScreenButton, getThemeToggleButton },
+        PuzzleDomElementAccessors: { getPuzzleGrid }
     } = domElementAccessors;
     const parser = new DOMParser();
     const puzzle = PuzzleState.properties();
+
+    getThemeToggleButton().addEventListener('click', () => toggleThemeListener({ coreState }));
 
     replaceElementContent({
         container: document.getElementById(PUZZLE_GAME_ID),
@@ -96,9 +99,32 @@ function setupPlayScreenUiFeature({
             queryFn: (index) => getTileByIndex(index)
         });
 
-        console.log(PuzzleState);
+        PuzzleState.isSolved = isSolved(PuzzleState.targetSolution, PuzzleState.playerSolution);
 
-        handlePuzzleSolved();
+        if (!PuzzleState.isSolved) {
+
+            return;
+        };
+
+        handlePuzzleSolved({ PuzzleState });
+
+        // 
+
+        ScreenSetupDomController.setup(ScreenNavigatorController.goToScreen({
+            screenId: SCREEN_ID_PLAY,
+            coreControllers,
+            coreFactories,
+            coreState,
+            domActions,
+            domElementAccessors,
+            // setupGamePlay: () => setupGamePlay({ coreControllers, sequence, activePuzzleIndex })
+            setupGamePlay: () => {
+                return {
+                    puzzleId: 'puzzleA3',
+                    handlePuzzleSolved: () => { console.log('solved'); }
+                };
+            }
+        }));
     });
 
     getBackScreenButton()?.addEventListener('click', () => {
