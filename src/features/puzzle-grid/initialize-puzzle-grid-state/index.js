@@ -1,25 +1,30 @@
+import { basicTestShuffle } from '@feat-puzzle-grid/basic-test-shuffle';
+
+
 async function initializePuzzleGridState({
-    PuzzleGridState,
+    PuzzleGridStateController,
     PuzzleGridShuffling,
     PuzzleGridTiles,
     PuzzleGridFactory,
     createPuzzleState,
     puzzleId
 }) {
-    const { generateSolvedPuzzleState, loadPuzzleById } = PuzzleGridState;
+    const { generateSolvedPuzzleState, loadPuzzleById } = PuzzleGridStateController;
     const { shuffleFromSolvedState } = PuzzleGridShuffling;
     const { getTilesMovableToEmpty, getGridPositionFromIndex, getMovableAdjacentTileIndices } = PuzzleGridTiles;
 
     const targetSolution = generateSolvedPuzzleState();
-    const playerSolution = shuffleFromSolvedState(targetSolution);
+    // const playerSolution = shuffleFromSolvedState(targetSolution);
+    const playerSolution = basicTestShuffle(targetSolution);
 
     const PuzzleState = await PuzzleGridFactory({
         id: puzzleId,
         targetSolution,
-        playerSolution,
         loadPuzzleById,
         createPuzzleState
     });
+
+    PuzzleState.playerSolution = playerSolution;
 
     PuzzleState.movableTileIndices = getTilesMovableToEmpty({
         solution: playerSolution,

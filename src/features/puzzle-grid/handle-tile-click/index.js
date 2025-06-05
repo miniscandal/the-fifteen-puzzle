@@ -1,6 +1,4 @@
 function handleTileClick({ PuzzleState, PuzzleGridTiles, selectedTile, emptyTile }) {
-    const { isSolved } = PuzzleState;
-
     const playerSolution = PuzzleGridTiles.swapTileIndices({
         solution: PuzzleState.playerSolution,
         selectedTileIndex: selectedTile.dataset.index,
@@ -13,11 +11,6 @@ function handleTileClick({ PuzzleState, PuzzleGridTiles, selectedTile, emptyTile
         getGridPositionFromIndex: PuzzleGridTiles.getGridPositionFromIndex,
         getMovableAdjacentTileIndices: PuzzleGridTiles.getMovableAdjacentTileIndices
     });
-
-
-    if (isSolved) {
-        console.log(isSolved);
-    }
 
 
     return {
