@@ -1,14 +1,29 @@
-function createPuzzleState({ id, targetSolution, playerSolution, permutation }) {
+function createPuzzleState({ id, targetSolution, permutation }) {
     let solved = false;
     let movableTiles = [];
+    let playerSolution = [];
+
 
     return {
         id,
         targetSolution,
-        playerSolution,
         permutation,
 
-        isSolved: () => solved,
+        get isSolved() {
+            return solved;
+        },
+
+        set isSolved(isSolved) {
+            solved = isSolved;
+        },
+
+        get playerSolution() {
+            return [...playerSolution];
+        },
+
+        set playerSolution(solution) {
+            playerSolution = [...solution];
+        },
 
         get movableTileIndices() {
             return [...movableTiles];
@@ -21,6 +36,7 @@ function createPuzzleState({ id, targetSolution, playerSolution, permutation }) 
         reset: () => {
             solved = false;
             movableTiles = [];
+            playerSolution = [];
         },
 
         properties: () => ({
@@ -28,7 +44,7 @@ function createPuzzleState({ id, targetSolution, playerSolution, permutation }) 
             targetSolution: [...targetSolution],
             playerSolution: [...playerSolution],
             permutation: [...permutation],
-            movableTileIndices: [...movableTiles]
+            movableTileIndices: [...movableTiles],
         })
     };
 }
