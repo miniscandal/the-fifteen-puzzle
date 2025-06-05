@@ -10,6 +10,7 @@ export default defineConfig({
             '@core-composes': '/src/core/composes',
             '@core-controllers': '/src/core/controllers',
             '@core-factories': '/src/core/factories',
+            '@core-handlers': '/src/core/handlers',
             '@core-states': '/src/core/states',
 
             '@feat-game-mode': '/src/features/game-mode',

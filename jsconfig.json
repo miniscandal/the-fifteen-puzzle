@@ -20,6 +20,9 @@
             "@core-factories/*": [
                 "core/factories/*"
             ],
+            "@core-handlers/*": [
+                "core/handlers/*"
+            ],
             "@core-states/*": [
                 "core/states/*"
             ],
