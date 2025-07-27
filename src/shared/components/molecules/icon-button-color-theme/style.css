@@ -11,17 +11,17 @@
 }
 
 .icon-button-color-theme {
+    cursor: pointer;
 
-    > div::after {
-        content: url('@assets-icons/vectors/sun.svg');
-        filter: drop-shadow(3px 3px 6px var(--color-cinnamon));
+    div::after {
+        content: url('@assets-icons/vectors/moon.svg');
+        filter: drop-shadow(3px 3px 6px var(--color-slate));
     }
 
     &:has(input:checked) {
-
-        div::after {
-            content: url('@assets-icons/vectors/moon.svg');
-            filter: drop-shadow(3px 3px 6px var(--color-slate));
+        > div::after {
+            content: url('@assets-icons/vectors/sun.svg');
+            filter: drop-shadow(3px 3px 6px var(--color-cinnamon));
         }
     }
 }

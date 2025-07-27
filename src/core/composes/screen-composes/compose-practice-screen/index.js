@@ -13,14 +13,12 @@ function composePracticeScreen({ coreControllers, coreState, ...coreObjects }) {
 
     return {
         prepareHtmlStructure: () => Practice(coreState),
-        setupUiLogic: () => (
-            setupPracticeScreenUiFunctionality({
-                coreControllers,
-                coreState,
-                setupGamePlay,
-                ...coreObjects
-            })
-        )
+        setupUiLogic: () => setupPracticeScreenUiFunctionality({
+            coreControllers,
+            coreState,
+            setupGamePlay,
+            ...coreObjects
+        })
     };
 };
 

@@ -16,16 +16,14 @@ function composeStartScreen({
 
     return {
         prepareHtmlStructure: () => Start(coreState),
-        setupUiLogic: () => (
-            setupStartScreenUiFunctionality({
-                coreControllers,
-                coreFactories,
-                coreState,
-                domActions,
-                domElementAccessors,
-                setupGamePlay: () => setupGamePlay({ coreControllers, sequence, activePuzzleIndex })
-            })
-        )
+        setupUiLogic: () => setupStartScreenUiFunctionality({
+            coreControllers,
+            coreFactories,
+            coreState,
+            domActions,
+            domElementAccessors,
+            setupGamePlay: () => setupGamePlay({ coreControllers, sequence, activePuzzleIndex })
+        })
     };
 }
 

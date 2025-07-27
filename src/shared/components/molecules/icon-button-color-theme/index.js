@@ -5,7 +5,7 @@ import './style.css';
 
 function IconButtonColorTheme({ coreState }) {
     const { UserPreferencesState: { appearance: { colorTheme } } } = coreState;
-    const checked = colorTheme === DARK_THEME ? true : false;
+    const checked = colorTheme === DARK_THEME;
 
     return (
         `
