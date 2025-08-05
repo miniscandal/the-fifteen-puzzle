@@ -15,7 +15,7 @@ function composePlayScreen({
 }) {
     const { puzzleId, handlePuzzleSolved } = setupGamePlay();
     const { PuzzleGridFactory } = coreFactories;
-    const { PuzzleGridStateController, PuzzleGridShuffling, PuzzleGridTiles, ScreenNavigatorController } = coreControllers;
+    const { PuzzleGridStateController, PuzzleGridShufflingController, PuzzleGridTilesController, ScreenNavigatorController } = coreControllers;
     const { ScreenState } = coreState;
     const newScreenState = ScreenNavigatorController.pushScreenState({
         state: ScreenState,
@@ -32,8 +32,8 @@ function composePlayScreen({
             const { createPuzzleState } = coreState;
             const PuzzleState = await PuzzleGridStateController.initializePuzzleGridState({
                 PuzzleGridStateController,
-                PuzzleGridShuffling,
-                PuzzleGridTiles,
+                PuzzleGridShufflingController,
+                PuzzleGridTilesController,
                 PuzzleGridFactory,
                 createPuzzleState,
                 puzzleId

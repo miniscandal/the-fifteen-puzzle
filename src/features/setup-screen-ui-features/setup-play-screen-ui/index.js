@@ -17,7 +17,7 @@ function setupPlayScreenUiFeature({
     domElementAccessors,
     handlePuzzleSolved
 }) {
-    const { PuzzleGridTiles, ScreenNavigatorController, PuzzleGridStateController: { isSolved } } = coreControllers;
+    const { PuzzleGridTilesController, ScreenNavigatorController, PuzzleGridStateController: { isSolved } } = coreControllers;
     const { PuzzleState, ScreenState } = coreState;
     const {
         ScreenSetupDomController,
@@ -84,9 +84,9 @@ function setupPlayScreenUiFeature({
             dataAttrMoveDirection: DATA_ATTR_MOVE_DIRECTION
         });
 
-        const { playerSolution, movableTileIndices } = PuzzleGridTiles.handleTileClick({
+        const { playerSolution, movableTileIndices } = PuzzleGridTilesController.handleTileClick({
             PuzzleState,
-            PuzzleGridTiles,
+            PuzzleGridTilesController,
             selectedTile,
             emptyTile
         });

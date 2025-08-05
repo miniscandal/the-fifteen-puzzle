@@ -3,15 +3,15 @@ import { basicTestShuffle } from '@feat-puzzle-grid/basic-test-shuffle';
 
 async function initializePuzzleGridState({
     PuzzleGridStateController,
-    PuzzleGridShuffling,
-    PuzzleGridTiles,
+    PuzzleGridShufflingController,
+    PuzzleGridTilesController,
     PuzzleGridFactory,
     createPuzzleState,
     puzzleId
 }) {
     const { generateSolvedPuzzleState, loadPuzzleById } = PuzzleGridStateController;
-    const { shuffleFromSolvedState } = PuzzleGridShuffling;
-    const { getTilesMovableToEmpty, getGridPositionFromIndex, getMovableAdjacentTileIndices } = PuzzleGridTiles;
+    const { shuffleFromSolvedState } = PuzzleGridShufflingController;
+    const { getTilesMovableToEmpty, getGridPositionFromIndex, getMovableAdjacentTileIndices } = PuzzleGridTilesController;
 
     const targetSolution = generateSolvedPuzzleState();
     // const playerSolution = shuffleFromSolvedState(targetSolution);

@@ -1,15 +1,15 @@
-function handleTileClick({ PuzzleState, PuzzleGridTiles, selectedTile, emptyTile }) {
-    const playerSolution = PuzzleGridTiles.swapTileIndices({
+function handleTileClick({ PuzzleState, PuzzleGridTilesController, selectedTile, emptyTile }) {
+    const playerSolution = PuzzleGridTilesController.swapTileIndices({
         solution: PuzzleState.playerSolution,
         selectedTileIndex: selectedTile.dataset.index,
         emptyTileIndex: Number(emptyTile.dataset.index)
     });
 
-    const movableTileIndices = PuzzleGridTiles.getTilesMovableToEmpty({
+    const movableTileIndices = PuzzleGridTilesController.getTilesMovableToEmpty({
         solution: playerSolution,
         permutation: PuzzleState.permutation,
-        getGridPositionFromIndex: PuzzleGridTiles.getGridPositionFromIndex,
-        getMovableAdjacentTileIndices: PuzzleGridTiles.getMovableAdjacentTileIndices
+        getGridPositionFromIndex: PuzzleGridTilesController.getGridPositionFromIndex,
+        getMovableAdjacentTileIndices: PuzzleGridTilesController.getMovableAdjacentTileIndices
     });
 
 

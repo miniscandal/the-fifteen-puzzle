@@ -6,7 +6,7 @@ import { getTilesMovableToEmpty } from '@feat-puzzle-grid/get-tiles-movable-to-e
 import { handleTileClick } from '@feat-puzzle-grid/handle-tile-click';
 
 
-const PuzzleGridTiles = {
+const PuzzleGridTilesController = {
     swapTileIndices,
     getGridPositionFromIndex,
     findEmptyTileIndex,
@@ -15,4 +15,4 @@ const PuzzleGridTiles = {
     handleTileClick
 };
 
-export { PuzzleGridTiles };
+export { PuzzleGridTilesController };

@@ -1,6 +1,6 @@
 import { PuzzleGridStateController } from '@core-controllers/puzzle-grid-context-controller';
-import { PuzzleGridShuffling } from '@core-controllers/puzzle-grid-shuffling-controller';
-import { PuzzleGridTiles } from '@core-controllers/puzzle-grid-tiles-controller';
+import { PuzzleGridShufflingController } from '@core-controllers/puzzle-grid-shuffling-controller';
+import { PuzzleGridTilesController } from '@core-controllers/puzzle-grid-tiles-controller';
 
 import { ScreenNavigatorController } from '@core-controllers/screen-navigator-controller';
 import { GameModeSequentialPuzzlesController } from '@core-controllers/sequential-puzzles-game-mode-controller';
@@ -32,8 +32,8 @@ ScreenSetupDomController.setup(ScreenNavigatorController.goToScreen({
     screenId: SCREEN_ID_START,
     coreControllers: {
         PuzzleGridStateController,
-        PuzzleGridShuffling,
-        PuzzleGridTiles,
+        PuzzleGridShufflingController,
+        PuzzleGridTilesController,
         ScreenNavigatorController,
         GameModeSequentialPuzzlesController,
         StartScreenController,

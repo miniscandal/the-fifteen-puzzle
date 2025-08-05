@@ -1,8 +1,8 @@
 import { shuffleFromSolvedState } from '@feat-puzzle-grid/shuffle-from-solution-state';
 
 
-const PuzzleGridShuffling = {
+const PuzzleGridShufflingController = {
     shuffleFromSolvedState
 };
 
-export { PuzzleGridShuffling };
+export { PuzzleGridShufflingController };
